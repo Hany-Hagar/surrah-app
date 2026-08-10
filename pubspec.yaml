@@ -42,6 +42,9 @@ dependencies:
   flutter_bloc: ^8.1.0
   hydrated_bloc: ^9.0.0
 
+  # Local Storage
+  path_provider: ^2.1.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
