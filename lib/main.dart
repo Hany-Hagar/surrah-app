@@ -1,5 +1,6 @@
 import 'generated/l10n.dart';
 import 'core/utils/theme.dart';
+import 'core/di/server_locator.dart';
 import 'package:flutter/material.dart';
 import 'core/utils/my_bloc_observer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +17,7 @@ Future<void> main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => SettingsCubit())],
+      providers: [BlocProvider(create: (context) => getIt<SettingsCubit>())],
       child: BlocBuilder<SettingsCubit, AppUserPref>(
         builder: (context, state) => ScreenUtilInit(
           designSize: const Size(390, 884),
