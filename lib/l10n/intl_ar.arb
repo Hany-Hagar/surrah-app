@@ -1,1 +1,20 @@
-{}
+{
+  "@@locale": "ar",
+  
+  "english": "الإنكليزية",
+  "@english": {
+    "description": "The English language name"
+  },
+  "arabic": "العربية",
+  "@arabic": {
+    "description": "The Arabic language name"
+  },
+  "unitedStates": "الولايات المتحدة",
+  "@unitedStates": {
+    "description": "United States country name"
+  },
+  "egypt": "مصر",
+  "@egypt": {
+    "description": "Egypt country name"
+  }
+}

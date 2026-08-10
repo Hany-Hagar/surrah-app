@@ -53,6 +53,46 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: 'The English language name',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: 'The Arabic language name',
+      args: [],
+    );
+  }
+
+  /// `United States`
+  String get unitedStates {
+    return Intl.message(
+      'United States',
+      name: 'unitedStates',
+      desc: 'United States country name',
+      args: [],
+    );
+  }
+
+  /// `Egypt`
+  String get egypt {
+    return Intl.message(
+      'Egypt',
+      name: 'egypt',
+      desc: 'Egypt country name',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
