@@ -25,12 +25,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # Localization
+  intl: ^0.20.2
+  
+  # Icons
+  cupertino_icons: ^1.0.8
 
   # UI
   flutter_screenutil: ^5.9.3
-
-  # Icons
-  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
@@ -43,12 +48,11 @@ dev_dependencies:
   # App Assets
   flutter_launcher_icons: ^0.14.4
 
-
+flutter_intl:
+  enabled: true
 
 flutter:
-
   uses-material-design: true
-
   assets:
     - assets/images/
 
