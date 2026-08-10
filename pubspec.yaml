@@ -37,6 +37,11 @@ dependencies:
   # UI
   flutter_screenutil: ^5.9.3
 
+  # State Management & Dependency Injection
+  get_it: ^9.2.1
+  flutter_bloc: ^8.1.0
+  hydrated_bloc: ^9.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
