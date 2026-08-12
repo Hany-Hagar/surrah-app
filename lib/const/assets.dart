@@ -5,7 +5,7 @@ class Assets {
   // Splash Screen Assets
   static const String splashLogo = 'assets/images/splashLogo.png';
   static const String nativeSplashLogo = 'assets/images/nativeSplashLogo.png';
-  static const String splashBackground = 'assets/images/splashBackground.png0';
+  static const String splashBackground = 'assets/images/splashBackground.png';
 
   // Onboarding Assets
   static const String onboarding1 = 'assets/svgs/onBoarding1.svg';

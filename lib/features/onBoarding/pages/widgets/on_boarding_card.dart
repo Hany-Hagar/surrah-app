@@ -6,7 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingCard extends StatelessWidget {
   final OnBoardingModel model;
-  const OnBoardingCard({super.key, required this.model});
+  const OnBoardingCard({
+    super.key,
+    required this.model,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,6 @@ class OnBoardingCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _Skip(),
           Spacer(),
           _Image(imagePath: model.image),
           Spacer(),
@@ -27,30 +29,6 @@ class OnBoardingCard extends StatelessWidget {
   }
 }
 
-class _Skip extends StatelessWidget {
-  const _Skip();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          GestureDetector(
-            onTap: () {},
-            child: CustomText(
-              text: "Skip",
-              size: 18.sp,
-              type: Type.overMedium,
-              opacity: FontOpacity.medium,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class _Image extends StatelessWidget {
   final String imagePath;
