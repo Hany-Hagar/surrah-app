@@ -35,7 +35,9 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # UI
+  flutter_svg: ^2.3.0
   flutter_screenutil: ^5.9.3
+  smooth_page_indicator: ^2.0.1
 
   # State Management & Dependency Injection
   get_it: ^9.2.1

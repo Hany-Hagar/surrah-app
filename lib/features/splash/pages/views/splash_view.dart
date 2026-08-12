@@ -1,7 +1,9 @@
 import '../widgets/splash_body.dart';
 import 'package:flutter/material.dart';
 import '../../../../const/assets.dart';
+import '../../../../core/utils/nav_to.dart';
 import '../../../../core/di/server_locator.dart';
+import '../../../onBoarding/pages/views/on_boarding_view.dart';
 import '../../../settings/presentation/manager/settings_cubit.dart';
 
 class SplashView extends StatefulWidget {
@@ -19,7 +21,10 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(const Duration(seconds: 1), () {
       if (!mounted) return;
       if (getIt<SettingsCubit>().state.isFirstTime) {
-        // Navigate to onboarding screen
+        NavTo.pushReplacement(
+          context: context,
+          nextPage: const OnBoardingView(),
+        );
       } else {
         // Navigate to home screen
       }
