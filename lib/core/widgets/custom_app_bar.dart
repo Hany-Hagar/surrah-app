@@ -25,54 +25,97 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    double padding = this.padding.w;
     var topPadding = MediaQuery.of(context).padding.top;
     return Container(
+      padding: EdgeInsets.only(
+        top: topPadding + padding.h,
+        left: padding.w,
+        right: padding.w,
+        bottom: padding.h,
+      ),
       decoration: BoxDecoration(
         gradient: gradient,
         color: backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
       ),
-      child: ListTile(
-        leading: leading,
-        title: _title(),
-        subtitle: _subTitle(),
-        trailing: _trailing(),
-        horizontalTitleGap: 12.w,
-        tileColor: Colors.transparent,
-        visualDensity: VisualDensity.standard,
-        contentPadding: EdgeInsetsDirectional.only(
-          bottom: 0,
-          end: padding.w,
-          start: padding.w,
-          top: topPadding - 9.h,
-        ),
+      child: Row(
+        spacing: 10.w,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ?leading,
+          Expanded(
+            child: _Body(title: title, subtitle: subtitle),
+          ),
+          _Trailing(
+            trailingIcon: trailingIcon,
+            onTrailingPressed: onTrailingPressed,
+          ),
+        ],
       ),
     );
   }
 
-  Widget? _title() {
-    if (title == null) return null;
-    return CustomText(text: title!, size: 20.sp, type: Type.header);
-  }
+  @override
+  Size get preferredSize => Size.fromHeight(subtitle == null ? 64.h : 72.h);
+}
 
-  Widget? _subTitle() {
-    if (subtitle == null) return null;
+class _Body extends StatelessWidget {
+  final String? title;
+  final String? subtitle;
+  const _Body({required this.title, required this.subtitle});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _Title(title: title),
+        _SubTitle(subtitle: subtitle),
+      ],
+    );
+  }
+}
+
+class _Title extends StatelessWidget {
+  final String? title;
+  const _Title({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomText(text: title ?? "", size: 18.sp, type: Type.header);
+  }
+}
+
+class _SubTitle extends StatelessWidget {
+  final String? subtitle;
+  const _SubTitle({required this.subtitle});
+
+  @override
+  Widget build(BuildContext context) {
     return CustomText(
-      text: subtitle!,
-      size: 16.sp,
+      text: subtitle ?? "",
+      size: 15.sp,
+      height: 1,
       type: Type.overMedium,
       opacity: FontOpacity.medium,
     );
   }
+}
 
-  Widget _trailing() {
+class _Trailing extends StatelessWidget {
+  final IconData? trailingIcon;
+  final Function()? onTrailingPressed;
+  const _Trailing({
+    required this.trailingIcon,
+    required this.onTrailingPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     if (trailingIcon == null) return const SizedBox.shrink();
     return GestureDetector(
       onTap: onTrailingPressed,
       child: Icon(trailingIcon, size: 28.sp),
     );
   }
-
-  @override
-  Size get preferredSize => Size.fromHeight(subtitle == null ? 64.h : 72.h);
 }

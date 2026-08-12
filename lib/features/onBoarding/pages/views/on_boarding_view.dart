@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import '../../../../generated/l10n.dart';
 import '../widgets/on_boarding_body.dart';
 import '../../model/on_boarding_model.dart';
+import '../../../../core/utils/nav_to.dart';
+import '../../../../core/di/server_locator.dart';
 import '../../../../core/widgets/custom_text.dart';
 import '../../../../core/widgets/custom_button.dart';
+import '../../../layout/pages/views/layout_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../settings/presentation/manager/settings_cubit.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -103,6 +107,11 @@ class _CustomButton extends StatelessWidget {
       child: CustomButton(
         onPressed: () {
           if (isLastPage) {
+            getIt<SettingsCubit>().setFirstTime(false);
+            NavTo.pushReplacement(
+              context: context,
+              nextPage: const LayoutView(),
+            );
             // Navigate to Home
           } else {
             controller.nextPage(

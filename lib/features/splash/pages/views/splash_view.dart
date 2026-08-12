@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../const/assets.dart';
 import '../../../../core/utils/nav_to.dart';
 import '../../../../core/di/server_locator.dart';
+import '../../../layout/pages/views/layout_view.dart';
 import '../../../onBoarding/pages/views/on_boarding_view.dart';
 import '../../../settings/presentation/manager/settings_cubit.dart';
 
@@ -26,7 +27,10 @@ class _SplashViewState extends State<SplashView> {
           nextPage: const OnBoardingView(),
         );
       } else {
-        // Navigate to home screen
+        NavTo.pushReplacement(
+          context: context,
+          nextPage: const LayoutView(),
+        );
       }
     });
   }
