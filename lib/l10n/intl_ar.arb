@@ -71,5 +71,22 @@
   "skip": "تخطي",
   "@skip": {
     "description": "Label for the skip button"
+  },
+
+  "layoutAppBarTitle": "مرحبًا بك في صُرّة",
+  "@layoutAppBarTitle": {
+    "description": "Title for the app bar in the layout view"
+  },
+  "layoutAppBarSubtitle": "مرشدك الشخصي في إدارة الموارد المالية",
+  "@layoutAppBarSubtitle": {  
+    "description": "Subtitle for the app bar in the layout view"
+  },
+  "home": "الرئيسية",
+  "@home": {
+    "description": "Label for the home button"
+  },
+  "transactions": "العمليات",
+  "@transactions": {
+    "description": "Label for the transactions button"
   }
 }

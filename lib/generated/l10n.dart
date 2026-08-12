@@ -203,6 +203,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcome to Surrah`
+  String get layoutAppBarTitle {
+    return Intl.message(
+      'Welcome to Surrah',
+      name: 'layoutAppBarTitle',
+      desc: 'Title for the app bar in the layout view',
+      args: [],
+    );
+  }
+
+  /// `Your Personal Finance Companion`
+  String get layoutAppBarSubtitle {
+    return Intl.message(
+      'Your Personal Finance Companion',
+      name: 'layoutAppBarSubtitle',
+      desc: 'Subtitle for the app bar in the layout view',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: 'Label for the home button',
+      args: [],
+    );
+  }
+
+  /// `Transactions`
+  String get transactions {
+    return Intl.message(
+      'Transactions',
+      name: 'transactions',
+      desc: 'Label for the transactions button',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

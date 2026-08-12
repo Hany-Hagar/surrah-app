@@ -1,6 +1,8 @@
 import '../widgets/layout_body.dart';
 import '../../../../const/assets.dart';
 import 'package:flutter/material.dart';
+import '../../../../generated/l10n.dart';
+import '../../../../core/utils/styles.dart';
 import 'package:icon_broken/icon_broken.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,14 +12,16 @@ class LayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     return Scaffold(
       appBar: CustomAppBar(
         leading: const _Leading(),
-        title: 'Welcome Back',
-        subtitle: 'Have a nice day!',
+        title: s.layoutAppBarTitle,
+        subtitle: s.layoutAppBarSubtitle,
         trailingIcon: IconBroken.Setting,
       ),
       body: const LayoutBody(),
+      bottomNavigationBar: const _BottomNavigatorBar(),
     );
   }
 }
@@ -38,5 +42,34 @@ class _Leading extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _BottomNavigatorBar extends StatelessWidget {
+  const _BottomNavigatorBar();
+  @override
+  Widget build(BuildContext context) {
+    var s = S.of(context);
+    var theme = Theme.of(context);
+    return BottomNavigationBar(
+      selectedFontSize: 12.sp,
+      showSelectedLabels: true,
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: theme.primaryColor,
+      unselectedItemColor: theme.disabledColor,
+      selectedLabelStyle: Styles.textStyle800.copyWith(fontSize: 14.sp),
+      unselectedLabelStyle: Styles.textStyle700.copyWith(fontSize: 12.sp),
+      items: [
+        _item(icon: IconBroken.Home, label: s.home),
+        _item(icon: IconBroken.Paper, label: s.transactions),
+      ],
+    );
+  }
+
+  BottomNavigationBarItem _item({
+    required IconData icon,
+    required String label,
+  }) {
+    return BottomNavigationBarItem(icon: Icon(icon), label: label);
   }
 }

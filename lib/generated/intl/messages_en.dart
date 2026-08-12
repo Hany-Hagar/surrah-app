@@ -26,6 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Your Personal Finance Companion",
+    ),
+    "layoutAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Welcome to Surrah",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "Easily track your income and expenses.",
@@ -52,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Full Control Over Your Money",
     ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),
   };
 }

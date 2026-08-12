@@ -26,6 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
     "english": MessageLookupByLibrary.simpleMessage("الإنكليزية"),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+      "مرشدك الشخصي في إدارة الموارد المالية",
+    ),
+    "layoutAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "مرحبًا بك في صُرّة",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "تتبّع دخلك ومصروفاتك بسهولة.",
@@ -50,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تحكم الكامل بأموالك",
     ),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
   };
 }
