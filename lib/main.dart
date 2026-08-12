@@ -6,6 +6,7 @@ import 'core/utils/my_bloc_observer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'features/layout/managers/layout_cubit.dart';
 import 'features/splash/pages/views/splash_view.dart';
 import 'features/settings/model/app_user_pref_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +28,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => getIt<SettingsCubit>())],
+      providers: [
+        BlocProvider(create: (context) => getIt<SettingsCubit>()),
+        BlocProvider(create: (context) => getIt<LayoutCubit>()),
+      ],
       child: BlocBuilder<SettingsCubit, AppUserPref>(
         builder: (context, state) => ScreenUtilInit(
           designSize: const Size(390, 884),

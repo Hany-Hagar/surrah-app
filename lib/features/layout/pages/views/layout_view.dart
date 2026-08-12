@@ -2,8 +2,11 @@ import '../widgets/layout_body.dart';
 import '../../../../const/assets.dart';
 import 'package:flutter/material.dart';
 import '../../../../generated/l10n.dart';
+import '../../managers/layout_cubit.dart';
+import '../../managers/layout_states.dart';
 import '../../../../core/utils/styles.dart';
 import 'package:icon_broken/icon_broken.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -51,18 +54,25 @@ class _BottomNavigatorBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var s = S.of(context);
     var theme = Theme.of(context);
-    return BottomNavigationBar(
-      selectedFontSize: 12.sp,
-      showSelectedLabels: true,
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: theme.primaryColor,
-      unselectedItemColor: theme.disabledColor,
-      selectedLabelStyle: Styles.textStyle800.copyWith(fontSize: 14.sp),
-      unselectedLabelStyle: Styles.textStyle700.copyWith(fontSize: 12.sp),
-      items: [
-        _item(icon: IconBroken.Home, label: s.home),
-        _item(icon: IconBroken.Paper, label: s.transactions),
-      ],
+    return BlocBuilder<LayoutCubit, LayoutStates>(
+      builder: (context, state) {
+        var cubit = LayoutCubit.get(context);
+        return BottomNavigationBar(
+          selectedFontSize: 12.sp,
+          showSelectedLabels: true,
+          currentIndex: cubit.currentIndex,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: theme.primaryColor,
+          unselectedItemColor: theme.disabledColor,
+          onTap: (value) => cubit.changeBottomNavBarIndex(value),
+          selectedLabelStyle: Styles.textStyle800.copyWith(fontSize: 14.sp),
+          unselectedLabelStyle: Styles.textStyle700.copyWith(fontSize: 12.sp),
+          items: [
+            _item(icon: IconBroken.Home, label: s.home),
+            _item(icon: IconBroken.Paper, label: s.transactions),
+          ],
+        );
+      },
     );
   }
 
