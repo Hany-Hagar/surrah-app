@@ -16,5 +16,60 @@
   "egypt": "Egypt",
   "@egypt": {
     "description": "Egypt country name"
+  },
+
+  "onboardingTitle1": "Follow Every Pound",
+  "@onboardingTitle1": {
+    "description": "Onboarding title for the first slide"
+  },
+
+  "onboardingDescription1": "Easily track your income and expenses.",
+  "@onboardingDescription1": {
+    "description": "Onboarding description for the first slide"
+  },
+
+  "onboardingTitle2": "Build Better Financial Habits",
+  "@onboardingTitle2": {
+    "description": "Onboarding title for the second slide"
+  },
+
+  "onboardingDescription2": "Develop financial habits that help you manage your money wisely.",
+  "@onboardingDescription2": {
+    "description": "Onboarding description for the second slide"
+  },
+
+  "onboardingTitle3": "Achieve Your Financial Goals",
+  "@onboardingTitle3": {
+    "description": "Onboarding title for the third slide"
+  },
+
+  "onboardingDescription3": "Save regularly and get closer to achieving your financial goals.",
+  "@onboardingDescription3": {
+    "description": "Onboarding description for the third slide"
+  },
+
+  "onboardingTitle4": "Full Control Over Your Money",
+  "@onboardingTitle4": {
+    "description": "Onboarding title for the fourth slide"
+  },
+
+  "onboardingDescription4": "Track your expenses and make financial decisions with confidence.",
+  "@onboardingDescription4": {
+    "description": "Onboarding description for the fourth slide"
+  },
+
+  "next": "Next",
+  "@next": {
+    "description": "Label for the next button"
+  },
+
+  "getStarted": "Get Started",
+  "@getStarted": {
+    "description": "Label for the get started button"
+  },
+
+  "skip": "Skip",
+  "@skip": {
+    "description": "Label for the skip button"
   }
 }

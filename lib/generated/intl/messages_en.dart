@@ -25,6 +25,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
+    "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
+      "Easily track your income and expenses.",
+    ),
+    "onboardingDescription2": MessageLookupByLibrary.simpleMessage(
+      "Develop financial habits that help you manage your money wisely.",
+    ),
+    "onboardingDescription3": MessageLookupByLibrary.simpleMessage(
+      "Save regularly and get closer to achieving your financial goals.",
+    ),
+    "onboardingDescription4": MessageLookupByLibrary.simpleMessage(
+      "Track your expenses and make financial decisions with confidence.",
+    ),
+    "onboardingTitle1": MessageLookupByLibrary.simpleMessage(
+      "Follow Every Pound",
+    ),
+    "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
+      "Build Better Financial Habits",
+    ),
+    "onboardingTitle3": MessageLookupByLibrary.simpleMessage(
+      "Achieve Your Financial Goals",
+    ),
+    "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
+      "Full Control Over Your Money",
+    ),
+    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),
   };
 }
