@@ -1,46 +1,70 @@
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'snack_bar_service.dart';
+
 class SupportService {
-  // Phone number for support
-  static const String supportPhoneNumber = '+1234567890';
+  SupportService._();
 
-  // Email address for support
-  static const String supportEmailAddress = 'support@example.com';
+  static const String supportEmail = 'support@example.com';
+  static const String supportPhone = '+201000000000';
+  static const String whatsappNumber = '201000000000';
 
-  // WhatsApp number for support
-  static const String supportWhatsAppNumber = '+1234567890';
-
-  // Method to initiate a phone call
-  static Future<void> callSupport() async {
-    final Uri phoneUri = Uri(scheme: 'tel', path: supportPhoneNumber);
-    if (await canLaunchUrl(phoneUri)) {
-      await launchUrl(phoneUri);
-    } else {
-      throw 'Could not launch $phoneUri';
-    }
-  }
-
-  // Method to send an email
-  static Future<void> emailSupport() async {
-    final Uri emailUri = Uri(scheme: 'mailto', path: supportEmailAddress);
-    if (await canLaunchUrl(emailUri)) {
-      await launchUrl(emailUri);
-    } else {
-      throw 'Could not launch $emailUri';
-    }
-  }
-
-  // Method to open WhatsApp
-  static Future<void> openWhatsApp() async {
-    final Uri whatsAppUri = Uri(
-      scheme: 'https',
-      host: 'wa.me',
-      path: supportWhatsAppNumber,
+  /// 📧 Open email client
+  static Future<void> email({required BuildContext context}) async {
+    final Uri uri = Uri(
+      scheme: 'mailto',
+      path: supportEmail,
+      queryParameters: {'subject': 'Support Request'},
     );
-    if (await canLaunchUrl(whatsAppUri)) {
-      await launchUrl(whatsAppUri);
-    } else {
-      throw 'Could not launch $whatsAppUri';
+    await _launch(
+      context: context,
+      uri: uri,
+      errorMessage: 'No email app found on your device.',
+    );
+  }
+
+  /// 📞 Open phone dialer
+  static Future<void> call({required BuildContext context}) async {
+    final Uri uri = Uri(scheme: 'tel', path: supportPhone);
+
+    await _launch(
+      context: context,
+      uri: uri,
+      errorMessage: 'Unable to open the phone app.',
+    );
+  }
+
+  /// 💬 Open WhatsApp
+  static Future<void> whatsapp({required BuildContext context}) async {
+    final Uri uri = Uri.parse('https://wa.me/$whatsappNumber');
+
+    await _launch(
+      context: context,
+      uri: uri,
+      errorMessage: 'WhatsApp is not available on your device.',
+    );
+  }
+
+  static Future<void> _launch({
+    required BuildContext context,
+    required Uri uri,
+    required String errorMessage,
+  }) async {
+    try {
+      final bool canLaunch = await canLaunchUrl(uri);
+
+      if (!canLaunch) {
+        if (context.mounted) {
+          SnackBarService.failure(context: context, message: errorMessage);
+        }
+        return;
+      }
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } catch (e) {
+      if (context.mounted) {
+        SnackBarService.failure(context: context, message: errorMessage);
+      }
     }
   }
 }
