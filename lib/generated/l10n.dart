@@ -263,6 +263,126 @@ class S {
       args: [],
     );
   }
+
+  /// `⚙️ General`
+  String get generalSettings {
+    return Intl.message(
+      '⚙️ General',
+      name: 'generalSettings',
+      desc: 'Title for the general settings section',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get settingsThemeTitle {
+    return Intl.message(
+      'Theme',
+      name: 'settingsThemeTitle',
+      desc: 'Title for the theme settings section',
+      args: [],
+    );
+  }
+
+  /// `Customize the look and feel`
+  String get settingsThemeSubtitle {
+    return Intl.message(
+      'Customize the look and feel',
+      name: 'settingsThemeSubtitle',
+      desc: 'Subtitle for the theme settings section',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get settingsLanguageTitle {
+    return Intl.message(
+      'Language',
+      name: 'settingsLanguageTitle',
+      desc: 'Title for the language settings section',
+      args: [],
+    );
+  }
+
+  /// `Change the app language`
+  String get settingsLanguageSubtitle {
+    return Intl.message(
+      'Change the app language',
+      name: 'settingsLanguageSubtitle',
+      desc: 'Subtitle for the language settings section',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get settingsNotificationsTitle {
+    return Intl.message(
+      'Notifications',
+      name: 'settingsNotificationsTitle',
+      desc: 'Title for the notifications settings section',
+      args: [],
+    );
+  }
+
+  /// `Manage your notification preferences`
+  String get settingsNotificationsSubtitle {
+    return Intl.message(
+      'Manage your notification preferences',
+      name: 'settingsNotificationsSubtitle',
+      desc: 'Subtitle for the notifications settings section',
+      args: [],
+    );
+  }
+
+  /// `🔒 Privacy & Support`
+  String get settingsPrivacySupportTitle {
+    return Intl.message(
+      '🔒 Privacy & Support',
+      name: 'settingsPrivacySupportTitle',
+      desc: 'Title for the privacy and support settings section',
+      args: [],
+    );
+  }
+
+  /// ` Privacy Policy`
+  String get settingsPrivacyTitle {
+    return Intl.message(
+      ' Privacy Policy',
+      name: 'settingsPrivacyTitle',
+      desc: 'Title for the privacy policy settings section',
+      args: [],
+    );
+  }
+
+  /// `Read our privacy policy`
+  String get settingsPrivacySubtitle {
+    return Intl.message(
+      'Read our privacy policy',
+      name: 'settingsPrivacySubtitle',
+      desc: 'Subtitle for the privacy policy settings section',
+      args: [],
+    );
+  }
+
+  /// `Contact Support`
+  String get settingsSupportTitle {
+    return Intl.message(
+      'Contact Support',
+      name: 'settingsSupportTitle',
+      desc: 'Title for the contact support settings section',
+      args: [],
+    );
+  }
+
+  /// `Get help and support`
+  String get settingsSupportSubtitle {
+    return Intl.message(
+      'Get help and support',
+      name: 'settingsSupportSubtitle',
+      desc: 'Subtitle for the contact support settings section',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

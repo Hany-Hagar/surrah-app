@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
     "english": MessageLookupByLibrary.simpleMessage("الإنكليزية"),
+    "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -56,7 +57,34 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
       "تحكم الكامل بأموالك",
     ),
+    "settingsLanguageSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تغيير لغة التطبيق",
+    ),
+    "settingsLanguageTitle": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إدارة تفضيلات الإشعارات",
+    ),
+    "settingsNotificationsTitle": MessageLookupByLibrary.simpleMessage(
+      "الإشعارات",
+    ),
+    "settingsPrivacySubtitle": MessageLookupByLibrary.simpleMessage(
+      "اقرأ سياسة الخصوصية الخاصة بنا",
+    ),
+    "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
+      "🔒 الخصوصية والدعم",
+    ),
+    "settingsPrivacyTitle": MessageLookupByLibrary.simpleMessage(
+      "سياسة الخصوصية",
+    ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage("إدارة تفضيلاتك"),
+    "settingsSupportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "احصل على المساعدة والدعم",
+    ),
+    "settingsSupportTitle": MessageLookupByLibrary.simpleMessage("اتصل بالدعم"),
+    "settingsThemeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تخصيص المظهر والشعور",
+    ),
+    "settingsThemeTitle": MessageLookupByLibrary.simpleMessage("المظهر"),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),

@@ -87,5 +87,53 @@
   "settingsSubtitle": "Manage your preferences",
   "@settingsSubtitle": {
     "description": "Subtitle for the settings page"
+  },
+  "generalSettings": "⚙️ General",
+  "@generalSettings": {
+    "description": "Title for the general settings section"
+  },
+  "settingsThemeTitle": "Theme",
+  "@settingsThemeTitle": {
+    "description": "Title for the theme settings section"
+  },
+  "settingsThemeSubtitle": "Customize the look and feel",
+  "@settingsThemeSubtitle": {
+    "description": "Subtitle for the theme settings section"
+  },
+  "settingsLanguageTitle": "Language",
+  "@settingsLanguageTitle": {
+    "description": "Title for the language settings section"
+  },
+  "settingsLanguageSubtitle": "Change the app language",
+  "@settingsLanguageSubtitle": {
+    "description": "Subtitle for the language settings section"
+  },
+  "settingsNotificationsTitle": "Notifications",
+  "@settingsNotificationsTitle": {
+    "description": "Title for the notifications settings section"
+  },
+  "settingsNotificationsSubtitle": "Manage your notification preferences",
+  "@settingsNotificationsSubtitle": {
+    "description": "Subtitle for the notifications settings section"
+  },
+  "settingsPrivacySupportTitle": "🔒 Privacy & Support",
+  "@settingsPrivacySupportTitle": {
+    "description": "Title for the privacy and support settings section"
+  },
+  "settingsPrivacyTitle": " Privacy Policy",
+  "@settingsPrivacyTitle": {
+    "description": "Title for the privacy policy settings section"
+  },
+  "settingsPrivacySubtitle": "Read our privacy policy",
+  "@settingsPrivacySubtitle": {
+    "description": "Subtitle for the privacy policy settings section"
+  },
+  "settingsSupportTitle": "Contact Support",
+  "@settingsSupportTitle": {
+    "description": "Title for the contact support settings section"
+  },
+  "settingsSupportSubtitle": "Get help and support",
+  "@settingsSupportSubtitle": {
+    "description": "Subtitle for the contact support settings section"
   }
 }

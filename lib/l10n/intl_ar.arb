@@ -97,5 +97,53 @@
   "settingsSubtitle": "إدارة تفضيلاتك",
   "@settingsSubtitle": {
     "description": "Subtitle for the settings page"
+  },
+  "generalSettings": "⚙️ عامة",
+  "@generalSettings": {
+    "description": "Title for the general settings section"
+  },
+  "settingsThemeTitle": "المظهر",
+  "@settingsThemeTitle": {
+    "description": "Title for the theme settings section"
+  },
+  "settingsThemeSubtitle": "تخصيص المظهر والشعور",
+  "@settingsThemeSubtitle": {
+    "description": "Subtitle for the theme settings section"
+  },
+  "settingsLanguageTitle": "اللغة",
+  "@settingsLanguageTitle": {
+    "description": "Title for the language settings section"
+  },
+  "settingsLanguageSubtitle": "تغيير لغة التطبيق",
+  "@settingsLanguageSubtitle": {
+    "description": "Subtitle for the language settings section"
+  },  
+  "settingsNotificationsTitle": "الإشعارات",
+  "@settingsNotificationsTitle": {
+    "description": "Title for the notifications settings section"
+  },
+  "settingsNotificationsSubtitle": "إدارة تفضيلات الإشعارات",
+  "@settingsNotificationsSubtitle": {
+    "description": "Subtitle for the notifications settings section"
+  },
+  "settingsPrivacySupportTitle": "🔒 الخصوصية والدعم",
+  "@settingsPrivacySupportTitle": {
+    "description": "Title for the privacy and support settings section"
+  },
+  "settingsPrivacyTitle": "سياسة الخصوصية",
+  "@settingsPrivacyTitle": {
+    "description": "Title for the privacy policy settings section"
+  },
+  "settingsPrivacySubtitle": "اقرأ سياسة الخصوصية الخاصة بنا",
+  "@settingsPrivacySubtitle": {
+    "description": "Subtitle for the privacy policy settings section"
+  },
+  "settingsSupportTitle": "اتصل بالدعم",
+  "@settingsSupportTitle": {
+    "description": "Title for the contact support settings section"
+  },
+  "settingsSupportSubtitle": "احصل على المساعدة والدعم",
+  "@settingsSupportSubtitle": {
+    "description": "Subtitle for the contact support settings section"
   }
 }

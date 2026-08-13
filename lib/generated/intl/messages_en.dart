@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -58,9 +59,38 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
       "Full Control Over Your Money",
     ),
+    "settingsLanguageSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Change the app language",
+    ),
+    "settingsLanguageTitle": MessageLookupByLibrary.simpleMessage("Language"),
+    "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Manage your notification preferences",
+    ),
+    "settingsNotificationsTitle": MessageLookupByLibrary.simpleMessage(
+      "Notifications",
+    ),
+    "settingsPrivacySubtitle": MessageLookupByLibrary.simpleMessage(
+      "Read our privacy policy",
+    ),
+    "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
+      "🔒 Privacy & Support",
+    ),
+    "settingsPrivacyTitle": MessageLookupByLibrary.simpleMessage(
+      " Privacy Policy",
+    ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your preferences",
     ),
+    "settingsSupportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Get help and support",
+    ),
+    "settingsSupportTitle": MessageLookupByLibrary.simpleMessage(
+      "Contact Support",
+    ),
+    "settingsThemeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Customize the look and feel",
+    ),
+    "settingsThemeTitle": MessageLookupByLibrary.simpleMessage("Theme"),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
