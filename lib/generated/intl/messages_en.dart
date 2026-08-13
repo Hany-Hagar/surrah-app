@@ -58,6 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
       "Full Control Over Your Money",
     ),
+    "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Manage your preferences",
+    ),
+    "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),

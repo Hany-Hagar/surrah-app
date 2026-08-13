@@ -56,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
       "تحكم الكامل بأموالك",
     ),
+    "settingsSubtitle": MessageLookupByLibrary.simpleMessage("إدارة تفضيلاتك"),
+    "settingsTitle": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),

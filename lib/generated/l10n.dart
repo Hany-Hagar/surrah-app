@@ -243,6 +243,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Settings`
+  String get settingsTitle {
+    return Intl.message(
+      'Settings',
+      name: 'settingsTitle',
+      desc: 'Title for the settings page',
+      args: [],
+    );
+  }
+
+  /// `Manage your preferences`
+  String get settingsSubtitle {
+    return Intl.message(
+      'Manage your preferences',
+      name: 'settingsSubtitle',
+      desc: 'Subtitle for the settings page',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

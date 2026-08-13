@@ -78,5 +78,14 @@
   "transactions": "Transactions",
   "@transactions": {
     "description": "Label for the transactions button"
+  },
+
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Title for the settings page"
+  },
+  "settingsSubtitle": "Manage your preferences",
+  "@settingsSubtitle": {
+    "description": "Subtitle for the settings page"
   }
 }

@@ -88,5 +88,14 @@
   "transactions": "العمليات",
   "@transactions": {
     "description": "Label for the transactions button"
+  },
+
+  "settingsTitle": "الإعدادات",
+  "@settingsTitle": {
+    "description": "Title for the settings page"
+  },
+  "settingsSubtitle": "إدارة تفضيلاتك",
+  "@settingsSubtitle": {
+    "description": "Subtitle for the settings page"
   }
 }

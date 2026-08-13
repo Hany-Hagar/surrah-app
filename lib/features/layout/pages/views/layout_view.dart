@@ -5,10 +5,12 @@ import '../../../../generated/l10n.dart';
 import '../../managers/layout_cubit.dart';
 import '../../managers/layout_states.dart';
 import '../../../../core/utils/styles.dart';
+import '../../../../core/utils/nav_to.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../settings/presentation/pages/views/settings_view.dart';
 
 class LayoutView extends StatelessWidget {
   const LayoutView({super.key});
@@ -22,6 +24,10 @@ class LayoutView extends StatelessWidget {
         title: s.layoutAppBarTitle,
         subtitle: s.layoutAppBarSubtitle,
         trailingIcon: IconBroken.Setting,
+        onTrailingPressed: () => NavTo.push(
+          context: context,
+          nextPage: const SettingsView(),
+        ),
       ),
       body: const LayoutBody(),
       bottomNavigationBar: const _BottomNavigatorBar(),
