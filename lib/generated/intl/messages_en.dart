@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),
@@ -34,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "layoutAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "Welcome to Surrah",
     ),
+    "lightTheme": MessageLookupByLibrary.simpleMessage("Light"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "Easily track your income and expenses.",
@@ -93,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsThemeTitle": MessageLookupByLibrary.simpleMessage("Theme"),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "systemTheme": MessageLookupByLibrary.simpleMessage("System"),
+    "themes": MessageLookupByLibrary.simpleMessage("Themes"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),
   };

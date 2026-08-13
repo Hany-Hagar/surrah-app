@@ -1,9 +1,12 @@
-import '../../../../../generated/l10n.dart';
+
+import 'theme_body.dart';
 import 'settings_item.dart';
 import 'package:flutter/material.dart';
+import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({super.key});
@@ -23,7 +26,7 @@ class SettingsBody extends StatelessWidget {
           icon: IconBroken.Activity,
           title: s.settingsThemeTitle,
           subtitle: s.settingsThemeSubtitle,
-          nextPage: SizedBox(),
+          dialogBody: ThemeBody(),
         ),
         SettingsItem(
           color: Colors.green,
@@ -72,7 +75,6 @@ class _Title extends StatelessWidget {
       text: title,
       size: 20.sp,
       type: Type.overMedium,
-      color: Theme.of(context).primaryColor,
     );
   }
 }

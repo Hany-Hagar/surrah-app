@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
     "english": MessageLookupByLibrary.simpleMessage("الإنكليزية"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
@@ -34,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "layoutAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "مرحبًا بك في صُرّة",
     ),
+    "lightTheme": MessageLookupByLibrary.simpleMessage("فاتح"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "تتبّع دخلك ومصروفاتك بسهولة.",
@@ -87,6 +89,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsThemeTitle": MessageLookupByLibrary.simpleMessage("المظهر"),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "systemTheme": MessageLookupByLibrary.simpleMessage("نظام"),
+    "themes": MessageLookupByLibrary.simpleMessage("المظاهر"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
   };

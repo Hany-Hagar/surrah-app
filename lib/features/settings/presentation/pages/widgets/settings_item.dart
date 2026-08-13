@@ -8,20 +8,35 @@ class SettingsItem extends StatelessWidget {
   final String title;
   final IconData icon;
   final String subtitle;
-  final Widget nextPage;
+  final Widget? nextPage;
+  final Widget? dialogBody;
   const SettingsItem({
     super.key,
     required this.color,
     required this.title,
     required this.icon,
     required this.subtitle,
-    required this.nextPage,
+    this.nextPage,
+    this.dialogBody,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => NavTo.push(context: context, nextPage: nextPage),
+      onTap: () {
+        if (nextPage != null) {
+          NavTo.push(context: context, nextPage: nextPage!);
+        } else if (dialogBody != null) {
+          showModalBottomSheet(
+            context: context,  
+            isDismissible: true,          
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(4.r)),
+            ),
+            builder: (context) => dialogBody!,
+          );
+        }
+      },
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 5.h),
         child: ListTile(

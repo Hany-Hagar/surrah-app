@@ -383,6 +383,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Themes`
+  String get themes {
+    return Intl.message(
+      'Themes',
+      name: 'themes',
+      desc: 'Label for the themes section',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get lightTheme {
+    return Intl.message(
+      'Light',
+      name: 'lightTheme',
+      desc: 'Label for the light theme option',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get darkTheme {
+    return Intl.message(
+      'Dark',
+      name: 'darkTheme',
+      desc: 'Label for the dark theme option',
+      args: [],
+    );
+  }
+
+  /// `System`
+  String get systemTheme {
+    return Intl.message(
+      'System',
+      name: 'systemTheme',
+      desc: 'Label for the system theme option',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

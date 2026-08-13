@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   
+
   "english": "English",
   "@english": {
     "description": "The English language name"
@@ -63,6 +64,7 @@
     "description": "Label for the skip button"
   },
 
+
   "layoutAppBarTitle": "Welcome to Surrah",
   "@layoutAppBarTitle": {
     "description": "Title for the app bar in the layout view"
@@ -79,6 +81,7 @@
   "@transactions": {
     "description": "Label for the transactions button"
   },
+
 
   "settingsTitle": "Settings",
   "@settingsTitle": {
@@ -135,5 +138,23 @@
   "settingsSupportSubtitle": "Get help and support",
   "@settingsSupportSubtitle": {
     "description": "Subtitle for the contact support settings section"
+  },
+
+
+  "themes": "Themes",
+  "@themes": {
+    "description": "Label for the themes section"
+  },
+  "lightTheme": "Light",
+  "@lightTheme": {
+    "description": "Label for the light theme option"
+  },
+  "darkTheme": "Dark",
+  "@darkTheme": {
+    "description": "Label for the dark theme option"
+  },
+  "systemTheme": "System",
+  "@systemTheme": {
+    "description": "Label for the system theme option"
   }
 }

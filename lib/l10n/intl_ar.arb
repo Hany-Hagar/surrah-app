@@ -1,6 +1,7 @@
 {
   "@@locale": "ar",
   
+
   "english": "الإنكليزية",
   "@english": {
     "description": "The English language name"
@@ -22,56 +23,47 @@
   "@onboardingTitle1": {
     "description": "Onboarding title for the first slide"
   },
-
   "onboardingDescription1": "تتبّع دخلك ومصروفاتك بسهولة.",
   "@onboardingDescription1": {
     "description": "Onboarding description for the first slide"
   },
-
   "onboardingTitle2": "ابنِ عادات مالية أفضل",
   "@onboardingTitle2": {
     "description": "Onboarding title for the second slide"
   },
-
   "onboardingDescription2": "طوّر عادات مالية تساعدك على إدارة أموالك بذكاء.",
   "@onboardingDescription2": {
     "description": "Onboarding description for the second slide"
   },
-
   "onboardingTitle3": "حقق أهدافك المالية",
   "@onboardingTitle3": {
     "description": "Onboarding title for the third slide"
   },
-
   "onboardingDescription3": "ادخر بانتظام واقترب من تحقيق أهدافك المالية.",
   "@onboardingDescription3": {
     "description": "Onboarding description for the third slide"
   },
-
   "onboardingTitle4": "تحكم الكامل بأموالك",
   "@onboardingTitle4": {
     "description": "Onboarding title for the fourth slide"
   },
-
   "onboardingDescription4": "تابع نفقاتك واتخذ قرارات مالية بثقة.",
   "@onboardingDescription4": {
     "description": "Onboarding description for the fourth slide"
   },
-
   "next": "التالي",
   "@next": {
     "description": "Label for the next button"
   },
-
   "getStarted": "ابدأ الآن",
   "@getStarted": {
     "description": "Label for the get started button"
   },
-
   "skip": "تخطي",
   "@skip": {
     "description": "Label for the skip button"
   },
+
 
   "layoutAppBarTitle": "مرحبًا بك في صُرّة",
   "@layoutAppBarTitle": {
@@ -89,6 +81,7 @@
   "@transactions": {
     "description": "Label for the transactions button"
   },
+
 
   "settingsTitle": "الإعدادات",
   "@settingsTitle": {
@@ -145,5 +138,23 @@
   "settingsSupportSubtitle": "احصل على المساعدة والدعم",
   "@settingsSupportSubtitle": {
     "description": "Subtitle for the contact support settings section"
+  },
+
+
+  "themes": "المظاهر",
+  "@themes": {
+    "description": "Label for the themes section"
+  },
+  "lightTheme": "فاتح",
+  "@lightTheme": {
+    "description": "Label for the light theme option"
+  },
+  "darkTheme": "داكن",
+  "@darkTheme": {
+    "description": "Label for the dark theme option"
+  },
+  "systemTheme": "نظام",
+  "@systemTheme": {
+    "description": "Label for the system theme option"
   }
 }
