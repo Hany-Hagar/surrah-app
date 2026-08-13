@@ -13,4 +13,11 @@ class Assets {
   static const String onboarding3 = 'assets/svgs/onBoarding3.svg';
   static const String onboarding4 = 'assets/svgs/onBoarding4.svg';
 
+  // Privacy Policy Assets
+  static const String privacyPolicy = 'assets/images/SecurityLogo.png';
+
+  // Contact Support Assets
+  static const String contactSupport = 'assets/images/supportLogo.png';
+  static const String emailSupport = 'assets/images/emailSupport.png';
+  static const String twentyFourHourSupport = 'assets/images/24HourLogo.png';
 }

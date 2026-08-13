@@ -1,3 +1,5 @@
+import '../../../../../const/assets.dart';
+import 'support_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
@@ -9,65 +11,54 @@ class PrivacyPolicyBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     return Column(
       spacing: 12.h,
       children: [
-        _Card(),
+        SupportCard(
+          imagePath: Assets.privacyPolicy,
+          title: s.privacyPolicyCardTitle,
+          backgroundColor: Colors.blue.shade50,
+          description: s.privacyPolicyCardDescription, 
+        ),
         _PrivacyCard(
           color: const Color(0xFF22A06B), // Data
-          title: S.of(context).privacyPolicyCard1Title,
-          description: S.of(context).privacyPolicyCard1Description,
+          title: s.privacyPolicyCard1Title,
+          description: s.privacyPolicyCard1Description,
           icon: IconBroken.Profile,
         ),
         _PrivacyCard(
           color: const Color(0xFF3B82F6), // Storage
-          title: S.of(context).privacyPolicyCard2Title,
-          description: S.of(context).privacyPolicyCard2Description,
+          title: s.privacyPolicyCard2Title,
+          description: s.privacyPolicyCard2Description,
           icon: IconBroken.Document,
         ),
         _PrivacyCard(
           color: const Color(0xFF7C3AED), // Sharing
-          title: S.of(context).privacyPolicyCard3Title,
-          description: S.of(context).privacyPolicyCard3Description,
+          title: s.privacyPolicyCard3Title,
+          description: s.privacyPolicyCard3Description,
           icon: IconBroken.Send,
         ),
         _PrivacyCard(
           color: const Color(0xFFF59E0B), // Security
-          title: S.of(context).privacyPolicyCard4Title,
-          description: S.of(context).privacyPolicyCard4Description,
+          title: s.privacyPolicyCard4Title,
+          description: s.privacyPolicyCard4Description,
           icon: IconBroken.Shield_Done,
         ),
         _PrivacyCard(
           color: const Color(0xFF10B981), // Delete
-          title: S.of(context).privacyPolicyCard5Title,
-          description: S.of(context).privacyPolicyCard5Description,
+          title: s.privacyPolicyCard5Title,
+          description: s.privacyPolicyCard5Description,
           icon: IconBroken.Delete,
         ),
         _PrivacyCard(
           color: const Color(0xFF2563EB), // Updates
-          title: S.of(context).privacyPolicyCard6Title,
-          description: S.of(context).privacyPolicyCard6Description,
+          title: s.privacyPolicyCard6Title,
+          description: s.privacyPolicyCard6Description,
           icon: IconBroken.Info_Circle,
         ),
-        SizedBox(height: 12.h)
+        SizedBox(height: 12.h),
       ],
-    );
-  }
-}
-
-class _Card extends StatelessWidget {
-  const _Card();
-  @override
-  Widget build(BuildContext context) {
-    var s = S.of(context);
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 12.h),
-      child: _Item(
-        spacing: 4,
-        title: s.privacyPolicyCardTitle,
-        description: s.privacyPolicyCardDescription,
-        leading: Icon(IconBroken.Shield_Done, size: 65.sp),
-      ),
     );
   }
 }
@@ -98,7 +89,6 @@ class _PrivacyCard extends StatelessWidget {
 }
 
 class _Item extends StatelessWidget {
-  final Widget? leading;
   final String title;
   final String description;
   final Widget? trailing;
@@ -106,7 +96,6 @@ class _Item extends StatelessWidget {
   final int maxLines;
   final double spacing;
   const _Item({
-    this.leading,
     required this.title,
     required this.description,
     this.trailing,
@@ -127,7 +116,6 @@ class _Item extends StatelessWidget {
         spacing: spacing.w,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ?leading,
           Expanded(
             child: Column(
               spacing: 4.h,

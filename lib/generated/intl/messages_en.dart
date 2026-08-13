@@ -23,6 +23,69 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Reach out by email and we\'ll be happy to help.",
+    ),
+    "contactSupportEmailTitle": MessageLookupByLibrary.simpleMessage(
+      "Email Support",
+    ),
+    "contactSupportFaq1Answer": MessageLookupByLibrary.simpleMessage(
+      "Your expenses and categories are stored locally on your device.",
+    ),
+    "contactSupportFaq1Question": MessageLookupByLibrary.simpleMessage(
+      "Where is my data stored?",
+    ),
+    "contactSupportFaq2Answer": MessageLookupByLibrary.simpleMessage(
+      "Yes, you can delete your expenses and categories from the app at any time.",
+    ),
+    "contactSupportFaq2Question": MessageLookupByLibrary.simpleMessage(
+      "Can I delete my data?",
+    ),
+    "contactSupportFaq3Answer": MessageLookupByLibrary.simpleMessage(
+      "No. The current version does not collect or send your personal data.",
+    ),
+    "contactSupportFaq3Question": MessageLookupByLibrary.simpleMessage(
+      "Does the app collect my personal data?",
+    ),
+    "contactSupportFaq4Answer": MessageLookupByLibrary.simpleMessage(
+      "Yes, you can create, edit, and delete your expense categories.",
+    ),
+    "contactSupportFaq4Question": MessageLookupByLibrary.simpleMessage(
+      "Can I add or edit categories?",
+    ),
+    "contactSupportFaqTitle": MessageLookupByLibrary.simpleMessage(
+      "Frequently Asked Questions",
+    ),
+    "contactSupportFooterDescription": MessageLookupByLibrary.simpleMessage(
+      "We\'re available 24/7 to help with your questions and support needs.",
+    ),
+    "contactSupportFooterTitle": MessageLookupByLibrary.simpleMessage(
+      "How can we help you?",
+    ),
+    "contactSupportHeaderDescription": MessageLookupByLibrary.simpleMessage(
+      "Find answers to common questions or contact our support team.",
+    ),
+    "contactSupportHeaderTitle": MessageLookupByLibrary.simpleMessage(
+      "How can we help you?",
+    ),
+    "contactSupportPhoneSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Call our support line for immediate assistance.",
+    ),
+    "contactSupportPhoneTitle": MessageLookupByLibrary.simpleMessage(
+      "Phone Support",
+    ),
+    "contactSupportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Get help and support",
+    ),
+    "contactSupportTitle": MessageLookupByLibrary.simpleMessage(
+      "Contact Support",
+    ),
+    "contactSupportWhatsAppSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Chat with us on WhatsApp for quick support.",
+    ),
+    "contactSupportWhatsAppTitle": MessageLookupByLibrary.simpleMessage(
+      "WhatsApp Support",
+    ),
     "currentLanguage": MessageLookupByLibrary.simpleMessage(
       "Current Language :",
     ),
@@ -126,12 +189,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your preferences",
-    ),
-    "settingsSupportSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Get help and support",
-    ),
-    "settingsSupportTitle": MessageLookupByLibrary.simpleMessage(
-      "Contact Support",
     ),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),

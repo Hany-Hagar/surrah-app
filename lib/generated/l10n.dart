@@ -264,26 +264,6 @@ class S {
     );
   }
 
-  /// `Contact Support`
-  String get settingsSupportTitle {
-    return Intl.message(
-      'Contact Support',
-      name: 'settingsSupportTitle',
-      desc: 'Title for the contact support settings section',
-      args: [],
-    );
-  }
-
-  /// `Get help and support`
-  String get settingsSupportSubtitle {
-    return Intl.message(
-      'Get help and support',
-      name: 'settingsSupportSubtitle',
-      desc: 'Subtitle for the contact support settings section',
-      args: [],
-    );
-  }
-
   /// `Theme`
   String get themeTitle {
     return Intl.message(
@@ -580,6 +560,216 @@ class S {
       'We may update this policy from time to time. Important changes will be shown in the app.',
       name: 'privacyPolicyCard6Description',
       desc: 'Description for the sixth privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Contact Support`
+  String get contactSupportTitle {
+    return Intl.message(
+      'Contact Support',
+      name: 'contactSupportTitle',
+      desc: 'Title for the contact support settings section',
+      args: [],
+    );
+  }
+
+  /// `Get help and support`
+  String get contactSupportSubtitle {
+    return Intl.message(
+      'Get help and support',
+      name: 'contactSupportSubtitle',
+      desc: 'Subtitle for the contact support settings section',
+      args: [],
+    );
+  }
+
+  /// `How can we help you?`
+  String get contactSupportHeaderTitle {
+    return Intl.message(
+      'How can we help you?',
+      name: 'contactSupportHeaderTitle',
+      desc: 'Title for the contact support header card',
+      args: [],
+    );
+  }
+
+  /// `Find answers to common questions or contact our support team.`
+  String get contactSupportHeaderDescription {
+    return Intl.message(
+      'Find answers to common questions or contact our support team.',
+      name: 'contactSupportHeaderDescription',
+      desc: 'Description for the contact support header card',
+      args: [],
+    );
+  }
+
+  /// `Email Support`
+  String get contactSupportEmailTitle {
+    return Intl.message(
+      'Email Support',
+      name: 'contactSupportEmailTitle',
+      desc: 'Title for email support option',
+      args: [],
+    );
+  }
+
+  /// `Reach out by email and we'll be happy to help.`
+  String get contactSupportEmailSubtitle {
+    return Intl.message(
+      'Reach out by email and we\'ll be happy to help.',
+      name: 'contactSupportEmailSubtitle',
+      desc: 'Subtitle for email support option',
+      args: [],
+    );
+  }
+
+  /// `Phone Support`
+  String get contactSupportPhoneTitle {
+    return Intl.message(
+      'Phone Support',
+      name: 'contactSupportPhoneTitle',
+      desc: 'Title for phone support option',
+      args: [],
+    );
+  }
+
+  /// `Call our support line for immediate assistance.`
+  String get contactSupportPhoneSubtitle {
+    return Intl.message(
+      'Call our support line for immediate assistance.',
+      name: 'contactSupportPhoneSubtitle',
+      desc: 'Subtitle for phone support option',
+      args: [],
+    );
+  }
+
+  /// `WhatsApp Support`
+  String get contactSupportWhatsAppTitle {
+    return Intl.message(
+      'WhatsApp Support',
+      name: 'contactSupportWhatsAppTitle',
+      desc: 'Title for WhatsApp support option',
+      args: [],
+    );
+  }
+
+  /// `Chat with us on WhatsApp for quick support.`
+  String get contactSupportWhatsAppSubtitle {
+    return Intl.message(
+      'Chat with us on WhatsApp for quick support.',
+      name: 'contactSupportWhatsAppSubtitle',
+      desc: 'Subtitle for WhatsApp support option',
+      args: [],
+    );
+  }
+
+  /// `Frequently Asked Questions`
+  String get contactSupportFaqTitle {
+    return Intl.message(
+      'Frequently Asked Questions',
+      name: 'contactSupportFaqTitle',
+      desc: 'Title for the frequently asked questions section',
+      args: [],
+    );
+  }
+
+  /// `Where is my data stored?`
+  String get contactSupportFaq1Question {
+    return Intl.message(
+      'Where is my data stored?',
+      name: 'contactSupportFaq1Question',
+      desc: 'First frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `Your expenses and categories are stored locally on your device.`
+  String get contactSupportFaq1Answer {
+    return Intl.message(
+      'Your expenses and categories are stored locally on your device.',
+      name: 'contactSupportFaq1Answer',
+      desc: 'Answer to the first frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `Can I delete my data?`
+  String get contactSupportFaq2Question {
+    return Intl.message(
+      'Can I delete my data?',
+      name: 'contactSupportFaq2Question',
+      desc: 'Second frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `Yes, you can delete your expenses and categories from the app at any time.`
+  String get contactSupportFaq2Answer {
+    return Intl.message(
+      'Yes, you can delete your expenses and categories from the app at any time.',
+      name: 'contactSupportFaq2Answer',
+      desc: 'Answer to the second frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `Does the app collect my personal data?`
+  String get contactSupportFaq3Question {
+    return Intl.message(
+      'Does the app collect my personal data?',
+      name: 'contactSupportFaq3Question',
+      desc: 'Third frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `No. The current version does not collect or send your personal data.`
+  String get contactSupportFaq3Answer {
+    return Intl.message(
+      'No. The current version does not collect or send your personal data.',
+      name: 'contactSupportFaq3Answer',
+      desc: 'Answer to the third frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `Can I add or edit categories?`
+  String get contactSupportFaq4Question {
+    return Intl.message(
+      'Can I add or edit categories?',
+      name: 'contactSupportFaq4Question',
+      desc: 'Fourth frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `Yes, you can create, edit, and delete your expense categories.`
+  String get contactSupportFaq4Answer {
+    return Intl.message(
+      'Yes, you can create, edit, and delete your expense categories.',
+      name: 'contactSupportFaq4Answer',
+      desc: 'Answer to the fourth frequently asked question',
+      args: [],
+    );
+  }
+
+  /// `How can we help you?`
+  String get contactSupportFooterTitle {
+    return Intl.message(
+      'How can we help you?',
+      name: 'contactSupportFooterTitle',
+      desc: 'Title for the contact support footer card',
+      args: [],
+    );
+  }
+
+  /// `We're available 24/7 to help with your questions and support needs.`
+  String get contactSupportFooterDescription {
+    return Intl.message(
+      'We\'re available 24/7 to help with your questions and support needs.',
+      name: 'contactSupportFooterDescription',
+      desc: 'Description for the contact support footer card',
       args: [],
     );
   }

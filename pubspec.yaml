@@ -49,6 +49,9 @@ dependencies:
   # Local Storage
   path_provider: ^2.1.5
 
+  # External Services
+  url_launcher: ^6.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

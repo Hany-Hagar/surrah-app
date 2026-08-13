@@ -4,6 +4,7 @@ import '../views/languages_view.dart';
 import 'package:flutter/material.dart';
 import '../views/privacy_policy_view.dart';
 import '../../manager/settings_cubit.dart';
+import '../views/contact_support_view.dart';
 import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,10 +51,10 @@ class SettingsBody extends StatelessWidget {
         ),
         SettingsItem(
           color: Colors.red,
-          icon: IconBroken.Call,
-          title: s.settingsSupportTitle,
-          subtitle: s.settingsSupportSubtitle,
-          nextPage: SizedBox(),
+          title: s.contactSupportTitle,
+          icon: Icons.support_agent_outlined,
+          subtitle: s.contactSupportSubtitle,
+          nextPage: ContactSupportView(),
         ),
       ],
     );

@@ -23,6 +23,69 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
+    ),
+    "contactSupportEmailTitle": MessageLookupByLibrary.simpleMessage(
+      "الدعم عبر البريد الإلكتروني",
+    ),
+    "contactSupportFaq1Answer": MessageLookupByLibrary.simpleMessage(
+      "يتم تخزين مصروفاتك وتصنيفاتك محليًا على جهازك.",
+    ),
+    "contactSupportFaq1Question": MessageLookupByLibrary.simpleMessage(
+      "أين يتم تخزين بياناتي؟",
+    ),
+    "contactSupportFaq2Answer": MessageLookupByLibrary.simpleMessage(
+      "نعم، يمكنك حذف مصروفاتك وتصنيفاتك من التطبيق في أي وقت.",
+    ),
+    "contactSupportFaq2Question": MessageLookupByLibrary.simpleMessage(
+      "هل يمكنني حذف بياناتي؟",
+    ),
+    "contactSupportFaq3Answer": MessageLookupByLibrary.simpleMessage(
+      "لا، الإصدار الحالي لا يجمع بياناتك الشخصية أو يرسلها إلى أي جهة.",
+    ),
+    "contactSupportFaq3Question": MessageLookupByLibrary.simpleMessage(
+      "هل يجمع التطبيق بياناتي الشخصية؟",
+    ),
+    "contactSupportFaq4Answer": MessageLookupByLibrary.simpleMessage(
+      "نعم، يمكنك إضافة وتعديل وحذف تصنيفات المصروفات.",
+    ),
+    "contactSupportFaq4Question": MessageLookupByLibrary.simpleMessage(
+      "هل يمكنني إضافة أو تعديل التصنيفات؟",
+    ),
+    "contactSupportFaqTitle": MessageLookupByLibrary.simpleMessage(
+      "الأسئلة الشائعة",
+    ),
+    "contactSupportFooterDescription": MessageLookupByLibrary.simpleMessage(
+      "نحن متاحون 24/7 لمساعدتك في أسئلتك واحتياجات الدعم.",
+    ),
+    "contactSupportFooterTitle": MessageLookupByLibrary.simpleMessage(
+      "كيف يمكننا مساعدتك؟",
+    ),
+    "contactSupportHeaderDescription": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن إجابات للأسئلة الشائعة أو تواصل مع فريق الدعم.",
+    ),
+    "contactSupportHeaderTitle": MessageLookupByLibrary.simpleMessage(
+      "كيف يمكننا مساعدتك؟",
+    ),
+    "contactSupportPhoneSubtitle": MessageLookupByLibrary.simpleMessage(
+      "اتصل بفريق الدعم للحصول على المساعدة الفورية.",
+    ),
+    "contactSupportPhoneTitle": MessageLookupByLibrary.simpleMessage(
+      "الدعم عبر الهاتف",
+    ),
+    "contactSupportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "احصل على المساعدة والدعم",
+    ),
+    "contactSupportTitle": MessageLookupByLibrary.simpleMessage(
+      "تواصل مع الدعم",
+    ),
+    "contactSupportWhatsAppSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تواصل معنا عبر واتساب للحصول على دعم سريع.",
+    ),
+    "contactSupportWhatsAppTitle": MessageLookupByLibrary.simpleMessage(
+      "الدعم عبر واتساب",
+    ),
     "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
@@ -121,10 +184,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "🔒 الخصوصية والدعم",
     ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage("إدارة تفضيلاتك"),
-    "settingsSupportSubtitle": MessageLookupByLibrary.simpleMessage(
-      "احصل على المساعدة والدعم",
-    ),
-    "settingsSupportTitle": MessageLookupByLibrary.simpleMessage("اتصل بالدعم"),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "systemTheme": MessageLookupByLibrary.simpleMessage("نظام"),

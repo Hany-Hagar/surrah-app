@@ -90,14 +90,6 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
-  "settingsSupportTitle": "Contact Support",
-  "@settingsSupportTitle": {
-    "description": "Title for the contact support settings section"
-  },
-  "settingsSupportSubtitle": "Get help and support",
-  "@settingsSupportSubtitle": {
-    "description": "Subtitle for the contact support settings section"
-  },
 
 
   "themeTitle": "Theme",
@@ -221,5 +213,92 @@
   "privacyPolicyCard6Description": "We may update this policy from time to time. Important changes will be shown in the app.",
   "@privacyPolicyCard6Description": {
     "description": "Description for the sixth privacy policy card"
+  },
+
+
+  "contactSupportTitle": "Contact Support",
+  "@contactSupportTitle": {
+    "description": "Title for the contact support settings section"
+  },
+  "contactSupportSubtitle": "Get help and support",
+  "@contactSupportSubtitle": {
+    "description": "Subtitle for the contact support settings section"
+  },
+  "contactSupportHeaderTitle": "How can we help you?",
+  "@contactSupportHeaderTitle": {
+    "description": "Title for the contact support header card"
+  },
+  "contactSupportHeaderDescription": "Find answers to common questions or contact our support team.",
+  "@contactSupportHeaderDescription": {
+    "description": "Description for the contact support header card"
+  },
+  "contactSupportEmailTitle": "Email Support",
+  "@contactSupportEmailTitle": {
+    "description": "Title for email support option"
+  },
+  "contactSupportEmailSubtitle": "Reach out by email and we'll be happy to help.",
+  "@contactSupportEmailSubtitle": {
+    "description": "Subtitle for email support option"
+  },
+  "contactSupportPhoneTitle": "Phone Support",
+  "@contactSupportPhoneTitle": {
+    "description": "Title for phone support option"
+  },
+  "contactSupportPhoneSubtitle": "Call our support line for immediate assistance.",
+  "@contactSupportPhoneSubtitle": {
+    "description": "Subtitle for phone support option"
+  },
+  "contactSupportWhatsAppTitle": "WhatsApp Support",
+  "@contactSupportWhatsAppTitle": {
+    "description": "Title for WhatsApp support option"
+  },
+  "contactSupportWhatsAppSubtitle": "Chat with us on WhatsApp for quick support.",
+  "@contactSupportWhatsAppSubtitle": {
+    "description": "Subtitle for WhatsApp support option"
+  },
+  "contactSupportFaqTitle": "Frequently Asked Questions",
+  "@contactSupportFaqTitle": {
+    "description": "Title for the frequently asked questions section"
+  },
+  "contactSupportFaq1Question": "Where is my data stored?",
+  "@contactSupportFaq1Question": {
+    "description": "First frequently asked question"
+  },
+  "contactSupportFaq1Answer": "Your expenses and categories are stored locally on your device.",
+  "@contactSupportFaq1Answer": {
+    "description": "Answer to the first frequently asked question"
+  },
+  "contactSupportFaq2Question": "Can I delete my data?",
+  "@contactSupportFaq2Question": {
+    "description": "Second frequently asked question"
+  },
+  "contactSupportFaq2Answer": "Yes, you can delete your expenses and categories from the app at any time.",
+  "@contactSupportFaq2Answer": {
+    "description": "Answer to the second frequently asked question"
+  },
+  "contactSupportFaq3Question": "Does the app collect my personal data?",
+  "@contactSupportFaq3Question": {
+    "description": "Third frequently asked question"
+  },
+  "contactSupportFaq3Answer": "No. The current version does not collect or send your personal data.",
+  "@contactSupportFaq3Answer": {
+    "description": "Answer to the third frequently asked question"
+  },
+  "contactSupportFaq4Question": "Can I add or edit categories?",
+  "@contactSupportFaq4Question": {
+    "description": "Fourth frequently asked question"
+  },
+  "contactSupportFaq4Answer": "Yes, you can create, edit, and delete your expense categories.",
+  "@contactSupportFaq4Answer": {
+    "description": "Answer to the fourth frequently asked question"
+  },
+  "contactSupportFooterTitle": "How can we help you?",
+  "@contactSupportFooterTitle": {
+    "description": "Title for the contact support footer card"
+  },
+
+  "contactSupportFooterDescription": "We're available 24/7 to help with your questions and support needs.",
+  "@contactSupportFooterDescription": {
+    "description": "Description for the contact support footer card"
   }
 }
