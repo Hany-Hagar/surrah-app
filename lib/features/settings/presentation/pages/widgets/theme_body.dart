@@ -24,7 +24,7 @@ class ThemeBody extends StatelessWidget {
           Align(alignment: Alignment.center, child: const _Drag()),
           CustomText(text: s.themes, size: 20.sp, type: Type.overMedium),
           const _Themes(),
-          SizedBox(height: 15.h),
+          SizedBox(height: 10.h),
         ],
       ),
     );
@@ -64,6 +64,7 @@ class _Themes extends StatelessWidget {
         return Container(
           height: 60.h,
           padding: EdgeInsets.all(6.r),
+          margin: EdgeInsets.symmetric(vertical: 5.w),
           decoration: BoxDecoration(
             color: theme.scaffoldBackgroundColor,
             borderRadius: BorderRadius.circular(4.r),
