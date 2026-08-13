@@ -1,12 +1,11 @@
-
 import 'theme_body.dart';
 import 'settings_item.dart';
+import '../views/languages_view.dart';
 import 'package:flutter/material.dart';
 import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({super.key});
@@ -19,21 +18,21 @@ class SettingsBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Theme , Language and notifications
-        _Title(title: s.settingsThemeTitle),
+        _Title(title: s.generalSettings),
         SizedBox(height: 10.h),
         SettingsItem(
           color: Colors.blue,
           icon: IconBroken.Activity,
-          title: s.settingsThemeTitle,
-          subtitle: s.settingsThemeSubtitle,
+          title: s.themeTitle,
+          subtitle: s.themeSubtitle,
           dialogBody: ThemeBody(),
         ),
         SettingsItem(
           color: Colors.green,
           icon: IconBroken.Edit,
-          title: s.settingsLanguageTitle,
-          subtitle: s.settingsLanguageSubtitle,
-          nextPage: SizedBox(),
+          title: s.languageTitle,
+          subtitle: s.languageSubtitle,
+          nextPage: LanguagesView(),
         ),
         SettingsItem(
           color: Colors.purple,
@@ -71,10 +70,6 @@ class _Title extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomText(
-      text: title,
-      size: 20.sp,
-      type: Type.overMedium,
-    );
+    return CustomText(text: title, size: 18.sp, type: Type.overMedium);
   }
 }

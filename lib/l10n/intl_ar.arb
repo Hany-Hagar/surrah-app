@@ -1,23 +1,6 @@
 {
   "@@locale": "ar",
-  
 
-  "english": "الإنكليزية",
-  "@english": {
-    "description": "The English language name"
-  },
-  "arabic": "العربية",
-  "@arabic": {
-    "description": "The Arabic language name"
-  },
-  "unitedStates": "الولايات المتحدة",
-  "@unitedStates": {
-    "description": "United States country name"
-  },
-  "egypt": "مصر",
-  "@egypt": {
-    "description": "Egypt country name"
-  },
 
   "onboardingTitle1": "تابع كل جنيه",
   "@onboardingTitle1": {
@@ -95,22 +78,6 @@
   "@generalSettings": {
     "description": "Title for the general settings section"
   },
-  "settingsThemeTitle": "المظهر",
-  "@settingsThemeTitle": {
-    "description": "Title for the theme settings section"
-  },
-  "settingsThemeSubtitle": "تخصيص المظهر والشعور",
-  "@settingsThemeSubtitle": {
-    "description": "Subtitle for the theme settings section"
-  },
-  "settingsLanguageTitle": "اللغة",
-  "@settingsLanguageTitle": {
-    "description": "Title for the language settings section"
-  },
-  "settingsLanguageSubtitle": "تغيير لغة التطبيق",
-  "@settingsLanguageSubtitle": {
-    "description": "Subtitle for the language settings section"
-  },  
   "settingsNotificationsTitle": "الإشعارات",
   "@settingsNotificationsTitle": {
     "description": "Title for the notifications settings section"
@@ -140,7 +107,14 @@
     "description": "Subtitle for the contact support settings section"
   },
 
-
+  "themeTitle": "المظهر",
+  "@themeTitle": {
+    "description": "Title for the theme settings section"
+  },
+  "themeSubtitle": "تخصيص المظهر والشعور",
+  "@themeSubtitle": {
+    "description": "Subtitle for the theme settings section"
+  },
   "themes": "المظاهر",
   "@themes": {
     "description": "Label for the themes section"
@@ -156,5 +130,39 @@
   "systemTheme": "نظام",
   "@systemTheme": {
     "description": "Label for the system theme option"
+  },
+
+
+  "languageTitle": "اللغة",
+  "@languageTitle": {
+    "description": "Title for the language settings section"
+  },
+  "languageSubtitle": "تغيير لغة التطبيق",
+  "@languageSubtitle": {
+    "description": "Subtitle for the language settings section"
+  },
+  "currentLanguage": "اللغة الحالية :",
+  "@currentLanguage": {
+    "description": "Label for the current language setting"
+  },
+  "otherLanguages": "لغات أخرى :",
+  "@otherLanguages": {
+    "description": "Label for the other languages setting"
+  },
+  "english": "الإنجليزية",
+  "@english": {
+    "description": "The English language name"
+  },
+  "arabic": "العربية",
+  "@arabic": {
+    "description": "The Arabic language name"
+  },
+  "unitedStates": "الولايات المتحدة",
+  "@unitedStates": {
+    "description": "United States country name"
+  },
+  "egypt": "مصر",
+  "@egypt": {
+    "description": "Egypt country name"
   }
 }

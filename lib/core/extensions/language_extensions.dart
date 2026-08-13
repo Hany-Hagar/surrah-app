@@ -31,7 +31,24 @@ extension LanguageCodeExtension on String {
       case 'ar':
         return S.of(context).arabic;
       default:
-        return this; // ترجع نفس الكود إذا لم تكن مدعومة
+        return this; 
     }
+  }
+}
+
+extension LanguageListExtension on List<String> {
+  String selectedLanguage(String currentLanguage) {
+    return firstWhere(
+      (language) =>
+          language.toLowerCase() == currentLanguage.toLowerCase(),
+      orElse: () => first,
+    );
+  }
+
+  List<String> otherLanguages(String currentLanguage) {
+    return where(
+      (language) =>
+          language.toLowerCase() != currentLanguage.toLowerCase(),
+    ).toList();
   }
 }

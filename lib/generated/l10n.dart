@@ -54,46 +54,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `English`
-  String get english {
-    return Intl.message(
-      'English',
-      name: 'english',
-      desc: 'The English language name',
-      args: [],
-    );
-  }
-
-  /// `Arabic`
-  String get arabic {
-    return Intl.message(
-      'Arabic',
-      name: 'arabic',
-      desc: 'The Arabic language name',
-      args: [],
-    );
-  }
-
-  /// `United States`
-  String get unitedStates {
-    return Intl.message(
-      'United States',
-      name: 'unitedStates',
-      desc: 'United States country name',
-      args: [],
-    );
-  }
-
-  /// `Egypt`
-  String get egypt {
-    return Intl.message(
-      'Egypt',
-      name: 'egypt',
-      desc: 'Egypt country name',
-      args: [],
-    );
-  }
-
   /// `Follow Every Pound`
   String get onboardingTitle1 {
     return Intl.message(
@@ -274,46 +234,6 @@ class S {
     );
   }
 
-  /// `Theme`
-  String get settingsThemeTitle {
-    return Intl.message(
-      'Theme',
-      name: 'settingsThemeTitle',
-      desc: 'Title for the theme settings section',
-      args: [],
-    );
-  }
-
-  /// `Customize the look and feel`
-  String get settingsThemeSubtitle {
-    return Intl.message(
-      'Customize the look and feel',
-      name: 'settingsThemeSubtitle',
-      desc: 'Subtitle for the theme settings section',
-      args: [],
-    );
-  }
-
-  /// `Language`
-  String get settingsLanguageTitle {
-    return Intl.message(
-      'Language',
-      name: 'settingsLanguageTitle',
-      desc: 'Title for the language settings section',
-      args: [],
-    );
-  }
-
-  /// `Change the app language`
-  String get settingsLanguageSubtitle {
-    return Intl.message(
-      'Change the app language',
-      name: 'settingsLanguageSubtitle',
-      desc: 'Subtitle for the language settings section',
-      args: [],
-    );
-  }
-
   /// `Notifications`
   String get settingsNotificationsTitle {
     return Intl.message(
@@ -384,6 +304,26 @@ class S {
     );
   }
 
+  /// `Theme`
+  String get themeTitle {
+    return Intl.message(
+      'Theme',
+      name: 'themeTitle',
+      desc: 'Title for the theme settings section',
+      args: [],
+    );
+  }
+
+  /// `Customize the look and feel`
+  String get themeSubtitle {
+    return Intl.message(
+      'Customize the look and feel',
+      name: 'themeSubtitle',
+      desc: 'Subtitle for the theme settings section',
+      args: [],
+    );
+  }
+
   /// `Themes`
   String get themes {
     return Intl.message(
@@ -420,6 +360,86 @@ class S {
       'System',
       name: 'systemTheme',
       desc: 'Label for the system theme option',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get languageTitle {
+    return Intl.message(
+      'Language',
+      name: 'languageTitle',
+      desc: 'Title for the language settings section',
+      args: [],
+    );
+  }
+
+  /// `Change the app language`
+  String get languageSubtitle {
+    return Intl.message(
+      'Change the app language',
+      name: 'languageSubtitle',
+      desc: 'Subtitle for the language settings section',
+      args: [],
+    );
+  }
+
+  /// `Current Language :`
+  String get currentLanguage {
+    return Intl.message(
+      'Current Language :',
+      name: 'currentLanguage',
+      desc: 'Label for the current language setting',
+      args: [],
+    );
+  }
+
+  /// `Other Languages :`
+  String get otherLanguages {
+    return Intl.message(
+      'Other Languages :',
+      name: 'otherLanguages',
+      desc: 'Label for the other languages setting',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: 'The English language name',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: 'The Arabic language name',
+      args: [],
+    );
+  }
+
+  /// `United States`
+  String get unitedStates {
+    return Intl.message(
+      'United States',
+      name: 'unitedStates',
+      desc: 'United States country name',
+      args: [],
+    );
+  }
+
+  /// `Egypt`
+  String get egypt {
+    return Intl.message(
+      'Egypt',
+      name: 'egypt',
+      desc: 'Egypt country name',
       args: [],
     );
   }

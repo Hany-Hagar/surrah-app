@@ -1,23 +1,6 @@
 {
   "@@locale": "en",
-  
 
-  "english": "English",
-  "@english": {
-    "description": "The English language name"
-  },
-  "arabic": "Arabic",
-  "@arabic": {
-    "description": "The Arabic language name"
-  },
-  "unitedStates": "United States",
-  "@unitedStates": {
-    "description": "United States country name"
-  },
-  "egypt": "Egypt",
-  "@egypt": {
-    "description": "Egypt country name"
-  },
 
   "onboardingTitle1": "Follow Every Pound",
   "@onboardingTitle1": {
@@ -95,22 +78,6 @@
   "@generalSettings": {
     "description": "Title for the general settings section"
   },
-  "settingsThemeTitle": "Theme",
-  "@settingsThemeTitle": {
-    "description": "Title for the theme settings section"
-  },
-  "settingsThemeSubtitle": "Customize the look and feel",
-  "@settingsThemeSubtitle": {
-    "description": "Subtitle for the theme settings section"
-  },
-  "settingsLanguageTitle": "Language",
-  "@settingsLanguageTitle": {
-    "description": "Title for the language settings section"
-  },
-  "settingsLanguageSubtitle": "Change the app language",
-  "@settingsLanguageSubtitle": {
-    "description": "Subtitle for the language settings section"
-  },
   "settingsNotificationsTitle": "Notifications",
   "@settingsNotificationsTitle": {
     "description": "Title for the notifications settings section"
@@ -141,6 +108,14 @@
   },
 
 
+  "themeTitle": "Theme",
+  "@themeTitle": {
+    "description": "Title for the theme settings section"
+  },
+  "themeSubtitle": "Customize the look and feel",
+  "@themeSubtitle": {
+    "description": "Subtitle for the theme settings section"
+  },
   "themes": "Themes",
   "@themes": {
     "description": "Label for the themes section"
@@ -156,5 +131,39 @@
   "systemTheme": "System",
   "@systemTheme": {
     "description": "Label for the system theme option"
+  },
+
+
+  "languageTitle": "Language",
+  "@languageTitle": {
+    "description": "Title for the language settings section"
+  },
+  "languageSubtitle": "Change the app language",
+  "@languageSubtitle": {
+    "description": "Subtitle for the language settings section"
+  },
+  "currentLanguage": "Current Language :",
+  "@currentLanguage": {
+    "description": "Label for the current language setting"
+  },
+  "otherLanguages": "Other Languages :",
+  "@otherLanguages": {
+    "description": "Label for the other languages setting"
+  },
+  "english": "English",
+  "@english": {
+    "description": "The English language name"
+  },
+  "arabic": "Arabic",
+  "@arabic": {
+    "description": "The Arabic language name"
+  },
+  "unitedStates": "United States",
+  "@unitedStates": {
+    "description": "United States country name"
+  },
+  "egypt": "Egypt",
+  "@egypt": {
+    "description": "Egypt country name"
   }
 }

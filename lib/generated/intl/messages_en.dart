@@ -23,12 +23,19 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "currentLanguage": MessageLookupByLibrary.simpleMessage(
+      "Current Language :",
+    ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "languageSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Change the app language",
+    ),
+    "languageTitle": MessageLookupByLibrary.simpleMessage("Language"),
     "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
       "Your Personal Finance Companion",
     ),
@@ -61,10 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
       "Full Control Over Your Money",
     ),
-    "settingsLanguageSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Change the app language",
-    ),
-    "settingsLanguageTitle": MessageLookupByLibrary.simpleMessage("Language"),
+    "otherLanguages": MessageLookupByLibrary.simpleMessage("Other Languages :"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),
@@ -89,13 +93,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsSupportTitle": MessageLookupByLibrary.simpleMessage(
       "Contact Support",
     ),
-    "settingsThemeSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Customize the look and feel",
-    ),
-    "settingsThemeTitle": MessageLookupByLibrary.simpleMessage("Theme"),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "systemTheme": MessageLookupByLibrary.simpleMessage("System"),
+    "themeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Customize the look and feel",
+    ),
+    "themeTitle": MessageLookupByLibrary.simpleMessage("Theme"),
     "themes": MessageLookupByLibrary.simpleMessage("Themes"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),

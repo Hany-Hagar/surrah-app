@@ -23,12 +23,17 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
-    "english": MessageLookupByLibrary.simpleMessage("الإنكليزية"),
+    "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "languageSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تغيير لغة التطبيق",
+    ),
+    "languageTitle": MessageLookupByLibrary.simpleMessage("اللغة"),
     "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
       "مرشدك الشخصي في إدارة الموارد المالية",
     ),
@@ -59,10 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
       "تحكم الكامل بأموالك",
     ),
-    "settingsLanguageSubtitle": MessageLookupByLibrary.simpleMessage(
-      "تغيير لغة التطبيق",
-    ),
-    "settingsLanguageTitle": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى :"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),
@@ -83,13 +85,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "احصل على المساعدة والدعم",
     ),
     "settingsSupportTitle": MessageLookupByLibrary.simpleMessage("اتصل بالدعم"),
-    "settingsThemeSubtitle": MessageLookupByLibrary.simpleMessage(
-      "تخصيص المظهر والشعور",
-    ),
-    "settingsThemeTitle": MessageLookupByLibrary.simpleMessage("المظهر"),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "systemTheme": MessageLookupByLibrary.simpleMessage("نظام"),
+    "themeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تخصيص المظهر والشعور",
+    ),
+    "themeTitle": MessageLookupByLibrary.simpleMessage("المظهر"),
     "themes": MessageLookupByLibrary.simpleMessage("المظاهر"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
