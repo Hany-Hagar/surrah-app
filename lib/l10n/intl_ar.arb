@@ -1,7 +1,7 @@
 {
   "@@locale": "ar",
 
-
+  
   "onboardingTitle1": "تابع كل جنيه",
   "@onboardingTitle1": {
     "description": "Onboarding title for the first slide"
@@ -53,7 +53,7 @@
     "description": "Title for the app bar in the layout view"
   },
   "layoutAppBarSubtitle": "مرشدك الشخصي في إدارة الموارد المالية",
-  "@layoutAppBarSubtitle": {  
+  "@layoutAppBarSubtitle": {
     "description": "Subtitle for the app bar in the layout view"
   },
   "home": "الرئيسية",
@@ -90,14 +90,6 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
-  "settingsPrivacyTitle": "سياسة الخصوصية",
-  "@settingsPrivacyTitle": {
-    "description": "Title for the privacy policy settings section"
-  },
-  "settingsPrivacySubtitle": "اقرأ سياسة الخصوصية الخاصة بنا",
-  "@settingsPrivacySubtitle": {
-    "description": "Subtitle for the privacy policy settings section"
-  },
   "settingsSupportTitle": "اتصل بالدعم",
   "@settingsSupportTitle": {
     "description": "Title for the contact support settings section"
@@ -106,6 +98,7 @@
   "@settingsSupportSubtitle": {
     "description": "Subtitle for the contact support settings section"
   },
+
 
   "themeTitle": "المظهر",
   "@themeTitle": {
@@ -131,8 +124,6 @@
   "@systemTheme": {
     "description": "Label for the system theme option"
   },
-
-
   "languageTitle": "اللغة",
   "@languageTitle": {
     "description": "Title for the language settings section"
@@ -164,5 +155,71 @@
   "egypt": "مصر",
   "@egypt": {
     "description": "Egypt country name"
+  },
+
+
+  "privacyTitle": "سياسة الخصوصية",
+  "@privacyTitle": {
+    "description": "Title for the privacy policy settings section"
+  },
+  "privacySubtitle": "اقرأ سياسة الخصوصية الخاصة بنا",
+  "@privacySubtitle": {
+    "description": "Subtitle for the privacy policy settings section"
+  },
+  "privacyPolicyCardTitle": "خصوصيتك تهمنا",
+  "@privacyPolicyCardTitle": {
+    "description": "Title for the privacy policy card"
+  },
+  "privacyPolicyCardDescription": "نحترم خصوصيتك ونلتزم بحماية بياناتك. تعرّف على كيفية جمع بياناتك واستخدامها وحمايتها.",
+  "@privacyPolicyCardDescription": {
+    "description": "Description for the privacy policy card"
+  },
+  "privacyPolicyCard1Title": "البيانات التي يجمعها التطبيق",
+  "@privacyPolicyCard1Title": {
+    "description": "عنوان البطاقة الأولى"
+  },
+  "privacyPolicyCard1Description": "لا يجمع التطبيق أي بيانات شخصية. يتم حفظ المصروفات والتصنيفات التي تضيفها محليًا على جهازك فقط.",
+  "@privacyPolicyCard1Description": {
+    "description": "وصف البطاقة الأولى"
+  },
+  "privacyPolicyCard2Title": "تخزين البيانات",
+  "@privacyPolicyCard2Title": {
+    "description": "عنوان البطاقة الثانية"
+  },
+  "privacyPolicyCard2Description": "يتم تخزين جميع بياناتك على جهازك فقط، ولا يتم إرسالها إلى أي خادم أو جهة خارجية.",
+  "@privacyPolicyCard2Description": {
+    "description": "وصف البطاقة الثانية"
+  },
+  "privacyPolicyCard3Title": "مشاركة البيانات",
+  "@privacyPolicyCard3Title": {
+    "description": "عنوان البطاقة الثالثة"
+  },
+  "privacyPolicyCard3Description": "لا تتم مشاركة بياناتك مع أي طرف ثالث أو أي خدمات خارجية.",
+  "@privacyPolicyCard3Description": {
+    "description": "وصف البطاقة الثالثة"
+  },
+  "privacyPolicyCard4Title": "أمان البيانات",
+  "@privacyPolicyCard4Title": {
+    "description": "عنوان البطاقة الرابعة"
+  },
+  "privacyPolicyCard4Description": "يتم الاحتفاظ ببياناتك محليًا على جهازك، ونسعى لتوفير مستوى مناسب من الحماية لها.",
+  "@privacyPolicyCard4Description": {
+    "description": "وصف البطاقة الرابعة"
+  },
+  "privacyPolicyCard5Title": "حذف البيانات",
+  "@privacyPolicyCard5Title": {
+    "description": "عنوان البطاقة الخامسة"
+  },
+  "privacyPolicyCard5Description": "يمكنك حذف جميع المصروفات والتصنيفات في أي وقت من داخل التطبيق.",
+  "@privacyPolicyCard5Description": {
+    "description": "وصف البطاقة الخامسة"
+  },
+  "privacyPolicyCard6Title": "تحديثات سياسة الخصوصية",
+  "@privacyPolicyCard6Title": {
+    "description": "عنوان البطاقة السادسة"
+  },
+  "privacyPolicyCard6Description": "قد نقوم بتحديث سياسة الخصوصية عند الحاجة، وسيتم إعلامك بأي تغييرات مهمة داخل التطبيق.",
+  "@privacyPolicyCard6Description": {
+    "description": "وصف البطاقة السادسة"
   }
 }

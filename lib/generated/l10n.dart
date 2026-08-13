@@ -264,26 +264,6 @@ class S {
     );
   }
 
-  /// ` Privacy Policy`
-  String get settingsPrivacyTitle {
-    return Intl.message(
-      ' Privacy Policy',
-      name: 'settingsPrivacyTitle',
-      desc: 'Title for the privacy policy settings section',
-      args: [],
-    );
-  }
-
-  /// `Read our privacy policy`
-  String get settingsPrivacySubtitle {
-    return Intl.message(
-      'Read our privacy policy',
-      name: 'settingsPrivacySubtitle',
-      desc: 'Subtitle for the privacy policy settings section',
-      args: [],
-    );
-  }
-
   /// `Contact Support`
   String get settingsSupportTitle {
     return Intl.message(
@@ -440,6 +420,166 @@ class S {
       'Egypt',
       name: 'egypt',
       desc: 'Egypt country name',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyTitle {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyTitle',
+      desc: 'Title for the privacy policy settings section',
+      args: [],
+    );
+  }
+
+  /// `Read our privacy policy`
+  String get privacySubtitle {
+    return Intl.message(
+      'Read our privacy policy',
+      name: 'privacySubtitle',
+      desc: 'Subtitle for the privacy policy settings section',
+      args: [],
+    );
+  }
+
+  /// `Your Privacy Matters`
+  String get privacyPolicyCardTitle {
+    return Intl.message(
+      'Your Privacy Matters',
+      name: 'privacyPolicyCardTitle',
+      desc: 'Title for the privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `We respect your privacy and are committed to protecting your data.`
+  String get privacyPolicyCardDescription {
+    return Intl.message(
+      'We respect your privacy and are committed to protecting your data.',
+      name: 'privacyPolicyCardDescription',
+      desc: 'Description for the privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Data We Collect`
+  String get privacyPolicyCard1Title {
+    return Intl.message(
+      'Data We Collect',
+      name: 'privacyPolicyCard1Title',
+      desc: 'Title for the first privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `We do not collect personal data. Your expenses and categories are stored locally on your device.`
+  String get privacyPolicyCard1Description {
+    return Intl.message(
+      'We do not collect personal data. Your expenses and categories are stored locally on your device.',
+      name: 'privacyPolicyCard1Description',
+      desc: 'Description for the first privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Data Storage`
+  String get privacyPolicyCard2Title {
+    return Intl.message(
+      'Data Storage',
+      name: 'privacyPolicyCard2Title',
+      desc: 'Title for the second privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Your data is stored only on your device and is not sent to any external server.`
+  String get privacyPolicyCard2Description {
+    return Intl.message(
+      'Your data is stored only on your device and is not sent to any external server.',
+      name: 'privacyPolicyCard2Description',
+      desc: 'Description for the second privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Data Sharing`
+  String get privacyPolicyCard3Title {
+    return Intl.message(
+      'Data Sharing',
+      name: 'privacyPolicyCard3Title',
+      desc: 'Title for the third privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `We do not share your data with third parties or external services.`
+  String get privacyPolicyCard3Description {
+    return Intl.message(
+      'We do not share your data with third parties or external services.',
+      name: 'privacyPolicyCard3Description',
+      desc: 'Description for the third privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Data Security`
+  String get privacyPolicyCard4Title {
+    return Intl.message(
+      'Data Security',
+      name: 'privacyPolicyCard4Title',
+      desc: 'Title for the fourth privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Your data is stored locally on your device and protected by the app.`
+  String get privacyPolicyCard4Description {
+    return Intl.message(
+      'Your data is stored locally on your device and protected by the app.',
+      name: 'privacyPolicyCard4Description',
+      desc: 'Description for the fourth privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Data Deletion`
+  String get privacyPolicyCard5Title {
+    return Intl.message(
+      'Data Deletion',
+      name: 'privacyPolicyCard5Title',
+      desc: 'Title for the fifth privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `You can delete your expenses and categories at any time from the app.`
+  String get privacyPolicyCard5Description {
+    return Intl.message(
+      'You can delete your expenses and categories at any time from the app.',
+      name: 'privacyPolicyCard5Description',
+      desc: 'Description for the fifth privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy Updates`
+  String get privacyPolicyCard6Title {
+    return Intl.message(
+      'Privacy Policy Updates',
+      name: 'privacyPolicyCard6Title',
+      desc: 'Title for the sixth privacy policy card',
+      args: [],
+    );
+  }
+
+  /// `We may update this policy from time to time. Important changes will be shown in the app.`
+  String get privacyPolicyCard6Description {
+    return Intl.message(
+      'We may update this policy from time to time. Important changes will be shown in the app.',
+      name: 'privacyPolicyCard6Description',
+      desc: 'Description for the sixth privacy policy card',
       args: [],
     );
   }

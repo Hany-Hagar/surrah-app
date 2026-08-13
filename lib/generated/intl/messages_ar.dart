@@ -65,20 +65,60 @@ class MessageLookup extends MessageLookupByLibrary {
       "تحكم الكامل بأموالك",
     ),
     "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى :"),
+    "privacyPolicyCard1Description": MessageLookupByLibrary.simpleMessage(
+      "لا يجمع التطبيق أي بيانات شخصية. يتم حفظ المصروفات والتصنيفات التي تضيفها محليًا على جهازك فقط.",
+    ),
+    "privacyPolicyCard1Title": MessageLookupByLibrary.simpleMessage(
+      "البيانات التي يجمعها التطبيق",
+    ),
+    "privacyPolicyCard2Description": MessageLookupByLibrary.simpleMessage(
+      "يتم تخزين جميع بياناتك على جهازك فقط، ولا يتم إرسالها إلى أي خادم أو جهة خارجية.",
+    ),
+    "privacyPolicyCard2Title": MessageLookupByLibrary.simpleMessage(
+      "تخزين البيانات",
+    ),
+    "privacyPolicyCard3Description": MessageLookupByLibrary.simpleMessage(
+      "لا تتم مشاركة بياناتك مع أي طرف ثالث أو أي خدمات خارجية.",
+    ),
+    "privacyPolicyCard3Title": MessageLookupByLibrary.simpleMessage(
+      "مشاركة البيانات",
+    ),
+    "privacyPolicyCard4Description": MessageLookupByLibrary.simpleMessage(
+      "يتم الاحتفاظ ببياناتك محليًا على جهازك، ونسعى لتوفير مستوى مناسب من الحماية لها.",
+    ),
+    "privacyPolicyCard4Title": MessageLookupByLibrary.simpleMessage(
+      "أمان البيانات",
+    ),
+    "privacyPolicyCard5Description": MessageLookupByLibrary.simpleMessage(
+      "يمكنك حذف جميع المصروفات والتصنيفات في أي وقت من داخل التطبيق.",
+    ),
+    "privacyPolicyCard5Title": MessageLookupByLibrary.simpleMessage(
+      "حذف البيانات",
+    ),
+    "privacyPolicyCard6Description": MessageLookupByLibrary.simpleMessage(
+      "قد نقوم بتحديث سياسة الخصوصية عند الحاجة، وسيتم إعلامك بأي تغييرات مهمة داخل التطبيق.",
+    ),
+    "privacyPolicyCard6Title": MessageLookupByLibrary.simpleMessage(
+      "تحديثات سياسة الخصوصية",
+    ),
+    "privacyPolicyCardDescription": MessageLookupByLibrary.simpleMessage(
+      "نحترم خصوصيتك ونلتزم بحماية بياناتك. تعرّف على كيفية جمع بياناتك واستخدامها وحمايتها.",
+    ),
+    "privacyPolicyCardTitle": MessageLookupByLibrary.simpleMessage(
+      "خصوصيتك تهمنا",
+    ),
+    "privacySubtitle": MessageLookupByLibrary.simpleMessage(
+      "اقرأ سياسة الخصوصية الخاصة بنا",
+    ),
+    "privacyTitle": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),
     "settingsNotificationsTitle": MessageLookupByLibrary.simpleMessage(
       "الإشعارات",
     ),
-    "settingsPrivacySubtitle": MessageLookupByLibrary.simpleMessage(
-      "اقرأ سياسة الخصوصية الخاصة بنا",
-    ),
     "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
       "🔒 الخصوصية والدعم",
-    ),
-    "settingsPrivacyTitle": MessageLookupByLibrary.simpleMessage(
-      "سياسة الخصوصية",
     ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage("إدارة تفضيلاتك"),
     "settingsSupportSubtitle": MessageLookupByLibrary.simpleMessage(

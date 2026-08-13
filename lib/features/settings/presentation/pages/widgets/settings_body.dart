@@ -2,6 +2,7 @@ import 'theme_body.dart';
 import 'settings_item.dart';
 import '../views/languages_view.dart';
 import 'package:flutter/material.dart';
+import '../views/privacy_policy_view.dart';
 import '../../manager/settings_cubit.dart';
 import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
@@ -43,9 +44,9 @@ class SettingsBody extends StatelessWidget {
         SettingsItem(
           color: Colors.orange,
           icon: IconBroken.Shield_Done,
-          title: s.settingsPrivacyTitle,
-          subtitle: s.settingsPrivacySubtitle,
-          nextPage: SizedBox(),
+          title: s.privacyTitle,
+          subtitle: s.privacySubtitle,
+          nextPage: PrivacyPolicyView(),
         ),
         SettingsItem(
           color: Colors.red,

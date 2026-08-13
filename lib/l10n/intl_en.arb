@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
 
-
+  
   "onboardingTitle1": "Follow Every Pound",
   "@onboardingTitle1": {
     "description": "Onboarding title for the first slide"
@@ -53,7 +53,7 @@
     "description": "Title for the app bar in the layout view"
   },
   "layoutAppBarSubtitle": "Your Personal Finance Companion",
-  "@layoutAppBarSubtitle": {  
+  "@layoutAppBarSubtitle": {
     "description": "Subtitle for the app bar in the layout view"
   },
   "home": "Home",
@@ -90,14 +90,6 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
-  "settingsPrivacyTitle": " Privacy Policy",
-  "@settingsPrivacyTitle": {
-    "description": "Title for the privacy policy settings section"
-  },
-  "settingsPrivacySubtitle": "Read our privacy policy",
-  "@settingsPrivacySubtitle": {
-    "description": "Subtitle for the privacy policy settings section"
-  },
   "settingsSupportTitle": "Contact Support",
   "@settingsSupportTitle": {
     "description": "Title for the contact support settings section"
@@ -132,8 +124,6 @@
   "@systemTheme": {
     "description": "Label for the system theme option"
   },
-
-
   "languageTitle": "Language",
   "@languageTitle": {
     "description": "Title for the language settings section"
@@ -165,5 +155,71 @@
   "egypt": "Egypt",
   "@egypt": {
     "description": "Egypt country name"
+  },
+
+
+  "privacyTitle": "Privacy Policy",
+  "@privacyTitle": {
+    "description": "Title for the privacy policy settings section"
+  },
+  "privacySubtitle": "Read our privacy policy",
+  "@privacySubtitle": {
+    "description": "Subtitle for the privacy policy settings section"
+  },
+  "privacyPolicyCardTitle": "Your Privacy Matters",
+  "@privacyPolicyCardTitle": {
+    "description": "Title for the privacy policy card"
+  },
+  "privacyPolicyCardDescription": "We respect your privacy and are committed to protecting your data.",
+  "@privacyPolicyCardDescription": {
+    "description": "Description for the privacy policy card"
+  },
+  "privacyPolicyCard1Title": "Data We Collect",
+  "@privacyPolicyCard1Title": {
+    "description": "Title for the first privacy policy card"
+  },
+  "privacyPolicyCard1Description": "We do not collect personal data. Your expenses and categories are stored locally on your device.",
+  "@privacyPolicyCard1Description": {
+    "description": "Description for the first privacy policy card"
+  },
+  "privacyPolicyCard2Title": "Data Storage",
+  "@privacyPolicyCard2Title": {
+    "description": "Title for the second privacy policy card"
+  },
+  "privacyPolicyCard2Description": "Your data is stored only on your device and is not sent to any external server.",
+  "@privacyPolicyCard2Description": {
+    "description": "Description for the second privacy policy card"
+  },
+  "privacyPolicyCard3Title": "Data Sharing",
+  "@privacyPolicyCard3Title": {
+    "description": "Title for the third privacy policy card"
+  },
+  "privacyPolicyCard3Description": "We do not share your data with third parties or external services.",
+  "@privacyPolicyCard3Description": {
+    "description": "Description for the third privacy policy card"
+  },
+  "privacyPolicyCard4Title": "Data Security",
+  "@privacyPolicyCard4Title": {
+    "description": "Title for the fourth privacy policy card"
+  },
+  "privacyPolicyCard4Description": "Your data is stored locally on your device and protected by the app.",
+  "@privacyPolicyCard4Description": {
+    "description": "Description for the fourth privacy policy card"
+  },
+  "privacyPolicyCard5Title": "Data Deletion",
+  "@privacyPolicyCard5Title": {
+    "description": "Title for the fifth privacy policy card"
+  },
+  "privacyPolicyCard5Description": "You can delete your expenses and categories at any time from the app.",
+  "@privacyPolicyCard5Description": {
+    "description": "Description for the fifth privacy policy card"
+  },
+  "privacyPolicyCard6Title": "Privacy Policy Updates",
+  "@privacyPolicyCard6Title": {
+    "description": "Title for the sixth privacy policy card"
+  },
+  "privacyPolicyCard6Description": "We may update this policy from time to time. Important changes will be shown in the app.",
+  "@privacyPolicyCard6Description": {
+    "description": "Description for the sixth privacy policy card"
   }
 }

@@ -69,20 +69,60 @@ class MessageLookup extends MessageLookupByLibrary {
       "Full Control Over Your Money",
     ),
     "otherLanguages": MessageLookupByLibrary.simpleMessage("Other Languages :"),
+    "privacyPolicyCard1Description": MessageLookupByLibrary.simpleMessage(
+      "We do not collect personal data. Your expenses and categories are stored locally on your device.",
+    ),
+    "privacyPolicyCard1Title": MessageLookupByLibrary.simpleMessage(
+      "Data We Collect",
+    ),
+    "privacyPolicyCard2Description": MessageLookupByLibrary.simpleMessage(
+      "Your data is stored only on your device and is not sent to any external server.",
+    ),
+    "privacyPolicyCard2Title": MessageLookupByLibrary.simpleMessage(
+      "Data Storage",
+    ),
+    "privacyPolicyCard3Description": MessageLookupByLibrary.simpleMessage(
+      "We do not share your data with third parties or external services.",
+    ),
+    "privacyPolicyCard3Title": MessageLookupByLibrary.simpleMessage(
+      "Data Sharing",
+    ),
+    "privacyPolicyCard4Description": MessageLookupByLibrary.simpleMessage(
+      "Your data is stored locally on your device and protected by the app.",
+    ),
+    "privacyPolicyCard4Title": MessageLookupByLibrary.simpleMessage(
+      "Data Security",
+    ),
+    "privacyPolicyCard5Description": MessageLookupByLibrary.simpleMessage(
+      "You can delete your expenses and categories at any time from the app.",
+    ),
+    "privacyPolicyCard5Title": MessageLookupByLibrary.simpleMessage(
+      "Data Deletion",
+    ),
+    "privacyPolicyCard6Description": MessageLookupByLibrary.simpleMessage(
+      "We may update this policy from time to time. Important changes will be shown in the app.",
+    ),
+    "privacyPolicyCard6Title": MessageLookupByLibrary.simpleMessage(
+      "Privacy Policy Updates",
+    ),
+    "privacyPolicyCardDescription": MessageLookupByLibrary.simpleMessage(
+      "We respect your privacy and are committed to protecting your data.",
+    ),
+    "privacyPolicyCardTitle": MessageLookupByLibrary.simpleMessage(
+      "Your Privacy Matters",
+    ),
+    "privacySubtitle": MessageLookupByLibrary.simpleMessage(
+      "Read our privacy policy",
+    ),
+    "privacyTitle": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),
     "settingsNotificationsTitle": MessageLookupByLibrary.simpleMessage(
       "Notifications",
     ),
-    "settingsPrivacySubtitle": MessageLookupByLibrary.simpleMessage(
-      "Read our privacy policy",
-    ),
     "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
       "🔒 Privacy & Support",
-    ),
-    "settingsPrivacyTitle": MessageLookupByLibrary.simpleMessage(
-      " Privacy Policy",
     ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your preferences",
