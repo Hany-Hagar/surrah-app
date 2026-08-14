@@ -18,9 +18,9 @@ class ContactSupportBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SupportCard(
-          title: s.contactSupportHeaderTitle,
           imagePath: Assets.contactSupport,
-          backgroundColor: Colors.blue.shade50,
+          title: s.contactSupportHeaderTitle,
+          backgroundColor: Colors.blue.withAlpha(30),
           description: s.contactSupportHeaderDescription,
         ),
         CustomText(
@@ -76,9 +76,9 @@ class ContactSupportBody extends StatelessWidget {
         SupportCard(
           imagePath: Assets.contactSupport,
           title: s.contactSupportFooterTitle,
-          backgroundColor: const Color(0xFFF0F6FF),
           description: s.contactSupportFooterDescription,
           trailingImagePath: Assets.twentyFourHourSupport,
+          backgroundColor: Colors.blue.withAlpha(30),
         ),
         SizedBox(height: 12.h),
       ],

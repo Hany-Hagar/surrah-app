@@ -92,11 +92,12 @@ class _SubTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isArabic = Localizations.localeOf(context).languageCode == 'ar';
     return CustomText(
       text: subtitle ?? "",
       size: 15.sp,
-      height: 1,
       type: Type.overMedium,
+      height: isArabic ? 1.2 : 1.3,
       opacity: FontOpacity.medium,
     );
   }

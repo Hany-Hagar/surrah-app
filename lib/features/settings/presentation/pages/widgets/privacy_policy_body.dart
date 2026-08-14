@@ -18,8 +18,8 @@ class PrivacyPolicyBody extends StatelessWidget {
         SupportCard(
           imagePath: Assets.privacyPolicy,
           title: s.privacyPolicyCardTitle,
-          backgroundColor: Colors.blue.shade50,
           description: s.privacyPolicyCardDescription, 
+          backgroundColor: Colors.blue.withAlpha(30),
         ),
         _PrivacyCard(
           color: const Color(0xFF22A06B), // Data

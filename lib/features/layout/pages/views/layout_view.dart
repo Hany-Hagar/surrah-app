@@ -1,65 +1,32 @@
 import '../widgets/layout_body.dart';
-import '../../../../const/assets.dart';
 import 'package:flutter/material.dart';
 import '../../../../generated/l10n.dart';
 import '../../managers/layout_cubit.dart';
 import '../../managers/layout_states.dart';
 import '../../../../core/utils/styles.dart';
-import '../../../../core/utils/nav_to.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../settings/presentation/pages/views/settings_view.dart';
 
 class LayoutView extends StatelessWidget {
   const LayoutView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var s = S.of(context);
     return Scaffold(
-      appBar: CustomAppBar(
-        leading: const _Leading(),
-        title: s.layoutAppBarTitle,
-        subtitle: s.layoutAppBarSubtitle,
-        trailingIcon: IconBroken.Setting,
-        onTrailingPressed: () => NavTo.push(
-          context: context,
-          nextPage: const SettingsView(),
-        ),
-      ),
       body: const LayoutBody(),
       bottomNavigationBar: const _BottomNavigatorBar(),
     );
   }
 }
 
-class _Leading extends StatelessWidget {
-  const _Leading();
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 45.w,
-      height: 50.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4.r),
-        image: const DecorationImage(
-          image: AssetImage(Assets.appLogo),
-          fit: BoxFit.fill,
-        ),
-      ),
-    );
-  }
-}
 
 class _BottomNavigatorBar extends StatelessWidget {
   const _BottomNavigatorBar();
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
-    var theme = Theme.of(context);
     return BlocBuilder<LayoutCubit, LayoutStates>(
       builder: (context, state) {
         var cubit = LayoutCubit.get(context);
@@ -68,8 +35,6 @@ class _BottomNavigatorBar extends StatelessWidget {
           showSelectedLabels: true,
           currentIndex: cubit.currentIndex,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: theme.primaryColor,
-          unselectedItemColor: theme.disabledColor,
           onTap: (value) => cubit.changeBottomNavBarIndex(value),
           selectedLabelStyle: Styles.textStyle800.copyWith(fontSize: 14.sp),
           unselectedLabelStyle: Styles.textStyle700.copyWith(fontSize: 12.sp),

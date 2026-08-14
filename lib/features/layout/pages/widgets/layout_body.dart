@@ -5,6 +5,7 @@ import '../../managers/layout_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../home/presentation/pages/views/home_view.dart';
 
 class LayoutBody extends StatelessWidget {
   const LayoutBody({super.key});
@@ -19,7 +20,7 @@ class LayoutBody extends StatelessWidget {
           controller: cubit.pageController,
           onPageChanged: (value) => cubit.changeBottomNavBarIndex(value),
           children: [
-            CustomText(text: s.home, size: 16.sp, opacity: FontOpacity.high),
+            HomeView(),
             CustomText(
               text: s.transactions,
               size: 16.sp,
