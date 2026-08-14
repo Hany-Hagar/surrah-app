@@ -16,14 +16,14 @@ class HomeView extends StatelessWidget {
     var s = S.of(context);
     return Scaffold(
       appBar: CustomAppBar(
+        title: s.homeTitle,
+        subtitle: s.homeSubtitle,
         leading: const _Leading(),
-        title: s.layoutAppBarTitle,
-        subtitle: s.layoutAppBarSubtitle,
         trailingIcon: IconBroken.Setting,
         onTrailingPressed: () =>
             NavTo.push(context: context, nextPage: const SettingsView()),
       ),
-      body: const HomeBody(),
+      body: Padding(padding: EdgeInsets.all(12.w), child: HomeBody()),
     );
   }
 }

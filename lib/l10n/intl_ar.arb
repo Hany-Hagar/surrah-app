@@ -48,21 +48,39 @@
   },
 
 
-  "layoutAppBarTitle": "مرحبًا بك في صُرّة",
-  "@layoutAppBarTitle": {
-    "description": "Title for the app bar in the layout view"
+  "transactions": "العمليات",
+  "@transactions": {
+    "description": "Label for the transactions button"
   },
-  "layoutAppBarSubtitle": "مرشدك الشخصي في إدارة الموارد المالية",
-  "@layoutAppBarSubtitle": {
-    "description": "Subtitle for the app bar in the layout view"
-  },
+
+
   "home": "الرئيسية",
   "@home": {
     "description": "Label for the home button"
   },
-  "transactions": "العمليات",
-  "@transactions": {
-    "description": "Label for the transactions button"
+  "homeTitle": "مرحبًا بك في صُرّة",
+  "@homeTitle": {
+    "description": "Title for the home button"
+  },
+  "homeSubtitle": "مرشدك الشخصي في إدارة الموارد المالية",
+  "@homeSubtitle": {
+    "description": "Subtitle for the home button"
+  },
+  "quickActions": "الإجراءات السريعة",
+  "@quickActions": {
+    "description": "Label for the quick actions section"
+  },
+  "addIncome": "إضافة دخل",
+  "@addIncome": {
+    "description": "Label for the add income button"
+  },
+  "addExpense": "إضافة مصروف",
+  "@addExpense": {
+    "description": "Label for the add expense button"
+  },
+  "addCategory": "إضافة تصنيف",
+  "@addCategory": {
+    "description": "Label for the add category button"
   },
 
 
@@ -116,6 +134,8 @@
   "@systemTheme": {
     "description": "Label for the system theme option"
   },
+
+
   "languageTitle": "اللغة",
   "@languageTitle": {
     "description": "Title for the language settings section"

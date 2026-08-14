@@ -48,21 +48,39 @@
   },
 
 
-  "layoutAppBarTitle": "Welcome to Surrah",
-  "@layoutAppBarTitle": {
-    "description": "Title for the app bar in the layout view"
+  "transactions": "Transactions",
+  "@transactions": {
+    "description": "Label for the transactions button"
   },
-  "layoutAppBarSubtitle": "Your Personal Finance Companion",
-  "@layoutAppBarSubtitle": {
-    "description": "Subtitle for the app bar in the layout view"
-  },
+
+
   "home": "Home",
   "@home": {
     "description": "Label for the home button"
   },
-  "transactions": "Transactions",
-  "@transactions": {
-    "description": "Label for the transactions button"
+  "homeTitle": "Welcome to Surrah",
+  "@homeTitle": {
+    "description": "Title for the home button"
+  },
+  "homeSubtitle": "Your Personal Finance Companion",
+  "@homeSubtitle": {
+    "description": "Subtitle for the home button"
+  },
+  "quickActions": "Quick Actions",
+  "@quickActions": {
+    "description": "Label for the quick actions section"
+  },
+  "addIncome": "Add Income",
+  "@addIncome": {
+    "description": "Label for the add income button"
+  },
+  "addExpense": "Add Expense",
+  "@addExpense": {
+    "description": "Label for the add expense button"
+  },
+  "addCategory": "Add Category",
+  "@addCategory": {
+    "description": "Label for the add category button"
   },
 
 
@@ -116,6 +134,8 @@
   "@systemTheme": {
     "description": "Label for the system theme option"
   },
+
+
   "languageTitle": "Language",
   "@languageTitle": {
     "description": "Title for the language settings section"

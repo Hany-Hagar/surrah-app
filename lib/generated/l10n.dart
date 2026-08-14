@@ -164,22 +164,12 @@ class S {
     );
   }
 
-  /// `Welcome to Surrah`
-  String get layoutAppBarTitle {
+  /// `Transactions`
+  String get transactions {
     return Intl.message(
-      'Welcome to Surrah',
-      name: 'layoutAppBarTitle',
-      desc: 'Title for the app bar in the layout view',
-      args: [],
-    );
-  }
-
-  /// `Your Personal Finance Companion`
-  String get layoutAppBarSubtitle {
-    return Intl.message(
-      'Your Personal Finance Companion',
-      name: 'layoutAppBarSubtitle',
-      desc: 'Subtitle for the app bar in the layout view',
+      'Transactions',
+      name: 'transactions',
+      desc: 'Label for the transactions button',
       args: [],
     );
   }
@@ -194,12 +184,62 @@ class S {
     );
   }
 
-  /// `Transactions`
-  String get transactions {
+  /// `Welcome to Surrah`
+  String get homeTitle {
     return Intl.message(
-      'Transactions',
-      name: 'transactions',
-      desc: 'Label for the transactions button',
+      'Welcome to Surrah',
+      name: 'homeTitle',
+      desc: 'Title for the home button',
+      args: [],
+    );
+  }
+
+  /// `Your Personal Finance Companion`
+  String get homeSubtitle {
+    return Intl.message(
+      'Your Personal Finance Companion',
+      name: 'homeSubtitle',
+      desc: 'Subtitle for the home button',
+      args: [],
+    );
+  }
+
+  /// `Quick Actions`
+  String get quickActions {
+    return Intl.message(
+      'Quick Actions',
+      name: 'quickActions',
+      desc: 'Label for the quick actions section',
+      args: [],
+    );
+  }
+
+  /// `Add Income`
+  String get addIncome {
+    return Intl.message(
+      'Add Income',
+      name: 'addIncome',
+      desc: 'Label for the add income button',
+      args: [],
+    );
+  }
+
+  /// `Add Expense`
+  String get addExpense {
+    return Intl.message(
+      'Add Expense',
+      name: 'addExpense',
+      desc: 'Label for the add expense button',
+      args: [],
+    );
+  }
+
+  /// `Add Category`
+  String get addCategory {
+    return Intl.message(
+      'Add Category',
+      name: 'addCategory',
+      desc: 'Label for the add category button',
       args: [],
     );
   }

@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addCategory": MessageLookupByLibrary.simpleMessage("إضافة تصنيف"),
+    "addExpense": MessageLookupByLibrary.simpleMessage("إضافة مصروف"),
+    "addIncome": MessageLookupByLibrary.simpleMessage("إضافة دخل"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
       "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
@@ -93,16 +96,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "homeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "مرشدك الشخصي في إدارة الموارد المالية",
+    ),
+    "homeTitle": MessageLookupByLibrary.simpleMessage("مرحبًا بك في صُرّة"),
     "languageSubtitle": MessageLookupByLibrary.simpleMessage(
       "تغيير لغة التطبيق",
     ),
     "languageTitle": MessageLookupByLibrary.simpleMessage("اللغة"),
-    "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
-      "مرشدك الشخصي في إدارة الموارد المالية",
-    ),
-    "layoutAppBarTitle": MessageLookupByLibrary.simpleMessage(
-      "مرحبًا بك في صُرّة",
-    ),
     "lightTheme": MessageLookupByLibrary.simpleMessage("فاتح"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
@@ -174,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "اقرأ سياسة الخصوصية الخاصة بنا",
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("الإجراءات السريعة"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),

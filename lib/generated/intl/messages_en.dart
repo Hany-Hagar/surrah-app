@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addCategory": MessageLookupByLibrary.simpleMessage("Add Category"),
+    "addExpense": MessageLookupByLibrary.simpleMessage("Add Expense"),
+    "addIncome": MessageLookupByLibrary.simpleMessage("Add Income"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
       "Reach out by email and we\'ll be happy to help.",
@@ -95,16 +98,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "homeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Your Personal Finance Companion",
+    ),
+    "homeTitle": MessageLookupByLibrary.simpleMessage("Welcome to Surrah"),
     "languageSubtitle": MessageLookupByLibrary.simpleMessage(
       "Change the app language",
     ),
     "languageTitle": MessageLookupByLibrary.simpleMessage("Language"),
-    "layoutAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Your Personal Finance Companion",
-    ),
-    "layoutAppBarTitle": MessageLookupByLibrary.simpleMessage(
-      "Welcome to Surrah",
-    ),
     "lightTheme": MessageLookupByLibrary.simpleMessage("Light"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
@@ -178,6 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Read our privacy policy",
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("Quick Actions"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),
