@@ -274,6 +274,16 @@ class S {
     );
   }
 
+  /// `Last Transactions`
+  String get lastTransactions {
+    return Intl.message(
+      'Last Transactions',
+      name: 'lastTransactions',
+      desc: 'Label for the last transactions section',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settingsTitle {
     return Intl.message(

@@ -1,5 +1,6 @@
 import 'home_card.dart';
 import 'home_quick_actions.dart';
+import 'home_last_transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,6 +14,7 @@ class HomeBody extends StatelessWidget {
       children: [
         HomeCard(),
         HomeQuickActions(),
+        HomeLastTransactions(),
       ],
     );
   }

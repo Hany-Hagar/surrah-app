@@ -109,6 +109,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Change the app language",
     ),
     "languageTitle": MessageLookupByLibrary.simpleMessage("Language"),
+    "lastTransactions": MessageLookupByLibrary.simpleMessage(
+      "Last Transactions",
+    ),
     "lightTheme": MessageLookupByLibrary.simpleMessage("Light"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(

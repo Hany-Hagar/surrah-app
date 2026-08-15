@@ -94,6 +94,10 @@
   "@addCategory": {
     "description": "Label for the add category button"
   },
+  "lastTransactions": "آخر العمليات",
+  "@lastTransactions": {
+    "description": "Label for the last transactions section"
+  },
 
 
   "settingsTitle": "الإعدادات",
