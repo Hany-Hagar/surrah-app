@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class HomeQuickActions extends StatelessWidget {
   const HomeQuickActions({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
-          text: "الاجراءات السريعة",
+          text: s.quickActions,
           size: 18.sp,
           type: Type.overMedium,
         ),
@@ -22,19 +25,19 @@ class HomeQuickActions extends StatelessWidget {
           children: [
             _Item(
               color: Colors.green,
-              title: "إضافة دخل",
+              title: s.addIncome,
               icon: IconBroken.Wallet,
               onPressed: () {},
             ),
             _Item(
               color: Colors.red,
-              title: "إضافة مصروف",
+              title: s.addExpense,
               icon: IconBroken.Send,
               onPressed: () {},
             ),
             _Item(
               color: Colors.orange,
-              title: "إضافة تصنيف",
+              title: s.addCategory,
               icon: IconBroken.Category,
               onPressed: () {},
             ),

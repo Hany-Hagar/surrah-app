@@ -89,12 +89,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactSupportWhatsAppTitle": MessageLookupByLibrary.simpleMessage(
       "WhatsApp Support",
     ),
+    "currentBalance": MessageLookupByLibrary.simpleMessage("Current Balance"),
     "currentLanguage": MessageLookupByLibrary.simpleMessage(
       "Current Language :",
     ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "expense": MessageLookupByLibrary.simpleMessage("Expense"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -102,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Your Personal Finance Companion",
     ),
     "homeTitle": MessageLookupByLibrary.simpleMessage("Welcome to Surrah"),
+    "icome": MessageLookupByLibrary.simpleMessage("Income"),
     "languageSubtitle": MessageLookupByLibrary.simpleMessage(
       "Change the app language",
     ),

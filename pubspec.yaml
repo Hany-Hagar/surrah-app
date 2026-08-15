@@ -35,6 +35,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # UI
+  fl_chart: ^1.2.0
   flutter_svg: ^2.3.0
   icon_broken: ^1.1.0
   country_flags: ^4.1.2

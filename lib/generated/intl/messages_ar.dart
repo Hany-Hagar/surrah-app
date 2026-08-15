@@ -89,10 +89,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactSupportWhatsAppTitle": MessageLookupByLibrary.simpleMessage(
       "الدعم عبر واتساب",
     ),
+    "currentBalance": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
     "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "expense": MessageLookupByLibrary.simpleMessage("المصروف"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
@@ -100,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "مرشدك الشخصي في إدارة الموارد المالية",
     ),
     "homeTitle": MessageLookupByLibrary.simpleMessage("مرحبًا بك في صُرّة"),
+    "icome": MessageLookupByLibrary.simpleMessage("الدخل"),
     "languageSubtitle": MessageLookupByLibrary.simpleMessage(
       "تغيير لغة التطبيق",
     ),

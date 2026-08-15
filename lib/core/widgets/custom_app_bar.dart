@@ -55,7 +55,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(subtitle == null ? 64.h : 72.h);
+  Size get preferredSize => Size.fromHeight(subtitle == null ? 64.h : 77.h);
 }
 
 class _Body extends StatelessWidget {
@@ -92,12 +92,10 @@ class _SubTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isArabic = Localizations.localeOf(context).languageCode == 'ar';
     return CustomText(
       text: subtitle ?? "",
       size: 15.sp,
       type: Type.overMedium,
-      height: isArabic ? 1.2 : 1.3,
       opacity: FontOpacity.medium,
     );
   }

@@ -66,6 +66,18 @@
   "@homeSubtitle": {
     "description": "Subtitle for the home button"
   },
+  "currentBalance": "الرصيد الحالي",
+  "@currentBalance": {
+    "description": "Label for the current balance section"
+  },
+  "icome": "الدخل",
+  "@icome": {
+    "description": "Label for the income section"
+  },
+  "expense": "المصروف",
+  "@expense": {
+    "description": "Label for the expenses section"
+  },
   "quickActions": "الإجراءات السريعة",
   "@quickActions": {
     "description": "Label for the quick actions section"

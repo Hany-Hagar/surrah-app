@@ -66,6 +66,18 @@
   "@homeSubtitle": {
     "description": "Subtitle for the home button"
   },
+  "currentBalance": "Current Balance",
+  "@currentBalance": {
+    "description": "Label for the current balance section"
+  },
+  "icome": "Income",
+  "@icome": {
+    "description": "Label for the income section"
+  },
+  "expense": "Expense",
+  "@expense": {
+    "description": "Label for the expenses section"
+  },
   "quickActions": "Quick Actions",
   "@quickActions": {
     "description": "Label for the quick actions section"

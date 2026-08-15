@@ -204,6 +204,36 @@ class S {
     );
   }
 
+  /// `Current Balance`
+  String get currentBalance {
+    return Intl.message(
+      'Current Balance',
+      name: 'currentBalance',
+      desc: 'Label for the current balance section',
+      args: [],
+    );
+  }
+
+  /// `Income`
+  String get icome {
+    return Intl.message(
+      'Income',
+      name: 'icome',
+      desc: 'Label for the income section',
+      args: [],
+    );
+  }
+
+  /// `Expense`
+  String get expense {
+    return Intl.message(
+      'Expense',
+      name: 'expense',
+      desc: 'Label for the expenses section',
+      args: [],
+    );
+  }
+
   /// `Quick Actions`
   String get quickActions {
     return Intl.message(
