@@ -41,6 +41,7 @@ dependencies:
   country_flags: ^4.1.2
   flutter_screenutil: ^5.9.3
   smooth_page_indicator: ^2.0.1
+  font_awesome_flutter: ^11.0.0
 
   # State Management & Dependency Injection
   get_it: ^9.2.1
