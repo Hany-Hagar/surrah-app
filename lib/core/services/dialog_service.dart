@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DialogService {
-  static Future<void> showCustomDialog({
+  static Future<T?> showCustomDialog<T>({
     required BuildContext context,
     required Widget body,
-  }) async {
-    await showDialog(
+  }) {
+    return showDialog<T>(
       context: context,
       builder: (context) => Dialog(
         insetPadding:  EdgeInsets.symmetric(horizontal: 12.h),
@@ -17,6 +17,5 @@ class DialogService {
         ),
       ),
     );
-    // Implement your dialog logic here
   }
 }

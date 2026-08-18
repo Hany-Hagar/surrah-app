@@ -2,7 +2,7 @@ import '../models/app_icon_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-final List<AppIcon> allIcons = [
+final List<AppIcon> iconsData = [
   ...homeIcons,
   ...foodIcons,
   ...transportationIcons,
