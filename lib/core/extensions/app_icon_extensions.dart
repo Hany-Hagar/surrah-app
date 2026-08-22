@@ -1,7 +1,7 @@
-import '../../features/iconPicker/data/models/app_icon_model.dart';
+import '../../features/iconPicker/data/models/icon_model.dart';
 
-extension AppIconSearch on List<AppIcon> {
-  List<AppIcon> search(String query) {
+extension AppIconSearch on List<IconModel> {
+  List<IconModel> search(String query) {
     final normalizedQuery = query.trim().toLowerCase();
 
     if (normalizedQuery.isEmpty) {

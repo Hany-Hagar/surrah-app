@@ -1,8 +1,7 @@
-import '../models/app_icon_model.dart';
+import '../models/icon_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-final List<AppIcon> iconsData = [
+final List<IconModel> iconsData = [
   ...homeIcons,
   ...foodIcons,
   ...transportationIcons,
@@ -16,132 +15,241 @@ final List<AppIcon> iconsData = [
   ...technologyIcons,
 ];
 
-
-final List<AppIcon> homeIcons = [
-  AppIcon(
+final List<IconModel> homeIcons = [
+  IconModel(
     id: 'home',
     icon: FontAwesomeIcons.house,
     keywords: [
-      'منزل', 'بيت', 'سكن', 'شقة', 'المنزل', 'البيت',
-      'home', 'house', 'housing', 'apartment',
+      'منزل',
+      'بيت',
+      'سكن',
+      'شقة',
+      'المنزل',
+      'البيت',
+      'home',
+      'house',
+      'housing',
+      'apartment',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'building',
     icon: FontAwesomeIcons.building,
     keywords: [
-      'مبنى', 'عمارة', 'بناية', 'شركة', 'مكتب',
-      'building', 'apartment', 'office', 'company',
+      'مبنى',
+      'عمارة',
+      'بناية',
+      'شركة',
+      'مكتب',
+      'building',
+      'apartment',
+      'office',
+      'company',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'bedroom',
     icon: FontAwesomeIcons.bed,
     keywords: [
-      'غرفة نوم', 'غرفة', 'نوم', 'سرير', 'حجرة',
-      'bedroom', 'bed', 'sleep', 'room',
+      'غرفة نوم',
+      'غرفة',
+      'نوم',
+      'سرير',
+      'حجرة',
+      'bedroom',
+      'bed',
+      'sleep',
+      'room',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'sofa',
     icon: FontAwesomeIcons.couch,
     keywords: [
-      'كنبة', 'أريكة', 'صالون', 'انتريه', 'مجلس',
-      'sofa', 'couch', 'living room', 'lounge',
+      'كنبة',
+      'أريكة',
+      'صالون',
+      'انتريه',
+      'مجلس',
+      'sofa',
+      'couch',
+      'living room',
+      'lounge',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'shower',
     icon: FontAwesomeIcons.shower,
     keywords: [
-      'دش', 'استحمام', 'حمام', 'مياه', 'نظافة',
-      'shower', 'bath', 'bathroom', 'water', 'hygiene',
+      'دش',
+      'استحمام',
+      'حمام',
+      'مياه',
+      'نظافة',
+      'shower',
+      'bath',
+      'bathroom',
+      'water',
+      'hygiene',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'lightbulb',
     icon: FontAwesomeIcons.lightbulb,
     keywords: [
-      'لمبة', 'مصباح', 'إضاءة', 'نور', 'إنارة',
-      'lightbulb', 'light', 'lamp', 'lighting',
+      'لمبة',
+      'مصباح',
+      'إضاءة',
+      'نور',
+      'إنارة',
+      'lightbulb',
+      'light',
+      'lamp',
+      'lighting',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'electricity',
     icon: FontAwesomeIcons.bolt,
     keywords: [
-      'كهرباء', 'كهربا', 'طاقة', 'تيار', 'فاتورة كهرباء',
-      'electricity', 'electric', 'power', 'energy', 'electricity bill',
+      'كهرباء',
+      'كهربا',
+      'طاقة',
+      'تيار',
+      'فاتورة كهرباء',
+      'electricity',
+      'electric',
+      'power',
+      'energy',
+      'electricity bill',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'water',
     icon: FontAwesomeIcons.droplet,
     keywords: [
-      'مياه', 'ماء', 'مياة', 'مياه الشرب', 'فاتورة مياه',
-      'water', 'drinking water', 'water bill', 'utility',
+      'مياه',
+      'ماء',
+      'مياة',
+      'مياه الشرب',
+      'فاتورة مياه',
+      'water',
+      'drinking water',
+      'water bill',
+      'utility',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'gas',
     icon: FontAwesomeIcons.fire,
     keywords: [
-      'غاز', 'غاز طبيعي', 'بوتاجاز', 'اسطوانة', 'فاتورة غاز',
-      'gas', 'natural gas', 'cooking gas', 'gas bill',
+      'غاز',
+      'غاز طبيعي',
+      'بوتاجاز',
+      'اسطوانة',
+      'فاتورة غاز',
+      'gas',
+      'natural gas',
+      'cooking gas',
+      'gas bill',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'cleaning',
     icon: FontAwesomeIcons.broom,
     keywords: [
-      'تنظيف', 'نظافة', 'تنضيف', 'مكنسة', 'منظفات',
-      'cleaning', 'clean', 'broom', 'detergent', 'house cleaning',
+      'تنظيف',
+      'نظافة',
+      'تنضيف',
+      'مكنسة',
+      'منظفات',
+      'cleaning',
+      'clean',
+      'broom',
+      'detergent',
+      'house cleaning',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'laundry',
     icon: FontAwesomeIcons.jugDetergent,
     keywords: [
-      'غسيل', 'غسيل ملابس', 'ملابس', 'غسالة', 'مغسلة',
-      'laundry', 'washing', 'clothes', 'washing machine',
+      'غسيل',
+      'غسيل ملابس',
+      'ملابس',
+      'غسالة',
+      'مغسلة',
+      'laundry',
+      'washing',
+      'clothes',
+      'washing machine',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'tools',
     icon: FontAwesomeIcons.screwdriverWrench,
     keywords: [
-      'أدوات', 'عدة', 'تصليح', 'صيانة', 'إصلاح',
-      'tools', 'repair', 'maintenance', 'fix',
+      'أدوات',
+      'عدة',
+      'تصليح',
+      'صيانة',
+      'إصلاح',
+      'tools',
+      'repair',
+      'maintenance',
+      'fix',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'furniture',
     icon: FontAwesomeIcons.chair,
     keywords: [
-      'أثاث', 'فرش', 'مفروشات', 'كرسي', 'أثاث المنزل',
-      'furniture', 'chair', 'home furniture', 'furnishing',
+      'أثاث',
+      'فرش',
+      'مفروشات',
+      'كرسي',
+      'أثاث المنزل',
+      'furniture',
+      'chair',
+      'home furniture',
+      'furnishing',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'renovation',
     icon: FontAwesomeIcons.trowelBricks,
     keywords: [
-      'ترميم', 'تجديد', 'تشطيب', 'بناء', 'مقاولات',
-      'renovation', 'construction', 'remodeling', 'building',
+      'ترميم',
+      'تجديد',
+      'تشطيب',
+      'بناء',
+      'مقاولات',
+      'renovation',
+      'construction',
+      'remodeling',
+      'building',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'key',
     icon: FontAwesomeIcons.key,
     keywords: [
-      'مفتاح', 'مفاتيح', 'شقة', 'منزل', 'إيجار',
-      'key', 'keys', 'house', 'apartment', 'rent',
+      'مفتاح',
+      'مفاتيح',
+      'شقة',
+      'منزل',
+      'إيجار',
+      'key',
+      'keys',
+      'house',
+      'apartment',
+      'rent',
     ],
   ),
 ];
 
-final List<AppIcon> foodIcons = [
-  AppIcon(
+final List<IconModel> foodIcons = [
+  IconModel(
     id: 'burger',
     icon: FontAwesomeIcons.burger,
     keywords: [
@@ -155,12 +263,12 @@ final List<AppIcon> foodIcons = [
       'fast food',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'pizza',
     icon: FontAwesomeIcons.pizzaSlice,
     keywords: ['بيتزا', 'بيتسا', 'طعام', 'وجبة', 'pizza', 'food', 'meal'],
   ),
-  AppIcon(
+  IconModel(
     id: 'food',
     icon: FontAwesomeIcons.utensils,
     keywords: [
@@ -176,7 +284,7 @@ final List<AppIcon> foodIcons = [
       'restaurant',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'noodles',
     icon: FontAwesomeIcons.bowlFood,
     keywords: [
@@ -189,7 +297,7 @@ final List<AppIcon> foodIcons = [
       'instant noodles',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'meal',
     icon: FontAwesomeIcons.plateWheat,
     keywords: [
@@ -205,7 +313,7 @@ final List<AppIcon> foodIcons = [
       'dinner',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'salad',
     keywords: [
       'سلطة',
@@ -219,7 +327,7 @@ final List<AppIcon> foodIcons = [
     ],
     icon: FontAwesomeIcons.bowlFood,
   ),
-  AppIcon(
+  IconModel(
     id: 'coffee',
     icon: FontAwesomeIcons.mugSaucer,
     keywords: [
@@ -235,7 +343,7 @@ final List<AppIcon> foodIcons = [
       'hot drink',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'drink',
     icon: FontAwesomeIcons.glassWater,
     keywords: [
@@ -251,7 +359,7 @@ final List<AppIcon> foodIcons = [
       'beverage',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'cake',
     icon: FontAwesomeIcons.cakeCandles,
     keywords: [
@@ -266,7 +374,7 @@ final List<AppIcon> foodIcons = [
       'pastry',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'fruit',
     icon: FontAwesomeIcons.appleWhole,
     keywords: [
@@ -281,7 +389,7 @@ final List<AppIcon> foodIcons = [
       'healthy food',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'grocery',
     icon: FontAwesomeIcons.cartShopping,
     keywords: [
@@ -297,7 +405,7 @@ final List<AppIcon> foodIcons = [
       'food supplies',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'meat',
     icon: FontAwesomeIcons.drumstickBite,
     keywords: [
@@ -312,7 +420,7 @@ final List<AppIcon> foodIcons = [
       'meat products',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'bakery',
     icon: FontAwesomeIcons.breadSlice,
     keywords: [
@@ -327,7 +435,7 @@ final List<AppIcon> foodIcons = [
       'bakery shop',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'breakfast',
     icon: FontAwesomeIcons.egg,
     keywords: [
@@ -342,7 +450,7 @@ final List<AppIcon> foodIcons = [
       'morning food',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'restaurant',
     icon: FontAwesomeIcons.utensils,
     keywords: [
@@ -356,7 +464,7 @@ final List<AppIcon> foodIcons = [
       'eating out',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'chef',
     icon: FontAwesomeIcons.kitchenSet,
     keywords: [
@@ -374,8 +482,8 @@ final List<AppIcon> foodIcons = [
   ),
 ];
 
-final List<AppIcon> transportationIcons = [
-  AppIcon(
+final List<IconModel> transportationIcons = [
+  IconModel(
     id: 'car',
     icon: FontAwesomeIcons.car,
     keywords: [
@@ -388,12 +496,12 @@ final List<AppIcon> transportationIcons = [
       'automobile',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'taxi',
     icon: FontAwesomeIcons.taxi,
     keywords: ['تاكسي', 'أجرة', 'تاكسيات', 'taxi', 'cab', 'taxicab'],
   ),
-  AppIcon(
+  IconModel(
     id: 'bus',
     icon: FontAwesomeIcons.bus,
     keywords: [
@@ -406,7 +514,7 @@ final List<AppIcon> transportationIcons = [
       'transportation',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'train',
     icon: FontAwesomeIcons.train,
     keywords: [
@@ -419,7 +527,7 @@ final List<AppIcon> transportationIcons = [
       'rail',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'metro',
     icon: FontAwesomeIcons.trainSubway,
     keywords: [
@@ -432,7 +540,7 @@ final List<AppIcon> transportationIcons = [
       'underground',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'plane',
     icon: FontAwesomeIcons.plane,
     keywords: [
@@ -446,7 +554,7 @@ final List<AppIcon> transportationIcons = [
       'airport',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'ship',
     icon: FontAwesomeIcons.ship,
     keywords: [
@@ -460,7 +568,7 @@ final List<AppIcon> transportationIcons = [
       'sea',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'motorcycle',
     icon: FontAwesomeIcons.motorcycle,
     keywords: [
@@ -473,7 +581,7 @@ final List<AppIcon> transportationIcons = [
       'bike',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'bicycle',
     icon: FontAwesomeIcons.bicycle,
     keywords: [
@@ -486,7 +594,7 @@ final List<AppIcon> transportationIcons = [
       'cycling',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'gas_station',
     icon: FontAwesomeIcons.gasPump,
     keywords: [
@@ -501,7 +609,7 @@ final List<AppIcon> transportationIcons = [
       'gas',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'car_service',
     icon: FontAwesomeIcons.carBurst,
     keywords: [
@@ -517,7 +625,7 @@ final List<AppIcon> transportationIcons = [
       'workshop',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'parking',
     icon: FontAwesomeIcons.squareParking,
     keywords: [
@@ -531,7 +639,7 @@ final List<AppIcon> transportationIcons = [
       'car park',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'road',
     icon: FontAwesomeIcons.road,
     keywords: [
@@ -545,7 +653,7 @@ final List<AppIcon> transportationIcons = [
       'route',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'traffic',
     icon: FontAwesomeIcons.trafficLight,
     keywords: [
@@ -560,7 +668,7 @@ final List<AppIcon> transportationIcons = [
       'traffic light',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'navigation',
     icon: FontAwesomeIcons.locationArrow,
     keywords: [
@@ -578,8 +686,8 @@ final List<AppIcon> transportationIcons = [
   ),
 ];
 
-final List<AppIcon> shoppingIcons = [
-  AppIcon(
+final List<IconModel> shoppingIcons = [
+  IconModel(
     id: 'shopping',
     icon: FontAwesomeIcons.bagShopping,
     keywords: [
@@ -595,7 +703,7 @@ final List<AppIcon> shoppingIcons = [
       'store',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'cart',
     icon: FontAwesomeIcons.cartShopping,
     keywords: [
@@ -610,7 +718,7 @@ final List<AppIcon> shoppingIcons = [
       'shopping basket',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'clothes',
     icon: FontAwesomeIcons.shirt,
     keywords: [
@@ -626,7 +734,7 @@ final List<AppIcon> shoppingIcons = [
       'wear',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'shoes',
     icon: FontAwesomeIcons.shoePrints,
     keywords: [
@@ -641,7 +749,7 @@ final List<AppIcon> shoppingIcons = [
       'boots',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'bag',
     icon: FontAwesomeIcons.bagShopping,
     keywords: [
@@ -656,7 +764,7 @@ final List<AppIcon> shoppingIcons = [
       'luggage',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'jewelry',
     icon: FontAwesomeIcons.gem,
     keywords: [
@@ -673,7 +781,7 @@ final List<AppIcon> shoppingIcons = [
       'accessories',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'watch',
     icon: FontAwesomeIcons.clock,
     keywords: [
@@ -687,7 +795,7 @@ final List<AppIcon> shoppingIcons = [
       'watches',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'phone',
     icon: FontAwesomeIcons.mobileScreen,
     keywords: [
@@ -702,7 +810,7 @@ final List<AppIcon> shoppingIcons = [
       'cellphone',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'laptop',
     icon: FontAwesomeIcons.laptop,
     keywords: [
@@ -717,7 +825,7 @@ final List<AppIcon> shoppingIcons = [
       'pc',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'headphones',
     icon: FontAwesomeIcons.headphones,
     keywords: [
@@ -731,7 +839,7 @@ final List<AppIcon> shoppingIcons = [
       'earbuds',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'tv',
     icon: FontAwesomeIcons.tv,
     keywords: [
@@ -746,7 +854,7 @@ final List<AppIcon> shoppingIcons = [
       'smart tv',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'gaming',
     icon: FontAwesomeIcons.gamepad,
     keywords: [
@@ -762,7 +870,7 @@ final List<AppIcon> shoppingIcons = [
       'video games',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'toys',
     icon: FontAwesomeIcons.chess,
     keywords: [
@@ -777,7 +885,7 @@ final List<AppIcon> shoppingIcons = [
       'teddy bear',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'gift',
     icon: FontAwesomeIcons.gift,
     keywords: [
@@ -794,8 +902,8 @@ final List<AppIcon> shoppingIcons = [
   ),
 ];
 
-final List<AppIcon> healthIcons = [
-  AppIcon(
+final List<IconModel> healthIcons = [
+  IconModel(
     id: 'hospital',
     icon: FontAwesomeIcons.hospital,
     keywords: [
@@ -808,7 +916,7 @@ final List<AppIcon> healthIcons = [
       'health center',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'medicine',
     icon: FontAwesomeIcons.pills,
     keywords: [
@@ -823,7 +931,7 @@ final List<AppIcon> healthIcons = [
       'treatment',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'doctor',
     icon: FontAwesomeIcons.stethoscope,
     keywords: [
@@ -837,7 +945,7 @@ final List<AppIcon> healthIcons = [
       'checkup',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'dentist',
     icon: FontAwesomeIcons.tooth,
     keywords: [
@@ -851,7 +959,7 @@ final List<AppIcon> healthIcons = [
       'tooth',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'health',
     icon: FontAwesomeIcons.heartPulse,
     keywords: [
@@ -865,7 +973,7 @@ final List<AppIcon> healthIcons = [
       'wellness',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'mental_health',
     icon: FontAwesomeIcons.brain,
     keywords: [
@@ -880,7 +988,7 @@ final List<AppIcon> healthIcons = [
       'mental',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'glasses',
     icon: FontAwesomeIcons.glasses,
     keywords: [
@@ -895,7 +1003,7 @@ final List<AppIcon> healthIcons = [
       'eyes',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'gym',
     icon: FontAwesomeIcons.dumbbell,
     keywords: [
@@ -911,7 +1019,7 @@ final List<AppIcon> healthIcons = [
       'bodybuilding',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'fitness',
     icon: FontAwesomeIcons.personRunning,
     keywords: [
@@ -927,7 +1035,7 @@ final List<AppIcon> healthIcons = [
       'sport',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'pharmacy',
     icon: FontAwesomeIcons.prescriptionBottleMedical,
     keywords: [
@@ -942,7 +1050,7 @@ final List<AppIcon> healthIcons = [
       'medication',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'first_aid',
     icon: FontAwesomeIcons.kitMedical,
     keywords: [
@@ -959,8 +1067,8 @@ final List<AppIcon> healthIcons = [
   ),
 ];
 
-final List<AppIcon> educationIcons = [
-  AppIcon(
+final List<IconModel> educationIcons = [
+  IconModel(
     id: 'graduation',
     icon: FontAwesomeIcons.graduationCap,
     keywords: [
@@ -974,7 +1082,7 @@ final List<AppIcon> educationIcons = [
       'certificate',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'books',
     icon: FontAwesomeIcons.bookBookmark,
     keywords: [
@@ -989,7 +1097,7 @@ final List<AppIcon> educationIcons = [
       'textbooks',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'book',
     icon: FontAwesomeIcons.book,
     keywords: [
@@ -1005,7 +1113,7 @@ final List<AppIcon> educationIcons = [
       'textbook',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'education',
     icon: FontAwesomeIcons.graduationCap,
     keywords: [
@@ -1021,7 +1129,7 @@ final List<AppIcon> educationIcons = [
       'academic',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'pen',
     icon: FontAwesomeIcons.pen,
     keywords: [
@@ -1036,7 +1144,7 @@ final List<AppIcon> educationIcons = [
       'office supplies',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'school',
     icon: FontAwesomeIcons.school,
     keywords: [
@@ -1051,7 +1159,7 @@ final List<AppIcon> educationIcons = [
       'academy',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'teacher',
     icon: FontAwesomeIcons.chalkboardUser,
     keywords: [
@@ -1066,7 +1174,7 @@ final List<AppIcon> educationIcons = [
       'instructor',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'online_course',
     icon: FontAwesomeIcons.laptop,
     keywords: [
@@ -1082,7 +1190,7 @@ final List<AppIcon> educationIcons = [
       'training',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'exam',
     icon: FontAwesomeIcons.fileLines,
     keywords: [
@@ -1098,7 +1206,7 @@ final List<AppIcon> educationIcons = [
       'assessment',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'math',
     icon: FontAwesomeIcons.calculator,
     keywords: [
@@ -1116,8 +1224,8 @@ final List<AppIcon> educationIcons = [
   ),
 ];
 
-final List<AppIcon> entertainmentIcons = [
-  AppIcon(
+final List<IconModel> entertainmentIcons = [
+  IconModel(
     id: 'game',
     icon: FontAwesomeIcons.gamepad,
     keywords: [
@@ -1131,7 +1239,7 @@ final List<AppIcon> entertainmentIcons = [
       'video game',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'movie',
     icon: FontAwesomeIcons.clapperboard,
     keywords: [
@@ -1147,7 +1255,7 @@ final List<AppIcon> entertainmentIcons = [
       'video',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'music',
     icon: FontAwesomeIcons.music,
     keywords: [
@@ -1162,7 +1270,7 @@ final List<AppIcon> entertainmentIcons = [
       'audio',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'concert',
     icon: FontAwesomeIcons.microphone,
     keywords: [
@@ -1177,7 +1285,7 @@ final List<AppIcon> entertainmentIcons = [
       'singing',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'audio',
     icon: FontAwesomeIcons.headphones,
     keywords: [
@@ -1193,7 +1301,7 @@ final List<AppIcon> entertainmentIcons = [
       'sound',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'camera',
     icon: FontAwesomeIcons.camera,
     keywords: [
@@ -1208,7 +1316,7 @@ final List<AppIcon> entertainmentIcons = [
       'pictures',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'art',
     icon: FontAwesomeIcons.palette,
     keywords: [
@@ -1224,7 +1332,7 @@ final List<AppIcon> entertainmentIcons = [
       'artwork',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'sports',
     icon: FontAwesomeIcons.futbol,
     keywords: [
@@ -1240,7 +1348,7 @@ final List<AppIcon> entertainmentIcons = [
       'athletics',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'swimming',
     icon: FontAwesomeIcons.personSwimming,
     keywords: [
@@ -1254,7 +1362,7 @@ final List<AppIcon> entertainmentIcons = [
       'water sport',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'beach',
     icon: FontAwesomeIcons.sun,
     keywords: [
@@ -1270,7 +1378,7 @@ final List<AppIcon> entertainmentIcons = [
       'holiday',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'camping',
     icon: FontAwesomeIcons.fire,
     keywords: [
@@ -1285,7 +1393,7 @@ final List<AppIcon> entertainmentIcons = [
       'trip',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'travel',
     icon: FontAwesomeIcons.plane,
     keywords: [
@@ -1301,7 +1409,7 @@ final List<AppIcon> entertainmentIcons = [
       'journey',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'theater',
     icon: FontAwesomeIcons.clapperboard,
     keywords: [
@@ -1317,7 +1425,7 @@ final List<AppIcon> entertainmentIcons = [
       'drama',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'entertainment',
     icon: FontAwesomeIcons.champagneGlasses,
     keywords: [
@@ -1335,8 +1443,8 @@ final List<AppIcon> entertainmentIcons = [
   ),
 ];
 
-final List<AppIcon> moneyIcons = [
-  AppIcon(
+final List<IconModel> moneyIcons = [
+  IconModel(
     id: 'money',
     icon: FontAwesomeIcons.sackDollar,
     keywords: [
@@ -1351,7 +1459,7 @@ final List<AppIcon> moneyIcons = [
       'finance',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'cash',
     icon: FontAwesomeIcons.moneyBillWave,
     keywords: [
@@ -1366,7 +1474,7 @@ final List<AppIcon> moneyIcons = [
       'banknotes',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'card',
     icon: FontAwesomeIcons.creditCard,
     keywords: [
@@ -1382,7 +1490,7 @@ final List<AppIcon> moneyIcons = [
       'visa',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'bank',
     icon: FontAwesomeIcons.buildingColumns,
     keywords: [
@@ -1397,7 +1505,7 @@ final List<AppIcon> moneyIcons = [
       'bank account',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'atm',
     icon: FontAwesomeIcons.moneyBillTransfer,
     keywords: [
@@ -1412,7 +1520,7 @@ final List<AppIcon> moneyIcons = [
       'withdrawal',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'investment',
     icon: FontAwesomeIcons.chartLine,
     keywords: [
@@ -1428,7 +1536,7 @@ final List<AppIcon> moneyIcons = [
       'profit',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'loss',
     icon: FontAwesomeIcons.arrowTrendDown,
     keywords: [
@@ -1444,7 +1552,7 @@ final List<AppIcon> moneyIcons = [
       'down',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'coin',
     icon: FontAwesomeIcons.coins,
     keywords: [
@@ -1460,7 +1568,7 @@ final List<AppIcon> moneyIcons = [
       'currency',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'payment',
     icon: FontAwesomeIcons.wallet,
     keywords: [
@@ -1476,7 +1584,7 @@ final List<AppIcon> moneyIcons = [
       'transaction',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'receipt',
     icon: FontAwesomeIcons.receipt,
     keywords: [
@@ -1491,7 +1599,7 @@ final List<AppIcon> moneyIcons = [
       'purchase receipt',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'calculator',
     icon: FontAwesomeIcons.calculator,
     keywords: [
@@ -1506,7 +1614,7 @@ final List<AppIcon> moneyIcons = [
       'numbers',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'salary',
     icon: FontAwesomeIcons.handHoldingDollar,
     keywords: [
@@ -1522,7 +1630,7 @@ final List<AppIcon> moneyIcons = [
       'monthly salary',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'bonus',
     icon: FontAwesomeIcons.gift,
     keywords: [
@@ -1537,7 +1645,7 @@ final List<AppIcon> moneyIcons = [
       'financial bonus',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'reward',
     icon: FontAwesomeIcons.award,
     keywords: [
@@ -1553,7 +1661,7 @@ final List<AppIcon> moneyIcons = [
       'award',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'transfer',
     icon: FontAwesomeIcons.rightLeft,
     keywords: [
@@ -1568,7 +1676,7 @@ final List<AppIcon> moneyIcons = [
       'transaction',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'currency',
     icon: FontAwesomeIcons.dollarSign,
     keywords: [
@@ -1584,7 +1692,7 @@ final List<AppIcon> moneyIcons = [
       'euro',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'statistics',
     icon: FontAwesomeIcons.chartColumn,
     keywords: [
@@ -1600,7 +1708,7 @@ final List<AppIcon> moneyIcons = [
       'data',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'budget',
     icon: FontAwesomeIcons.wallet,
     keywords: [
@@ -1617,337 +1725,613 @@ final List<AppIcon> moneyIcons = [
   ),
 ];
 
-final List<AppIcon> workIcons = [
-  AppIcon(
+final List<IconModel> workIcons = [
+  IconModel(
     id: 'work',
     icon: FontAwesomeIcons.briefcase,
     keywords: [
-      'عمل', 'شغل', 'وظيفة', 'مهنة', 'دوام',
-      'work', 'job', 'career', 'occupation', 'employment',
+      'عمل',
+      'شغل',
+      'وظيفة',
+      'مهنة',
+      'دوام',
+      'work',
+      'job',
+      'career',
+      'occupation',
+      'employment',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'office',
     icon: FontAwesomeIcons.building,
     keywords: [
-      'مكتب', 'شركة', 'مكان العمل', 'مقر', 'إدارة',
-      'office', 'company', 'workplace', 'headquarters', 'business',
+      'مكتب',
+      'شركة',
+      'مكان العمل',
+      'مقر',
+      'إدارة',
+      'office',
+      'company',
+      'workplace',
+      'headquarters',
+      'business',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'business',
     icon: FontAwesomeIcons.handshake,
     keywords: [
-      'أعمال', 'بيزنس', 'تجارة', 'شركة', 'مشروع',
-      'business', 'company', 'trade', 'commerce', 'enterprise',
+      'أعمال',
+      'بيزنس',
+      'تجارة',
+      'شركة',
+      'مشروع',
+      'business',
+      'company',
+      'trade',
+      'commerce',
+      'enterprise',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'laptop',
     icon: FontAwesomeIcons.laptop,
     keywords: [
-      'لابتوب', 'حاسوب محمول', 'كمبيوتر', 'جهاز',
-      'laptop', 'notebook', 'computer', 'device',
+      'لابتوب',
+      'حاسوب محمول',
+      'كمبيوتر',
+      'جهاز',
+      'laptop',
+      'notebook',
+      'computer',
+      'device',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'computer',
     icon: FontAwesomeIcons.desktop,
     keywords: [
-      'كمبيوتر', 'حاسب آلي', 'جهاز كمبيوتر', 'حاسوب',
-      'computer', 'desktop', 'pc', 'workstation',
+      'كمبيوتر',
+      'حاسب آلي',
+      'جهاز كمبيوتر',
+      'حاسوب',
+      'computer',
+      'desktop',
+      'pc',
+      'workstation',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'phone',
     icon: FontAwesomeIcons.phone,
     keywords: [
-      'تليفون', 'هاتف', 'موبايل', 'اتصال', 'مكالمات',
-      'phone', 'telephone', 'mobile', 'call', 'communication',
+      'تليفون',
+      'هاتف',
+      'موبايل',
+      'اتصال',
+      'مكالمات',
+      'phone',
+      'telephone',
+      'mobile',
+      'call',
+      'communication',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'email',
     icon: FontAwesomeIcons.envelope,
     keywords: [
-      'إيميل', 'بريد إلكتروني', 'رسالة', 'بريد',
-      'email', 'mail', 'message', 'inbox',
+      'إيميل',
+      'بريد إلكتروني',
+      'رسالة',
+      'بريد',
+      'email',
+      'mail',
+      'message',
+      'inbox',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'calendar',
     icon: FontAwesomeIcons.calendar,
     keywords: [
-      'تقويم', 'موعد', 'مواعيد', 'جدول', 'تاريخ',
-      'calendar', 'schedule', 'appointment', 'date', 'planning',
+      'تقويم',
+      'موعد',
+      'مواعيد',
+      'جدول',
+      'تاريخ',
+      'calendar',
+      'schedule',
+      'appointment',
+      'date',
+      'planning',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'time',
     icon: FontAwesomeIcons.clock,
     keywords: [
-      'وقت', 'ساعة', 'موعد', 'دوام', 'وقت العمل',
-      'time', 'clock', 'schedule', 'working hours',
+      'وقت',
+      'ساعة',
+      'موعد',
+      'دوام',
+      'وقت العمل',
+      'time',
+      'clock',
+      'schedule',
+      'working hours',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'employee',
     icon: FontAwesomeIcons.user,
     keywords: [
-      'موظف', 'عامل', 'موظفين', 'فريق', 'عاملين',
-      'employee', 'worker', 'staff', 'team', 'colleague',
+      'موظف',
+      'عامل',
+      'موظفين',
+      'فريق',
+      'عاملين',
+      'employee',
+      'worker',
+      'staff',
+      'team',
+      'colleague',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'teamwork',
     icon: FontAwesomeIcons.users,
     keywords: [
-      'فريق', 'تعاون', 'زملاء', 'عمل جماعي', 'فريق العمل',
-      'team', 'teamwork', 'collaboration', 'colleagues', 'group',
+      'فريق',
+      'تعاون',
+      'زملاء',
+      'عمل جماعي',
+      'فريق العمل',
+      'team',
+      'teamwork',
+      'collaboration',
+      'colleagues',
+      'group',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'analytics',
     icon: FontAwesomeIcons.chartLine,
     keywords: [
-      'تحليل', 'إحصائيات', 'بيانات', 'تقارير', 'أداء',
-      'analytics', 'analysis', 'statistics', 'data', 'reports',
+      'تحليل',
+      'إحصائيات',
+      'بيانات',
+      'تقارير',
+      'أداء',
+      'analytics',
+      'analysis',
+      'statistics',
+      'data',
+      'reports',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'files',
     icon: FontAwesomeIcons.folder,
     keywords: [
-      'ملفات', 'مستندات', 'فولدر', 'مجلد', 'أرشيف',
-      'files', 'documents', 'folder', 'directory', 'archive',
+      'ملفات',
+      'مستندات',
+      'فولدر',
+      'مجلد',
+      'أرشيف',
+      'files',
+      'documents',
+      'folder',
+      'directory',
+      'archive',
     ],
   ),
 ];
 
-final List<AppIcon> familyIcons = [
-  AppIcon(
+final List<IconModel> familyIcons = [
+  IconModel(
     id: 'person',
     icon: FontAwesomeIcons.user,
     keywords: [
-      'شخص', 'فرد', 'إنسان', 'مستخدم',
-      'person', 'user', 'individual', 'human',
+      'شخص',
+      'فرد',
+      'إنسان',
+      'مستخدم',
+      'person',
+      'user',
+      'individual',
+      'human',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'people',
     icon: FontAwesomeIcons.users,
     keywords: [
-      'أشخاص', 'ناس', 'مجموعة', 'مجموعة أشخاص',
-      'people', 'persons', 'group', 'users',
+      'أشخاص',
+      'ناس',
+      'مجموعة',
+      'مجموعة أشخاص',
+      'people',
+      'persons',
+      'group',
+      'users',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'man',
     icon: FontAwesomeIcons.user,
     keywords: ['رجل', 'راجل', 'ذكر', 'شخص', 'man', 'male', 'guy', 'person'],
   ),
-  AppIcon(
+  IconModel(
     id: 'woman',
     icon: FontAwesomeIcons.user,
     keywords: [
-      'امرأة', 'ست', 'سيدة', 'أنثى',
-      'woman', 'female', 'lady', 'person',
+      'امرأة',
+      'ست',
+      'سيدة',
+      'أنثى',
+      'woman',
+      'female',
+      'lady',
+      'person',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'baby',
     icon: FontAwesomeIcons.baby,
     keywords: [
-      'طفل', 'رضيع', 'بيبي', 'مولود',
-      'baby', 'infant', 'child', 'newborn',
+      'طفل',
+      'رضيع',
+      'بيبي',
+      'مولود',
+      'baby',
+      'infant',
+      'child',
+      'newborn',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'family',
     icon: FontAwesomeIcons.users,
     keywords: [
-      'عائلة', 'أسرة', 'أهل', 'الأسرة',
-      'family', 'household', 'relatives', 'parents',
+      'عائلة',
+      'أسرة',
+      'أهل',
+      'الأسرة',
+      'family',
+      'household',
+      'relatives',
+      'parents',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'couple',
     icon: FontAwesomeIcons.heart,
     keywords: [
-      'زوجين', 'ثنائي', 'حبيبين', 'زوج', 'زوجة',
-      'couple', 'partners', 'lovers', 'husband', 'wife',
+      'زوجين',
+      'ثنائي',
+      'حبيبين',
+      'زوج',
+      'زوجة',
+      'couple',
+      'partners',
+      'lovers',
+      'husband',
+      'wife',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'friends',
     icon: FontAwesomeIcons.users,
     keywords: [
-      'أصدقاء', 'صحاب', 'اصحاب', 'رفاق', 'أصحاب',
-      'friends', 'friend', 'buddies', 'companions',
+      'أصدقاء',
+      'صحاب',
+      'اصحاب',
+      'رفاق',
+      'أصحاب',
+      'friends',
+      'friend',
+      'buddies',
+      'companions',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'pet',
     icon: FontAwesomeIcons.paw,
     keywords: [
-      'حيوان أليف', 'حيوانات أليفة', 'حيوان', 'أليف',
-      'pet', 'pets', 'animal', 'domestic animal',
+      'حيوان أليف',
+      'حيوانات أليفة',
+      'حيوان',
+      'أليف',
+      'pet',
+      'pets',
+      'animal',
+      'domestic animal',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'cat',
     icon: FontAwesomeIcons.cat,
-    keywords: ['قطة', 'قط', 'قطط', 'حيوان أليف', 'cat', 'kitten', 'cats', 'pet'],
+    keywords: [
+      'قطة',
+      'قط',
+      'قطط',
+      'حيوان أليف',
+      'cat',
+      'kitten',
+      'cats',
+      'pet',
+    ],
   ),
 ];
 
-final List<AppIcon> technologyIcons = [
-  AppIcon(
+final List<IconModel> technologyIcons = [
+  IconModel(
     id: 'mobile',
     icon: FontAwesomeIcons.mobileScreenButton,
     keywords: [
-      'موبايل', 'هاتف', 'تليفون', 'جوال', 'هاتف محمول',
-      'mobile', 'phone', 'smartphone', 'cellphone',
+      'موبايل',
+      'هاتف',
+      'تليفون',
+      'جوال',
+      'هاتف محمول',
+      'mobile',
+      'phone',
+      'smartphone',
+      'cellphone',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'computer',
     icon: FontAwesomeIcons.desktop,
     keywords: [
-      'كمبيوتر', 'حاسوب', 'جهاز كمبيوتر', 'كمبيوتر مكتبي',
-      'computer', 'pc', 'desktop', 'monitor',
+      'كمبيوتر',
+      'حاسوب',
+      'جهاز كمبيوتر',
+      'كمبيوتر مكتبي',
+      'computer',
+      'pc',
+      'desktop',
+      'monitor',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'monitor',
     icon: FontAwesomeIcons.desktop,
     keywords: [
-      'شاشة', 'مونيتور', 'شاشة كمبيوتر', 'عرض',
-      'monitor', 'screen', 'display', 'computer screen',
+      'شاشة',
+      'مونيتور',
+      'شاشة كمبيوتر',
+      'عرض',
+      'monitor',
+      'screen',
+      'display',
+      'computer screen',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'keyboard',
     icon: FontAwesomeIcons.keyboard,
-    keywords: ['كيبورد', 'لوحة مفاتيح', 'لوحة الكتابة', 'keyboard', 'keypad', 'typing'],
+    keywords: [
+      'كيبورد',
+      'لوحة مفاتيح',
+      'لوحة الكتابة',
+      'keyboard',
+      'keypad',
+      'typing',
+    ],
   ),
-  AppIcon(
+  IconModel(
     id: 'mouse',
     icon: FontAwesomeIcons.computerMouse,
     keywords: ['ماوس', 'فأرة', 'ماوس كمبيوتر', 'mouse', 'computer mouse'],
   ),
-  AppIcon(
+  IconModel(
     id: 'headset',
     icon: FontAwesomeIcons.headset,
     keywords: [
-      'سماعة', 'هيدسيت', 'هيدفون', 'سماعات رأس',
-      'headset', 'headphones', 'earphones', 'audio',
+      'سماعة',
+      'هيدسيت',
+      'هيدفون',
+      'سماعات رأس',
+      'headset',
+      'headphones',
+      'earphones',
+      'audio',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'internet',
     icon: FontAwesomeIcons.globe,
     keywords: [
-      'إنترنت', 'انترنت', 'نت', 'واي فاي', 'شبكة',
-      'internet', 'wifi', 'web', 'online', 'network',
+      'إنترنت',
+      'انترنت',
+      'نت',
+      'واي فاي',
+      'شبكة',
+      'internet',
+      'wifi',
+      'web',
+      'online',
+      'network',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'network',
     icon: FontAwesomeIcons.shareNodes,
     keywords: [
-      'شبكة', 'شبكات', 'اتصال', 'شبكة إنترنت',
-      'network', 'connection', 'connectivity', 'networking',
+      'شبكة',
+      'شبكات',
+      'اتصال',
+      'شبكة إنترنت',
+      'network',
+      'connection',
+      'connectivity',
+      'networking',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'cloud',
     icon: FontAwesomeIcons.cloud,
     keywords: [
-      'سحابة', 'كلاود', 'تخزين سحابي', 'سحابة إلكترونية',
-      'cloud', 'cloud storage', 'online storage', 'backup',
+      'سحابة',
+      'كلاود',
+      'تخزين سحابي',
+      'سحابة إلكترونية',
+      'cloud',
+      'cloud storage',
+      'online storage',
+      'backup',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'security',
     icon: FontAwesomeIcons.lock,
     keywords: [
-      'أمان', 'حماية', 'أمن', 'قفل', 'خصوصية',
-      'security', 'protection', 'privacy', 'lock', 'safe',
+      'أمان',
+      'حماية',
+      'أمن',
+      'قفل',
+      'خصوصية',
+      'security',
+      'protection',
+      'privacy',
+      'lock',
+      'safe',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'battery',
     icon: FontAwesomeIcons.batteryFull,
     keywords: [
-      'بطارية', 'شحن', 'بطارية الهاتف', 'طاقة',
-      'battery', 'charge', 'power', 'battery life',
+      'بطارية',
+      'شحن',
+      'بطارية الهاتف',
+      'طاقة',
+      'battery',
+      'charge',
+      'power',
+      'battery life',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'charging',
     icon: FontAwesomeIcons.bolt,
     keywords: [
-      'شحن', 'شاحن', 'كهرباء', 'طاقة', 'شحن موبايل',
-      'charging', 'charger', 'power', 'electricity', 'phone charging',
+      'شحن',
+      'شاحن',
+      'كهرباء',
+      'طاقة',
+      'شحن موبايل',
+      'charging',
+      'charger',
+      'power',
+      'electricity',
+      'phone charging',
     ],
   ),
 
   // Subscriptions
-  AppIcon(
+  IconModel(
     id: 'video_subscription',
     icon: FontAwesomeIcons.tv,
     keywords: [
-      'اشتراك أفلام', 'اشتراك فيديو', 'نتفلكس', 'مشاهدة',
-      'video subscription', 'streaming', 'netflix', 'movies', 'tv',
+      'اشتراك أفلام',
+      'اشتراك فيديو',
+      'نتفلكس',
+      'مشاهدة',
+      'video subscription',
+      'streaming',
+      'netflix',
+      'movies',
+      'tv',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'music_subscription',
     icon: FontAwesomeIcons.music,
     keywords: [
-      'اشتراك موسيقى', 'موسيقى', 'أغاني', 'سبوتيفاي',
-      'music subscription', 'music', 'spotify', 'songs', 'streaming',
+      'اشتراك موسيقى',
+      'موسيقى',
+      'أغاني',
+      'سبوتيفاي',
+      'music subscription',
+      'music',
+      'spotify',
+      'songs',
+      'streaming',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'cloud_storage',
     icon: FontAwesomeIcons.cloud,
     keywords: [
-      'تخزين سحابي', 'اشتراك كلاود', 'جوجل درايف', 'آيكلاود',
-      'cloud storage', 'cloud subscription', 'google drive', 'icloud',
+      'تخزين سحابي',
+      'اشتراك كلاود',
+      'جوجل درايف',
+      'آيكلاود',
+      'cloud storage',
+      'cloud subscription',
+      'google drive',
+      'icloud',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'mobile_subscription',
     icon: FontAwesomeIcons.mobileScreenButton,
     keywords: [
-      'باقة موبايل', 'باقة إنترنت', 'خط', 'رصيد', 'اشتراك موبايل',
-      'mobile subscription', 'mobile plan', 'phone plan', 'data plan',
+      'باقة موبايل',
+      'باقة إنترنت',
+      'خط',
+      'رصيد',
+      'اشتراك موبايل',
+      'mobile subscription',
+      'mobile plan',
+      'phone plan',
+      'data plan',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'internet_subscription',
     icon: FontAwesomeIcons.globe,
     keywords: [
-      'اشتراك إنترنت', 'باقة نت', 'إنترنت منزلي', 'واي فاي',
-      'internet subscription', 'internet plan', 'home internet', 'wifi',
+      'اشتراك إنترنت',
+      'باقة نت',
+      'إنترنت منزلي',
+      'واي فاي',
+      'internet subscription',
+      'internet plan',
+      'home internet',
+      'wifi',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'software_subscription',
     icon: FontAwesomeIcons.code,
     keywords: [
-      'اشتراك برنامج', 'برنامج', 'سوفت وير', 'تطبيق مدفوع',
-      'software subscription', 'software', 'app subscription', 'saas',
+      'اشتراك برنامج',
+      'برنامج',
+      'سوفت وير',
+      'تطبيق مدفوع',
+      'software subscription',
+      'software',
+      'app subscription',
+      'saas',
     ],
   ),
-  AppIcon(
+  IconModel(
     id: 'gaming_subscription',
     icon: FontAwesomeIcons.gamepad,
     keywords: [
-      'اشتراك ألعاب', 'جيمز', 'بلايستيشن بلس', 'إكس بوكس',
-      'gaming subscription', 'gaming', 'playstation plus', 'xbox',
+      'اشتراك ألعاب',
+      'جيمز',
+      'بلايستيشن بلس',
+      'إكس بوكس',
+      'gaming subscription',
+      'gaming',
+      'playstation plus',
+      'xbox',
     ],
   ),
 ];
