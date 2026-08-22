@@ -5,6 +5,7 @@ import '../../features/categories/data/repo/categories_repo.dart';
 import '../../features/categories/data/repo/categories_repo_impl.dart';
 import '../../features/categories/data/database/categories_data.dart';
 import '../../../features/settings/presentation/manager/settings_cubit.dart';
+import '../../features/categories/presentation/manager/categories_cubit.dart';
 
 var getIt = GetIt.instance;
 
@@ -25,5 +26,9 @@ void setupLocator() {
 
   getIt.registerLazySingleton<CategoriesRepo>(
     () => CategoriesRepoImpl(categoriesData: getIt<CategoriesData>()),
+  );
+
+  getIt.registerLazySingleton<CategoriesCubit>(
+    () => CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>()),
   );
 }
