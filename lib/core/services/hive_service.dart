@@ -1,8 +1,12 @@
+import '../../const/hive_data.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import '../../features/categories/data/models/category_model.dart';
 
 class HiveService {
   Future<void> init() async {
     await Hive.initFlutter();
+    Hive.registerAdapter(CategoryModelAdapter());
+    await openBox<CategoryModel>(HiveData.categoriesBox);
   }
 
   Future<Box<T>> openBox<T>(String boxName) async {
