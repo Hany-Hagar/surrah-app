@@ -100,6 +100,24 @@
   },
 
 
+  "categories": "Categories",
+  "@categories": {
+    "description": "Label for the categories button"
+  },
+  "categoriesTitle": "Manage Your Categories",
+  "@categoriesTitle": {
+    "description": "Title for the categories page"
+  },
+  "categoriesSubtitle": "Add, edit, and delete your expense categories",
+  "@categoriesSubtitle": {
+    "description": "Subtitle for the categories page"
+  },
+  "searchCategoriesHint": "Search Categories",
+  "@searchCategoriesHint": {
+    "description": "Hint text for the categories search field"
+  },
+
+  
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Title for the settings page"

@@ -40,6 +40,7 @@ class _BottomNavigatorBar extends StatelessWidget {
           unselectedLabelStyle: Styles.textStyle700.copyWith(fontSize: 12.sp),
           items: [
             _item(icon: IconBroken.Home, label: s.home),
+            _item(icon: IconBroken.Category, label: s.categories),
             _item(icon: IconBroken.Paper, label: s.transactions),
           ],
         );

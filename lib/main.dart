@@ -13,6 +13,7 @@ import 'features/settings/model/app_user_pref_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/settings/presentation/manager/settings_cubit.dart';
+import 'features/categories/presentation/manager/categories_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => getIt<SettingsCubit>()),
         BlocProvider(create: (context) => getIt<LayoutCubit>()),
+        BlocProvider(create: (context) => getIt<CategoriesCubit>()),
       ],
       child: BlocBuilder<SettingsCubit, AppUserPref>(
         builder: (context, state) => ScreenUtilInit(

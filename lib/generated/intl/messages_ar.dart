@@ -26,6 +26,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "addExpense": MessageLookupByLibrary.simpleMessage("إضافة مصروف"),
     "addIncome": MessageLookupByLibrary.simpleMessage("إضافة دخل"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "categories": MessageLookupByLibrary.simpleMessage("التصنيفات"),
+    "categoriesSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة وتعديل وحذف تصنيفات المصروفات",
+    ),
+    "categoriesTitle": MessageLookupByLibrary.simpleMessage("إدارة التصنيفات"),
     "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
       "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
     ),
@@ -180,6 +185,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "quickActions": MessageLookupByLibrary.simpleMessage("الإجراءات السريعة"),
+    "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن تصنيف",
+    ),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),

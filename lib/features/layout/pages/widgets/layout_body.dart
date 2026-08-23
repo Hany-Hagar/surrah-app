@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../home/presentation/pages/views/home_view.dart';
+import '../../../categories/presentation/pages/views/categories_view.dart';
 
 class LayoutBody extends StatelessWidget {
   const LayoutBody({super.key});
@@ -21,6 +22,7 @@ class LayoutBody extends StatelessWidget {
           onPageChanged: (value) => cubit.changeBottomNavBarIndex(value),
           children: [
             HomeView(),
+            CategoriesView(),
             CustomText(
               text: s.transactions,
               size: 16.sp,

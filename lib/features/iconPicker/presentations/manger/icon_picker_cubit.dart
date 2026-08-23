@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../data/database/icons.dart';
 import '../../data/models/icon_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/extensions/app_icon_extensions.dart';
+import '../../../../core/extensions/icon_extensions.dart';
 
 class IconPickerCubit extends Cubit<IconPickerStates> {
   IconPickerCubit() : super(IconPickerInitial());

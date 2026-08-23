@@ -8,9 +8,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final String? subtitle;
   final Gradient? gradient;
+  final Widget? bottomWidget;
   final IconData? trailingIcon;
   final Color? backgroundColor;
+  final double bottomWidgetHeight;
   final Function()? onTrailingPressed;
+  final Widget? trailing;
   const CustomAppBar({
     super.key,
     this.leading,
@@ -21,6 +24,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title,
     this.backgroundColor,
     this.onTrailingPressed,
+    this.bottomWidget,
+    this.bottomWidgetHeight = 0,
+    this.trailing,
   });
 
   @override
@@ -35,27 +41,48 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       decoration: BoxDecoration(
         gradient: gradient,
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(bottomWidget != null ? 12.r : 0.r),
+        ),
         color: backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(10),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
-      child: Row(
-        spacing: 10.w,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        spacing: 8.h,
         children: [
-          ?leading,
-          Expanded(
-            child: _Body(title: title, subtitle: subtitle),
+          Row(
+            spacing: 10.w,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ?leading,
+              Expanded(
+                child: _Body(title: title, subtitle: subtitle),
+              ),
+              ?trailing,
+              _Trailing(
+                trailingIcon: trailingIcon,
+                onTrailingPressed: onTrailingPressed,
+              ),
+            ],
           ),
-          _Trailing(
-            trailingIcon: trailingIcon,
-            onTrailingPressed: onTrailingPressed,
-          ),
+          ?bottomWidget,
         ],
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(subtitle == null ? 64.h : 77.h);
+  Size get preferredSize => Size.fromHeight(
+    subtitle == null
+        ? (bottomWidgetHeight + 64).h
+        : (bottomWidgetHeight + 77).h,
+  );
 }
 
 class _Body extends StatelessWidget {

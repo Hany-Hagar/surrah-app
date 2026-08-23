@@ -26,6 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "addExpense": MessageLookupByLibrary.simpleMessage("Add Expense"),
     "addIncome": MessageLookupByLibrary.simpleMessage("Add Income"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "categoriesSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Add, edit, and delete your expense categories",
+    ),
+    "categoriesTitle": MessageLookupByLibrary.simpleMessage(
+      "Manage Your Categories",
+    ),
     "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
       "Reach out by email and we\'ll be happy to help.",
     ),
@@ -186,6 +193,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "quickActions": MessageLookupByLibrary.simpleMessage("Quick Actions"),
+    "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
+      "Search Categories",
+    ),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),

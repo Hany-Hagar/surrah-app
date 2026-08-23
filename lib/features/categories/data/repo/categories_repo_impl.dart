@@ -10,7 +10,7 @@ class CategoriesRepoImpl extends CategoriesRepo {
   CategoriesRepoImpl({required this.categoriesData});
 
   @override
-  Future<Either<Failure, List<CategoryModel>>> getAllCategories() async {
+  Future<Either<Failure, List<CategoryModel>>> getCategories() async {
     try {
       final categories = categoriesData.getAllCategories();
       return Right(categories);

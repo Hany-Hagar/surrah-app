@@ -284,6 +284,46 @@ class S {
     );
   }
 
+  /// `Categories`
+  String get categories {
+    return Intl.message(
+      'Categories',
+      name: 'categories',
+      desc: 'Label for the categories button',
+      args: [],
+    );
+  }
+
+  /// `Manage Your Categories`
+  String get categoriesTitle {
+    return Intl.message(
+      'Manage Your Categories',
+      name: 'categoriesTitle',
+      desc: 'Title for the categories page',
+      args: [],
+    );
+  }
+
+  /// `Add, edit, and delete your expense categories`
+  String get categoriesSubtitle {
+    return Intl.message(
+      'Add, edit, and delete your expense categories',
+      name: 'categoriesSubtitle',
+      desc: 'Subtitle for the categories page',
+      args: [],
+    );
+  }
+
+  /// `Search Categories`
+  String get searchCategoriesHint {
+    return Intl.message(
+      'Search Categories',
+      name: 'searchCategoriesHint',
+      desc: 'Hint text for the categories search field',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settingsTitle {
     return Intl.message(

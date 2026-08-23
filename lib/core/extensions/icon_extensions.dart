@@ -1,6 +1,7 @@
+import '../../features/iconPicker/data/database/icons.dart';
 import '../../features/iconPicker/data/models/icon_model.dart';
 
-extension AppIconSearch on List<IconModel> {
+extension IconSearch on List<IconModel> {
   List<IconModel> search(String query) {
     final normalizedQuery = query.trim().toLowerCase();
 
@@ -16,5 +17,17 @@ extension AppIconSearch on List<IconModel> {
 
       return searchableText.contains(normalizedQuery);
     }).toList();
+  }
+}
+
+
+// Extensions to get icon models by id
+extension IconById on  String{
+  IconModel? getIconById() {
+    try {
+      return iconsData.firstWhere((icon) => icon.id == this);
+    } catch (e) {
+      return null;
+    }
   }
 }

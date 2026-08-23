@@ -12,6 +12,7 @@ class CategoriesFailure extends CategoriesStates {
   CategoriesFailure({required this.errorMessage});
 }
 
+
 // Update IconModel
 class SetIconDataStates extends CategoriesStates {}
 
