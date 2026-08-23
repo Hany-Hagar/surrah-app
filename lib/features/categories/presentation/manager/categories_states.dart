@@ -12,6 +12,16 @@ class CategoriesFailure extends CategoriesStates {
   CategoriesFailure({required this.errorMessage});
 }
 
+// Search Categories
+class CategoriesSearchLoading extends CategoriesStates {}
+
+class CategoriesSearchSuccess extends CategoriesStates {}
+
+class CategoriesSearchFailure extends CategoriesStates {
+  final String errorMessage;
+  CategoriesSearchFailure({required this.errorMessage});
+}
+
 
 // Update IconModel
 class SetIconDataStates extends CategoriesStates {}

@@ -116,6 +116,10 @@
   "@searchCategoriesHint": {
     "description": "Hint text for the categories search field"
   },
+  "emptyCategories": "No categories available",
+  "@emptyCategories": {
+    "description": "Text for the empty state of categories"
+  },
 
   
   "settingsTitle": "Settings",

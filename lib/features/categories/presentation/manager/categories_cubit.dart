@@ -1,3 +1,4 @@
+import '../../../../core/extensions/category_extension.dart';
 import 'categories_states.dart';
 import 'package:flutter/material.dart';
 import '../../data/repo/categories_repo.dart';
@@ -30,5 +31,24 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
         emit(CategoriesSuccess());
       },
     );
+  }
+
+  // Search
+  bool isSearching = false;
+  List<CategoryModel> searchResults = [];
+  var searchController = TextEditingController();
+
+  void searchCategories({required String? query}) {
+    if (query == null || query.isEmpty) {
+      isSearching = false;
+      searchResults.clear();
+      searchController.clear();
+      emit(CategoriesSearchSuccess());
+      return;
+    }
+    isSearching = true;
+    emit(CategoriesSearchLoading());
+    searchResults = allCategories.search(query);
+    emit(CategoriesSearchSuccess());
   }
 }

@@ -116,6 +116,10 @@
   "@searchCategoriesHint": {
     "description": "نص تلميحي لحقل البحث عن التصنيفات"
   },
+  "categoriesEmpty": "لا توجد تصنيفات",
+  "@categoriesEmpty": {
+    "description": "نص لحالة عدم وجود تصنيفات"
+  },
 
 
   "settingsTitle": "الإعدادات",

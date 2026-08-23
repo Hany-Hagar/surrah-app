@@ -8,10 +8,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final String? subtitle;
   final Gradient? gradient;
-  final Widget? bottomWidget;
+  final Widget? bottom;
   final IconData? trailingIcon;
   final Color? backgroundColor;
-  final double bottomWidgetHeight;
+  final double bottomHeight;
   final Function()? onTrailingPressed;
   final Widget? trailing;
   const CustomAppBar({
@@ -24,8 +24,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title,
     this.backgroundColor,
     this.onTrailingPressed,
-    this.bottomWidget,
-    this.bottomWidgetHeight = 0,
+    this.bottom,
+    this.bottomHeight = 0,
     this.trailing,
   });
 
@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       decoration: BoxDecoration(
         gradient: gradient,
         borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(bottomWidget != null ? 12.r : 0.r),
+          bottom: Radius.circular(bottom != null ? 12.r : 0.r),
         ),
         color: backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
         boxShadow: [
@@ -54,7 +54,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       child: Column(
-        spacing: 8.h,
+        spacing: 12.h,
         children: [
           Row(
             spacing: 10.w,
@@ -71,7 +71,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ],
           ),
-          ?bottomWidget,
+          ?bottom,
         ],
       ),
     );
@@ -79,9 +79,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => Size.fromHeight(
-    subtitle == null
-        ? (bottomWidgetHeight + 64).h
-        : (bottomWidgetHeight + 77).h,
+    subtitle == null ? (bottomHeight + 64).h : (bottomHeight + 78).h,
   );
 }
 

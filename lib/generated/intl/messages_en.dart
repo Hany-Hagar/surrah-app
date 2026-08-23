@@ -102,6 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
+    "emptyCategories": MessageLookupByLibrary.simpleMessage(
+      "No categories available",
+    ),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "expense": MessageLookupByLibrary.simpleMessage("Expense"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),

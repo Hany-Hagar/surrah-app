@@ -10,8 +10,8 @@ import '../../../../../core/extensions/category_extension.dart';
 
 class Categories extends StatelessWidget {
   final Function(CategoryModel)? onTap;
-  final CategoryModel? selectedCategory;
   final List<CategoryModel> categories;
+  final CategoryModel? selectedCategory;
   const Categories({
     super.key,
     this.onTap,
@@ -74,7 +74,7 @@ class _ItemBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 6.h,
+      spacing: 8.h,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FaIcon(

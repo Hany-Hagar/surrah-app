@@ -324,6 +324,16 @@ class S {
     );
   }
 
+  /// `No categories available`
+  String get emptyCategories {
+    return Intl.message(
+      'No categories available',
+      name: 'emptyCategories',
+      desc: 'Text for the empty state of categories',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settingsTitle {
     return Intl.message(

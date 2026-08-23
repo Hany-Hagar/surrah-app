@@ -1,4 +1,7 @@
+import 'custom_text.dart';
+import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
+import 'package:surrah/const/assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomGrid<T> extends StatelessWidget {
@@ -10,6 +13,7 @@ class CustomGrid<T> extends StatelessWidget {
   final double childAspectRatio;
   final EdgeInsetsGeometry padding;
   final Widget? extraWidget;
+  final String? emptyMessage;
 
   const CustomGrid({
     super.key,
@@ -19,12 +23,16 @@ class CustomGrid<T> extends StatelessWidget {
     this.crossAxisSpacing = 5,
     this.mainAxisSpacing = 5,
     this.childAspectRatio = 1,
-    this.padding = EdgeInsets.zero,
     this.extraWidget,
+    this.emptyMessage,
+    this.padding = EdgeInsets.zero,
   });
 
   @override
   Widget build(BuildContext context) {
+    if (items.isEmpty) {
+      return _Empty(message: emptyMessage);
+    }
     return GridView.builder(
       padding: padding,
       shrinkWrap: true,
@@ -40,9 +48,36 @@ class CustomGrid<T> extends StatelessWidget {
         if (index == items.length && extraWidget != null) {
           return extraWidget!;
         }
-
         return itemBuilder(context, items[index]);
       },
+    );
+  }
+}
+
+class _Empty extends StatelessWidget {
+  final String? message;
+  const _Empty({required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(width: double.infinity),
+        Lottie.asset(
+          Assets.emptyList,
+          width: MediaQuery.of(context).size.width * 0.8,
+        ),
+        Transform.translate(
+          offset:  Offset(0, -20.h),
+          child: CustomText(
+            size: 18.sp,
+            type: Type.header,
+            opacity: FontOpacity.medium,
+            text: message ?? "No items found",
+          )
+        ),
+      ],
     );
   }
 }

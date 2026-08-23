@@ -98,21 +98,21 @@ class CustomTextFormField extends StatelessWidget {
       initialValue: initialValue,
 
       // Controller
-      controller: controller,
       focusNode: focusNode,
+      controller: controller,
 
       // Events
       onTap: onTap,
-      onChanged: onChanged,
       onSaved: onSaved,
+      onChanged: onChanged,
       onFieldSubmitted: onFieldSubmitted,
 
       // Input Settings
+      readOnly: readOnly,
+      maxLength: maxLength,
+      autocorrect: autocorrect,
       obscureText: obscureText,
       keyboardType: keyboardType,
-      maxLength: maxLength,
-      readOnly: readOnly,
-      autocorrect: autocorrect,
       textInputAction: textInputAction,
 
       // Auto Lines
@@ -124,14 +124,15 @@ class CustomTextFormField extends StatelessWidget {
       textAlignVertical: TextAlignVertical.top,
 
       // Style
+      cursorColor: theme.hintColor,
       style: inputStyle ?? _FontStyle.input(context),
 
       // Validation
       validator:
           validator ??
           (value) => Validators.validate(
-            keyboardType: keyboardType,
             value: value,
+            keyboardType: keyboardType,
             confirmPasswordController: passwordController,
           ),
 
