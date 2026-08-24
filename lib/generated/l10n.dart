@@ -54,6 +54,46 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: 'Label for the cancel button',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: 'Label for the all categories type',
+      args: [],
+    );
+  }
+
+  /// `Income`
+  String get income {
+    return Intl.message(
+      'Income',
+      name: 'income',
+      desc: 'Label for the income section',
+      args: [],
+    );
+  }
+
+  /// `Expense`
+  String get expense {
+    return Intl.message(
+      'Expense',
+      name: 'expense',
+      desc: 'Label for the expenses section',
+      args: [],
+    );
+  }
+
   /// `Follow Every Pound`
   String get onboardingTitle1 {
     return Intl.message(
@@ -214,26 +254,6 @@ class S {
     );
   }
 
-  /// `Income`
-  String get icome {
-    return Intl.message(
-      'Income',
-      name: 'icome',
-      desc: 'Label for the income section',
-      args: [],
-    );
-  }
-
-  /// `Expense`
-  String get expense {
-    return Intl.message(
-      'Expense',
-      name: 'expense',
-      desc: 'Label for the expenses section',
-      args: [],
-    );
-  }
-
   /// `Quick Actions`
   String get quickActions {
     return Intl.message(
@@ -330,6 +350,36 @@ class S {
       'No categories available',
       name: 'emptyCategories',
       desc: 'Text for the empty state of categories',
+      args: [],
+    );
+  }
+
+  /// `Categories Type`
+  String get categoriesType {
+    return Intl.message(
+      'Categories Type',
+      name: 'categoriesType',
+      desc: 'Label for the categories types section',
+      args: [],
+    );
+  }
+
+  /// `Filter`
+  String get filterButton {
+    return Intl.message(
+      'Filter',
+      name: 'filterButton',
+      desc: 'Label for the filter button',
+      args: [],
+    );
+  }
+
+  /// `Clear Filter`
+  String get clearFilterButton {
+    return Intl.message(
+      'Clear Filter',
+      name: 'clearFilterButton',
+      desc: 'Label for the clear filter button',
       args: [],
     );
   }

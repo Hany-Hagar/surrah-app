@@ -1,10 +1,11 @@
-import '../../../../core/extensions/category_extension.dart';
 import 'categories_states.dart';
 import 'package:flutter/material.dart';
 import '../../data/repo/categories_repo.dart';
 import '../../data/models/category_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/enums/category_type.dart';
 import '../../data/database/default_categories.dart';
+import '../../../../core/extensions/category_extension.dart';
 
 class CategoriesCubit extends Cubit<CategoriesStates> {
   final CategoriesRepo categoriesRepo;
@@ -33,22 +34,46 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     );
   }
 
-  // Search
+  // Search & Filter
   bool isSearching = false;
+  bool isFiltering = false;
   List<CategoryModel> searchResults = [];
+  List<CategoryModel> filteredCategories = [];
   var searchController = TextEditingController();
+  CategoriesType selectedType = CategoriesType.all;
 
   void searchCategories({required String? query}) {
     if (query == null || query.isEmpty) {
       isSearching = false;
       searchResults.clear();
       searchController.clear();
-      emit(CategoriesSearchSuccess());
+      emit(CategoriesSearch());
       return;
     }
     isSearching = true;
-    emit(CategoriesSearchLoading());
-    searchResults = allCategories.search(query);
-    emit(CategoriesSearchSuccess());
+    if (isFiltering) {
+      searchResults = filteredCategories.search(query);
+    } else {
+      searchResults = allCategories.search(query);
+    }
+    emit(CategoriesSearch());
+  }
+
+  void changeSelectedType(CategoriesType type) {
+    selectedType = type;
+    emit(CategoriesSearch());
+  }
+
+  void filterCategories() {
+    isFiltering = true;
+    filteredCategories = allCategories.filterByType(selectedType);
+    emit(CategoriesSearch());
+  }
+
+  void clearFilter() {
+    isFiltering = false;
+    searchResults.clear();
+    selectedType = CategoriesType.all;
+    emit(CategoriesSearch());
   }
 }

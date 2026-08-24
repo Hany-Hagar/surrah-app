@@ -13,15 +13,12 @@ class CategoriesFailure extends CategoriesStates {
 }
 
 // Search Categories
-class CategoriesSearchLoading extends CategoriesStates {}
+class CategoriesSearch extends CategoriesStates {}
 
-class CategoriesSearchSuccess extends CategoriesStates {}
+// Filter Categories
+class ChangeSelectedType extends CategoriesStates {}
 
-class CategoriesSearchFailure extends CategoriesStates {
-  final String errorMessage;
-  CategoriesSearchFailure({required this.errorMessage});
-}
-
+class FilterCategories extends CategoriesStates {}
 
 // Update IconModel
 class SetIconDataStates extends CategoriesStates {}

@@ -25,7 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "addCategory": MessageLookupByLibrary.simpleMessage("Add Category"),
     "addExpense": MessageLookupByLibrary.simpleMessage("Add Expense"),
     "addIncome": MessageLookupByLibrary.simpleMessage("Add Income"),
+    "all": MessageLookupByLibrary.simpleMessage("All"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "categoriesSubtitle": MessageLookupByLibrary.simpleMessage(
       "Add, edit, and delete your expense categories",
@@ -33,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "categoriesTitle": MessageLookupByLibrary.simpleMessage(
       "Manage Your Categories",
     ),
+    "categoriesType": MessageLookupByLibrary.simpleMessage("Categories Type"),
+    "clearFilterButton": MessageLookupByLibrary.simpleMessage("Clear Filter"),
     "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
       "Reach out by email and we\'ll be happy to help.",
     ),
@@ -107,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "expense": MessageLookupByLibrary.simpleMessage("Expense"),
+    "filterButton": MessageLookupByLibrary.simpleMessage("Filter"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -114,7 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Your Personal Finance Companion",
     ),
     "homeTitle": MessageLookupByLibrary.simpleMessage("Welcome to Surrah"),
-    "icome": MessageLookupByLibrary.simpleMessage("Income"),
+    "income": MessageLookupByLibrary.simpleMessage("Income"),
     "languageSubtitle": MessageLookupByLibrary.simpleMessage(
       "Change the app language",
     ),

@@ -12,7 +12,7 @@ class CustomGrid<T> extends StatelessWidget {
   final double mainAxisSpacing;
   final double childAspectRatio;
   final EdgeInsetsGeometry padding;
-  final Widget? extraWidget;
+  final Widget? extraItem;
   final String? emptyMessage;
 
   const CustomGrid({
@@ -23,7 +23,7 @@ class CustomGrid<T> extends StatelessWidget {
     this.crossAxisSpacing = 5,
     this.mainAxisSpacing = 5,
     this.childAspectRatio = 1,
-    this.extraWidget,
+    this.extraItem,
     this.emptyMessage,
     this.padding = EdgeInsets.zero,
   });
@@ -37,7 +37,7 @@ class CustomGrid<T> extends StatelessWidget {
       padding: padding,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: items.length + (extraWidget != null ? 1 : 0),
+      itemCount: items.length + (extraItem != null ? 1 : 0),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         mainAxisSpacing: mainAxisSpacing.h,
@@ -45,8 +45,8 @@ class CustomGrid<T> extends StatelessWidget {
         childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (context, index) {
-        if (index == items.length && extraWidget != null) {
-          return extraWidget!;
+        if (index == items.length && extraItem != null) {
+          return extraItem!;
         }
         return itemBuilder(context, items[index]);
       },
@@ -69,13 +69,13 @@ class _Empty extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.8,
         ),
         Transform.translate(
-          offset:  Offset(0, -20.h),
+          offset: Offset(0, -20.h),
           child: CustomText(
             size: 18.sp,
             type: Type.header,
             opacity: FontOpacity.medium,
             text: message ?? "No items found",
-          )
+          ),
         ),
       ],
     );

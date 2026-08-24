@@ -12,9 +12,7 @@ class CategoriesBody extends StatelessWidget {
     var cubit = CategoriesCubit.get(context);
     return BlocBuilder<CategoriesCubit, CategoriesStates>(
       builder: (context, state) {
-        var categories = cubit.isSearching
-            ? cubit.searchResults
-            : cubit.allCategories;
+        var categories = cubit.isSearching ? cubit.searchResults : cubit.isFiltering ? cubit.filteredCategories : cubit.allCategories;
         return Categories(categories: categories);
       },
     );

@@ -2,6 +2,25 @@
   "@@locale": "ar",
 
   
+  "cancel": "إلغاء",
+  "@cancel": {
+    "description": "Label for the cancel button"
+  },
+  "all": "الكل",
+  "@all": {
+    "description": "Label for the all categories type"
+  },
+  "income": "الدخل",
+  "@income": {
+    "description": "Label for the income section"
+  },
+  "expense": "المصروفات",
+  "@expense": {
+    "description": "Label for the expenses section"
+  },
+  
+
+
   "onboardingTitle1": "تابع كل جنيه",
   "@onboardingTitle1": {
     "description": "Onboarding title for the first slide"
@@ -70,14 +89,6 @@
   "@currentBalance": {
     "description": "Label for the current balance section"
   },
-  "icome": "الدخل",
-  "@icome": {
-    "description": "Label for the income section"
-  },
-  "expense": "المصروف",
-  "@expense": {
-    "description": "Label for the expenses section"
-  },
   "quickActions": "الإجراءات السريعة",
   "@quickActions": {
     "description": "Label for the quick actions section"
@@ -120,6 +131,19 @@
   "@categoriesEmpty": {
     "description": "نص لحالة عدم وجود تصنيفات"
   },
+  "categoriesType": "نوع التصنيف",
+  "@categoriesType": {
+    "description": "نص لتحديد نوع التصنيف"
+  },
+  "filterButton": "تصفية",
+  "@filterButton": {
+    "description": "نص زر التصفية"
+  },
+  "clearFilterButton": "مسح التصفية",
+  "@clearFilterButton": {
+    "description": "نص زر مسح التصفية"
+  },
+
 
 
   "settingsTitle": "الإعدادات",

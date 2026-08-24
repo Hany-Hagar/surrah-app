@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:surrah/core/extensions/icon_extensions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/extensions/category_extension.dart';
+import '../../manager/categories_cubit.dart';
 
 class Categories extends StatelessWidget {
   final Function(CategoryModel)? onTap;
@@ -21,9 +22,13 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = CategoriesCubit.get(context);
     return CustomGrid<CategoryModel>(
       items: categories,
       padding: EdgeInsets.all(12.h),
+      extraItem: cubit.isSearching || cubit.isFiltering
+          ? null
+          : const _AddItem(),
       itemBuilder: (context, category) => _Item(
         onTap: onTap ?? (_) {},
         category: category,
@@ -37,39 +42,54 @@ class Categories extends StatelessWidget {
 
 class _Item extends StatelessWidget {
   final bool isSelected;
-  final CategoryModel category;
-  final Function(CategoryModel) onTap;
+  final String? name;
+  final Color? color;
+  final FaIconData? icon;
+  final CategoryModel? category;
+  final Function(CategoryModel)? onTap;
   const _Item({
-    required this.category,
-    required this.isSelected,
-    required this.onTap,
+    this.icon,
+    this.name,
+    this.color,
+    this.onTap,
+    this.category,
+    this.isSelected = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    var color = Color(category.color);
     return GestureDetector(
-      onTap: () => onTap(category),
+      onTap: () => onTap?.call(category!),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         decoration: BoxDecoration(
           boxShadow: defaultBoxShadow,
-          color: isSelected ? color.withAlpha(45) : Theme.of(context).cardColor,
+          color: isSelected
+              ? color!.withAlpha(45)
+              : Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(4.r),
           border: Border.all(
             width: isSelected ? 2 : 0,
-            color: isSelected ? color : Colors.transparent,
+            color: isSelected ? color! : Colors.transparent,
           ),
         ),
-        child: _ItemBody(category: category),
+        child: _ItemBody(
+          category: category,
+          icon: icon,
+          name: name,
+          color: color,
+        ),
       ),
     );
   }
 }
 
 class _ItemBody extends StatelessWidget {
-  final CategoryModel category;
-  const _ItemBody({required this.category});
+  final FaIconData? icon;
+  final String? name;
+  final Color? color;
+  final CategoryModel? category;
+  const _ItemBody({this.category, this.icon, this.name, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -79,17 +99,32 @@ class _ItemBody extends StatelessWidget {
       children: [
         FaIcon(
           size: 26.sp,
-          color: Color(category.color),
-          category.iconId.getIconById()?.icon,
+          color: color ?? Color(category!.color),
+          icon ?? category!.iconId.getIconById()?.icon,
         ),
         CustomText(
           maxLines: 2,
           type: Type.header,
-          text: category.name,
+          text: name ?? category!.name,
           textAlign: TextAlign.center,
-          size: category.name.getSize(),
+          size: (name ?? category!.name).getSize(),
         ),
       ],
+    );
+  }
+}
+
+class _AddItem extends StatelessWidget {
+  const _AddItem();
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: _Item(
+        icon: FontAwesomeIcons.plus,
+        name: 'إضافة تصنيف',
+        color: Color(0xFF607D8B),
+      ),
     );
   }
 }

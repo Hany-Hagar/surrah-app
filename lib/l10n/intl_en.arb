@@ -2,6 +2,24 @@
   "@@locale": "en",
 
   
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Label for the cancel button"
+  },
+  "all": "All",
+  "@all": {
+    "description": "Label for the all categories type"
+  },
+  "income": "Income",
+  "@income": {
+    "description": "Label for the income section"
+  },
+  "expense": "Expense",
+  "@expense": {
+    "description": "Label for the expenses section"
+  },
+
+  
   "onboardingTitle1": "Follow Every Pound",
   "@onboardingTitle1": {
     "description": "Onboarding title for the first slide"
@@ -70,14 +88,6 @@
   "@currentBalance": {
     "description": "Label for the current balance section"
   },
-  "icome": "Income",
-  "@icome": {
-    "description": "Label for the income section"
-  },
-  "expense": "Expense",
-  "@expense": {
-    "description": "Label for the expenses section"
-  },
   "quickActions": "Quick Actions",
   "@quickActions": {
     "description": "Label for the quick actions section"
@@ -120,8 +130,21 @@
   "@emptyCategories": {
     "description": "Text for the empty state of categories"
   },
+  "categoriesType": "Categories Type",
+  "@categoriesType": {
+    "description": "Label for the categories types section"
+  },
+  "filterButton": "Filter",
+  "@filterButton": {
+    "description": "Label for the filter button"
+  },
+  "clearFilterButton": "Clear Filter",
+  "@clearFilterButton": {
+    "description": "Label for the clear filter button"
+  },
 
-  
+
+
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Title for the settings page"

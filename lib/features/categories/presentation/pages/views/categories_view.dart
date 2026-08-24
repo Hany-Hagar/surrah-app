@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import '../../manager/categories_states.dart';
 import '../widgets/categories_body.dart';
+import '../widgets/categories_filter.dart';
 import '../../../../../generated/l10n.dart';
 import '../../manager/categories_cubit.dart';
+import '../../manager/categories_states.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:surrah/core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -23,6 +25,14 @@ class CategoriesView extends StatelessWidget {
           bottom: const _Search(),
           title: s.categoriesTitle,
           subtitle: s.categoriesSubtitle,
+          trailingIcon: IconBroken.Filter,
+          onTrailingPressed: () => showModalBottomSheet(
+            context: context,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
+            ),
+            builder: (context) => const CategoriesFilter(),
+          ),
         ),
         body: const CategoriesBody(),
       ),
@@ -51,3 +61,4 @@ class _Search extends StatelessWidget {
     );
   }
 }
+

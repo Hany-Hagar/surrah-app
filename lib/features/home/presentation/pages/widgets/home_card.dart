@@ -27,7 +27,7 @@ class HomeCard extends StatelessWidget {
               children: [
                 _BalanceItem(
                   color: Colors.green,
-                  title: s.icome,
+                  title: s.income,
                   icon: Icons.arrow_downward,
                   amount: 1000,
                 ),
