@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => getIt<SettingsCubit>()),
         BlocProvider(create: (context) => getIt<LayoutCubit>()),
+        BlocProvider(create: (context) => getIt<SettingsCubit>()),
         BlocProvider(create: (context) => getIt<CategoriesCubit>()),
       ],
       child: BlocBuilder<SettingsCubit, AppUserPref>(

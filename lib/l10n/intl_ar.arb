@@ -131,8 +131,8 @@
   "@categoriesEmpty": {
     "description": "نص لحالة عدم وجود تصنيفات"
   },
-  "categoriesType": "نوع التصنيف",
-  "@categoriesType": {
+  "categoryType": "نوع التصنيف",
+  "@categoryType": {
     "description": "نص لتحديد نوع التصنيف"
   },
   "filterButton": "تصفية",
@@ -142,6 +142,38 @@
   "clearFilterButton": "مسح التصفية",
   "@clearFilterButton": {
     "description": "نص زر مسح التصفية"
+  },
+  "addCategoryDialogTitle": "إضافة تصنيف جديد",
+  "@addCategoryDialogTitle": {
+    "description": "عنوان حوار إضافة تصنيف جديد"
+  },
+  "addCategoryDialogDescription": "أدخل تفاصيل التصنيف الجديد الذي ترغب في إضافته.",
+  "@addCategoryDialogDescription": {
+    "description": "وصف حوار إضافة تصنيف جديد"
+  },
+  "categoryName": "اسم التصنيف",
+  "@categoryName": {
+    "description": "نص تلميحي لحقل اسم التصنيف"
+  },
+  "categoryNameHint": "e.g., Food, Transportation, Salary",
+  "@categoryNameHint": {
+    "description": "Hint text for the category name input field"
+  },
+  "categoryIconData": "بيانات الأيقونة",
+  "@categoryIconData": {
+    "description": "Label for the category icon data input field"
+  },
+  "categoryIconDataHint": "اضغط لتغيير الأيقونة",
+  "@categoryIconDataHint": {
+    "description": "نص تلميحي لحقل بيانات أيقونة التصنيف"
+  },
+  "color": "اللون",
+  "@color": {
+    "description": "نص"
+  },
+  "addNewCategorySuccess": "تمت إضافة التصنيف بنجاح",
+  "@addNewCategorySuccess": {
+    "description": "رسالة نجاح عند إضافة تصنيف جديد"
   },
 
 

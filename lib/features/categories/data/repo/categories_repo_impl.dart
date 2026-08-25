@@ -20,20 +20,24 @@ class CategoriesRepoImpl extends CategoriesRepo {
   }
 
   @override
-  Future<Either<Failure, void>> addCategory(CategoryModel category) async {
+  Future<Either<Failure, CategoryModel>> addCategory(
+    CategoryModel category,
+  ) async {
     try {
       await categoriesData.addCategory(category);
-      return const Right(null);
+      return Right(category);
     } catch (e) {
       return Left(HiveFailure.fromError(e));
     }
   }
 
   @override
-  Future<Either<Failure, void>> updateCategory(CategoryModel category) async {
+  Future<Either<Failure, CategoryModel>> updateCategory(
+    CategoryModel category,
+  ) async {
     try {
       await categoriesData.updateCategory(category);
-      return const Right(null);
+      return Right(category);
     } catch (e) {
       return Left(HiveFailure.fromError(e));
     }

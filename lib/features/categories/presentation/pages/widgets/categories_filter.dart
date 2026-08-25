@@ -59,7 +59,7 @@ class _Body extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CustomText(text: s.categoriesType, size: 17, type: Type.overMedium),
+            CustomText(text: s.categoryType, size: 17, type: Type.overMedium),
             _ClearFilter(isFiltering: CategoriesCubit.get(context).isFiltering),
           ],
         ),

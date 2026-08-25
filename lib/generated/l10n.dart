@@ -354,12 +354,12 @@ class S {
     );
   }
 
-  /// `Categories Type`
-  String get categoriesType {
+  /// `Type`
+  String get categoryType {
     return Intl.message(
-      'Categories Type',
-      name: 'categoriesType',
-      desc: 'Label for the categories types section',
+      'Type',
+      name: 'categoryType',
+      desc: 'Label for the category type selection',
       args: [],
     );
   }
@@ -380,6 +380,86 @@ class S {
       'Clear Filter',
       name: 'clearFilterButton',
       desc: 'Label for the clear filter button',
+      args: [],
+    );
+  }
+
+  /// `Add New Category`
+  String get addCategoryDialogTitle {
+    return Intl.message(
+      'Add New Category',
+      name: 'addCategoryDialogTitle',
+      desc: 'Title for the add new category dialog',
+      args: [],
+    );
+  }
+
+  /// `Please enter the name of the new category and select its type (Income or Expense).`
+  String get addCategoryDialogDescription {
+    return Intl.message(
+      'Please enter the name of the new category and select its type (Income or Expense).',
+      name: 'addCategoryDialogDescription',
+      desc: 'Description for the add new category dialog',
+      args: [],
+    );
+  }
+
+  /// `Category Name`
+  String get categoryName {
+    return Intl.message(
+      'Category Name',
+      name: 'categoryName',
+      desc: 'Hint text for the category name input field',
+      args: [],
+    );
+  }
+
+  /// `e.g., Food, Transportation, Salary`
+  String get categoryNameHint {
+    return Intl.message(
+      'e.g., Food, Transportation, Salary',
+      name: 'categoryNameHint',
+      desc: 'Hint text for the category name input field',
+      args: [],
+    );
+  }
+
+  /// `Icon Data`
+  String get categoryIconData {
+    return Intl.message(
+      'Icon Data',
+      name: 'categoryIconData',
+      desc: 'Label for the category icon data input field',
+      args: [],
+    );
+  }
+
+  /// `Tap to select an icon data`
+  String get categoryIconDataHint {
+    return Intl.message(
+      'Tap to select an icon data',
+      name: 'categoryIconDataHint',
+      desc: 'Hint text for the category icon data input field',
+      args: [],
+    );
+  }
+
+  /// `Color`
+  String get color {
+    return Intl.message(
+      'Color',
+      name: 'color',
+      desc: 'Label for the color selection',
+      args: [],
+    );
+  }
+
+  /// `New category added successfully`
+  String get addNewCategorySuccess {
+    return Intl.message(
+      'New category added successfully',
+      name: 'addNewCategorySuccess',
+      desc: 'Message displayed when a new category is added successfully',
       args: [],
     );
   }

@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:surrah/core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/services/snack_bar_service.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -16,26 +17,52 @@ class CategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var s = S.of(context);
     return BlocProvider.value(
       value: getIt<CategoriesCubit>()..getCategories(),
-      child: Scaffold(
-        appBar: CustomAppBar(
-          bottomHeight: 60,
-          bottom: const _Search(),
-          title: s.categoriesTitle,
-          subtitle: s.categoriesSubtitle,
-          trailingIcon: IconBroken.Filter,
-          onTrailingPressed: () => showModalBottomSheet(
-            context: context,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
-            ),
-            builder: (context) => const CategoriesFilter(),
-          ),
-        ),
-        body: const CategoriesBody(),
+      child: BlocListener<CategoriesCubit, CategoriesStates>(
+        listener: (context, state) {
+          if (state is AddCategorySuccess) {
+            Navigator.pop(context);
+            SnackBarService.success(
+              context: context,
+              message: S.of(context).addNewCategorySuccess,
+            );
+          }
+          if (state is AddCategoryFailure) {
+            SnackBarService.failure(
+              context: context,
+              message: state.errorMessage,
+            );
+          }
+        },
+        child: _Body(),
       ),
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  const _Body();
+
+  @override
+  Widget build(BuildContext context) {
+    var s = S.of(context);
+    return Scaffold(
+      appBar: CustomAppBar(
+        bottomHeight: 60,
+        bottom: const _Search(),
+        title: s.categoriesTitle,
+        subtitle: s.categoriesSubtitle,
+        trailingIcon: IconBroken.Filter,
+        onTrailingPressed: () => showModalBottomSheet(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
+          ),
+          builder: (context) => const CategoriesFilter(),
+        ),
+      ),
+      body: const CategoriesBody(),
     );
   }
 }
@@ -61,4 +88,3 @@ class _Search extends StatelessWidget {
     );
   }
 }
-

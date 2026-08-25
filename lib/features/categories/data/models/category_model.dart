@@ -49,4 +49,21 @@ CategoryModel copyWith({
       isDeleted: isDeleted ?? this.isDeleted,
     );
   }
+
+  // New
+  factory CategoryModel.newCategory({
+    required String name,
+    required int color,
+    required String iconId,
+    required bool isIncome,
+  }) {
+    return CategoryModel(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      name: name,
+      color: color,
+      iconId: iconId,
+      isDeleted: false,
+      isIncome: isIncome,
+    );
+  }
 }

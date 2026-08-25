@@ -20,10 +20,14 @@ class ChangeSelectedType extends CategoriesStates {}
 
 class FilterCategories extends CategoriesStates {}
 
-// Update IconModel
+// Category Data
+class ChangeSelectedCategory extends CategoriesStates {}
+
 class SetIconDataStates extends CategoriesStates {}
 
 // Add Category
+class AutoValidateModeChanged extends CategoriesStates {}
+
 class AddCategoryLoading extends CategoriesStates {}
 
 class AddCategorySuccess extends CategoriesStates {}

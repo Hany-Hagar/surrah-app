@@ -130,9 +130,9 @@
   "@emptyCategories": {
     "description": "Text for the empty state of categories"
   },
-  "categoriesType": "Categories Type",
-  "@categoriesType": {
-    "description": "Label for the categories types section"
+  "categoryType": "Type",
+  "@categoryType": {
+    "description": "Label for the category type selection"
   },
   "filterButton": "Filter",
   "@filterButton": {
@@ -141,6 +141,38 @@
   "clearFilterButton": "Clear Filter",
   "@clearFilterButton": {
     "description": "Label for the clear filter button"
+  },
+  "addCategoryDialogTitle": "Add New Category",
+  "@addCategoryDialogTitle": {
+    "description": "Title for the add new category dialog"
+  },
+  "addCategoryDialogDescription": "Please enter the name of the new category and select its type (Income or Expense).",
+  "@addCategoryDialogDescription": {
+    "description": "Description for the add new category dialog"
+  },
+  "categoryName": "Category Name",
+  "@categoryName": {
+    "description": "Hint text for the category name input field"
+  },
+  "categoryNameHint": "e.g., Food, Transportation, Salary",
+  "@categoryNameHint": {
+    "description": "Hint text for the category name input field"
+  },
+  "categoryIconData": "Icon Data",
+  "@categoryIconData": {
+    "description": "Label for the category icon data input field"
+  },
+  "categoryIconDataHint": "Tap to select an icon data",
+  "@categoryIconDataHint": {
+    "description": "Hint text for the category icon data input field"
+  },
+  "color": "Color",
+  "@color": {
+    "description": "Label for the color selection"
+  },
+  "addNewCategorySuccess": "New category added successfully",
+  "@addNewCategorySuccess": {
+    "description": "Message displayed when a new category is added successfully"
   },
 
 

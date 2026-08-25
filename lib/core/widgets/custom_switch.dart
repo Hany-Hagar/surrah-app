@@ -7,8 +7,6 @@ class CustomSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Grey with white
-    // green with white
     return Transform.scale(
       scale: 0.7,
       child: Switch(

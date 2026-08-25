@@ -1,13 +1,16 @@
+import 'add_category.dart';
 import 'package:flutter/material.dart';
 import '../../../../../const/app_data.dart';
+import 'package:surrah/generated/l10n.dart';
+import '../../manager/categories_cubit.dart';
 import '../../../data/models/category_model.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_grid.dart';
+import '../../../../../core/services/dialog_service.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:surrah/core/extensions/icon_extensions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/extensions/category_extension.dart';
-import '../../manager/categories_cubit.dart';
 
 class Categories extends StatelessWidget {
   final Function(CategoryModel)? onTap;
@@ -42,43 +45,31 @@ class Categories extends StatelessWidget {
 
 class _Item extends StatelessWidget {
   final bool isSelected;
-  final String? name;
-  final Color? color;
-  final FaIconData? icon;
-  final CategoryModel? category;
-  final Function(CategoryModel)? onTap;
+  final CategoryModel category;
+  final Function(CategoryModel) onTap;
   const _Item({
-    this.icon,
-    this.name,
-    this.color,
-    this.onTap,
-    this.category,
-    this.isSelected = false,
+    required this.onTap,
+    required this.category,
+    required this.isSelected,
   });
 
   @override
   Widget build(BuildContext context) {
+    var color = Color(category.color);
     return GestureDetector(
-      onTap: () => onTap?.call(category!),
+      onTap: () => onTap(category),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         decoration: BoxDecoration(
           boxShadow: defaultBoxShadow,
-          color: isSelected
-              ? color!.withAlpha(45)
-              : Theme.of(context).cardColor,
+          color: isSelected ? color.withAlpha(45) : Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(4.r),
           border: Border.all(
             width: isSelected ? 2 : 0,
-            color: isSelected ? color! : Colors.transparent,
+            color: isSelected ? color : Colors.transparent,
           ),
         ),
-        child: _ItemBody(
-          category: category,
-          icon: icon,
-          name: name,
-          color: color,
-        ),
+        child: _ItemBody(category: category),
       ),
     );
   }
@@ -98,7 +89,7 @@ class _ItemBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FaIcon(
-          size: 26.sp,
+          size: 25.sp,
           color: color ?? Color(category!.color),
           icon ?? category!.iconId.getIconById()?.icon,
         ),
@@ -119,11 +110,22 @@ class _AddItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
-      child: _Item(
-        icon: FontAwesomeIcons.plus,
-        name: 'إضافة تصنيف',
-        color: Color(0xFF607D8B),
+      onTap: () => DialogService.showCustomDialog(
+        context: context,
+        body: const AddCategory(),
+      ),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        decoration: BoxDecoration(
+          boxShadow: defaultBoxShadow,
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(4.r),
+        ),
+        child: _ItemBody(
+          name: S.of(context).addCategory,
+          color: Color(0xFF607D8B),
+          icon: FontAwesomeIcons.plus,
+        ),
       ),
     );
   }

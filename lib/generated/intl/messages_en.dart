@@ -23,8 +23,17 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "addCategory": MessageLookupByLibrary.simpleMessage("Add Category"),
+    "addCategoryDialogDescription": MessageLookupByLibrary.simpleMessage(
+      "Please enter the name of the new category and select its type (Income or Expense).",
+    ),
+    "addCategoryDialogTitle": MessageLookupByLibrary.simpleMessage(
+      "Add New Category",
+    ),
     "addExpense": MessageLookupByLibrary.simpleMessage("Add Expense"),
     "addIncome": MessageLookupByLibrary.simpleMessage("Add Income"),
+    "addNewCategorySuccess": MessageLookupByLibrary.simpleMessage(
+      "New category added successfully",
+    ),
     "all": MessageLookupByLibrary.simpleMessage("All"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -35,8 +44,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "categoriesTitle": MessageLookupByLibrary.simpleMessage(
       "Manage Your Categories",
     ),
-    "categoriesType": MessageLookupByLibrary.simpleMessage("Categories Type"),
+    "categoryIconData": MessageLookupByLibrary.simpleMessage("Icon Data"),
+    "categoryIconDataHint": MessageLookupByLibrary.simpleMessage(
+      "Tap to select an icon data",
+    ),
+    "categoryName": MessageLookupByLibrary.simpleMessage("Category Name"),
+    "categoryNameHint": MessageLookupByLibrary.simpleMessage(
+      "e.g., Food, Transportation, Salary",
+    ),
+    "categoryType": MessageLookupByLibrary.simpleMessage("Type"),
     "clearFilterButton": MessageLookupByLibrary.simpleMessage("Clear Filter"),
+    "color": MessageLookupByLibrary.simpleMessage("Color"),
     "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
       "Reach out by email and we\'ll be happy to help.",
     ),

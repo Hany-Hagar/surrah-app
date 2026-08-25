@@ -23,8 +23,17 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "addCategory": MessageLookupByLibrary.simpleMessage("إضافة تصنيف"),
+    "addCategoryDialogDescription": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل التصنيف الجديد الذي ترغب في إضافته.",
+    ),
+    "addCategoryDialogTitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة تصنيف جديد",
+    ),
     "addExpense": MessageLookupByLibrary.simpleMessage("إضافة مصروف"),
     "addIncome": MessageLookupByLibrary.simpleMessage("إضافة دخل"),
+    "addNewCategorySuccess": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة التصنيف بنجاح",
+    ),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
@@ -33,8 +42,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "إضافة وتعديل وحذف تصنيفات المصروفات",
     ),
     "categoriesTitle": MessageLookupByLibrary.simpleMessage("إدارة التصنيفات"),
-    "categoriesType": MessageLookupByLibrary.simpleMessage("نوع التصنيف"),
+    "categoryIconData": MessageLookupByLibrary.simpleMessage("بيانات الأيقونة"),
+    "categoryIconDataHint": MessageLookupByLibrary.simpleMessage(
+      "اضغط لتغيير الأيقونة",
+    ),
+    "categoryName": MessageLookupByLibrary.simpleMessage("اسم التصنيف"),
+    "categoryNameHint": MessageLookupByLibrary.simpleMessage(
+      "e.g., Food, Transportation, Salary",
+    ),
+    "categoryType": MessageLookupByLibrary.simpleMessage("نوع التصنيف"),
     "clearFilterButton": MessageLookupByLibrary.simpleMessage("مسح التصفية"),
+    "color": MessageLookupByLibrary.simpleMessage("اللون"),
     "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
       "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
     ),
