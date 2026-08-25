@@ -1,12 +1,12 @@
 import '../widgets/home_body.dart';
 import 'package:flutter/material.dart';
-import '../../../../../const/assets.dart';
-import '../../../../../generated/l10n.dart';
+import '../../../const/assets.dart';
+import '../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:surrah/core/utils/nav_to.dart';
-import '../../../../../core/widgets/custom_app_bar.dart';
+import '../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../settings/presentation/pages/views/settings_view.dart';
+import '../../settings/presentation/pages/views/settings_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

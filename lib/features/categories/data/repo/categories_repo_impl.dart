@@ -42,14 +42,4 @@ class CategoriesRepoImpl extends CategoriesRepo {
       return Left(HiveFailure.fromError(e));
     }
   }
-
-  @override
-  Future<Either<Failure, void>> deleteCategory(String categoryId) async {
-    try {
-      await categoriesData.deleteCategory(categoryId);
-      return const Right(null);
-    } catch (e) {
-      return Left(HiveFailure.fromError(e));
-    }
-  }
 }

@@ -6,52 +6,12 @@ import '../../manager/categories_cubit.dart';
 import '../../manager/categories_states.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:surrah/core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/services/snack_bar_service.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class CategoriesView extends StatelessWidget {
   const CategoriesView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: getIt<CategoriesCubit>()..getCategories(),
-      child: BlocListener<CategoriesCubit, CategoriesStates>(
-        listener: (context, state) {
-          if (state is AddCategorySuccess) {
-            Navigator.pop(context);
-            getIt<CategoriesCubit>().resetAddCategoryData();
-            SnackBarService.success(
-              context: context,
-              message: S.of(context).addNewCategorySuccess,
-            );
-          }
-          if (state is UpdateCategorySuccess) {
-            Navigator.pop(context);
-            getIt<CategoriesCubit>().resetAddCategoryData();
-            SnackBarService.success(
-              context: context,
-              message: S.of(context).updateCategorySuccess,
-            );
-          }
-          if (state is UpdateCategoriesFailure) {
-            SnackBarService.failure(
-              context: context,
-              message: state.errorMessage,
-            );
-          }
-        },
-        child: _Body(),
-      ),
-    );
-  }
-}
-
-class _Body extends StatelessWidget {
-  const _Body();
 
   @override
   Widget build(BuildContext context) {

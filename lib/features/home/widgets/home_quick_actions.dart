@@ -1,9 +1,12 @@
+import 'dart:developer';
+
+import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
-import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
+import '../../../core/services/dialog_service.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../categories/presentation/pages/widgets/add_edit_category.dart';
 
 class HomeQuickActions extends StatelessWidget {
   const HomeQuickActions({super.key});
@@ -14,11 +17,7 @@ class HomeQuickActions extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(
-          text: s.quickActions,
-          size: 18.sp,
-          type: Type.overMedium,
-        ),
+        CustomText(text: s.quickActions, size: 18.sp, type: Type.overMedium),
         SizedBox(height: 10.h),
         Row(
           spacing: 5.w,
@@ -39,7 +38,13 @@ class HomeQuickActions extends StatelessWidget {
               color: Colors.orange,
               title: s.addCategory,
               icon: IconBroken.Category,
-              onPressed: () {},
+              onPressed: () {
+                log('Add Category pressed');
+                DialogService.showCustomDialog(
+                  context: context,
+                  body: const AddEditCategory(),
+                );
+              },
             ),
           ],
         ),
@@ -63,26 +68,29 @@ class _Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          color: color.withAlpha(50),
-          borderRadius: BorderRadius.circular(4.r),
-          border: Border.all(color: color.withAlpha(50), width: 1.w),
-        ),
-        padding: EdgeInsets.symmetric(vertical: 10.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 17.r,
-              backgroundColor: color,
-              child: Icon(icon, color: Colors.white, size: 20.sp),
-            ),
-            SizedBox(height: 6.h),
-            CustomText(text: title, size: 14.sp, type: Type.overMedium),
-          ],
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          decoration: BoxDecoration(
+            color: color.withAlpha(50),
+            borderRadius: BorderRadius.circular(4.r),
+            border: Border.all(color: color.withAlpha(50), width: 1.w),
+          ),
+          padding: EdgeInsets.symmetric(vertical: 10.h),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 17.r,
+                backgroundColor: color,
+                child: Icon(icon, color: Colors.white, size: 20.sp),
+              ),
+              SizedBox(height: 6.h),
+              CustomText(text: title, size: 14.sp, type: Type.overMedium),
+            ],
+          ),
         ),
       ),
     );

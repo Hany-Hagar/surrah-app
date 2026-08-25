@@ -6,5 +6,4 @@ abstract class CategoriesRepo {
   Future<Either<Failure, List<CategoryModel>>> getCategories();
   Future<Either<Failure, CategoryModel>> addCategory(CategoryModel category);
   Future<Either<Failure, CategoryModel>> updateCategory(CategoryModel category);
-  Future<Either<Failure, void>> deleteCategory(String categoryId);
 }

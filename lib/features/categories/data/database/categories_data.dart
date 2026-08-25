@@ -28,12 +28,4 @@ class CategoriesData {
       value: category,
     );
   }
-
-  // Delete a category
-  Future<void> deleteCategory(String categoryId) async {
-    await hiveService.delete(
-      boxName: HiveData.categoriesBox,
-      key: categoryId,
-    );
-  }
 }

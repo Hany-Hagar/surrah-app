@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../../generated/l10n.dart';
-import '../../../../../core/widgets/custom_text.dart';
+import '../../../generated/l10n.dart';
+import '../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeLastTransactions extends StatelessWidget {

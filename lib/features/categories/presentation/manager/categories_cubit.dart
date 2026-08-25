@@ -169,7 +169,10 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
         : CategoriesType.expense;
   }
 
-  void updateCategory({required GlobalKey<FormState> formKey ,required CategoryModel category}) async {
+  void updateCategory({
+    required GlobalKey<FormState> formKey,
+    required CategoryModel category,
+  }) async {
     if (!formKey.currentState!.validate()) {
       autoValidateMode = AutovalidateMode.onUserInteraction;
       emit(AutoValidateModeChanged());
