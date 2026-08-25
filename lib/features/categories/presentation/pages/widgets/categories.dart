@@ -1,4 +1,4 @@
-import 'add_category.dart';
+import 'add_edit_category.dart';
 import 'package:flutter/material.dart';
 import '../../../../../const/app_data.dart';
 import 'package:surrah/generated/l10n.dart';
@@ -112,7 +112,7 @@ class _AddItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => DialogService.showCustomDialog(
         context: context,
-        body: const AddCategory(),
+        body: const AddEditCategory(),
       ),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w),

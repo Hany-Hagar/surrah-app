@@ -231,5 +231,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "themes": MessageLookupByLibrary.simpleMessage("المظاهر"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
+    "updateCategoryButton": MessageLookupByLibrary.simpleMessage(
+      "تحديث التصنيف",
+    ),
+    "updateCategoryDialogDescription": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل التصنيف الذي ترغب في تحديثه.",
+    ),
+    "updateCategoryDialogTitle": MessageLookupByLibrary.simpleMessage(
+      "تحديث التصنيف",
+    ),
+    "updateCategorySuccess": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث التصنيف بنجاح",
+    ),
   };
 }

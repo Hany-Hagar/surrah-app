@@ -25,27 +25,43 @@ class HiveService {
     required dynamic key,
     required T value,
   }) async {
-    await box<T>(boxName).put(key, value);
+    final targetBox = box<T>(boxName);
+    String? valueId;
+    try {
+      valueId = (value as dynamic).id as String?;
+    } catch (_) {}
+
+    if (valueId != null) {
+      final matchingKeys = targetBox.keys.where((boxKey) {
+        final existingValue = targetBox.get(boxKey);
+        try {
+          return (existingValue as dynamic).id == valueId;
+        } catch (_) {
+          return false;
+        }
+      }).toList();
+
+      if (matchingKeys.isNotEmpty) {
+        await targetBox.put(matchingKeys.first, value);
+        for (final matchingKey in matchingKeys.skip(1)) {
+          await targetBox.delete(matchingKey);
+        }
+        return;
+      }
+    }
+
+    await targetBox.put(key, value);
   }
 
-  T? get<T>({
-    required String boxName,
-    required dynamic key,
-  }) {
+  T? get<T>({required String boxName, required dynamic key}) {
     return box<T>(boxName).get(key);
   }
 
-  Future<void> add<T>({
-    required String boxName,
-    required T value,
-  }) async {
+  Future<void> add<T>({required String boxName, required T value}) async {
     await box<T>(boxName).add(value);
   }
 
-  Future<void> delete({
-    required String boxName,
-    required dynamic key,
-  }) async {
+  Future<void> delete({required String boxName, required dynamic key}) async {
     await box(boxName).delete(key);
   }
 

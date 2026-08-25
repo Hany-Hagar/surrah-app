@@ -2,6 +2,7 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import '../../../../../const/assets.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../data/models/category_model.dart';
 import '../../manager/categories_cubit.dart';
 import '../../manager/categories_states.dart';
 import 'package:icon_broken/icon_broken.dart';
@@ -17,8 +18,10 @@ import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../core/extensions/categories_type_extensions.dart';
 
-class AddCategory extends StatelessWidget {
-  const AddCategory({super.key});
+class AddEditCategory extends StatelessWidget {
+  final bool isEdit;
+  final CategoryModel? category;
+  const AddEditCategory({super.key, this.isEdit = false, this.category});
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
@@ -34,13 +37,15 @@ class AddCategory extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(height: media.width / 14),
-                _Title(),
+                _Title(isEdit: isEdit),
                 SizedBox(height: 10.h),
                 _Type(),
                 _Body(),
                 SizedBox(height: 12.h),
                 _Button(
+                  isEdit: isEdit,
                   formKey: formKey,
+                  category: category,
                   isLoading: state is AddCategoryLoading,
                 ),
               ],
@@ -71,7 +76,8 @@ class _Image extends StatelessWidget {
 }
 
 class _Title extends StatelessWidget {
-  const _Title();
+  final bool isEdit;
+  const _Title({required this.isEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -83,12 +89,14 @@ class _Title extends StatelessWidget {
       children: [
         SizedBox(width: double.infinity),
         CustomText(
-          text: s.addCategoryDialogTitle,
+          text: isEdit ? s.updateCategoryDialogTitle : s.addCategoryDialogTitle,
           size: 20.sp,
           type: Type.overMedium,
         ),
         CustomText(
-          text: s.addCategoryDialogDescription,
+          text: isEdit
+              ? s.updateCategoryDialogDescription
+              : s.addCategoryDialogDescription,
           size: 14.sp,
           height: 1.2,
           maxLines: 2,
@@ -226,9 +234,11 @@ class _DataItem extends StatelessWidget {
 }
 
 class _Button extends StatelessWidget {
+  final bool isEdit;
   final bool isLoading;
+  final CategoryModel? category;
   final GlobalKey<FormState> formKey;
-  const _Button({required this.isLoading, required this.formKey});
+  const _Button({required this.isEdit, required this.isLoading,  this.category, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
@@ -241,9 +251,9 @@ class _Button extends StatelessWidget {
           flex: 3,
           child: CustomButton(
             height: 50.h,
-            text: s.addCategory,
+            text: isEdit ? s.updateCategoryButton : s.addCategory,
             isLoading: isLoading,
-            onPressed: () => cubit.addCategory(formKey: formKey),
+            onPressed: () => isEdit ? cubit.updateCategory(formKey: formKey, category: category!) : cubit.addCategory(formKey: formKey),
           ),
         ),
         Expanded(

@@ -244,5 +244,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "themes": MessageLookupByLibrary.simpleMessage("Themes"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),
+    "updateCategoryButton": MessageLookupByLibrary.simpleMessage(
+      "Update Category",
+    ),
+    "updateCategoryDialogDescription": MessageLookupByLibrary.simpleMessage(
+      "Please update the name of the category and select its type (Income or Expense).",
+    ),
+    "updateCategoryDialogTitle": MessageLookupByLibrary.simpleMessage(
+      "Update Category",
+    ),
+    "updateCategorySuccess": MessageLookupByLibrary.simpleMessage(
+      "Category updated successfully",
+    ),
   };
 }

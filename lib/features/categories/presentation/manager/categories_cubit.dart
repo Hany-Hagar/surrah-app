@@ -8,6 +8,7 @@ import '../../../../core/enums/category_type.dart';
 import '../../data/database/default_categories.dart';
 import '../../../iconPicker/data/database/icons.dart';
 import '../../../iconPicker/data/models/icon_model.dart';
+import '../../../../core/extensions/icon_extensions.dart';
 import '../../../../core/extensions/category_extension.dart';
 import '../../../iconPicker/presentations/pages/icon_picker_dialog.dart';
 
@@ -82,11 +83,35 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     emit(CategoriesSearch());
   }
 
-  // Add Category
+  // Add & Edit Category
   Color selectedColor = Colors.blue;
   IconModel selectedIcon = iconsData.first;
   TextEditingController nameController = TextEditingController();
   CategoriesType selectedCategoryType = CategoriesType.income;
+
+  void updateLists({required CategoryModel category, required bool isEdit}) {
+    if (!isEdit) {
+      allCategories.add(category);
+      if (category.isIncome) {
+        incomeCategories.add(category);
+      } else {
+        expenseCategories.add(category);
+      }
+    } else {
+      allCategories = allCategories
+          .map((c) => c.id == category.id ? category : c)
+          .toList();
+      if (category.isIncome) {
+        incomeCategories = incomeCategories
+            .map((c) => c.id == category.id ? category : c)
+            .toList();
+      } else {
+        expenseCategories = expenseCategories
+            .map((c) => c.id == category.id ? category : c)
+            .toList();
+      }
+    }
+  }
 
   void changeSelectedCategoryType({required CategoriesType type}) {
     selectedCategoryType = type;
@@ -124,17 +149,55 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     );
     var result = await categoriesRepo.addCategory(newCategory);
     result.fold(
-      (failure) => emit(AddCategoryFailure(errorMessage: failure.message)),
+      (failure) => emit(UpdateCategoriesFailure(errorMessage: failure.message)),
       (category) {
-        allCategories.add(category);
-        if (category.isIncome) {
-          incomeCategories.add(category);
-        } else {
-          expenseCategories.add(category);
-        }
-        emit(AddCategorySuccess());
         autoValidateMode = AutovalidateMode.disabled;
+        updateLists(category: category, isEdit: false);
+        emit(AddCategorySuccess());
       },
     );
+  }
+
+  // Edit Category
+  void initEditCategory({required CategoryModel category}) {
+    selectedCategory = category;
+    nameController.text = category.name;
+    selectedColor = Color(category.color);
+    selectedIcon = category.iconId.getIconById()!;
+    selectedCategoryType = category.isIncome
+        ? CategoriesType.income
+        : CategoriesType.expense;
+  }
+
+  void updateCategory({required GlobalKey<FormState> formKey ,required CategoryModel category}) async {
+    if (!formKey.currentState!.validate()) {
+      autoValidateMode = AutovalidateMode.onUserInteraction;
+      emit(AutoValidateModeChanged());
+      return;
+    }
+    emit(UpdateCategoryLoading());
+    var updatedCategory = category.copyWith(
+      name: nameController.text,
+      iconId: selectedIcon.id,
+      color: selectedColor.toARGB32(),
+      isIncome: selectedCategoryType == CategoriesType.income,
+    );
+    var result = await categoriesRepo.updateCategory(updatedCategory);
+    result.fold(
+      (failure) => emit(UpdateCategoriesFailure(errorMessage: failure.message)),
+      (category) {
+        autoValidateMode = AutovalidateMode.disabled;
+        updateLists(category: category, isEdit: true);
+        emit(UpdateCategorySuccess());
+      },
+    );
+  }
+
+  void resetAddCategoryData() {
+    nameController.clear();
+    selectedColor = Colors.blue;
+    selectedIcon = iconsData.first;
+    selectedCategoryType = CategoriesType.income;
+    autoValidateMode = AutovalidateMode.disabled;
   }
 }

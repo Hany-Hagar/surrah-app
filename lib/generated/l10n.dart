@@ -464,6 +464,46 @@ class S {
     );
   }
 
+  /// `Update Category`
+  String get updateCategoryDialogTitle {
+    return Intl.message(
+      'Update Category',
+      name: 'updateCategoryDialogTitle',
+      desc: 'Title for the update category dialog',
+      args: [],
+    );
+  }
+
+  /// `Please update the name of the category and select its type (Income or Expense).`
+  String get updateCategoryDialogDescription {
+    return Intl.message(
+      'Please update the name of the category and select its type (Income or Expense).',
+      name: 'updateCategoryDialogDescription',
+      desc: 'Description for the update category dialog',
+      args: [],
+    );
+  }
+
+  /// `Update Category`
+  String get updateCategoryButton {
+    return Intl.message(
+      'Update Category',
+      name: 'updateCategoryButton',
+      desc: 'Label for the update category button',
+      args: [],
+    );
+  }
+
+  /// `Category updated successfully`
+  String get updateCategorySuccess {
+    return Intl.message(
+      'Category updated successfully',
+      name: 'updateCategorySuccess',
+      desc: 'Message displayed when a category is updated successfully',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settingsTitle {
     return Intl.message(

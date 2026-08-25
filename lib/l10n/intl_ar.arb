@@ -175,6 +175,22 @@
   "@addNewCategorySuccess": {
     "description": "رسالة نجاح عند إضافة تصنيف جديد"
   },
+  "updateCategoryDialogTitle": "تحديث التصنيف",
+  "@updateCategoryDialogTitle": {
+    "description": "عنوان حوار تحديث التصنيف"
+  },
+  "updateCategoryDialogDescription": "أدخل تفاصيل التصنيف الذي ترغب في تحديثه.",
+  "@updateCategoryDialogDescription": {
+    "description": "وصف حوار تحديث التصنيف"
+  },
+  "updateCategoryButton": "تحديث التصنيف",
+  "@updateCategoryButton": {
+    "description": "نص زر تحديث التصنيف"
+  },
+  "updateCategorySuccess": "تم تحديث التصنيف بنجاح",
+  "@updateCategorySuccess": {
+    "description": "رسالة نجاح عند تحديث التصنيف"
+  },
 
 
 

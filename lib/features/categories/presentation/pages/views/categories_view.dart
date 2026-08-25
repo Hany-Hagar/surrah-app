@@ -23,12 +23,21 @@ class CategoriesView extends StatelessWidget {
         listener: (context, state) {
           if (state is AddCategorySuccess) {
             Navigator.pop(context);
+            getIt<CategoriesCubit>().resetAddCategoryData();
             SnackBarService.success(
               context: context,
               message: S.of(context).addNewCategorySuccess,
             );
           }
-          if (state is AddCategoryFailure) {
+          if (state is UpdateCategorySuccess) {
+            Navigator.pop(context);
+            getIt<CategoriesCubit>().resetAddCategoryData();
+            SnackBarService.success(
+              context: context,
+              message: S.of(context).updateCategorySuccess,
+            );
+          }
+          if (state is UpdateCategoriesFailure) {
             SnackBarService.failure(
               context: context,
               message: state.errorMessage,
