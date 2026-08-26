@@ -9,6 +9,7 @@ import '../../features/transactions/data/database/transactions_data.dart';
 import '../../features/transactions/data/repo/transactions_repo_impl.dart';
 import '../../../features/settings/presentation/manager/settings_cubit.dart';
 import '../../features/categories/presentation/manager/categories_cubit.dart';
+import '../../features/transactions/presentation/manager/transactions_cubit.dart';
 
 var getIt = GetIt.instance;
 
@@ -42,5 +43,9 @@ void setupLocator() {
 
   getIt.registerLazySingleton<TransactionsRepo>(
     () => TransactionsRepoImpl(transactionsData: getIt<TransactionsData>()),
+  );
+
+  getIt.registerLazySingleton<TransactionsCubit>(
+    () => TransactionsCubit(transactionsRepo: getIt<TransactionsRepo>())..getTransactions(),
   );
 }
