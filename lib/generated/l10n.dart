@@ -204,16 +204,6 @@ class S {
     );
   }
 
-  /// `Transactions`
-  String get transactions {
-    return Intl.message(
-      'Transactions',
-      name: 'transactions',
-      desc: 'Label for the transactions button',
-      args: [],
-    );
-  }
-
   /// `Home`
   String get home {
     return Intl.message(
@@ -500,6 +490,36 @@ class S {
       'Category updated successfully',
       name: 'updateCategorySuccess',
       desc: 'Message displayed when a category is updated successfully',
+      args: [],
+    );
+  }
+
+  /// `Transactions`
+  String get transactions {
+    return Intl.message(
+      'Transactions',
+      name: 'transactions',
+      desc: 'Label for the transactions button',
+      args: [],
+    );
+  }
+
+  /// `Manage Your Transactions`
+  String get transactionsTitle {
+    return Intl.message(
+      'Manage Your Transactions',
+      name: 'transactionsTitle',
+      desc: 'Title for the transactions page',
+      args: [],
+    );
+  }
+
+  /// `Add, edit, and delete your transactions`
+  String get transactionsSubtitle {
+    return Intl.message(
+      'Add, edit, and delete your transactions',
+      name: 'transactionsSubtitle',
+      desc: 'Subtitle for the transactions page',
       args: [],
     );
   }

@@ -230,6 +230,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "themeTitle": MessageLookupByLibrary.simpleMessage("المظهر"),
     "themes": MessageLookupByLibrary.simpleMessage("المظاهر"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
+    "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة وتعديل وحذف العمليات المالية",
+    ),
+    "transactionsTitle": MessageLookupByLibrary.simpleMessage("إدارة العمليات"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
     "updateCategoryButton": MessageLookupByLibrary.simpleMessage(
       "تحديث التصنيف",

@@ -243,6 +243,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "themeTitle": MessageLookupByLibrary.simpleMessage("Theme"),
     "themes": MessageLookupByLibrary.simpleMessage("Themes"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
+    "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Add, edit, and delete your transactions",
+    ),
+    "transactionsTitle": MessageLookupByLibrary.simpleMessage(
+      "Manage Your Transactions",
+    ),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),
     "updateCategoryButton": MessageLookupByLibrary.simpleMessage(
       "Update Category",

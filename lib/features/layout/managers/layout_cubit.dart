@@ -10,12 +10,19 @@ class LayoutCubit extends Cubit<LayoutStates> {
   var pageController = PageController(initialPage: 0);
 
   void changeBottomNavBarIndex(int index) {
+    if (index == currentIndex) return;
     currentIndex = index;
     pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+    emit(ChangeBottomNavBarIndex());
+  }
+
+  void updateCurrentIndex(int index) {
+    if (index == currentIndex) return;
+    currentIndex = index;
     emit(ChangeBottomNavBarIndex());
   }
 }

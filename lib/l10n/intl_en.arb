@@ -66,12 +66,6 @@
   },
 
 
-  "transactions": "Transactions",
-  "@transactions": {
-    "description": "Label for the transactions button"
-  },
-
-
   "home": "Home",
   "@home": {
     "description": "Label for the home button"
@@ -191,6 +185,19 @@
     "description": "Message displayed when a category is updated successfully"
   },
 
+
+  "transactions": "Transactions",
+  "@transactions": {
+    "description": "Label for the transactions button"
+  },
+  "transactionsTitle": "Manage Your Transactions",
+  "@transactionsTitle": {
+    "description": "Title for the transactions page"
+  },
+  "transactionsSubtitle": "Add, edit, and delete your transactions",
+  "@transactionsSubtitle": {
+    "description": "Subtitle for the transactions page"
+  },
 
 
   "settingsTitle": "Settings",

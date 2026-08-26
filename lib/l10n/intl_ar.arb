@@ -67,12 +67,6 @@
   },
 
 
-  "transactions": "العمليات",
-  "@transactions": {
-    "description": "Label for the transactions button"
-  },
-
-
   "home": "الرئيسية",
   "@home": {
     "description": "Label for the home button"
@@ -192,6 +186,19 @@
     "description": "رسالة نجاح عند تحديث التصنيف"
   },
 
+
+  "transactions": "العمليات",
+  "@transactions": {
+    "description": "نص العمليات"
+  },
+  "transactionsTitle": "إدارة العمليات",
+  "@transactionsTitle": {
+    "description": "عنوان صفحة العمليات"
+  },
+  "transactionsSubtitle": "إضافة وتعديل وحذف العمليات المالية",
+  "@transactionsSubtitle": {
+    "description": "وصف صفحة العمليات"
+  },
 
 
   "settingsTitle": "الإعدادات",
