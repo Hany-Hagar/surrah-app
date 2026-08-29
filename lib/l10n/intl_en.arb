@@ -2,6 +2,16 @@
   "@@locale": "en",
 
   
+  "now": "Now",
+  "@now": {
+    "description": "Label for the current time"
+  },
+  "yesterday": "Yesterday",
+  "@yesterday": {
+    "description": "Label for the previous day"
+  },
+
+  
   "cancel": "Cancel",
   "@cancel": {
     "description": "Label for the cancel button"

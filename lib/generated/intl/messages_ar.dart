@@ -138,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastTransactions": MessageLookupByLibrary.simpleMessage("آخر العمليات"),
     "lightTheme": MessageLookupByLibrary.simpleMessage("فاتح"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "now": MessageLookupByLibrary.simpleMessage("الآن"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "تتبّع دخلك ومصروفاتك بسهولة.",
     ),
@@ -247,5 +248,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateCategorySuccess": MessageLookupByLibrary.simpleMessage(
       "تم تحديث التصنيف بنجاح",
     ),
+    "yesterday": MessageLookupByLibrary.simpleMessage("أمس"),
   };
 }

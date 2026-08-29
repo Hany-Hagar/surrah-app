@@ -1,6 +1,6 @@
+import '../enums/category_type.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/categories/data/models/category_model.dart';
-import '../enums/category_type.dart';
 
 extension CategoryNameSize on String {
   double getSize() {
@@ -11,6 +11,13 @@ extension CategoryNameSize on String {
     } else {
       return 12.sp;
     }
+  }
+}
+
+// Get Category by ID extension
+extension CategoryById on List<CategoryModel> {
+  CategoryModel getCategoryById({required String id}) {
+    return firstWhere((category) => category.id == id);
   }
 }
 

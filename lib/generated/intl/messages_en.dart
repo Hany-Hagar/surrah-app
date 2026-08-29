@@ -147,6 +147,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "lightTheme": MessageLookupByLibrary.simpleMessage("Light"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "now": MessageLookupByLibrary.simpleMessage("Now"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "Easily track your income and expenses.",
     ),
@@ -262,5 +263,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateCategorySuccess": MessageLookupByLibrary.simpleMessage(
       "Category updated successfully",
     ),
+    "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
   };
 }

@@ -2,6 +2,16 @@
   "@@locale": "ar",
 
   
+  "now": "الآن",
+  "@now": {
+    "description": "Label for the current time"
+  },
+  "yesterday": "أمس",
+  "@yesterday": {
+    "description": "Label for the previous day"
+  },
+
+  
   "cancel": "إلغاء",
   "@cancel": {
     "description": "Label for the cancel button"

@@ -54,6 +54,26 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Now`
+  String get now {
+    return Intl.message(
+      'Now',
+      name: 'now',
+      desc: 'Label for the current time',
+      args: [],
+    );
+  }
+
+  /// `Yesterday`
+  String get yesterday {
+    return Intl.message(
+      'Yesterday',
+      name: 'yesterday',
+      desc: 'Label for the previous day',
+      args: [],
+    );
+  }
+
   /// `Cancel`
   String get cancel {
     return Intl.message(

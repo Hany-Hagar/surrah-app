@@ -15,14 +15,14 @@ class CustomCategoryIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 35.r,
-      height: 35.r,
+      width: 40.r,
+      height: 40.r,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(4.r),
       ),
       child: Center(
-        child: FaIcon(icon.icon, color: Colors.white, size: 20.r),
+        child: FaIcon(icon.icon, color: Colors.white, size: 25.r),
       ),
     );
   }
