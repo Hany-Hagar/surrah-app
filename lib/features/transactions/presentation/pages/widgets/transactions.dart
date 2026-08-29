@@ -33,13 +33,13 @@ class Transactions extends StatelessWidget {
 
 class _Item extends StatelessWidget {
   final TransactionModel transaction;
-  const _Item({ required this.transaction});
+  const _Item({required this.transaction});
 
   @override
   Widget build(BuildContext context) {
     var category = CategoriesCubit.get(
       context,
-    ).allCategories.getCategoryById(id: transaction.categoryId);
+    ).allCategories.getCategory(id: transaction.categoryId);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
       decoration: BoxDecoration(

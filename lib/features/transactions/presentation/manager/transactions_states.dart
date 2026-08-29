@@ -12,32 +12,5 @@ class GetTransactionsFailure extends TransactionsStates {
   GetTransactionsFailure({required this.message});
 }
 
-// Add Transaction
-class AddTransactionLoading extends TransactionsStates {}
-
-class AddTransactionSuccess extends TransactionsStates {}
-
-class AddTransactionFailure extends TransactionsStates {
-  final String message;
-  AddTransactionFailure({required this.message});
-}
-
-// Update Transaction
-class UpdateTransactionLoading extends TransactionsStates {}
-
-class UpdateTransactionSuccess extends TransactionsStates {}
-
-class UpdateTransactionFailure extends TransactionsStates {
-  final String message;
-  UpdateTransactionFailure({required this.message});
-}
-
-// Delete Transaction
-class DeleteTransactionLoading extends TransactionsStates {}
-
-class DeleteTransactionSuccess extends TransactionsStates {}
-
-class DeleteTransactionFailure extends TransactionsStates {
-  final String message;
-  DeleteTransactionFailure({required this.message});
-}
+// Search Transactions
+class SearchTransactionsState extends TransactionsStates {}

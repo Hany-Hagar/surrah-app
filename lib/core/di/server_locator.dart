@@ -46,6 +46,6 @@ void setupLocator() {
   );
 
   getIt.registerLazySingleton<TransactionsCubit>(
-    () => TransactionsCubit(transactionsRepo: getIt<TransactionsRepo>())..getTransactions(),
+    () => TransactionsCubit(transactionsRepo: getIt<TransactionsRepo>()),
   );
 }

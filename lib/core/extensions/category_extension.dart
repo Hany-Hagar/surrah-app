@@ -16,7 +16,7 @@ extension CategoryNameSize on String {
 
 // Get Category by ID extension
 extension CategoryById on List<CategoryModel> {
-  CategoryModel getCategoryById({required String id}) {
+  CategoryModel getCategory({required String id}) {
     return firstWhere((category) => category.id == id);
   }
 }

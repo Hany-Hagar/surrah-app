@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../data/repo/categories_repo.dart';
 import '../../data/models/category_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/di/server_locator.dart';
 import '../../../../core/enums/category_type.dart';
 import '../../data/database/default_categories.dart';
 import '../../../iconPicker/data/database/icons.dart';
@@ -11,6 +12,7 @@ import '../../../iconPicker/data/models/icon_model.dart';
 import '../../../../core/extensions/icon_extensions.dart';
 import '../../../../core/extensions/category_extension.dart';
 import '../../../iconPicker/presentations/pages/icon_picker_dialog.dart';
+import '../../../transactions/presentation/manager/transactions_cubit.dart';
 
 class CategoriesCubit extends Cubit<CategoriesStates> {
   final CategoriesRepo categoriesRepo;
@@ -34,6 +36,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
       (categories) {
         allCategories.addAll([...DefaultCategories.all, ...categories]);
         selectedCategory = allCategories.first;
+        getIt<TransactionsCubit>().getTransactions();
         emit(CategoriesSuccess());
       },
     );

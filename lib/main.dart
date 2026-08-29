@@ -16,6 +16,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/settings/presentation/manager/settings_cubit.dart';
 import 'features/categories/presentation/manager/categories_cubit.dart';
 import 'features/categories/presentation/manager/categories_states.dart';
+import 'features/transactions/presentation/manager/transactions_cubit.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<LayoutCubit>()),
         BlocProvider(create: (context) => getIt<SettingsCubit>()),
         BlocProvider(create: (context) => getIt<CategoriesCubit>()),
+        BlocProvider(create: (context) => getIt<TransactionsCubit>())
       ],
       child: BlocListener<CategoriesCubit, CategoriesStates>(
         listener: (context, state) {
