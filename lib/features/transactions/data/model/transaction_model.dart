@@ -18,11 +18,16 @@ class TransactionModel {
 
   @HiveField(4)
   final DateTime createdAt;
+
+  @HiveField(5)
+  final bool isIncome;
+
   TransactionModel({
     required this.id,
     required this.title,
     required this.amount,
     required this.categoryId,
     required this.createdAt,
+    required this.isIncome,
   });
 }
