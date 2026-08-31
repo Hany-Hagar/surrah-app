@@ -290,6 +290,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateCategorySuccess": MessageLookupByLibrary.simpleMessage(
       "Category updated successfully",
     ),
+    "updateTransactionButton": MessageLookupByLibrary.simpleMessage(
+      "Update Transaction",
+    ),
+    "updateTransactionFailure": MessageLookupByLibrary.simpleMessage(
+      "Failed to update transaction",
+    ),
+    "updateTransactionSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Update the details of this transaction",
+    ),
+    "updateTransactionSuccess": MessageLookupByLibrary.simpleMessage(
+      "Transaction updated successfully",
+    ),
+    "updateTransactionTitle": MessageLookupByLibrary.simpleMessage(
+      "Update Transaction",
+    ),
     "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
   };
 }

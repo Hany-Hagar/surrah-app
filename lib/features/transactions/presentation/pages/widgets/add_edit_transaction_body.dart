@@ -13,9 +13,14 @@ import '../../../../../core/extensions/date_extension.dart';
 import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
-class AddTransactionBody extends StatelessWidget {
+class AddEditTransactionBody extends StatelessWidget {
+  final bool isEdit;
   final bool isIncome;
-  const AddTransactionBody({super.key, required this.isIncome});
+  const AddEditTransactionBody({
+    super.key,
+    required this.isIncome,
+    required this.isEdit,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +40,12 @@ class AddTransactionBody extends StatelessWidget {
           _Notes(),
           Spacer(),
           _Button(
+            isEdit: isEdit,
             formKey: formKey,
             isIncome: isIncome,
-            isLoading: state is AddTransactionLoading,
+            isLoading: isEdit
+                ? state is AddTransactionLoading
+                : state is UpdateTransactionLoading,
           ),
         ],
       ),
@@ -64,11 +72,11 @@ class _Amount extends StatelessWidget {
           hintText: '0.00',
           border: InputBorder.none,
           textAlign: TextAlign.end,
-          keyboardType: TextInputType.number,
           controller: cubit.amountController,
           backgroundColor: Theme.of(context).cardColor,
           hintStyle: _styles(context: context, fontSize: 26),
           inputStyle: _styles(context: context, fontSize: 24),
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
           padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 10.h),
         ),
       ),
@@ -177,13 +185,15 @@ class _Notes extends StatelessWidget {
 }
 
 class _Button extends StatelessWidget {
+  final bool isEdit;
   final bool isIncome;
   final bool isLoading;
   final GlobalKey<FormState> formKey;
   const _Button({
+    required this.isEdit,
+    required this.formKey,
     required this.isIncome,
     required this.isLoading,
-    required this.formKey,
   });
 
   @override
@@ -192,9 +202,14 @@ class _Button extends StatelessWidget {
     var cubit = TransactionsCubit.get(context);
     return CustomButton(
       isLoading: isLoading,
-      text: s.addTransactionButton,
-      onPressed: () =>
-          cubit.addTransaction(formKey: formKey, isIncome: isIncome),
+      text: isEdit ? s.updateTransactionButton : s.addTransactionButton,
+      onPressed: () {
+        if (isEdit) {
+          cubit.updateTransaction(formKey: formKey, isIncome: isIncome);
+        } else {
+          cubit.addTransaction(formKey: formKey, isIncome: isIncome);
+        }
+      },
     );
   }
 }

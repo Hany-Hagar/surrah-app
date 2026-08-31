@@ -59,8 +59,25 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
   var amountController = TextEditingController();
   var autoValidateMode = AutovalidateMode.disabled;
   var selectedCategory = DefaultCategories.all.first;
+  var transactionToEdit = TransactionModel.empty();
 
-  void initalData({required bool isIncome}) {
+  void initalData({
+    required bool isIncome,
+    required bool isEdit,
+    TransactionModel? transaction,
+  }) {
+    if (isEdit && transaction != null) {
+      autoValidateMode = AutovalidateMode.onUserInteraction;
+      transactionToEdit = transaction;
+      notesController.text = transaction.notes;
+      amountController.text = transaction.amount.toString();
+      selectedDate = transaction.createdAt;
+      selectedCategory = DefaultCategories.all.firstWhere(
+        (cat) => cat.id == transaction.categoryId,
+      );
+      emit(AddTransactionInitial());
+      return;
+    }
     autoValidateMode = AutovalidateMode.disabled;
     if (isIncome) {
       categories = DefaultCategories.income;
@@ -116,6 +133,38 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
         // Add in first
         transactions.insert(0, transaction);
         emit(AddTransactionSuccess());
+        clearFields();
+      },
+    );
+  }
+
+  Future<void> updateTransaction({
+    required bool isIncome,
+    required GlobalKey<FormState> formKey,
+  }) async {
+    if (!formKey.currentState!.validate()) {
+      autoValidateMode = AutovalidateMode.onUserInteraction;
+      emit(AutoValidateModeChanged());
+      return;
+    }
+    emit(UpdateTransactionLoading());
+    var updateTransaction = transactionToEdit.copyWith(
+      createdAt: selectedDate,
+      notes: notesController.text,
+      categoryId: selectedCategory.id,
+      amount: double.parse(amountController.text),
+    );
+    var result = await transactionsRepo.updateTransaction(updateTransaction);
+    result.fold(
+      (failure) => emit(UpdateTransactionFailure(message: failure.message)),
+      (success) {
+        var index = transactions.indexWhere(
+          (transaction) => transaction.id == updateTransaction.id,
+        );
+        if (index != -1) {
+          transactions[index] = updateTransaction;
+        }
+        emit(UpdateTransactionSuccess());
         clearFields();
       },
     );

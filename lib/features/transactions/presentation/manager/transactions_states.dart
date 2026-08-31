@@ -32,3 +32,13 @@ class AddTransactionFailure extends TransactionsStates {
   final String message;
   AddTransactionFailure({required this.message});
 }
+
+// Update Transaction
+class UpdateTransactionLoading extends TransactionsStates {}
+
+class UpdateTransactionSuccess extends TransactionsStates {}
+
+class UpdateTransactionFailure extends TransactionsStates {
+  final String message;
+  UpdateTransactionFailure({required this.message});
+}

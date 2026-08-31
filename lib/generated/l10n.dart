@@ -654,6 +654,56 @@ class S {
     );
   }
 
+  /// `Update Transaction`
+  String get updateTransactionTitle {
+    return Intl.message(
+      'Update Transaction',
+      name: 'updateTransactionTitle',
+      desc: 'Title for the update transaction page',
+      args: [],
+    );
+  }
+
+  /// `Update the details of this transaction`
+  String get updateTransactionSubtitle {
+    return Intl.message(
+      'Update the details of this transaction',
+      name: 'updateTransactionSubtitle',
+      desc: 'Subtitle for the update transaction page',
+      args: [],
+    );
+  }
+
+  /// `Update Transaction`
+  String get updateTransactionButton {
+    return Intl.message(
+      'Update Transaction',
+      name: 'updateTransactionButton',
+      desc: 'Label for the update transaction button',
+      args: [],
+    );
+  }
+
+  /// `Transaction updated successfully`
+  String get updateTransactionSuccess {
+    return Intl.message(
+      'Transaction updated successfully',
+      name: 'updateTransactionSuccess',
+      desc: 'Message displayed when a transaction is updated successfully',
+      args: [],
+    );
+  }
+
+  /// `Failed to update transaction`
+  String get updateTransactionFailure {
+    return Intl.message(
+      'Failed to update transaction',
+      name: 'updateTransactionFailure',
+      desc: 'Message displayed when a transaction fails to be updated',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settingsTitle {
     return Intl.message(

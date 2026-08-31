@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../../core/utils/nav_to.dart';
+import '../views/add_edit_transaction_view.dart';
 import '../../../data/model/transaction_model.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_list.dart';
@@ -9,7 +11,6 @@ import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/extensions/category_extension.dart';
 import '../../../../categories/data/models/category_model.dart';
 import '../../../../../core/extensions/number_formatting_extension.dart';
-import '../../../../categories/presentation/manager/categories_cubit.dart';
 
 class Transactions extends StatelessWidget {
   final bool isLoading;
@@ -36,32 +37,40 @@ class _Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var category = CategoriesCubit.get(
-      context,
-    ).categories.getCategory(id: transaction.categoryId);
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(20),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
+    var category = transaction.categoryId.getCategory();
+    return GestureDetector(
+      onTap: () => NavTo.push(
+        context: context,
+        nextPage: AddEditTransactionView(
+          isEdit: true,
+          isIncome: transaction.isIncome,
+          transaction: transaction,
+        ),
       ),
-      child: Row(
-        spacing: 12.w,
-        children: [
-          Transform.translate(
-            offset: Offset(0, 1.h),
-            child: _Leading(category: category),
-          ),
-          _Body(category: category, transaction: transaction),
-        ],
-      ),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(8.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withAlpha(20),
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          spacing: 12.w,
+          children: [
+            Transform.translate(
+              offset: Offset(0, 1.h),
+              child: _Leading(category: category),
+            ),
+            _Body(category: category, transaction: transaction),
+          ],
+        ),
+      )
     );
   }
 }

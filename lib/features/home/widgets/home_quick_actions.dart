@@ -7,7 +7,7 @@ import '../../../core/services/dialog_service.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../categories/presentation/pages/widgets/add_edit_category.dart';
-import '../../transactions/presentation/pages/views/add_transaction_view.dart';
+import '../../transactions/presentation/pages/views/add_edit_transaction_view.dart';
 
 class HomeQuickActions extends StatelessWidget {
   const HomeQuickActions({super.key});
@@ -30,7 +30,7 @@ class HomeQuickActions extends StatelessWidget {
               onPressed: () {
                 NavTo.push(
                   context: context,
-                  nextPage: const AddTransactionView(isIncome: true),
+                  nextPage: const AddEditTransactionView(isIncome: true),
                 );
               },
             ),
@@ -41,7 +41,7 @@ class HomeQuickActions extends StatelessWidget {
               onPressed: () {
                 NavTo.push(
                   context: context,
-                  nextPage: const AddTransactionView(isIncome: false),
+                  nextPage: const AddEditTransactionView(isIncome: false),
                 );
               },
             ),

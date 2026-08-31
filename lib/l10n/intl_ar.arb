@@ -257,6 +257,28 @@
   },
 
 
+  "updateTransactionTitle": "تحديث العملية",
+  "@updateTransactionTitle": {
+    "description": "عنوان صفحة تحديث العملية"
+  },
+  "updateTransactionSubtitle": "أدخل تفاصيل العملية المالية التي ترغب في تحديثها.",
+  "@updateTransactionSubtitle": {
+    "description": "وصف صفحة تحديث العملية"
+  },
+  "updateTransactionButton": "تحديث العملية",
+  "@updateTransactionButton": {
+    "description": "نص زر تحديث العملية"
+  },
+  "updateTransactionSuccess": "تم تحديث العملية بنجاح",
+  "@updateTransactionSuccess": {
+    "description": "رسالة نجاح عند تحديث العملية"
+  },
+  "updateTransactionFailure": "فشل في تحديث العملية",
+  "@updateTransactionFailure": {
+    "description": "رسالة فشل عند تحديث العملية"
+  },
+
+
   "settingsTitle": "الإعدادات",
   "@settingsTitle": {
     "description": "Title for the settings page"

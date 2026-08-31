@@ -24,7 +24,11 @@ class Validators {
     }
 
     if (keyboardType == TextInputType.number ||
-        keyboardType == TextInputType.numberWithOptions()) {
+        keyboardType == TextInputType.numberWithOptions() ||
+        keyboardType == TextInputType.numberWithOptions(decimal: true) ||
+        keyboardType ==
+            TextInputType.numberWithOptions(decimal: true, signed: true) ||
+        keyboardType == TextInputType.numberWithOptions(signed: true)) {
       return number(value);
     }
 
@@ -107,7 +111,8 @@ class Validators {
       return 'This field cannot be left empty';
     }
 
-    if (int.tryParse(value) == null) {
+    final normalized = value.trim();
+    if (double.tryParse(normalized) == null) {
       return 'Please enter a valid number';
     }
 

@@ -1,3 +1,5 @@
+import '../../features/categories/presentation/manager/categories_cubit.dart';
+import '../di/server_locator.dart';
 import '../enums/category_type.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/categories/data/models/category_model.dart';
@@ -15,9 +17,10 @@ extension CategoryNameSize on String {
 }
 
 // Get Category by ID extension
-extension CategoryById on List<CategoryModel> {
-  CategoryModel getCategory({required String id}) {
-    return firstWhere((category) => category.id == id);
+extension CategoryById on String {
+  CategoryModel getCategory() {
+    var categories = getIt<CategoriesCubit>().categories;
+    return categories.firstWhere((category) => category.id == this);
   }
 }
 

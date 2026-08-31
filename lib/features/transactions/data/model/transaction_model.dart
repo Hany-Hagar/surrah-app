@@ -33,6 +33,15 @@ class TransactionModel {
     required this.isIncome,
   });
 
+  // Empty TransactionModel
+  TransactionModel.empty()
+      : id = '',
+        notes = '',
+        amount = 0.0,
+        categoryId = '',
+        createdAt = DateTime.now(),
+        isIncome = true;
+
   // New TransactionModel
   TransactionModel.newTransaction({
     required this.notes,
@@ -41,6 +50,25 @@ class TransactionModel {
     required this.createdAt,
     required this.categoryId,
   }) : id = DateTime.now().millisecondsSinceEpoch.toString();
+
+  // Copy with method
+  TransactionModel copyWith({
+    String? id,
+    String? notes,
+    double? amount,
+    String? categoryId,
+    DateTime? createdAt,
+    bool? isIncome,
+  }) {
+    return TransactionModel(
+      id: id ?? this.id,
+      notes: notes ?? this.notes,
+      amount: amount ?? this.amount,
+      categoryId: categoryId ?? this.categoryId,
+      createdAt: createdAt ?? this.createdAt,
+      isIncome: isIncome ?? this.isIncome,
+    );
+  }
 }
 
 // Default Model

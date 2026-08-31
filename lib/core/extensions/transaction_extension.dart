@@ -1,11 +1,9 @@
 import 'category_extension.dart';
 import 'package:flutter/material.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
-import '../../features/categories/presentation/manager/categories_cubit.dart';
 
 // Search extension
 extension SearchExtension on List<TransactionModel> {
-
   // Sort transactions by date
   List<TransactionModel> sortByDate() {
     sort((a, b) => b.createdAt.compareTo(a.createdAt));
@@ -17,10 +15,9 @@ extension SearchExtension on List<TransactionModel> {
     required String query,
     required BuildContext context,
   }) {
-    var category = CategoriesCubit.get(context).categories;
     return where((transaction) {
-      var categoryName = category
-          .getCategory(id: transaction.categoryId)
+      var categoryName = transaction.categoryId
+          .getCategory()
           .name
           .toLowerCase();
       return transaction.notes.toLowerCase().contains(query.toLowerCase()) ||

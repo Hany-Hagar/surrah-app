@@ -273,6 +273,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateCategorySuccess": MessageLookupByLibrary.simpleMessage(
       "تم تحديث التصنيف بنجاح",
     ),
+    "updateTransactionButton": MessageLookupByLibrary.simpleMessage(
+      "تحديث العملية",
+    ),
+    "updateTransactionFailure": MessageLookupByLibrary.simpleMessage(
+      "فشل في تحديث العملية",
+    ),
+    "updateTransactionSubtitle": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل العملية المالية التي ترغب في تحديثها.",
+    ),
+    "updateTransactionSuccess": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث العملية بنجاح",
+    ),
+    "updateTransactionTitle": MessageLookupByLibrary.simpleMessage(
+      "تحديث العملية",
+    ),
     "yesterday": MessageLookupByLibrary.simpleMessage("أمس"),
   };
 }

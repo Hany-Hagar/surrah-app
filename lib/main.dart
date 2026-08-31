@@ -86,8 +86,8 @@ class MyApp extends StatelessWidget {
                 themeMode: state.theme,
                 darkTheme: AppTheme.dark,
                 locale: Locale(state.lang),
-                debugShowCheckedModeBanner: false,
                 navigatorKey: rootNavigatorKey,
+                debugShowCheckedModeBanner: false,
                 localizationsDelegates: [
                   S.delegate,
                   GlobalWidgetsLocalizations.delegate,

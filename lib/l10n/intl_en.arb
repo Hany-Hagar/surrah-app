@@ -256,6 +256,28 @@
   },
 
 
+  "updateTransactionTitle": "Update Transaction",
+  "@updateTransactionTitle": {
+    "description": "Title for the update transaction page"
+  },
+  "updateTransactionSubtitle": "Update the details of this transaction",
+  "@updateTransactionSubtitle": {
+    "description": "Subtitle for the update transaction page"
+  },
+  "updateTransactionButton": "Update Transaction",
+  "@updateTransactionButton": {
+    "description": "Label for the update transaction button"
+  },
+  "updateTransactionSuccess": "Transaction updated successfully",
+  "@updateTransactionSuccess": {
+    "description": "Message displayed when a transaction is updated successfully"
+  },
+  "updateTransactionFailure": "Failed to update transaction",
+  "@updateTransactionFailure": {
+    "description": "Message displayed when a transaction fails to be updated"
+  },
+
+
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Title for the settings page"
