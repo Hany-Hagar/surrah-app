@@ -34,6 +34,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "addNewCategorySuccess": MessageLookupByLibrary.simpleMessage(
       "New category added successfully",
     ),
+    "addTransactionAmountTitle": MessageLookupByLibrary.simpleMessage("Amount"),
+    "addTransactionAmountTypeHint": MessageLookupByLibrary.simpleMessage(
+      "Enter Amount :",
+    ),
+    "addTransactionButton": MessageLookupByLibrary.simpleMessage(
+      "Add Transaction",
+    ),
+    "addTransactionCategoryTitle": MessageLookupByLibrary.simpleMessage(
+      "Category",
+    ),
+    "addTransactionDate": MessageLookupByLibrary.simpleMessage("Date"),
+    "addTransactionFailure": MessageLookupByLibrary.simpleMessage(
+      "Failed to add transaction",
+    ),
+    "addTransactionNotes": MessageLookupByLibrary.simpleMessage("Notes"),
+    "addTransactionNotesHint": MessageLookupByLibrary.simpleMessage(
+      "Add a brief description or note for this transaction",
+    ),
+    "addTransactionSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Add a new transaction to your account",
+    ),
+    "addTransactionSuccess": MessageLookupByLibrary.simpleMessage(
+      "Transaction added successfully",
+    ),
+    "addTransactionTitle": MessageLookupByLibrary.simpleMessage(
+      "Add Transaction",
+    ),
     "all": MessageLookupByLibrary.simpleMessage("All"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),

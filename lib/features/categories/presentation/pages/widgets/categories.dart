@@ -2,7 +2,6 @@ import 'add_edit_category.dart';
 import 'package:flutter/material.dart';
 import '../../../../../const/app_data.dart';
 import 'package:surrah/generated/l10n.dart';
-import '../../manager/categories_cubit.dart';
 import '../../../data/models/category_model.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_grid.dart';
@@ -13,51 +12,54 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/extensions/category_extension.dart';
 
 class Categories extends StatelessWidget {
+  final bool showAddItem;
+  final EdgeInsets? padding;
+  final double childAspectRatio;
   final Function(CategoryModel)? onTap;
   final List<CategoryModel> categories;
   final CategoryModel? selectedCategory;
   const Categories({
     super.key,
     this.onTap,
-    required this.categories,
+    this.padding,
     this.selectedCategory,
+    required this.categories,
+    required this.showAddItem,
+    this.childAspectRatio = 1.0,
   });
 
   @override
   Widget build(BuildContext context) {
-    var cubit = CategoriesCubit.get(context);
     return CustomGrid<CategoryModel>(
       items: categories,
-      padding: EdgeInsets.all(12.h),
-      extraItem: cubit.isSearching || cubit.isFiltering
-          ? null
-          : const _AddItem(),
+      childAspectRatio: childAspectRatio,
+      padding: padding ?? EdgeInsets.all(12.h),
+      extraItem: showAddItem ? const _AddItem() : null,
       itemBuilder: (context, category) => _Item(
-        onTap: onTap ?? (_) {},
+        onTap: onTap,
         category: category,
-        isSelected: selectedCategory != null
-            ? category == selectedCategory
-            : false,
+        selectedCategory: selectedCategory,
       ),
     );
   }
 }
 
 class _Item extends StatelessWidget {
-  final bool isSelected;
   final CategoryModel category;
-  final Function(CategoryModel) onTap;
+  final CategoryModel? selectedCategory;
+  final Function(CategoryModel)? onTap;
   const _Item({
     required this.onTap,
     required this.category,
-    required this.isSelected,
+    required this.selectedCategory,
   });
 
   @override
   Widget build(BuildContext context) {
     var color = Color(category.color);
+    bool isSelected = category == selectedCategory;
     return GestureDetector(
-      onTap: () => onTap(category),
+      onTap: () => onTap?.call(category),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         decoration: BoxDecoration(

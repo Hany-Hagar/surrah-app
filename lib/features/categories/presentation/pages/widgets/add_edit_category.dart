@@ -209,7 +209,7 @@ class _DataItem extends StatelessWidget {
       horizontalTitleGap: 9.w,
       tileColor: theme.scaffoldBackgroundColor,
       trailing: Icon(Icons.touch_app_rounded, size: 24.sp),
-      leading: CustomCategoryIcon(icon: icon, color: color),
+      leading: CustomCategoryIcon(iconData: icon, color: color),
       title: CustomText(
         size: 17.sp,
         height: 1.2,

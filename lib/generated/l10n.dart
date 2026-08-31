@@ -544,6 +544,116 @@ class S {
     );
   }
 
+  /// `Add Transaction`
+  String get addTransactionTitle {
+    return Intl.message(
+      'Add Transaction',
+      name: 'addTransactionTitle',
+      desc: 'Title for the add transaction page',
+      args: [],
+    );
+  }
+
+  /// `Add a new transaction to your account`
+  String get addTransactionSubtitle {
+    return Intl.message(
+      'Add a new transaction to your account',
+      name: 'addTransactionSubtitle',
+      desc: 'Subtitle for the add transaction page',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get addTransactionAmountTitle {
+    return Intl.message(
+      'Amount',
+      name: 'addTransactionAmountTitle',
+      desc: 'Label for the amount input field',
+      args: [],
+    );
+  }
+
+  /// `Enter Amount :`
+  String get addTransactionAmountTypeHint {
+    return Intl.message(
+      'Enter Amount :',
+      name: 'addTransactionAmountTypeHint',
+      desc: 'Hint text for the amount input field',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get addTransactionCategoryTitle {
+    return Intl.message(
+      'Category',
+      name: 'addTransactionCategoryTitle',
+      desc: 'Label for the category selection',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get addTransactionDate {
+    return Intl.message(
+      'Date',
+      name: 'addTransactionDate',
+      desc: 'Label for the date selection',
+      args: [],
+    );
+  }
+
+  /// `Notes`
+  String get addTransactionNotes {
+    return Intl.message(
+      'Notes',
+      name: 'addTransactionNotes',
+      desc: 'Label for the notes input field',
+      args: [],
+    );
+  }
+
+  /// `Add a brief description or note for this transaction`
+  String get addTransactionNotesHint {
+    return Intl.message(
+      'Add a brief description or note for this transaction',
+      name: 'addTransactionNotesHint',
+      desc: 'Hint text for the notes input field',
+      args: [],
+    );
+  }
+
+  /// `Add Transaction`
+  String get addTransactionButton {
+    return Intl.message(
+      'Add Transaction',
+      name: 'addTransactionButton',
+      desc: 'Label for the add transaction button',
+      args: [],
+    );
+  }
+
+  /// `Transaction added successfully`
+  String get addTransactionSuccess {
+    return Intl.message(
+      'Transaction added successfully',
+      name: 'addTransactionSuccess',
+      desc: 'Message displayed when a transaction is added successfully',
+      args: [],
+    );
+  }
+
+  /// `Failed to add transaction`
+  String get addTransactionFailure {
+    return Intl.message(
+      'Failed to add transaction',
+      name: 'addTransactionFailure',
+      desc: 'Message displayed when a transaction fails to be added',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settingsTitle {
     return Intl.message(

@@ -10,7 +10,7 @@ class TransactionModel {
   final String id;
 
   @HiveField(1)
-  final String title;
+  final String notes;
 
   @HiveField(2)
   final double amount;
@@ -26,19 +26,28 @@ class TransactionModel {
 
   TransactionModel({
     required this.id,
-    required this.title,
+    required this.notes,
     required this.amount,
     required this.categoryId,
     required this.createdAt,
     required this.isIncome,
   });
+
+  // New TransactionModel
+  TransactionModel.newTransaction({
+    required this.notes,
+    required this.amount,
+    required this.isIncome,
+    required this.createdAt,
+    required this.categoryId,
+  }) : id = DateTime.now().millisecondsSinceEpoch.toString();
 }
 
 // Default Model
 List<TransactionModel> defaultTransactions = [
   TransactionModel(
     id: '1',
-    title: 'Salary',
+    notes: 'Salary',
     amount: 5000.0,
     categoryId: DefaultCategories.income.first.id,
     createdAt: DateTime.now(),
@@ -46,7 +55,7 @@ List<TransactionModel> defaultTransactions = [
   ),
   TransactionModel(
     id: '2',
-    title: 'Groceries',
+    notes: 'Groceries',
     amount: 150.0,
     categoryId: DefaultCategories.expense.first.id,
     createdAt: DateTime.now(),
@@ -54,7 +63,7 @@ List<TransactionModel> defaultTransactions = [
   ),
   TransactionModel(
     id: '3',
-    title: 'Freelance Project',
+    notes: 'Freelance Project',
     amount: 1200.0,
     categoryId: DefaultCategories.income[1].id,
     createdAt: DateTime.now(),
@@ -62,7 +71,7 @@ List<TransactionModel> defaultTransactions = [
   ),
   TransactionModel(
     id: '4',
-    title: 'Electricity Bill',
+    notes: 'Electricity Bill',
     amount: 100.0,
     categoryId: DefaultCategories.expense[1].id,
     createdAt: DateTime.now(),

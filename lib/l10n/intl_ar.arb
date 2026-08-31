@@ -211,6 +211,52 @@
   },
 
 
+  "addTransactionTitle": "إضافة عملية جديدة",
+  "@addTransactionTitle": {
+    "description": "عنوان صفحة إضافة عملية جديدة"
+  },
+  "addTransactionSubtitle": "أدخل تفاصيل العملية المالية التي ترغب في إضافتها.",
+  "@addTransactionSubtitle": {
+    "description": "وصف صفحة إضافة عملية جديدة"
+  },
+  "addTransactionAmountTitle": "المبلغ",
+  "@addTransactionAmountTitle": {
+    "description": "عنوان حقل المبلغ"
+  },
+  "addTransactionAmountTypeHint": "أدخل المبلغ :",
+  "@addTransactionAmountTypeHint": {
+    "description": "نص تلميحي لحقل المبلغ"
+  },
+  "addTransactionCategoryTitle": "الفئة",
+  "@addTransactionCategoryTitle": {
+    "description": "عنوان حقل الفئة"
+  },
+  "addTransactionDate": "التاريخ",
+  "@addTransactionDate": {
+    "description": "عنوان حقل التاريخ"
+  },
+  "addTransactionNotes": "الملاحظات",
+  "@addTransactionNotes": {
+    "description": "عنوان حقل الملاحظات"
+  },
+  "addTransactionNotesHint": "أضف وصفًا مختصرًا أو ملاحظة لهذه العملية",
+  "@addTransactionNotesHint": {
+    "description": "نص تلميحي لحقل الملاحظات"
+  },
+  "addTransactionButton": "إضافة عملية",
+  "@addTransactionButton": {
+    "description": "نص زر إضافة عملية"
+  },
+  "addTransactionSuccess": "تمت إضافة العملية بنجاح",
+  "@addTransactionSuccess": {
+    "description": "رسالة نجاح عند إضافة عملية جديدة"
+  },
+  "addTransactionFailure": "فشل في إضافة العملية",
+  "@addTransactionFailure": {
+    "description": "رسالة فشل عند إضافة عملية جديدة"
+  },
+
+
   "settingsTitle": "الإعدادات",
   "@settingsTitle": {
     "description": "Title for the settings page"

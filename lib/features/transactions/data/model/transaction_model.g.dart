@@ -18,7 +18,7 @@ class TransactionModelAdapter extends TypeAdapter<TransactionModel> {
     };
     return TransactionModel(
       id: fields[0] as String,
-      title: fields[1] as String,
+      notes: fields[1] as String,
       amount: fields[2] as double,
       categoryId: fields[3] as String,
       createdAt: fields[4] as DateTime,
@@ -33,7 +33,7 @@ class TransactionModelAdapter extends TypeAdapter<TransactionModel> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.title)
+      ..write(obj.notes)
       ..writeByte(2)
       ..write(obj.amount)
       ..writeByte(3)

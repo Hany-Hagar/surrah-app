@@ -210,6 +210,52 @@
   },
 
 
+  "addTransactionTitle": "Add Transaction",
+  "@addTransactionTitle": {
+    "description": "Title for the add transaction page"
+  },
+  "addTransactionSubtitle": "Add a new transaction to your account",
+  "@addTransactionSubtitle": {
+    "description": "Subtitle for the add transaction page"
+  },
+  "addTransactionAmountTitle": "Amount",
+  "@addTransactionAmountTitle": {
+    "description": "Label for the amount input field"
+  },
+  "addTransactionAmountTypeHint": "Enter Amount :",
+  "@addTransactionAmountTypeHint": {
+    "description": "Hint text for the amount input field"
+  },
+  "addTransactionCategoryTitle": "Category",
+  "@addTransactionCategoryTitle": {
+    "description": "Label for the category selection"
+  },
+  "addTransactionDate": "Date",
+  "@addTransactionDate": {
+    "description": "Label for the date selection"
+  },
+  "addTransactionNotes": "Notes",
+  "@addTransactionNotes": {
+    "description": "Label for the notes input field"
+  },
+  "addTransactionNotesHint": "Add a brief description or note for this transaction",
+  "@addTransactionNotesHint": {
+    "description": "Hint text for the notes input field"
+  },
+  "addTransactionButton": "Add Transaction",
+  "@addTransactionButton": {
+    "description": "Label for the add transaction button"
+  },
+  "addTransactionSuccess": "Transaction added successfully",
+  "@addTransactionSuccess": {
+    "description": "Message displayed when a transaction is added successfully"
+  },
+  "addTransactionFailure": "Failed to add transaction",
+  "@addTransactionFailure": {
+    "description": "Message displayed when a transaction fails to be added"
+  },
+
+
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Title for the settings page"

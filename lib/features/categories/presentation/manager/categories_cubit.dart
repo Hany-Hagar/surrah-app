@@ -20,22 +20,22 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
   static CategoriesCubit get(BuildContext context) => BlocProvider.of(context);
 
   // Categories
-  List<CategoryModel> allCategories = [];
+  List<CategoryModel> categories = [];
   CategoryModel selectedCategory = DefaultCategories.income.first;
   List<CategoryModel> incomeCategories = DefaultCategories.income;
   List<CategoryModel> expenseCategories = DefaultCategories.expense;
 
   void getCategories() async {
-    if (allCategories.isNotEmpty) {
+    if (categories.isNotEmpty) {
       return;
     }
     emit(CategoriesLoading());
-    var categories = await categoriesRepo.getCategories();
-    categories.fold(
+    var result = await categoriesRepo.getCategories();
+    result.fold(
       (failure) => emit(CategoriesFailure(errorMessage: failure.message)),
-      (categories) {
-        allCategories.addAll([...DefaultCategories.all, ...categories]);
-        selectedCategory = allCategories.first;
+      (categoriesList) {
+        categories.addAll([...DefaultCategories.all, ...categoriesList]);
+        selectedCategory = categories.first;
         getIt<TransactionsCubit>().getTransactions();
         emit(CategoriesSuccess());
       },
@@ -63,7 +63,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     if (isFiltering) {
       searchResults = filteredCategories.search(query);
     } else {
-      searchResults = allCategories.search(query);
+      searchResults = categories.search(query);
     }
     emit(CategoriesSearch());
   }
@@ -75,7 +75,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
 
   void filterCategories() {
     isFiltering = true;
-    filteredCategories = allCategories.filterByType(selectedType);
+    filteredCategories = categories.filterByType(selectedType);
     emit(CategoriesSearch());
   }
 
@@ -94,14 +94,14 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
 
   void updateLists({required CategoryModel category, required bool isEdit}) {
     if (!isEdit) {
-      allCategories.add(category);
+      categories.add(category);
       if (category.isIncome) {
         incomeCategories.add(category);
       } else {
         expenseCategories.add(category);
       }
     } else {
-      allCategories = allCategories
+      categories = categories
           .map((c) => c.id == category.id ? category : c)
           .toList();
       if (category.isIncome) {

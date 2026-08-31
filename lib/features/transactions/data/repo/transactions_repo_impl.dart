@@ -4,6 +4,7 @@ import '../model/transaction_model.dart';
 import '../database/transactions_data.dart';
 import '../../../../core/errors/failure.dart';
 import '../../../../core/errors/hive_failure.dart';
+import '../../../../core/extensions/transaction_extension.dart';
 
 class TransactionsRepoImpl extends TransactionsRepo {
   final TransactionsData transactionsData;
@@ -13,7 +14,7 @@ class TransactionsRepoImpl extends TransactionsRepo {
   Future<Either<Failure, List<TransactionModel>>> getTransactions() async {
     try {
       final transactions = transactionsData.getAllTransactions();
-      return Right(transactions);
+      return Right(transactions.sortByDate());
     } catch (e) {
       return Left(HiveFailure.fromError(e));
     }

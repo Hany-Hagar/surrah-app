@@ -5,7 +5,6 @@ import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_list.dart';
 import '../../../../../core/extensions/date_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/extensions/icon_extensions.dart';
 import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/extensions/category_extension.dart';
 import '../../../../categories/data/models/category_model.dart';
@@ -39,7 +38,7 @@ class _Item extends StatelessWidget {
   Widget build(BuildContext context) {
     var category = CategoriesCubit.get(
       context,
-    ).allCategories.getCategory(id: transaction.categoryId);
+    ).categories.getCategory(id: transaction.categoryId);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
       decoration: BoxDecoration(
@@ -73,10 +72,7 @@ class _Leading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCategoryIcon(
-      color: Color(category.color),
-      icon: category.iconId.getIconById()!,
-    );
+    return CustomCategoryIcon(category: category);
   }
 }
 
@@ -87,6 +83,9 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var subTitle = transaction.notes.isNotEmpty
+        ? transaction.notes
+        : category.name;
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +99,7 @@ class _Body extends StatelessWidget {
           ),
           Row(
             children: [
-              Expanded(child: _SubTitle(subTitle: transaction.title)),
+              Expanded(child: _SubTitle(subTitle: subTitle)),
               _Time(transaction: transaction),
             ],
           ),

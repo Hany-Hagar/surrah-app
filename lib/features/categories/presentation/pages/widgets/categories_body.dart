@@ -18,9 +18,10 @@ class CategoriesBody extends StatelessWidget {
             ? cubit.searchResults
             : cubit.isFiltering
             ? cubit.filteredCategories
-            : cubit.allCategories;
+            : cubit.categories;
         return Categories(
           categories: categories,
+          showAddItem: cubit.isSearching || cubit.isFiltering,
           onTap: (category) {
             cubit.initEditCategory(category: category);
             DialogService.showCustomDialog(

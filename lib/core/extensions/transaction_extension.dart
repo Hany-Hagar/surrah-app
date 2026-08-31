@@ -5,17 +5,25 @@ import '../../features/categories/presentation/manager/categories_cubit.dart';
 
 // Search extension
 extension SearchExtension on List<TransactionModel> {
+
+  // Sort transactions by date
+  List<TransactionModel> sortByDate() {
+    sort((a, b) => b.createdAt.compareTo(a.createdAt));
+    return this;
+  }
+
+  // Search transactions
   List<TransactionModel> search({
     required String query,
     required BuildContext context,
   }) {
-    var category = CategoriesCubit.get(context).allCategories;
+    var category = CategoriesCubit.get(context).categories;
     return where((transaction) {
       var categoryName = category
           .getCategory(id: transaction.categoryId)
           .name
           .toLowerCase();
-      return transaction.title.toLowerCase().contains(query.toLowerCase()) ||
+      return transaction.notes.toLowerCase().contains(query.toLowerCase()) ||
           categoryName.contains(query.toLowerCase());
     }).toList();
   }

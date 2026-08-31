@@ -34,6 +34,31 @@ class MessageLookup extends MessageLookupByLibrary {
     "addNewCategorySuccess": MessageLookupByLibrary.simpleMessage(
       "تمت إضافة التصنيف بنجاح",
     ),
+    "addTransactionAmountTitle": MessageLookupByLibrary.simpleMessage("المبلغ"),
+    "addTransactionAmountTypeHint": MessageLookupByLibrary.simpleMessage(
+      "أدخل المبلغ :",
+    ),
+    "addTransactionButton": MessageLookupByLibrary.simpleMessage("إضافة عملية"),
+    "addTransactionCategoryTitle": MessageLookupByLibrary.simpleMessage(
+      "الفئة",
+    ),
+    "addTransactionDate": MessageLookupByLibrary.simpleMessage("التاريخ"),
+    "addTransactionFailure": MessageLookupByLibrary.simpleMessage(
+      "فشل في إضافة العملية",
+    ),
+    "addTransactionNotes": MessageLookupByLibrary.simpleMessage("الملاحظات"),
+    "addTransactionNotesHint": MessageLookupByLibrary.simpleMessage(
+      "أضف وصفًا مختصرًا أو ملاحظة لهذه العملية",
+    ),
+    "addTransactionSubtitle": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل العملية المالية التي ترغب في إضافتها.",
+    ),
+    "addTransactionSuccess": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة العملية بنجاح",
+    ),
+    "addTransactionTitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة عملية جديدة",
+    ),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),

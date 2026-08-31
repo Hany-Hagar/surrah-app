@@ -215,8 +215,8 @@ class CustomTextFormField extends StatelessWidget {
     return GestureDetector(
       onTap: prefixTap,
       child: Padding(
-        padding: EdgeInsetsDirectional.only(start: 16.w, end: 4.w),
-        child: Icon(prefixIcon),
+        padding: EdgeInsetsDirectional.only(start: 12.w, end: 4.w),
+        child: Icon(prefixIcon , size: 24.sp),
       ),
     );
   }
@@ -225,7 +225,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget? _buildSuffixIcon() {
     if (suffixIcon == null) return null;
 
-    return GestureDetector(onTap: suffixTap, child: Icon(suffixIcon));
+    return GestureDetector(onTap: suffixTap, child: Icon(suffixIcon , size: 24.sp));
   }
 }
 

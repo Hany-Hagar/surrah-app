@@ -1,12 +1,13 @@
 import 'dart:developer';
-
 import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
+import '../../../core/utils/nav_to.dart';
 import 'package:icon_broken/icon_broken.dart';
 import '../../../core/services/dialog_service.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../categories/presentation/pages/widgets/add_edit_category.dart';
+import '../../transactions/presentation/pages/views/add_transaction_view.dart';
 
 class HomeQuickActions extends StatelessWidget {
   const HomeQuickActions({super.key});
@@ -26,13 +27,23 @@ class HomeQuickActions extends StatelessWidget {
               color: Colors.green,
               title: s.addIncome,
               icon: IconBroken.Wallet,
-              onPressed: () {},
+              onPressed: () {
+                NavTo.push(
+                  context: context,
+                  nextPage: const AddTransactionView(isIncome: true),
+                );
+              },
             ),
             _Item(
               color: Colors.red,
               title: s.addExpense,
               icon: IconBroken.Send,
-              onPressed: () {},
+              onPressed: () {
+                NavTo.push(
+                  context: context,
+                  nextPage: const AddTransactionView(isIncome: false),
+                );
+              },
             ),
             _Item(
               color: Colors.orange,
