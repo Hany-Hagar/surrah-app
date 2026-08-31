@@ -1,5 +1,5 @@
 import 'category_extension.dart';
-import 'package:flutter/material.dart';
+import '../enums/category_type.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
 // Search extension
@@ -11,10 +11,7 @@ extension SearchExtension on List<TransactionModel> {
   }
 
   // Search transactions
-  List<TransactionModel> search({
-    required String query,
-    required BuildContext context,
-  }) {
+  List<TransactionModel> search({required String query}) {
     return where((transaction) {
       var categoryName = transaction.categoryId
           .getCategory()
@@ -22,6 +19,16 @@ extension SearchExtension on List<TransactionModel> {
           .toLowerCase();
       return transaction.notes.toLowerCase().contains(query.toLowerCase()) ||
           categoryName.contains(query.toLowerCase());
+    }).toList();
+  }
+
+  // Filter transactions by category type
+  List<TransactionModel> filter({required CategoriesType type}) {
+    return where((transaction) {
+      var categoryType = transaction.categoryId.getCategory().isIncome
+          ? CategoriesType.income
+          : CategoriesType.expense;
+      return type == CategoriesType.all || categoryType == type;
     }).toList();
   }
 }

@@ -15,6 +15,8 @@ class TransactionsBody extends StatelessWidget {
         var cubit = TransactionsCubit.get(context);
         var transactions = cubit.isSearching
             ? cubit.searchResults
+            : cubit.isFiltering
+            ? cubit.filteredTransactions
             : cubit.transactions;
         return Transactions(
           isLoading: state is GetTransactionsLoading,

@@ -33,13 +33,13 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
 
   // Search Transactions
   bool isSearching = false;
+  bool isFiltering = false;
   List<TransactionModel> searchResults = [];
   var searchController = TextEditingController();
+  CategoriesType selectedType = CategoriesType.all;
+  List<TransactionModel> filteredTransactions = [];
 
-  void searchTransactions({
-    required String? query,
-    required BuildContext context,
-  }) {
+  void searchTransactions({required String? query}) {
     if (query == null || query.isEmpty) {
       isSearching = false;
       searchResults.clear();
@@ -48,7 +48,29 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
       return;
     }
     isSearching = true;
-    searchResults = transactions.search(context: context, query: query);
+    if (isFiltering) {
+      searchResults = filteredTransactions.search(query: query);
+    } else {
+      searchResults = transactions.search(query: query);
+    }
+    emit(SearchTransactionsState());
+  }
+
+  void changeSelectedType(CategoriesType type) {
+    selectedType = type;
+    emit(SearchTransactionsState());
+  }
+
+  void filterCategories() {
+    isFiltering = true;
+    filteredTransactions = transactions.filter(type: selectedType);
+    emit(SearchTransactionsState());
+  }
+
+  void clearFilter() {
+    isFiltering = false;
+    searchResults.clear();
+    selectedType = CategoriesType.all;
     emit(SearchTransactionsState());
   }
 

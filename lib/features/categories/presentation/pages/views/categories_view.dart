@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import '../widgets/categories_body.dart';
-import '../widgets/categories_filter.dart';
 import '../../../../../generated/l10n.dart';
 import '../../manager/categories_cubit.dart';
 import '../../manager/categories_states.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/widgets/filter_body.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/widgets/custom_type_toggle.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -28,7 +29,7 @@ class CategoriesView extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
           ),
-          builder: (context) => const CategoriesFilter(),
+          builder: (context) => const _Filter(),
         ),
       ),
       body: const CategoriesBody(),
@@ -52,6 +53,30 @@ class _Search extends StatelessWidget {
           suffixTap: () => cubit.searchCategories(query: null),
           onChanged: (value) => cubit.searchCategories(query: value),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        );
+      },
+    );
+  }
+}
+
+class _Filter extends StatelessWidget {
+  const _Filter();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CategoriesCubit, CategoriesStates>(
+      builder: (context, state) {
+        var cubit = CategoriesCubit.get(context);
+        return FilterBody(
+          body: CustomTypeToggle(
+            showAll: true,
+            selectedType: cubit.selectedType,
+            title: S.of(context).categoryType,
+            onChanged: (value) => cubit.changeSelectedType(value),
+          ),
+          isFiltering: cubit.isFiltering,
+          clearFilter: () => cubit.clearFilter(),
+          applyFilter: () => cubit.filterCategories(),
         );
       },
     );
