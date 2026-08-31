@@ -14,18 +14,24 @@ import '../../../../../core/extensions/number_formatting_extension.dart';
 
 class Transactions extends StatelessWidget {
   final bool isLoading;
+  final EdgeInsetsGeometry? padding;
+  final ScrollPhysics? scrollPhysics;
   final List<TransactionModel> transactions;
   const Transactions({
     super.key,
+    this.padding,
     required this.isLoading,
     required this.transactions,
+    this.scrollPhysics,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomList(
-      isLoading: isLoading,
+      padding: padding,
       items: transactions,
+      isLoading: isLoading,
+      scrollPhysics: scrollPhysics,
       itemBuilder: (transaction) => _Item(transaction: transaction),
     );
   }
@@ -70,7 +76,7 @@ class _Item extends StatelessWidget {
             _Body(category: category, transaction: transaction),
           ],
         ),
-      )
+      ),
     );
   }
 }

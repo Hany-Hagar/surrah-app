@@ -108,9 +108,9 @@
   "@addCategory": {
     "description": "Label for the add category button"
   },
-  "lastTransactions": "Last Transactions",
-  "@lastTransactions": {
-    "description": "Label for the last transactions section"
+  "dailyTransactions": "Daily Transactions",
+  "@dailyTransactions": {
+    "description": "Label for the daily transactions section"
   },
 
 

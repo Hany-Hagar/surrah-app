@@ -23,7 +23,9 @@ class HomeView extends StatelessWidget {
         onTrailingPressed: () =>
             NavTo.push(context: context, nextPage: const SettingsView()),
       ),
-      body: Padding(padding: EdgeInsets.all(12.w), child: HomeBody()),
+      body: SingleChildScrollView(
+        child: Padding(padding: EdgeInsets.all(12.w), child: HomeBody()),
+      ),
     );
   }
 }

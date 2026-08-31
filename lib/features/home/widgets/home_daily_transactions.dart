@@ -1,3 +1,4 @@
+import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,8 +8,8 @@ import '../../transactions/presentation/manager/transactions_cubit.dart';
 import '../../transactions/presentation/pages/widgets/transactions.dart';
 import '../../transactions/presentation/manager/transactions_states.dart';
 
-class HomeLastTransactions extends StatelessWidget {
-  const HomeLastTransactions({super.key});
+class HomeDailyTransactions extends StatelessWidget {
+  const HomeDailyTransactions({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class HomeLastTransactions extends StatelessWidget {
       children: [
         SizedBox(width: double.infinity, height: 8.h),
         CustomText(
-          text: "Daily Transactions",
+          text: S.of(context).dailyTransactions,
           size: 18.sp,
           type: Type.overMedium,
         ),

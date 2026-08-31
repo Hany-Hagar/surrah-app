@@ -31,4 +31,20 @@ extension SearchExtension on List<TransactionModel> {
       return type == CategoriesType.all || categoryType == type;
     }).toList();
   }
+
+  // Get today's transactions and limit to 5 items
+  List<TransactionModel> getDailyTransactions({int limit = 5}) {
+    var today = DateTime.now();
+    final dailyTransactions = where((transaction) {
+      return transaction.createdAt.year == today.year &&
+          transaction.createdAt.month == today.month &&
+          transaction.createdAt.day == today.day;
+    }).toList();
+
+    if (limit <= 0) {
+      return dailyTransactions;
+    }
+
+    return dailyTransactions.take(limit).toList();
+  }
 }

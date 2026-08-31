@@ -149,6 +149,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentLanguage": MessageLookupByLibrary.simpleMessage(
       "Current Language :",
     ),
+    "dailyTransactions": MessageLookupByLibrary.simpleMessage(
+      "Daily Transactions",
+    ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "emptyCategories": MessageLookupByLibrary.simpleMessage(
@@ -169,9 +172,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "Change the app language",
     ),
     "languageTitle": MessageLookupByLibrary.simpleMessage("Language"),
-    "lastTransactions": MessageLookupByLibrary.simpleMessage(
-      "Last Transactions",
-    ),
     "lightTheme": MessageLookupByLibrary.simpleMessage("Light"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "now": MessageLookupByLibrary.simpleMessage("Now"),
