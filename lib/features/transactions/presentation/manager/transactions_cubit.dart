@@ -1,11 +1,14 @@
 import 'transactions_states.dart';
 import 'package:flutter/material.dart';
+import '../../data/model/balance_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repo/transactions_repo.dart';
 import '../../data/model/transaction_model.dart';
 import '../../../../core/enums/category_type.dart';
+import '../../data/model/transactions_data_model.dart';
 import '../../../../core/widgets/categories_picker.dart';
 import '../../../../core/extensions/transaction_extension.dart';
+import '../../../../core/extensions/transactions_data_model_extensions.dart';
 import '../../../categories/data/database/default_categories.dart';
 
 class TransactionsCubit extends Cubit<TransactionsStates> {
@@ -17,15 +20,19 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
       BlocProvider.of(context);
 
   List<TransactionModel> transactions = [];
+  BalanceModel currentBalance = BalanceModel.empty();
+  TransactionsDataModel transactionsData = TransactionsDataModel.empty();
 
-  // Get Transactions
-  Future<void> getTransactions() async {
+  // Get Transactions Data
+  Future<void> getTransactionsData() async {
     emit(GetTransactionsLoading());
-    var result = await transactionsRepo.getTransactions();
+    var result = await transactionsRepo.getTransactionsData();
     result.fold(
       (failure) => emit(GetTransactionsFailure(message: failure.message)),
-      (transactionsList) {
-        transactions.addAll(transactionsList);
+      (success) {
+        transactionsData = success;
+        transactions = success.transactions;
+        currentBalance = success.currentBalance;
         emit(GetTransactionsSuccess());
       },
     );
@@ -148,12 +155,15 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
       categoryId: selectedCategory.id,
       amount: double.parse(amountController.text),
     );
-    var result = await transactionsRepo.addTransaction(transaction);
+    var result = await transactionsRepo.updateTransactionsData(
+      data: transactionsData.addTransaction(transaction: transaction),
+    );
     result.fold(
       (failure) => emit(AddTransactionFailure(message: failure.message)),
       (success) {
-        // Add in first
-        transactions.insert(0, transaction);
+        transactionsData = success;
+        transactions = success.transactions;
+        currentBalance = success.currentBalance;
         emit(AddTransactionSuccess());
         clearFields();
       },
@@ -176,16 +186,18 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
       categoryId: selectedCategory.id,
       amount: double.parse(amountController.text),
     );
-    var result = await transactionsRepo.updateTransaction(updateTransaction);
+    var result = await transactionsRepo.updateTransactionsData(
+      data: transactionsData.editTransaction(
+        oldTransaction: transactionToEdit,
+        newTransaction: updateTransaction,
+      ),
+    );
     result.fold(
       (failure) => emit(UpdateTransactionFailure(message: failure.message)),
       (success) {
-        var index = transactions.indexWhere(
-          (transaction) => transaction.id == updateTransaction.id,
-        );
-        if (index != -1) {
-          transactions[index] = updateTransaction;
-        }
+        transactionsData = success;
+        transactions = success.transactions;
+        currentBalance = success.currentBalance;
         emit(UpdateTransactionSuccess());
         clearFields();
       },

@@ -47,4 +47,26 @@ extension SearchExtension on List<TransactionModel> {
 
     return dailyTransactions.take(limit).toList();
   }
+
+  // AddNewTransaction
+  List<TransactionModel> addNewTransaction({
+    required TransactionModel transaction,
+  }) {
+    final updatedTransactions = List<TransactionModel>.from(this);
+    updatedTransactions.add(transaction);
+    return updatedTransactions.sortByDate();
+  }
+
+  // UpdateTransaction
+  List<TransactionModel> updateTransaction({
+    required TransactionModel updatedTransaction,
+  }) {
+    final updatedTransactions = map((transaction) {
+      if (transaction.id == updatedTransaction.id) {
+        return updatedTransaction;
+      }
+      return transaction;
+    }).toList();
+    return updatedTransactions.sortByDate();
+  }
 }

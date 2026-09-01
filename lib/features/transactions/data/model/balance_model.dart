@@ -40,8 +40,8 @@ class BalanceModel {
 
   // Empty BalanceModel
   BalanceModel.empty()
-      : balance = 100.0,
-        percentage = 0.5,
-        totalIncome = 50.0,
-        totalExpense = 50.0;
+      : balance = 0.0,
+        percentage = 0.0,
+        totalIncome = 0.0,
+        totalExpense = 0.0;
 }

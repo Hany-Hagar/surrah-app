@@ -36,7 +36,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
       (categoriesList) {
         categories.addAll([...DefaultCategories.all, ...categoriesList]);
         selectedCategory = categories.first;
-        getIt<TransactionsCubit>().getTransactions();
+        getIt<TransactionsCubit>().getTransactionsData();
         emit(CategoriesSuccess());
       },
     );

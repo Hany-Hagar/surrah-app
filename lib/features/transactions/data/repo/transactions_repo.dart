@@ -1,14 +1,13 @@
 import 'package:dartz/dartz.dart';
-import '../model/transaction_model.dart';
 import '../../../../core/errors/failure.dart';
+import '../model/transactions_data_model.dart';
 
 abstract class TransactionsRepo {
-  Future<Either<Failure, List<TransactionModel>>> getTransactions();
-  Future<Either<Failure, TransactionModel>> addTransaction(
-    TransactionModel transaction,
-  );
-  Future<Either<Failure, TransactionModel>> updateTransaction(
-    TransactionModel transaction,
-  );
-  Future<Either<Failure, void>> deleteTransaction(String transactionId);
+  Future<Either<Failure, TransactionsDataModel>> getTransactionsData();
+
+  Future<Either<Failure, TransactionsDataModel>> updateTransactionsData({
+    required TransactionsDataModel data,
+  });
+
+  Future<Either<Failure, void>> deleteTransactionsData();
 }

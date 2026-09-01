@@ -1,75 +1,57 @@
-// Add New Transaction
 import '../../features/transactions/data/model/balance_model.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
 extension BalanceExtension on BalanceModel {
   BalanceModel addTransaction({required TransactionModel transaction}) {
-    if (transaction.isIncome) {
-      final newBalance = balance + transaction.amount;
-      final newTotalIncome = totalIncome + transaction.amount;
-      final newPercentage = newBalance != 0
-          ? (newBalance / newTotalIncome) * 100
-          : 0.0;
-      return copyWith(
-        balance: newBalance,
-        totalIncome: newTotalIncome,
-        percentage: newPercentage,
-      );
-    } else {
-      final newBalance = balance - transaction.amount;
-      final newTotalExpense = totalExpense + transaction.amount;
-      final newPercentage = newBalance != 0
-          ? (newBalance / (totalIncome + newTotalExpense)) * 100
-          : 0.0;
-      return copyWith(
-        balance: newBalance,
-        totalExpense: newTotalExpense,
-        percentage: newPercentage,
-      );
-    }
+    return _applyTransaction(transaction: transaction, multiplier: 1);
   }
 
-  // Edit Transaction
+  BalanceModel removeTransaction({required TransactionModel transaction}) {
+    return _applyTransaction(transaction: transaction, multiplier: -1);
+  }
+
   BalanceModel editTransaction({
     required TransactionModel oldTransaction,
     required TransactionModel newTransaction,
   }) {
-    final balanceAfterRemovingOld = oldTransaction.isIncome
-        ? balance - oldTransaction.amount
-        : balance + oldTransaction.amount;
-    final totalIncomeAfterRemovingOld = oldTransaction.isIncome
-        ? totalIncome - oldTransaction.amount
-        : totalIncome;
-    final totalExpenseAfterRemovingOld = oldTransaction.isIncome
-        ? totalExpense
-        : totalExpense - oldTransaction.amount;
+    return removeTransaction(
+      transaction: oldTransaction,
+    ).addTransaction(transaction: newTransaction);
+  }
 
-    if (newTransaction.isIncome) {
-      final newBalance = balanceAfterRemovingOld + newTransaction.amount;
-      final newTotalIncome =
-          totalIncomeAfterRemovingOld + newTransaction.amount;
-      final newPercentage = newBalance != 0
-          ? (newBalance / newTotalIncome) * 100
-          : 0.0;
-      return copyWith(
-        balance: newBalance,
-        totalIncome: newTotalIncome,
-        totalExpense: totalExpenseAfterRemovingOld,
-        percentage: newPercentage,
-      );
-    } else {
-      final newBalance = balanceAfterRemovingOld - newTransaction.amount;
-      final newTotalExpense =
-          totalExpenseAfterRemovingOld + newTransaction.amount;
-      final newPercentage = newBalance != 0
-          ? (newBalance / (totalIncomeAfterRemovingOld + newTotalExpense)) * 100
-          : 0.0;
-      return copyWith(
-        balance: newBalance,
-        totalIncome: totalIncomeAfterRemovingOld,
-        totalExpense: newTotalExpense,
-        percentage: newPercentage,
-      );
-    }
+  BalanceModel _applyTransaction({
+    required TransactionModel transaction,
+    required int multiplier,
+  }) {
+    final amount = transaction.amount * multiplier;
+
+    final newTotalIncome = transaction.isIncome
+        ? totalIncome + amount
+        : totalIncome;
+
+    final newTotalExpense = transaction.isIncome
+        ? totalExpense
+        : totalExpense + amount;
+
+    final newBalance = newTotalIncome - newTotalExpense;
+
+    return copyWith(
+      balance: newBalance,
+      totalIncome: newTotalIncome,
+      totalExpense: newTotalExpense,
+      percentage: _calculatePercentage(
+        income: newTotalIncome,
+        expense: newTotalExpense,
+      ),
+    );
+  }
+
+  double _calculatePercentage({
+    required double income,
+    required double expense,
+  }) {
+    if (income <= 0) return 0.0;
+
+    return (expense / income).clamp(0.0, 1.0);
   }
 }
