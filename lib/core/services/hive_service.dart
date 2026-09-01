@@ -1,6 +1,7 @@
 import '../../const/hive_data.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../features/categories/data/models/category_model.dart';
+import '../../features/transactions/data/model/balance_model.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
 class HiveService {
@@ -8,8 +9,10 @@ class HiveService {
     await Hive.initFlutter();
     Hive.registerAdapter(CategoryModelAdapter());
     Hive.registerAdapter(TransactionModelAdapter());
+    Hive.registerAdapter(BalanceModelAdapter());
     await openBox<CategoryModel>(HiveData.categoriesBox);
     await openBox<TransactionModel>(HiveData.transactionsBox);
+    await openBox<BalanceModel>(HiveData.balanceBox);
   }
 
   Future<Box<T>> openBox<T>(String boxName) async {
