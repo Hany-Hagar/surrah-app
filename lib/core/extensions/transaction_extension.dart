@@ -19,10 +19,11 @@ extension SearchExtension on List<TransactionModel> {
   // Search transactions
   List<TransactionModel> search({required String query}) {
     return where((transaction) {
-      var categoryName = transaction.categoryId
+      final categoryName = transaction.categoryId
           .getCategory()
           .name
           .toLowerCase();
+
       return transaction.notes.toLowerCase().contains(query.toLowerCase()) ||
           categoryName.contains(query.toLowerCase());
     }).toList();
@@ -31,9 +32,10 @@ extension SearchExtension on List<TransactionModel> {
   // Filter transactions by category type
   List<TransactionModel> filter({required CategoriesType type}) {
     return where((transaction) {
-      var categoryType = transaction.categoryId.getCategory().isIncome
+      final categoryType = transaction.categoryId.getCategory().isIncome
           ? CategoriesType.income
           : CategoriesType.expense;
+
       return type == CategoriesType.all || categoryType == type;
     }).toList();
   }
@@ -43,12 +45,14 @@ extension SearchExtension on List<TransactionModel> {
     if (limit <= 0) {
       return this;
     }
+
     return take(limit).toList();
   }
 
   // Get today's transactions and limit to 5 items
   List<TransactionModel> getDailyTransactions({int limit = 5}) {
-    var today = DateTime.now();
+    final today = DateTime.now();
+
     final dailyTransactions = where((transaction) {
       return transaction.createdAt.year == today.year &&
           transaction.createdAt.month == today.month &&
@@ -72,16 +76,18 @@ extension SearchExtension on List<TransactionModel> {
     return filter(type: CategoriesType.expense);
   }
 
-  // AddNewTransaction
+  // Add New Transaction
   List<TransactionModel> addNewTransaction({
     required TransactionModel transaction,
   }) {
     final updatedTransactions = List<TransactionModel>.from(this);
+
     updatedTransactions.add(transaction);
+
     return updatedTransactions.sortByDate();
   }
 
-  // UpdateTransaction
+  // Update Transaction
   List<TransactionModel> updateTransaction({
     required TransactionModel updatedTransaction,
   }) {
@@ -89,8 +95,39 @@ extension SearchExtension on List<TransactionModel> {
       if (transaction.id == updatedTransaction.id) {
         return updatedTransaction;
       }
+
       return transaction;
     }).toList();
+
     return updatedTransactions.sortByDate();
+  }
+
+  // Group transactions by category
+  List<TransactionModel> groupByCategory() {
+    final Map<String, TransactionModel> groupedTransactions = {};
+
+    for (final transaction in this) {
+      final existingTransaction =
+          groupedTransactions[transaction.categoryId];
+
+      if (existingTransaction == null) {
+        groupedTransactions[transaction.categoryId] = transaction;
+      } else {
+        groupedTransactions[transaction.categoryId] =
+            existingTransaction.copyWith(
+          amount: existingTransaction.amount + transaction.amount,
+        );
+      }
+    }
+
+    return groupedTransactions.values.toList().sortByAmount();
+  }
+
+  // Report Transactions
+  List<TransactionModel> reportTransactions({
+    required CategoriesType type,
+  }) {
+    return filter(type: type)
+        .groupByCategory();
   }
 }
