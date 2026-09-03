@@ -15,9 +15,8 @@ class ReportView extends StatelessWidget {
         title: "Report",
         subtitle: "Your financial report",
       ),
-      body: Padding(
-        padding: EdgeInsets.all(12.w),
-        child: ReportBody(),
+      body: SingleChildScrollView(
+        child: Padding(padding: EdgeInsets.all(12.w), child: ReportBody())
       ),
     );
   }

@@ -10,6 +10,12 @@ extension SearchExtension on List<TransactionModel> {
     return this;
   }
 
+  // Sort transactions by amount
+  List<TransactionModel> sortByAmount() {
+    sort((a, b) => b.amount.compareTo(a.amount));
+    return this;
+  }
+
   // Search transactions
   List<TransactionModel> search({required String query}) {
     return where((transaction) {
@@ -57,12 +63,12 @@ extension SearchExtension on List<TransactionModel> {
   }
 
   // Get income transactions
-  List<TransactionModel> get incomeTransactions {
+  List<TransactionModel> get incomes {
     return filter(type: CategoriesType.income);
   }
 
   // Get expense transactions
-  List<TransactionModel> get expenseTransactions {
+  List<TransactionModel> get expense {
     return filter(type: CategoriesType.expense);
   }
 
