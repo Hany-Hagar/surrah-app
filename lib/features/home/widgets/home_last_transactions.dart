@@ -1,3 +1,4 @@
+import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +18,7 @@ class HomeLastTransactions extends StatelessWidget {
       children: [
         SizedBox(width: double.infinity, height: 8.h),
         CustomText(
-          text: "Daily Transactions",
+          text: S.of(context).lastTransactions,
           size: 18.sp,
           type: Type.overMedium,
         ),
@@ -29,7 +30,7 @@ class HomeLastTransactions extends StatelessWidget {
               padding: EdgeInsets.zero,
               isLoading: state is GetTransactionsLoading,
               scrollPhysics: const NeverScrollableScrollPhysics(),
-              transactions: cubit.transactions.getDailyTransactions(),
+              transactions: cubit.transactions.getLastTransactions(),
             );
           },
         ),

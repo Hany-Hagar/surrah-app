@@ -304,12 +304,12 @@ class S {
     );
   }
 
-  /// `Daily Transactions`
-  String get dailyTransactions {
+  /// `Last Transactions`
+  String get lastTransactions {
     return Intl.message(
-      'Daily Transactions',
-      name: 'dailyTransactions',
-      desc: 'Label for the daily transactions section',
+      'Last Transactions',
+      name: 'lastTransactions',
+      desc: 'Label for the last transactions section',
       args: [],
     );
   }

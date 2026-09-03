@@ -32,6 +32,14 @@ extension SearchExtension on List<TransactionModel> {
     }).toList();
   }
 
+  // Get Last transactions
+  List<TransactionModel> getLastTransactions({int limit = 5}) {
+    if (limit <= 0) {
+      return this;
+    }
+    return take(limit).toList();
+  }
+
   // Get today's transactions and limit to 5 items
   List<TransactionModel> getDailyTransactions({int limit = 5}) {
     var today = DateTime.now();

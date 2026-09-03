@@ -21,7 +21,7 @@ class HomeBalanceCard extends StatelessWidget {
         children: [
           _Top(currentBalance: currentBalance),
           Padding(
-            padding: EdgeInsets.all(8.w),
+            padding: EdgeInsets.all(8.w).copyWith(top: 2),
             child: Row(
               spacing: 3.w,
               mainAxisSize: MainAxisSize.min,

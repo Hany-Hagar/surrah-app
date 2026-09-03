@@ -143,9 +143,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "currentBalance": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
     "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
-    "dailyTransactions": MessageLookupByLibrary.simpleMessage(
-      "العمليات اليومية",
-    ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
@@ -163,6 +160,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تغيير لغة التطبيق",
     ),
     "languageTitle": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "lastTransactions": MessageLookupByLibrary.simpleMessage("آخر العمليات"),
     "lightTheme": MessageLookupByLibrary.simpleMessage("فاتح"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "now": MessageLookupByLibrary.simpleMessage("الآن"),
