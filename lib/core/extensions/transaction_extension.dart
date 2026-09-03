@@ -56,6 +56,16 @@ extension SearchExtension on List<TransactionModel> {
     return dailyTransactions.take(limit).toList();
   }
 
+  // Get income transactions
+  List<TransactionModel> get incomeTransactions {
+    return filter(type: CategoriesType.income);
+  }
+
+  // Get expense transactions
+  List<TransactionModel> get expenseTransactions {
+    return filter(type: CategoriesType.expense);
+  }
+
   // AddNewTransaction
   List<TransactionModel> addNewTransaction({
     required TransactionModel transaction,

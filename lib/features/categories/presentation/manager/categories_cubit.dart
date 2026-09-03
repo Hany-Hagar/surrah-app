@@ -61,9 +61,9 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     }
     isSearching = true;
     if (isFiltering) {
-      searchResults = filteredCategories.search(query);
+      searchResults = filteredCategories.searchCategories(query);
     } else {
-      searchResults = categories.search(query);
+      searchResults = categories.searchCategories(query);
     }
     emit(CategoriesSearch());
   }
@@ -75,7 +75,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
 
   void filterCategories() {
     isFiltering = true;
-    filteredCategories = categories.filterByType(selectedType);
+    filteredCategories = categories.getCategoriesByType(selectedType);
     emit(CategoriesSearch());
   }
 

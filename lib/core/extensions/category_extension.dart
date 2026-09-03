@@ -26,7 +26,7 @@ extension CategoryById on String {
 
 // Search extension
 extension SearchExtension on List<CategoryModel> {
-  List<CategoryModel> search(String query) {
+  List<CategoryModel> searchCategories(String query) {
     return where(
       (category) => category.name.toLowerCase().contains(query.toLowerCase()),
     ).toList();
@@ -35,7 +35,7 @@ extension SearchExtension on List<CategoryModel> {
 
 // Filter extension
 extension FilterExtension on List<CategoryModel> {
-  List<CategoryModel> filterByType(CategoriesType type) {
+  List<CategoryModel> getCategoriesByType(CategoriesType type) {
     switch (type) {
       case CategoriesType.all:
         return this;

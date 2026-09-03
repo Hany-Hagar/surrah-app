@@ -1,6 +1,9 @@
+import '../../../core/utils/nav_to.dart';
+import '../../../core/widgets/custom_button.dart';
 import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_text.dart';
+import '../../report/pages/views/report_view.dart';
 import '../../transactions/data/model/balance_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +24,7 @@ class HomeBalanceCard extends StatelessWidget {
         children: [
           _Top(currentBalance: currentBalance),
           Padding(
-            padding: EdgeInsets.all(8.w).copyWith(top: 2),
+            padding: EdgeInsets.all(8.w).copyWith(top: 2.w),
             child: Row(
               spacing: 3.w,
               mainAxisSize: MainAxisSize.min,
@@ -41,6 +44,16 @@ class HomeBalanceCard extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.w).copyWith(top: 4.w),
+            child: CustomButton(
+              height: 55.h,
+              text: "View Details",
+              enableBorderColor: true,
+              onPressed: () =>
+                  NavTo.push(context: context, nextPage: const ReportView()),
+            )
           ),
         ],
       ),
