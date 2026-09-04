@@ -278,6 +278,20 @@
   },
 
 
+  "viewReport": "View Detailed Report",
+  "@viewReport": {
+    "description": "Label for the view report button"
+  },
+  "reportTitle": "Reports",
+  "@reportTitle": {
+    "description": "Title for the reports page"
+  },
+  "reportSubtitle": "View your financial reports and insights",
+  "@reportSubtitle": {
+    "description": "Subtitle for the reports page"
+  },
+
+
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Title for the settings page"

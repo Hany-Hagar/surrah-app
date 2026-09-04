@@ -234,6 +234,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "quickActions": MessageLookupByLibrary.simpleMessage("الإجراءات السريعة"),
+    "reportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "عرض تقاريرك المالية ورؤىك",
+    ),
+    "reportTitle": MessageLookupByLibrary.simpleMessage("التقارير"),
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "ابحث عن تصنيف",
     ),
@@ -288,6 +292,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateTransactionTitle": MessageLookupByLibrary.simpleMessage(
       "تحديث العملية",
     ),
+    "viewReport": MessageLookupByLibrary.simpleMessage("عرض التقرير التفصيلي"),
     "yesterday": MessageLookupByLibrary.simpleMessage("أمس"),
   };
 }

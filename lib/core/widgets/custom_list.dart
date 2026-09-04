@@ -1,7 +1,5 @@
-
-import 'custom_text.dart';
-import '../../const/assets.dart';
-import 'package:lottie/lottie.dart';
+import 'empty_view.dart';
+import 'failure_view.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,16 +45,10 @@ class CustomList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isFailure) {
-      return _Failure(
-        errorMessage: errorMessage,
-        errorLottiePath: errorLottiePath,
-      );
+      return FailureView(message: errorMessage, lottiePath: errorLottiePath);
     }
     if (items.isEmpty && !isLoading) {
-      return _Empty(
-        emptyMessage: emptyMessage,
-        emptyLottiePath: emptyLottiePath,
-      );
+      return EmptyView(message: emptyMessage, lottiePath: emptyLottiePath);
     }
     return Skeletonizer(
       enabled: isLoading,
@@ -67,72 +59,6 @@ class CustomList extends StatelessWidget {
         itemBuilder: itemBuilder,
         scrollPhysics: scrollPhysics,
       ),
-    );
-  }
-}
-
-class _Failure extends StatelessWidget {
-  final String? errorMessage;
-  final String? errorLottiePath;
-  const _Failure({this.errorMessage, this.errorLottiePath});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Lottie.asset(
-          errorLottiePath ?? Assets.failureList,
-          width: MediaQuery.of(context).size.width,
-        ),
-        Transform.translate(
-          offset: Offset(0, -30.h),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: CustomText(
-              size: 18.sp,
-              maxLines: 6,
-              type: Type.overMedium,
-              textAlign: TextAlign.center,
-              text: errorMessage ?? 'حدث خطأ أثناء جلب البيانات',
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _Empty extends StatelessWidget {
-  final String? emptyLottiePath;
-  final String? emptyMessage;
-  const _Empty({this.emptyLottiePath, this.emptyMessage});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Lottie.asset(
-          emptyLottiePath ?? Assets.emptyList,
-          width: MediaQuery.of(context).size.width,
-        ),
-        Transform.translate(
-          offset: Offset(0, -30.h),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: CustomText(
-              size: 18.sp,
-              maxLines: 6,
-              type: Type.overMedium,
-              textAlign: TextAlign.center,
-              text: emptyMessage ?? 'لا توجد بيانات',
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

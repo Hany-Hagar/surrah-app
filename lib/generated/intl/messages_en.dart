@@ -247,6 +247,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "quickActions": MessageLookupByLibrary.simpleMessage("Quick Actions"),
+    "reportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "View your financial reports and insights",
+    ),
+    "reportTitle": MessageLookupByLibrary.simpleMessage("Reports"),
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "Search Categories",
     ),
@@ -305,6 +309,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateTransactionTitle": MessageLookupByLibrary.simpleMessage(
       "Update Transaction",
     ),
+    "viewReport": MessageLookupByLibrary.simpleMessage("View Detailed Report"),
     "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
   };
 }

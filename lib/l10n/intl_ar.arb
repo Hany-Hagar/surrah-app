@@ -279,6 +279,21 @@
   },
 
 
+
+  "viewReport": "عرض التقرير التفصيلي",
+  "@viewReport": {
+    "description": "نص زر عرض التقرير"
+  },
+  "reportTitle": "التقارير",
+  "@reportTitle": {
+    "description": "عنوان صفحة التقارير"
+  },
+  "reportSubtitle": "عرض تقاريرك المالية ورؤىك",
+  "@reportSubtitle": {
+    "description": "وصف صفحة التقارير"
+  },
+
+
   "settingsTitle": "الإعدادات",
   "@settingsTitle": {
     "description": "Title for the settings page"

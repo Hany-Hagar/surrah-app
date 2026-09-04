@@ -28,7 +28,7 @@ class _Balance extends StatelessWidget {
     return BlocBuilder<TransactionsCubit, TransactionsStates>(
       builder: (context, state) {
         final cubit = TransactionsCubit.get(context);
-        return HomeBalanceCard(currentBalance: cubit.currentBalance);
+        return HomeBalanceCard(currentBalance: cubit.currentBalance, transactions: cubit.transactions,);
       },
     );
   }

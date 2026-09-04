@@ -3,13 +3,19 @@ import '../../../core/widgets/custom_button.dart';
 import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_text.dart';
-import '../../report/pages/views/report_view.dart';
 import '../../transactions/data/model/balance_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../transactions/data/model/transaction_model.dart';
+import '../../report/presentation/pages/views/report_view.dart';
 
 class HomeBalanceCard extends StatelessWidget {
   final BalanceModel currentBalance;
-  const HomeBalanceCard({super.key, required this.currentBalance});
+  final List<TransactionModel> transactions;
+  const HomeBalanceCard({
+    super.key,
+    required this.currentBalance,
+    required this.transactions,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +55,16 @@ class HomeBalanceCard extends StatelessWidget {
             padding: EdgeInsets.all(8.w).copyWith(top: 4.w),
             child: CustomButton(
               height: 55.h,
-              text: "View Details",
+              text: S.of(context).viewReport,
               enableBorderColor: true,
-              onPressed: () =>
-                  NavTo.push(context: context, nextPage: const ReportView()),
-            )
+              onPressed: () => NavTo.push(
+                context: context,
+                nextPage: ReportView(
+                  transactions: transactions,
+                  currentBalance: currentBalance,
+                ),
+              ),
+            ),
           ),
         ],
       ),

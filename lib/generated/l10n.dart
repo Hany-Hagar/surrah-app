@@ -704,6 +704,36 @@ class S {
     );
   }
 
+  /// `View Detailed Report`
+  String get viewReport {
+    return Intl.message(
+      'View Detailed Report',
+      name: 'viewReport',
+      desc: 'Label for the view report button',
+      args: [],
+    );
+  }
+
+  /// `Reports`
+  String get reportTitle {
+    return Intl.message(
+      'Reports',
+      name: 'reportTitle',
+      desc: 'Title for the reports page',
+      args: [],
+    );
+  }
+
+  /// `View your financial reports and insights`
+  String get reportSubtitle {
+    return Intl.message(
+      'View your financial reports and insights',
+      name: 'reportSubtitle',
+      desc: 'Subtitle for the reports page',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settingsTitle {
     return Intl.message(

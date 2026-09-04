@@ -122,12 +122,4 @@ extension SearchExtension on List<TransactionModel> {
 
     return groupedTransactions.values.toList().sortByAmount();
   }
-
-  // Report Transactions
-  List<TransactionModel> reportTransactions({
-    required CategoriesType type,
-  }) {
-    return filter(type: type)
-        .groupByCategory();
-  }
 }
