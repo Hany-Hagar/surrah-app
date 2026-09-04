@@ -1,15 +1,13 @@
+import '../../transactions/data/model/balance_model.dart';
 import '../../transactions/data/model/transaction_model.dart';
+
 class ReportModel {
-  final double total;
-  final double totalIncome;
-  final double totalExpense;
+  final BalanceModel balance;
   final List<TransactionModel> transactions;
   final List<TransactionModel> incomeTransactions;
   final List<TransactionModel> expenseTransactions;
   ReportModel({
-    required this.total,
-    required this.totalIncome,
-    required this.totalExpense,
+    required this.balance,
     required this.transactions,
     required this.incomeTransactions,
     required this.expenseTransactions,
@@ -18,12 +16,10 @@ class ReportModel {
   // Empty report model
   factory ReportModel.empty() {
     return ReportModel(
-      total: 0,
-      totalIncome: 0,
-      totalExpense: 0,
       transactions: [],
       incomeTransactions: [],
       expenseTransactions: [],
+      balance: BalanceModel.empty(),
     );
   }
 }

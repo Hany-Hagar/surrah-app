@@ -15,6 +15,8 @@ class ReportAnalysisCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var length = reportModel.transactions.length;
+    var totalValue =
+        reportModel.balance.totalIncome + reportModel.balance.totalExpense;
     return Container(
       padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
@@ -24,14 +26,13 @@ class ReportAnalysisCard extends StatelessWidget {
       ),
       child: length > 6 && length <= 10
           ? _WrapTransactions(
-              totalValue: reportModel.total,
+              totalValue: totalValue,
               transactions: reportModel.transactions,
             )
           : _GridTransactions(
-              totalValue: reportModel.total,
+              totalValue: totalValue,
               transactions: reportModel.transactions,
             ),
-  
     );
   }
 }
@@ -93,10 +94,14 @@ class _GridTransactions extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 12.h),
-          child: ReportAnalysisChart(radius: 100.r,totalValue: totalValue, transactions: transactions),
+          child: ReportAnalysisChart(
+            radius: 100.r,
+            totalValue: totalValue,
+            transactions: transactions,
+          ),
         ),
         CustomGrid(
-          crossAxisCount: 3,
+          crossAxisCount: transactions.length <= 3 ? transactions.length : 3,
           items: transactions,
           childAspectRatio: 4.8,
           padding: EdgeInsets.zero,
@@ -127,7 +132,11 @@ class _Transaction extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: CustomText(text: category.name, size: 15.sp, type: Type.header)
+          child: CustomText(
+            text: category.name,
+            size: 15.sp,
+            type: Type.header,
+          ),
         ),
       ],
     );

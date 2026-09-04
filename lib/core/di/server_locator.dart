@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import '../../features/report/presentation/manager/report_cubit.dart';
 import '../services/hive_service.dart';
 import '../../features/layout/managers/layout_cubit.dart';
 import '../../features/categories/data/repo/categories_repo.dart';
@@ -33,7 +34,9 @@ void setupLocator() {
   );
 
   getIt.registerLazySingleton<CategoriesCubit>(
-    () => CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>())..getCategories(),
+    () =>
+        CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>())
+          ..getCategories(),
   );
 
   // Transactions
@@ -48,4 +51,7 @@ void setupLocator() {
   getIt.registerLazySingleton<TransactionsCubit>(
     () => TransactionsCubit(transactionsRepo: getIt<TransactionsRepo>()),
   );
+
+  // Report
+  getIt.registerLazySingleton<ReportCubit>(() => ReportCubit());
 }

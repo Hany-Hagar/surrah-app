@@ -1,20 +1,26 @@
-import '../../../core/utils/nav_to.dart';
-import '../../../core/widgets/custom_button.dart';
-import '../../../generated/l10n.dart';
+import 'custom_text.dart';
+import 'custom_button.dart';
+import '../utils/nav_to.dart';
+import '../../generated/l10n.dart';
 import 'package:flutter/material.dart';
-import '../../../core/widgets/custom_text.dart';
-import '../../transactions/data/model/balance_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../transactions/data/model/transaction_model.dart';
-import '../../report/presentation/pages/views/report_view.dart';
+import '../../features/transactions/data/model/balance_model.dart';
+import '../../features/transactions/data/model/transaction_model.dart';
+import '../../features/report/presentation/pages/views/report_view.dart';
 
-class HomeBalanceCard extends StatelessWidget {
+class BalanceCard extends StatelessWidget {
+  final bool showButton;
+  final String? title;
+  final Widget? trailing;
   final BalanceModel currentBalance;
   final List<TransactionModel> transactions;
-  const HomeBalanceCard({
+  const BalanceCard({
     super.key,
-    required this.currentBalance,
+    this.title,
+    this.trailing,
+    this.showButton = true,
     required this.transactions,
+    required this.currentBalance,
   });
 
   @override
@@ -28,7 +34,11 @@ class HomeBalanceCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _Top(currentBalance: currentBalance),
+          _Top(
+            title: title,
+            currentBalance: currentBalance,
+            trailing: trailing,
+          ),
           Padding(
             padding: EdgeInsets.all(8.w).copyWith(top: 2.w),
             child: Row(
@@ -51,21 +61,8 @@ class HomeBalanceCard extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(8.w).copyWith(top: 4.w),
-            child: CustomButton(
-              height: 55.h,
-              text: S.of(context).viewReport,
-              enableBorderColor: true,
-              onPressed: () => NavTo.push(
-                context: context,
-                nextPage: ReportView(
-                  transactions: transactions,
-                  currentBalance: currentBalance,
-                ),
-              ),
-            ),
-          ),
+          if (showButton)
+            _Button(currentBalance: currentBalance, transactions: transactions),
         ],
       ),
     );
@@ -73,28 +70,32 @@ class HomeBalanceCard extends StatelessWidget {
 }
 
 class _Top extends StatelessWidget {
+  final String? title;
+  final Widget? trailing;
   final BalanceModel currentBalance;
-  const _Top({required this.currentBalance});
+  const _Top({this.title, this.trailing, required this.currentBalance});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _TopBody(currentBalance: currentBalance.balance),
-        SizedBox(
-          width: 80.w,
-          height: 80.w,
-          child: _Progress(size: 28, progress: currentBalance.percentage),
-        ),
+        _TopBody(title: title, currentBalance: currentBalance.balance),
+        trailing ??
+            SizedBox(
+              width: 80.w,
+              height: 80.w,
+              child: _Progress(size: 28, progress: currentBalance.percentage),
+            ),
       ],
     );
   }
 }
 
 class _TopBody extends StatelessWidget {
+  final String? title;
   final double currentBalance;
-  const _TopBody({required this.currentBalance});
+  const _TopBody({this.title, required this.currentBalance});
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +107,7 @@ class _TopBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(
-              text: S.of(context).currentBalance,
+              text: title ?? S.of(context).currentBalance,
               size: 14.sp,
               type: Type.overMedium,
               opacity: FontOpacity.medium,
@@ -138,15 +139,15 @@ class _Progress extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: (size - 18).r,
-          backgroundColor: backgroundColor.shade300,
+          backgroundColor: backgroundColor.withAlpha(80),
         ),
         // Outer circle
         CircularProgressIndicator(
           value: progress,
           strokeWidth: size.r,
           strokeAlign: 0,
-          color: color.shade200,
-          backgroundColor: backgroundColor.shade200,
+          color: color.withAlpha(100),
+          backgroundColor: backgroundColor.withAlpha(50),
         ),
 
         // Inner circle
@@ -154,8 +155,8 @@ class _Progress extends StatelessWidget {
           value: progress,
           strokeWidth: (size - 18).r,
           strokeAlign: 0,
-          color: color.shade300,
-          backgroundColor: backgroundColor.shade300,
+          color: color.withAlpha(100),
+          backgroundColor: backgroundColor.withAlpha(80),
         ),
 
         CustomText(
@@ -202,30 +203,59 @@ class _BalanceItem extends StatelessWidget {
         ),
         padding: EdgeInsets.symmetric(vertical: 10.h),
         child: Row(
-          spacing: 10.w,
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
-              radius: 17.r,
-              backgroundColor: color,
-              child: Icon(icon, color: Colors.white, size: 20.sp),
+            Padding(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w).copyWith(start: 10.w),
+              child: CircleAvatar(
+                radius: 17.r,
+                backgroundColor: color,
+                child: Icon(icon, color: Colors.white, size: 20.sp),
+              )
             ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomText(text: title, size: 14.sp, type: Type.overMedium),
-                CustomText(
-                  text: amount.toStringAsFixed(2),
-                  size: 14.sp,
-                  type: Type.overMedium,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(text: title, size: 14.sp, type: Type.overMedium),
+                  CustomText(
+                    text: amount.toStringAsFixed(2),
+                    size: 14.sp,
+                    type: Type.overMedium,
+                  ),
+                ],
+              ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Button extends StatelessWidget {
+  final BalanceModel currentBalance;
+  final List<TransactionModel> transactions;
+  const _Button({required this.currentBalance, required this.transactions});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(8.w).copyWith(top: 4.w),
+      child: CustomButton(
+        height: 55.h,
+        text: S.of(context).viewReport,
+        enableBorderColor: true,
+        onPressed: () => NavTo.push(
+          context: context,
+          nextPage: ReportView(
+            transactions: transactions,
+            currentBalance: currentBalance,
+          ),
         ),
       ),
     );

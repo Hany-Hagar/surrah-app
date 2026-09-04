@@ -8,7 +8,6 @@ import '../../manager/transactions_states.dart';
 import '../../../../../core/widgets/filter_body.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/widgets/custom_type_toggle.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class TransactionsView extends StatelessWidget {
@@ -68,15 +67,12 @@ class _Filter extends StatelessWidget {
       builder: (context, state) {
         var cubit = TransactionsCubit.get(context);
         return FilterBody(
-          body: CustomTypeToggle(
-            showAll: true,
-            selectedType: cubit.selectedType,
-            title: S.of(context).categoryType,
-            onChanged: (value) => cubit.changeSelectedType(value),
-          ),
+          showAllCategoriesType: true,
           isFiltering: cubit.isFiltering,
+          selectedType: cubit.selectedType,
           clearFilter: () => cubit.clearFilter(),
           applyFilter: () => cubit.filterCategories(),
+          onTypeChanged: (value) => cubit.changeSelectedType(value),
         );
       },
     );

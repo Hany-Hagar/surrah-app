@@ -12,6 +12,7 @@ import 'features/layout/managers/layout_cubit.dart';
 import 'features/splash/pages/views/splash_view.dart';
 import 'features/settings/model/app_user_pref_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'features/report/presentation/manager/report_cubit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/settings/presentation/manager/settings_cubit.dart';
 import 'features/categories/presentation/manager/categories_cubit.dart';
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<LayoutCubit>()),
         BlocProvider(create: (context) => getIt<SettingsCubit>()),
         BlocProvider(create: (context) => getIt<CategoriesCubit>()),
-        BlocProvider(create: (context) => getIt<TransactionsCubit>())
+        BlocProvider(create: (context) => getIt<TransactionsCubit>()),
+        BlocProvider(create: (context) => getIt<ReportCubit>()),
       ],
       child: BlocListener<CategoriesCubit, CategoriesStates>(
         listener: (context, state) {
