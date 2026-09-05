@@ -18,7 +18,6 @@ class CategoriesView extends StatelessWidget {
     var s = S.of(context);
     return Scaffold(
       appBar: CustomAppBar(
-        bottomHeight: 60,
         bottom: const _Search(),
         title: s.categoriesTitle,
         subtitle: s.categoriesSubtitle,

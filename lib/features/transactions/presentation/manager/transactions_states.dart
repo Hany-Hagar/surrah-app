@@ -17,6 +17,8 @@ class InitFiltering extends TransactionsStates {}
 
 class ToggleCategorySelection extends TransactionsStates {}
 
+class ToggleDateFilterType extends TransactionsStates {}
+
 class SearchTransactionsState extends TransactionsStates {}
 
 // Add Transaction

@@ -30,7 +30,7 @@ extension DateTimeExtension on DateTime? {
       ? '-'
       : DateFormat('EEEE d MMMM hh:mm a', 'ar').format(this!);
 
-  /// Monday / الاثنين1
+  /// Monday / الاثنين
   String get day => this == null ? '-' : DateFormat('EEEE', 'ar').format(this!);
 
   /// Mon
@@ -81,6 +81,58 @@ extension DateTimeExtension on DateTime? {
   String get isoDateTime =>
       this == null ? '-' : DateFormat('yyyy-MM-dd HH:mm', 'ar').format(this!);
 
+  /// Is this date today?
+  bool get isToday {
+    final value = this;
+    if (value == null) return false;
+
+    final now = DateTime.now();
+
+    return value.year == now.year &&
+        value.month == now.month &&
+        value.day == now.day;
+  }
+
+  /// Is this date yesterday?
+  bool get isYesterday {
+    final value = this;
+    if (value == null) return false;
+
+    final yesterday = DateTime.now().subtract(const Duration(days: 1));
+
+    return value.year == yesterday.year &&
+        value.month == yesterday.month &&
+        value.day == yesterday.day;
+  }
+
+  /// Is this date in the current week?
+  bool get isInCurrentWeek {
+    final value = this;
+    if (value == null) return false;
+    final now = DateTime.now();
+    final startOfToday = DateTime(now.year, now.month, now.day);
+    final startOfWeek = startOfToday.subtract(
+      Duration(days: startOfToday.weekday - DateTime.monday),
+    );
+    final endOfWeek = startOfWeek.add(const Duration(days: 7));
+    return !value.isBefore(startOfWeek) && value.isBefore(endOfWeek);
+  }
+
+  /// Is this date in the current month?
+  bool get isInCurrentMonth {
+    final value = this;
+    if (value == null) return false;
+    final now = DateTime.now();
+    return value.year == now.year && value.month == now.month;
+  }
+
+  /// Is this date in the current year?
+  bool get isInCurrentYear {
+    final value = this;
+    if (value == null) return false;
+    return value.year == DateTime.now().year;
+  }
+
   String smartDate({
     required String locale,
     required String nowText,
@@ -96,6 +148,7 @@ extension DateTimeExtension on DateTime? {
       currentDate.day,
     );
     final yesterday = today.subtract(const Duration(days: 1));
+
     final isSameMinute =
         value.year == currentDate.year &&
         value.month == currentDate.month &&
@@ -106,15 +159,19 @@ extension DateTimeExtension on DateTime? {
     if (isSameMinute) {
       return nowText;
     }
+
     if (date == today) {
       return DateFormat('hh:mm a', locale).format(value);
     }
+
     if (date == yesterday) {
       return yesterdayText;
     }
+
     if (value.year == currentDate.year) {
       return DateFormat('dd MMM', locale).format(value);
     }
+
     return DateFormat('dd MMM yyyy', locale).format(value);
   }
 }

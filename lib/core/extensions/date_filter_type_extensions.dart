@@ -16,8 +16,6 @@ extension DateFilterTypeExtensions on DateFilterType {
         return s.thisMonth;
       case DateFilterType.year:
         return s.thisYear;
-      case DateFilterType.custom:
-        return s.custom;
     }
   }
 }

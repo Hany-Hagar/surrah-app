@@ -1,3 +1,4 @@
+import '../../../../core/enums/date_filter_type.dart';
 import 'transactions_states.dart';
 import 'package:flutter/material.dart';
 import '../../data/model/balance_model.dart';
@@ -48,6 +49,7 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
   CategoriesType selectedType = CategoriesType.all;
   List<TransactionModel> filteredTransactions = [];
   List<CategoryModel> selectedFilteredCategories = [];
+  DateFilterType selectedDateFilterTypes = DateFilterType.day;
 
   void searchTransactions({required String? query}) {
     if (query == null || query.isEmpty) {
@@ -87,11 +89,17 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
     emit(ToggleCategorySelection());
   }
 
+  void toggleDateFilterType({required DateFilterType type}) {
+    selectedDateFilterTypes = type;
+    emit(ToggleDateFilterType());
+  }
+
   void filterCategories() {
     isFiltering = true;
     filteredTransactions = transactions.filter(
       type: selectedType,
       categories: selectedFilteredCategories,
+      dateFilterType: selectedDateFilterTypes,
     );
     emit(SearchTransactionsState());
   }
@@ -102,6 +110,7 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
     filteredCategories.clear();
     selectedType = CategoriesType.all;
     selectedFilteredCategories.clear();
+    selectedDateFilterTypes = DateFilterType.day;
     emit(SearchTransactionsState());
   }
 

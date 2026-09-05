@@ -1,5 +1,7 @@
+import 'date_extension.dart';
 import 'category_extension.dart';
 import '../enums/category_type.dart';
+import '../enums/date_filter_type.dart';
 import '../../features/categories/data/models/category_model.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
@@ -36,21 +38,37 @@ extension SearchExtension on List<TransactionModel> {
   /// Filters transactions by category type and selected categories.
   List<TransactionModel> filter({
     required CategoriesType type,
+    required DateFilterType dateFilterType,
     List<CategoryModel> categories = const [],
   }) {
     return where((transaction) {
       final category = transaction.categoryId.getCategory();
-
       final matchesType = switch (type) {
         CategoriesType.all => true,
         CategoriesType.income => category.isIncome,
         CategoriesType.expense => !category.isIncome,
       };
-
       final matchesCategory =
           categories.isEmpty || categories.contains(category);
-
       return matchesType && matchesCategory;
+    }).toList().filterByDate(type: dateFilterType);
+  }
+
+  /// Filters transactions by date filter type.
+  List<TransactionModel> filterByDate({
+    required DateFilterType type,
+    DateTime? startDate,
+    DateTime? endDate,
+  }) {
+    return where((transaction) {
+      final date = transaction.createdAt;
+      return switch (type) {
+        DateFilterType.day => date.isToday,
+        DateFilterType.yesterday => date.isYesterday,
+        DateFilterType.week => date.isInCurrentWeek,
+        DateFilterType.month => date.isInCurrentMonth,
+        DateFilterType.year => date.isInCurrentYear,
+      };
     }).toList();
   }
 

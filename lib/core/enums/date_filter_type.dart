@@ -1,1 +1,1 @@
-enum DateFilterType { day, yesterday, week, month, year, custom }
+enum DateFilterType { day, yesterday, week, month, year }

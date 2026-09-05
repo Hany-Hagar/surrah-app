@@ -2,7 +2,6 @@ import 'custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class CustomButton extends StatelessWidget {
   final bool isLoading;
   final double? width;
@@ -86,6 +85,14 @@ class _Body extends StatelessWidget {
         ? (color ?? colors.primary)
         : theme.scaffoldBackgroundColor;
 
+    final borderColor = enableBorderColor
+        ? (color ?? theme.colorScheme.secondary)
+        : Colors.transparent;
+
+    final fontColor = enableBorderColor
+        ? (color ?? theme.colorScheme.secondary)
+        : theme.scaffoldBackgroundColor;
+
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -96,9 +103,8 @@ class _Body extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
           side: BorderSide(
-            color: enableBorderColor
-                ? (color ?? colors.primary)
-                : Colors.transparent,
+            color: borderColor,
+            width: enableBorderColor ? 1.w : 0,
           ),
         ),
       ),
@@ -109,11 +115,11 @@ class _Body extends StatelessWidget {
             text: text ?? '',
             size: itemSize.sp,
             type: Type.overMedium,
-            color: foregroundColor,
+            color: fontColor,
           ),
           if (icon != null) ...[
             SizedBox(width: 4.w),
-            Icon(icon, size: (itemSize + 6).sp, color: foregroundColor),
+            Icon(icon, size: (itemSize + 6).sp, color: fontColor),
           ],
         ],
       ),

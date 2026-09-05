@@ -114,15 +114,15 @@ class _Progress extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: (size - 18).r,
-          backgroundColor: backgroundColor.shade300,
+          backgroundColor: backgroundColor.withAlpha(80),
         ),
         // Outer circle
         CircularProgressIndicator(
           value: progress,
           strokeWidth: size.r,
           strokeAlign: 0,
-          color: color.shade200,
-          backgroundColor: backgroundColor.shade200,
+          color: color.withAlpha(100),
+          backgroundColor: backgroundColor.withAlpha(50),
         ),
 
         // Inner circle
@@ -130,8 +130,8 @@ class _Progress extends StatelessWidget {
           value: progress,
           strokeWidth: (size - 18).r,
           strokeAlign: 0,
-          color: color.shade300,
-          backgroundColor: backgroundColor.shade300,
+          color: color.withAlpha(100),
+          backgroundColor: backgroundColor.withAlpha(80),
         ),
 
         CustomText(
@@ -207,3 +207,5 @@ class _BalanceItem extends StatelessWidget {
     );
   }
 }
+
+

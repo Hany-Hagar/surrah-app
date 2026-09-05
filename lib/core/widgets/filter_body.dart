@@ -164,7 +164,6 @@ class _Button extends StatelessWidget {
           Expanded(
             child: CustomButton(
               text: s.cancel,
-              //color: Colors.red,
               enableBorderColor: true,
               onPressed: () => Navigator.pop(context),
             ),
