@@ -131,15 +131,15 @@ class _Progress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const color = Colors.green;
-    const backgroundColor = Colors.grey;
-
+    const color = Colors.grey;
+    const backgroundColor = Colors.green;
+    final remaining = 1 - progress;
     return Stack(
       alignment: Alignment.center,
       children: [
         CircleAvatar(
           radius: (size - 18).r,
-          backgroundColor: backgroundColor.withAlpha(80),
+          backgroundColor: backgroundColor.withAlpha(100),
         ),
         // Outer circle
         CircularProgressIndicator(
@@ -147,7 +147,7 @@ class _Progress extends StatelessWidget {
           strokeWidth: size.r,
           strokeAlign: 0,
           color: color.withAlpha(100),
-          backgroundColor: backgroundColor.withAlpha(50),
+          backgroundColor: backgroundColor.withAlpha(80),
         ),
 
         // Inner circle
@@ -156,11 +156,11 @@ class _Progress extends StatelessWidget {
           strokeWidth: (size - 18).r,
           strokeAlign: 0,
           color: color.withAlpha(100),
-          backgroundColor: backgroundColor.withAlpha(80),
+          backgroundColor: backgroundColor.withAlpha(100),
         ),
 
         CustomText(
-          text: formatProgress(progress),
+          text: formatProgress(remaining),
           size: 14.sp,
           type: Type.overMedium,
         ),
@@ -208,12 +208,14 @@ class _BalanceItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w).copyWith(start: 10.w),
+              padding: EdgeInsetsDirectional.symmetric(
+                horizontal: 8.w,
+              ).copyWith(start: 10.w),
               child: CircleAvatar(
                 radius: 17.r,
                 backgroundColor: color,
                 child: Icon(icon, color: Colors.white, size: 20.sp),
-              )
+              ),
             ),
             Expanded(
               child: Column(
