@@ -237,6 +237,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "ابحث عن تصنيف",
     ),
+    "searchTransactionsHint": MessageLookupByLibrary.simpleMessage(
+      "بحث في العمليات",
+    ),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),

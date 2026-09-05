@@ -544,6 +544,16 @@ class S {
     );
   }
 
+  /// `Search Transactions`
+  String get searchTransactionsHint {
+    return Intl.message(
+      'Search Transactions',
+      name: 'searchTransactionsHint',
+      desc: 'Hint text for the transactions search field',
+      args: [],
+    );
+  }
+
   /// `Add Transaction`
   String get addTransactionTitle {
     return Intl.message(

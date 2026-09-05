@@ -1,20 +1,29 @@
+import 'custom_text.dart';
+import 'custom_toggle.dart';
+import '../enums/category_type.dart';
 import 'package:flutter/material.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../../../core/widgets/custom_text.dart';
+import '../extensions/categories_type_extensions.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FilterBody extends StatelessWidget {
-  final Widget body;
+  final Widget? body;
   final bool isFiltering;
   final Function clearFilter;
   final Function applyFilter;
+  final bool showAllCategoriesType;
+  final CategoriesType? selectedType;
+  final Function(CategoriesType)? onTypeChanged;
   const FilterBody({
     super.key,
-    required this.body,
+    this.body,
     required this.isFiltering,
     required this.clearFilter,
     required this.applyFilter,
+    this.showAllCategoriesType = false,
+    this.selectedType,
+    this.onTypeChanged,
   });
 
   @override
@@ -22,7 +31,7 @@ class FilterBody extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(12.w).copyWith(top: 20.h, bottom: 22.h),
       child: Column(
-        spacing: 12.h,
+        spacing: 4.h,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -35,7 +44,13 @@ class FilterBody extends StatelessWidget {
             ),
           ),
           if (isFiltering) _ClearFilter(clearFilter: clearFilter),
-          body,
+          if (selectedType != null && onTypeChanged != null)
+            _TypeToggle(
+              onChanged: onTypeChanged!,
+              selectedType: selectedType!,
+              showAll: showAllCategoriesType,
+            ),
+          ?body,
           _Button(applyFilter: applyFilter),
         ],
       ),
@@ -103,6 +118,45 @@ class _Button extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _TypeToggle extends StatelessWidget {
+  final bool showAll;
+  final CategoriesType selectedType;
+  final Function(CategoriesType) onChanged;
+  const _TypeToggle({
+    this.showAll = false,
+    required this.onChanged,
+    required this.selectedType,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      spacing: 3.h,
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomText(
+          text: S.of(context).categoryType,
+          size: 18.sp,
+          type: Type.header,
+        ),
+        CustomToggle<CategoriesType>(
+          height: 60.h,
+          selectedItem: selectedType,
+          onChanged: (value) => onChanged(value),
+          itemLabel: (item) => item.toLocalization(context: context),
+          items: [
+            if (showAll) CategoriesType.all,
+            CategoriesType.income,
+            CategoriesType.expense,
+          ],
+        ),
+      ],
     );
   }
 }

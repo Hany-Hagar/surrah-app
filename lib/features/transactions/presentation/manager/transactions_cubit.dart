@@ -7,9 +7,10 @@ import '../../data/model/transaction_model.dart';
 import '../../../../core/enums/category_type.dart';
 import '../../data/model/transactions_data_model.dart';
 import '../../../../core/widgets/categories_picker.dart';
+import '../../../categories/data/models/category_model.dart';
 import '../../../../core/extensions/transaction_extension.dart';
-import '../../../../core/extensions/transactions_data_model_extensions.dart';
 import '../../../categories/data/database/default_categories.dart';
+import '../../../../core/extensions/transactions_data_model_extensions.dart';
 
 class TransactionsCubit extends Cubit<TransactionsStates> {
   final TransactionsRepo transactionsRepo;
@@ -42,9 +43,11 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
   bool isSearching = false;
   bool isFiltering = false;
   List<TransactionModel> searchResults = [];
+  List<CategoryModel> filteredCategories = [];
   var searchController = TextEditingController();
   CategoriesType selectedType = CategoriesType.all;
   List<TransactionModel> filteredTransactions = [];
+  List<CategoryModel> selectedFilteredCategories = [];
 
   void searchTransactions({required String? query}) {
     if (query == null || query.isEmpty) {
@@ -65,19 +68,40 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
 
   void changeSelectedType(CategoriesType type) {
     selectedType = type;
+    selectedFilteredCategories.clear();
+    filteredCategories = transactions.getCategories(type: selectedType);
     emit(SearchTransactionsState());
+  }
+
+  void initFilter() {
+    filteredCategories = transactions.getCategories();
+    emit(InitFiltering());
+  }
+
+  void toggleCategorySelection({required CategoryModel category}) {
+    if (selectedFilteredCategories.contains(category)) {
+      selectedFilteredCategories.remove(category);
+    } else {
+      selectedFilteredCategories.add(category);
+    }
+    emit(ToggleCategorySelection());
   }
 
   void filterCategories() {
     isFiltering = true;
-    filteredTransactions = transactions.filter(type: selectedType);
+    filteredTransactions = transactions.filter(
+      type: selectedType,
+      categories: selectedFilteredCategories,
+    );
     emit(SearchTransactionsState());
   }
 
   void clearFilter() {
     isFiltering = false;
     searchResults.clear();
+    filteredCategories.clear();
     selectedType = CategoriesType.all;
+    selectedFilteredCategories.clear();
     emit(SearchTransactionsState());
   }
 

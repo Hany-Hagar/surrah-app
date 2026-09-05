@@ -13,6 +13,10 @@ class GetTransactionsFailure extends TransactionsStates {
 }
 
 // Search Transactions
+class InitFiltering extends TransactionsStates {}
+
+class ToggleCategorySelection extends TransactionsStates {}
+
 class SearchTransactionsState extends TransactionsStates {}
 
 // Add Transaction

@@ -208,6 +208,10 @@
   "@transactionsSubtitle": {
     "description": "Subtitle for the transactions page"
   },
+  "searchTransactionsHint": "Search Transactions",
+  "@searchTransactionsHint": {
+    "description": "Hint text for the transactions search field"
+  },
 
 
   "addTransactionTitle": "Add Transaction",

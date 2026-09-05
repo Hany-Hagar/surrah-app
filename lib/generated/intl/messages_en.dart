@@ -250,6 +250,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "Search Categories",
     ),
+    "searchTransactionsHint": MessageLookupByLibrary.simpleMessage(
+      "Search Transactions",
+    ),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),

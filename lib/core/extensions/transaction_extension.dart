@@ -1,80 +1,118 @@
 import 'category_extension.dart';
 import '../enums/category_type.dart';
+import '../../features/categories/data/models/category_model.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
-// Search extension
 extension SearchExtension on List<TransactionModel> {
-  // Sort transactions by date
+  /// Returns transactions sorted by newest date first.
   List<TransactionModel> sortByDate() {
-    sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    return this;
+    final result = List<TransactionModel>.from(this);
+
+    result.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+
+    return result;
   }
 
-  // Search transactions
+  /// Searches transactions by notes or category name.
   List<TransactionModel> search({required String query}) {
+    final normalizedQuery = query.trim().toLowerCase();
+
+    if (normalizedQuery.isEmpty) {
+      return List<TransactionModel>.from(this);
+    }
+
     return where((transaction) {
-      var categoryName = transaction.categoryId
+      final notes = transaction.notes.toLowerCase();
+      final categoryName = transaction.categoryId
           .getCategory()
           .name
           .toLowerCase();
-      return transaction.notes.toLowerCase().contains(query.toLowerCase()) ||
-          categoryName.contains(query.toLowerCase());
+
+      return notes.contains(normalizedQuery) ||
+          categoryName.contains(normalizedQuery);
     }).toList();
   }
 
-  // Filter transactions by category type
-  List<TransactionModel> filter({required CategoriesType type}) {
+  /// Filters transactions by category type and selected categories.
+  List<TransactionModel> filter({
+    required CategoriesType type,
+    List<CategoryModel> categories = const [],
+  }) {
     return where((transaction) {
-      var categoryType = transaction.categoryId.getCategory().isIncome
-          ? CategoriesType.income
-          : CategoriesType.expense;
-      return type == CategoriesType.all || categoryType == type;
+      final category = transaction.categoryId.getCategory();
+
+      final matchesType = switch (type) {
+        CategoriesType.all => true,
+        CategoriesType.income => category.isIncome,
+        CategoriesType.expense => !category.isIncome,
+      };
+
+      final matchesCategory =
+          categories.isEmpty || categories.contains(category);
+
+      return matchesType && matchesCategory;
     }).toList();
   }
 
-  // Get Last transactions
+  /// Returns the latest transactions.
   List<TransactionModel> getLastTransactions({int limit = 5}) {
     if (limit <= 0) {
-      return this;
+      return [];
     }
+
     return take(limit).toList();
   }
 
-  // Get today's transactions and limit to 5 items
+  /// Returns today's transactions.
   List<TransactionModel> getDailyTransactions({int limit = 5}) {
-    var today = DateTime.now();
+    final now = DateTime.now();
+
     final dailyTransactions = where((transaction) {
-      return transaction.createdAt.year == today.year &&
-          transaction.createdAt.month == today.month &&
-          transaction.createdAt.day == today.day;
-    }).toList();
+      final date = transaction.createdAt;
+
+      return date.year == now.year &&
+          date.month == now.month &&
+          date.day == now.day;
+    });
 
     if (limit <= 0) {
-      return dailyTransactions;
+      return dailyTransactions.toList();
     }
 
     return dailyTransactions.take(limit).toList();
   }
 
-  // AddNewTransaction
+  /// Adds a new transaction and returns the list sorted by date.
   List<TransactionModel> addNewTransaction({
     required TransactionModel transaction,
   }) {
-    final updatedTransactions = List<TransactionModel>.from(this);
-    updatedTransactions.add(transaction);
-    return updatedTransactions.sortByDate();
+    return [...this, transaction].sortByDate();
   }
 
-  // UpdateTransaction
+  /// Updates an existing transaction by ID.
   List<TransactionModel> updateTransaction({
     required TransactionModel updatedTransaction,
   }) {
-    final updatedTransactions = map((transaction) {
-      if (transaction.id == updatedTransaction.id) {
-        return updatedTransaction;
-      }
-      return transaction;
+    return map((transaction) {
+      return transaction.id == updatedTransaction.id
+          ? updatedTransaction
+          : transaction;
+    }).toList().sortByDate();
+  }
+
+  List<CategoryModel> getCategories({
+    CategoriesType type = CategoriesType.all,
+  }) {
+    final categories = map(
+      (transaction) => transaction.categoryId.getCategory(),
+    ).toSet();
+
+    return categories.where((category) {
+      return switch (type) {
+        CategoriesType.all => true,
+        CategoriesType.income => category.isIncome,
+        CategoriesType.expense => !category.isIncome,
+      };
     }).toList();
-    return updatedTransactions.sortByDate();
   }
 }

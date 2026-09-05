@@ -209,6 +209,10 @@
   "@transactionsSubtitle": {
     "description": "وصف صفحة العمليات"
   },
+  "searchTransactionsHint": "بحث في العمليات",
+  "@searchTransactionsHint": {
+    "description": "نص تلميحي لحقل بحث العمليات"
+  },
 
 
   "addTransactionTitle": "إضافة عملية جديدة",
