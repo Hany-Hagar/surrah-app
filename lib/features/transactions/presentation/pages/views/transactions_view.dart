@@ -77,10 +77,7 @@ class _Filter extends StatelessWidget {
           selectedType: cubit.selectedType,
           clearFilter: () => cubit.clearFilter(),
           applyFilter: () => cubit.filterCategories(),
-          body: Padding(
-            padding: EdgeInsets.only(bottom: 12.h),
-            child: _Categories(categories: cubit.filteredCategories),
-          ),
+          body: [_Categories(categories: cubit.filteredCategories)],
           onTypeChanged: (value) => cubit.changeSelectedType(value),
         );
       },

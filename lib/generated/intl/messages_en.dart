@@ -149,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentLanguage": MessageLookupByLibrary.simpleMessage(
       "Current Language :",
     ),
+    "custom": MessageLookupByLibrary.simpleMessage("Custom"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "emptyCategories": MessageLookupByLibrary.simpleMessage(
@@ -273,6 +274,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "themeTitle": MessageLookupByLibrary.simpleMessage("Theme"),
     "themes": MessageLookupByLibrary.simpleMessage("Themes"),
+    "thisMonth": MessageLookupByLibrary.simpleMessage("This Month"),
+    "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
+    "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
+    "today": MessageLookupByLibrary.simpleMessage("Today"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Add, edit, and delete your transactions",

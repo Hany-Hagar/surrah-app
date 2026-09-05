@@ -4,11 +4,31 @@
   
   "now": "الآن",
   "@now": {
-    "description": "Label for the current time"
+    "description": "نص لتحديد الوقت الحالي"
+  },
+  "today": "اليوم",
+  "@today": {
+    "description": "نص لتحديد اليوم الحالي"
   },
   "yesterday": "أمس",
   "@yesterday": {
-    "description": "Label for the previous day"
+    "description": "نص لتحديد اليوم السابق"
+  },
+  "thisWeek": "هذا الأسبوع",
+  "@thisWeek": {
+    "description": "نص لتحديد الأسبوع الحالي"
+  },
+  "thisMonth": "هذا الشهر",
+  "@thisMonth": {
+    "description": "نص لتحديد الشهر الحالي"
+  },
+  "thisYear": "هذا العام",
+  "@thisYear": {
+    "description": "نص لتحديد العام الحالي"
+  },
+  "custom": "مخصص",
+  "@custom": {
+    "description": "نص لتحديد نطاق زمني مخصص"
   },
 
   

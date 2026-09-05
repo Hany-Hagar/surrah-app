@@ -6,9 +6,29 @@
   "@now": {
     "description": "Label for the current time"
   },
+  "today": "Today",
+  "@today": {
+    "description": "Label for the current day"
+  },
   "yesterday": "Yesterday",
   "@yesterday": {
     "description": "Label for the previous day"
+  },
+  "thisWeek": "This Week",
+  "@thisWeek": {
+    "description": "Label for the current week"
+  },
+  "thisMonth": "This Month",
+  "@thisMonth": {
+    "description": "Label for the current month"
+  },
+  "thisYear": "This Year",
+  "@thisYear": {
+    "description": "Label for the current year"
+  },
+  "custom": "Custom",
+  "@custom": {
+    "description": "Label for the custom date range"
   },
 
   

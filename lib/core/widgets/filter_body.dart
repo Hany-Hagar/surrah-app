@@ -8,8 +8,8 @@ import '../../../../../core/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FilterBody extends StatelessWidget {
-  final Widget? body;
   final bool isFiltering;
+  final List<Widget>? body;
   final Function clearFilter;
   final Function applyFilter;
   final bool showAllCategoriesType;
@@ -43,14 +43,15 @@ class FilterBody extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.r),
             ),
           ),
-          if (isFiltering) _ClearFilter(clearFilter: clearFilter),
           if (selectedType != null && onTypeChanged != null)
             _TypeToggle(
+              clearFilter: clearFilter,
+              isFiltering: isFiltering,
               onChanged: onTypeChanged!,
               selectedType: selectedType!,
               showAll: showAllCategoriesType,
             ),
-          ?body,
+          if (body != null) ...body!,
           _Button(applyFilter: applyFilter),
         ],
       ),
@@ -70,19 +71,71 @@ class _ClearFilter extends StatelessWidget {
         clearFilter();
         Navigator.pop(context);
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.filter_alt_off, size: 24.sp, color: color),
-          SizedBox(width: 8.w),
-          CustomText(
-            text: S.of(context).clearFilterButton,
-            size: 18.sp,
-            type: Type.overMedium,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 4.h),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.filter_alt_off, size: 24.sp, color: color),
+            SizedBox(width: 8.w),
+            CustomText(
+              text: S.of(context).clearFilterButton,
+              size: 18.sp,
+              type: Type.overMedium,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class _TypeToggle extends StatelessWidget {
+  final bool showAll;
+  final bool isFiltering;
+  final Function clearFilter;
+  final CategoriesType selectedType;
+  final Function(CategoriesType) onChanged;
+  const _TypeToggle({
+    this.showAll = false,
+    required this.onChanged,
+    required this.isFiltering,
+    required this.clearFilter,
+    required this.selectedType,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      spacing: 3.h,
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomText(
+              text: S.of(context).categoryType,
+              size: 18.sp,
+              type: Type.header,
+            ),
+            if (isFiltering) _ClearFilter(clearFilter: clearFilter),
+          ],
+        ),
+        CustomToggle<CategoriesType>(
+          height: 60.h,
+          selectedItem: selectedType,
+          onChanged: (value) => onChanged(value),
+          itemLabel: (item) => item.toLocalization(context: context),
+          items: [
+            if (showAll) CategoriesType.all,
+            CategoriesType.income,
+            CategoriesType.expense,
+          ],
+        ),
+      ],
     );
   }
 }
@@ -118,45 +171,6 @@ class _Button extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _TypeToggle extends StatelessWidget {
-  final bool showAll;
-  final CategoriesType selectedType;
-  final Function(CategoriesType) onChanged;
-  const _TypeToggle({
-    this.showAll = false,
-    required this.onChanged,
-    required this.selectedType,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      spacing: 3.h,
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomText(
-          text: S.of(context).categoryType,
-          size: 18.sp,
-          type: Type.header,
-        ),
-        CustomToggle<CategoriesType>(
-          height: 60.h,
-          selectedItem: selectedType,
-          onChanged: (value) => onChanged(value),
-          itemLabel: (item) => item.toLocalization(context: context),
-          items: [
-            if (showAll) CategoriesType.all,
-            CategoriesType.income,
-            CategoriesType.expense,
-          ],
-        ),
-      ],
     );
   }
 }

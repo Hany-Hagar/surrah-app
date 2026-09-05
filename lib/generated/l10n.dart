@@ -64,12 +64,62 @@ class S {
     );
   }
 
+  /// `Today`
+  String get today {
+    return Intl.message(
+      'Today',
+      name: 'today',
+      desc: 'Label for the current day',
+      args: [],
+    );
+  }
+
   /// `Yesterday`
   String get yesterday {
     return Intl.message(
       'Yesterday',
       name: 'yesterday',
       desc: 'Label for the previous day',
+      args: [],
+    );
+  }
+
+  /// `This Week`
+  String get thisWeek {
+    return Intl.message(
+      'This Week',
+      name: 'thisWeek',
+      desc: 'Label for the current week',
+      args: [],
+    );
+  }
+
+  /// `This Month`
+  String get thisMonth {
+    return Intl.message(
+      'This Month',
+      name: 'thisMonth',
+      desc: 'Label for the current month',
+      args: [],
+    );
+  }
+
+  /// `This Year`
+  String get thisYear {
+    return Intl.message(
+      'This Year',
+      name: 'thisYear',
+      desc: 'Label for the current year',
+      args: [],
+    );
+  }
+
+  /// `Custom`
+  String get custom {
+    return Intl.message(
+      'Custom',
+      name: 'custom',
+      desc: 'Label for the custom date range',
       args: [],
     );
   }
