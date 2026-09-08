@@ -86,7 +86,7 @@ class _Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var color = isSelected ? theme.primaryColor.withAlpha(45) : theme.cardColor;
+    var color = isSelected ? theme.colorScheme.secondary.withAlpha(45) : theme.cardColor;
     return GestureDetector(
       onTap: () => TransactionsCubit.get(
         context,
@@ -98,7 +98,7 @@ class _Category extends StatelessWidget {
           borderRadius: BorderRadius.circular(4.r),
           border: Border.all(
             width: 1.5.w,
-            color: isSelected ? theme.primaryColor : Color(0xFFBDBDBD),
+            color: isSelected ? theme.colorScheme.secondary : Color(0xFFBDBDBD),
           ),
         ),
         child: CustomText(text: category.name, size: 15.sp, type: Type.header),

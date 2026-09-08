@@ -141,6 +141,7 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
       return;
     }
     autoValidateMode = AutovalidateMode.disabled;
+    clearFields();
     if (isIncome) {
       categories = DefaultCategories.income;
       selectedCategory = DefaultCategories.income.first;

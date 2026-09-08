@@ -22,12 +22,12 @@ class CustomScaffold extends StatelessWidget {
       appBar: appBar,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          return Padding(
+          return SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             padding: contentPadding,
-            child: SizedBox(
-              width: constraints.maxWidth,
-              height: constraints.maxHeight,
-              child: body,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight - 30.h),
+              child: IntrinsicHeight(child: body),
             ),
           );
         },

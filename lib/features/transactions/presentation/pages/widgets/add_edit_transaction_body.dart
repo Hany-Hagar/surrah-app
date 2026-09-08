@@ -12,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/extensions/date_extension.dart';
 import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../core/services/date_time_picker_service.dart';
 
 class AddEditTransactionBody extends StatelessWidget {
   final bool isEdit;
@@ -55,7 +56,6 @@ class AddEditTransactionBody extends StatelessWidget {
 
 class _Amount extends StatelessWidget {
   const _Amount();
-
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
@@ -152,10 +152,20 @@ class _Time extends StatelessWidget {
         readOnly: true,
         prefixIcon: IconBroken.Calendar,
         keyboardType: TextInputType.datetime,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         controller: TextEditingController(
           text: cubit.selectedDate.fullWithTime,
         ),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        onTap: () async {
+          await DateTimePickerService.showDateTimePicker(
+            context: context,
+            initialDate: cubit.selectedDate,
+          ).then((value) {
+            if (value != null) {
+              cubit.updateSelectedDate(date: value);
+            }
+          });
+        },
       ),
     );
   }

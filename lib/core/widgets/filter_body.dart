@@ -65,7 +65,7 @@ class _ClearFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = Theme.of(context).colorScheme.primary;
+    var color = Theme.of(context).colorScheme.secondary;
     return GestureDetector(
       onTap: () {
         clearFilter();
@@ -81,8 +81,8 @@ class _ClearFilter extends StatelessWidget {
             CustomText(
               text: S.of(context).clearFilterButton,
               size: 18.sp,
+              color: color,
               type: Type.overMedium,
-              color: Theme.of(context).colorScheme.primary,
             ),
           ],
         ),
