@@ -30,6 +30,7 @@ class Transactions extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomList(
       padding: padding,
+      itemSperator: 10,
       items: transactions,
       isLoading: isLoading,
       scrollPhysics: scrollPhysics,

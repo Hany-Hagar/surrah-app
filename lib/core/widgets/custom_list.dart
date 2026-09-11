@@ -38,7 +38,7 @@ class CustomList extends StatelessWidget {
     this.emptyLottiePath,
     // List
     required this.items,
-    this.itemSperator = 8,
+    this.itemSperator = 12,
     this.padding,
     this.scrollPhysics,
     required this.itemBuilder,
@@ -62,9 +62,9 @@ class CustomList extends StatelessWidget {
       enabled: isLoading,
       child: _List(
         items: isLoading ? loadingItems : items,
-        itemSperator: itemSperator,
         padding: padding,
         itemBuilder: itemBuilder,
+        itemSperator: itemSperator,
         scrollPhysics: scrollPhysics,
       ),
     );
@@ -156,7 +156,7 @@ class _List extends StatelessWidget {
     required this.items,
     this.padding,
     this.scrollPhysics,
-    this.itemSperator = 8,
+    required this.itemSperator,
     required this.itemBuilder,
   });
 
