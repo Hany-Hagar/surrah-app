@@ -9,14 +9,22 @@ class DialogService {
   }) {
     return showDialog<T>(
       context: context,
-      builder: (context) => Dialog(
-        insetPadding:  EdgeInsets.symmetric(horizontal: 12.h),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
-        child: Padding(
-          padding: padding ?? EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-          child: body,
-        ),
-      ),
+      builder: (context) {
+        return Dialog(
+          insetPadding: EdgeInsets.symmetric(horizontal: 12.w),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          child: SingleChildScrollView(
+            padding: padding ??
+                EdgeInsets.symmetric(
+                  horizontal: 16.w,
+                  vertical: 20.h,
+                ),
+            child: body,
+          ),
+        );
+      },
     );
   }
 }
