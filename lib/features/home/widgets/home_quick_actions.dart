@@ -21,7 +21,7 @@ class HomeQuickActions extends StatelessWidget {
         CustomText(text: s.quickActions, size: 18.sp, type: Type.overMedium),
         SizedBox(height: 10.h),
         Row(
-          spacing: 5.w,
+          spacing: 10.w,
           children: [
             _Item(
               color: Colors.green,
