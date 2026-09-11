@@ -1,7 +1,7 @@
 class Assets {
   // App Assets
   static const String appLogo = 'assets/images/appLogo.png';
-  static const String emptyList = "assets/lotties/empty.json";
+  static const String emptyList = "assets/lotties/Finance.json";
   static const String failureList = "assets/lotties/Questioning.json";
 
   // Splash Screen Assets

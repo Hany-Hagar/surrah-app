@@ -111,6 +111,7 @@ class _Empty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -118,6 +119,14 @@ class _Empty extends StatelessWidget {
         Lottie.asset(
           emptyLottiePath ?? Assets.emptyList,
           width: MediaQuery.of(context).size.width,
+          delegates: LottieDelegates(
+            values: [
+              ValueDelegate.color(
+                const ['Bg'],
+                value: theme.scaffoldBackgroundColor,
+              ),
+            ],
+          ),
         ),
         Transform.translate(
           offset: Offset(0, -30.h),

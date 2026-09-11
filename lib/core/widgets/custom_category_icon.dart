@@ -15,7 +15,7 @@ class CustomCategoryIcon extends StatelessWidget {
     this.color,
     this.iconData,
     this.category,
-    this.size = 40,
+    this.size = 50,
   });
 
   @override
@@ -25,11 +25,12 @@ class CustomCategoryIcon extends StatelessWidget {
       width: size.r,
       height: size.r,
       decoration: BoxDecoration(
+        shape: BoxShape.circle,
         color: color ?? Color(category!.color),
-        borderRadius: BorderRadius.circular(4.r),
+       // borderRadius: BorderRadius.circular(4.r),
       ),
       child: Center(
-        child: FaIcon(icon, color: Colors.white, size: (size * 0.6).r),
+        child: FaIcon(icon, color: Colors.white, size: (size * 0.5).r),
       ),
     );
   }
