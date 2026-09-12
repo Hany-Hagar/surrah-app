@@ -57,9 +57,15 @@ class _Item extends StatelessWidget {
         minVerticalPadding: 0,
         horizontalTitleGap: 12.w,
         leading: _Leading(category: category),
-        trailing: _Amount(transaction: transaction),
-        subtitle: _SubTitle(transaction: transaction),
-        title: _Title(transaction: transaction, category: category),
+        title: _Row(
+          leading: _Title(category: category),
+          trailing: _Amount(transaction: transaction),
+        ),
+        subtitle: _Row(
+          leading: _SubTitle(transaction: transaction, category: category),
+          trailing: _Time(transaction: transaction),
+        ),
+
         contentPadding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
         onTap: () => NavTo.push(
           context: context,
@@ -69,6 +75,23 @@ class _Item extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _Row extends StatelessWidget {
+  final Widget leading;
+  final Widget trailing;
+  const _Row({required this.leading, required this.trailing});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(child: leading),
+        trailing,
+      ],
     );
   }
 }
@@ -85,34 +108,34 @@ class _Leading extends StatelessWidget {
 
 class _Title extends StatelessWidget {
   final CategoryModel category;
+  const _Title({required this.category});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomText(
+      text: category.name,
+      height: 1.4.h,
+      size: 16.sp,
+      type: Type.header,
+    );
+  }
+}
+
+class _SubTitle extends StatelessWidget {
+  final CategoryModel category;
   final TransactionModel transaction;
-  const _Title({required this.transaction, required this.category});
+  const _SubTitle({required this.transaction, required this.category});
 
   @override
   Widget build(BuildContext context) {
     var title = transaction.notes.isNotEmpty
         ? transaction.notes
         : category.name;
-    return CustomText(text: title, size: 17.sp, height: 1.3, type: Type.header);
-  }
-}
-
-class _SubTitle extends StatelessWidget {
-  final TransactionModel transaction;
-  const _SubTitle({required this.transaction});
-
-  @override
-  Widget build(BuildContext context) {
-    var s = S.of(context);
     return CustomText(
-      text: transaction.createdAt.smartDate(
-        locale: Localizations.localeOf(context).languageCode,
-        nowText: s.now,
-        yesterdayText: s.yesterday,
-      ),
-      height: 2.h,
-      size: 14.sp,
-      type: Type.header,
+      text: title,
+      size: 13.5.sp,
+      height: 1.5.h,
+      type: Type.overMedium,
       opacity: FontOpacity.medium,
     );
   }
@@ -130,7 +153,29 @@ class _Amount extends StatelessWidget {
       text: "$sign \$${transaction.amount.moneyFormat}",
       size: 18.sp,
       color: color,
+      height: 1.4.h,
       type: Type.header,
+    );
+  }
+}
+
+class _Time extends StatelessWidget {
+  final TransactionModel transaction;
+  const _Time({required this.transaction});
+
+  @override
+  Widget build(BuildContext context) {
+    var s = S.of(context);
+    return CustomText(
+      text: transaction.createdAt.smartDate(
+        locale: Localizations.localeOf(context).languageCode,
+        nowText: s.now,
+        yesterdayText: s.yesterday,
+      ),
+      size: 14.sp,
+      height: 1.5.h,
+      type: Type.header,
+      opacity: FontOpacity.medium,
     );
   }
 }

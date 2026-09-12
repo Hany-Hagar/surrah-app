@@ -22,7 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "addCategory": MessageLookupByLibrary.simpleMessage("Add"),
+    "addCategory": MessageLookupByLibrary.simpleMessage("Add Category"),
     "addCategoryDialogDescription": MessageLookupByLibrary.simpleMessage(
       "Please enter the name of the new category and select its type (Income or Expense).",
     ),

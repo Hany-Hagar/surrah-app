@@ -125,7 +125,7 @@
   "@addExpense": {
     "description": "Label for the add expense button"
   },
-  "addCategory": "إضافة",
+  "addCategory": "إضافة تصنيف",
   "@addCategory": {
     "description": "Label for the add category button"
   },

@@ -344,10 +344,10 @@ class S {
     );
   }
 
-  /// `Add`
+  /// `Add Category`
   String get addCategory {
     return Intl.message(
-      'Add',
+      'Add Category',
       name: 'addCategory',
       desc: 'Label for the add category button',
       args: [],
