@@ -604,6 +604,26 @@ class S {
     );
   }
 
+  /// `Transaction Type`
+  String get transactionType {
+    return Intl.message(
+      'Transaction Type',
+      name: 'transactionType',
+      desc: 'Label for the transaction type',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: 'Label for the date',
+      args: [],
+    );
+  }
+
   /// `Add Transaction`
   String get addTransactionTitle {
     return Intl.message(

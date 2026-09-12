@@ -233,6 +233,14 @@
   "@searchTransactionsHint": {
     "description": "نص تلميحي لحقل بحث العمليات"
   },
+  "transactionType":"نوع العملية",
+  "@transactionType": {
+    "description": "نص لتحديد نوع العملية"
+  },
+  "date": "التاريخ",
+  "@date": {
+    "description": "نص لتحديد التاريخ"
+  },
 
 
   "addTransactionTitle": "إضافة عملية جديدة",

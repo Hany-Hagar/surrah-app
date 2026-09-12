@@ -24,6 +24,7 @@ class TransactionFilterBody extends StatelessWidget {
           isFiltering: cubit.isFiltering,
           selectedType: cubit.selectedType,
           clearFilter: () => cubit.clearFilter(),
+          typeTitle: S.of(context).transactionType,
           applyFilter: () => cubit.filterCategories(),
           body: [
             _Categories(categories: cubit.filteredCategories),
@@ -119,7 +120,7 @@ class _Date extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(text: "Date", size: 18.sp, type: Type.header),
+        CustomText(text: S.of(context).date, size: 18.sp, type: Type.header),
         SizedBox(height: 8.h),
         CustomTabs<DateFilterType>(
           bodies: List.generate(

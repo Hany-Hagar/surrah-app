@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FilterBody extends StatelessWidget {
   final bool isFiltering;
+  final String? typeTitle;
   final List<Widget>? body;
   final Function clearFilter;
   final Function applyFilter;
@@ -18,6 +19,7 @@ class FilterBody extends StatelessWidget {
   const FilterBody({
     super.key,
     this.body,
+    this.typeTitle,
     required this.isFiltering,
     required this.clearFilter,
     required this.applyFilter,
@@ -31,7 +33,7 @@ class FilterBody extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(12.w).copyWith(top: 20.h, bottom: 22.h),
       child: Column(
-        spacing: 4.h,
+        spacing: 8.h,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -45,6 +47,7 @@ class FilterBody extends StatelessWidget {
           ),
           if (selectedType != null && onTypeChanged != null)
             _TypeToggle(
+              title: typeTitle,
               clearFilter: clearFilter,
               isFiltering: isFiltering,
               onChanged: onTypeChanged!,
@@ -93,11 +96,13 @@ class _ClearFilter extends StatelessWidget {
 
 class _TypeToggle extends StatelessWidget {
   final bool showAll;
+  final String? title;
   final bool isFiltering;
   final Function clearFilter;
   final CategoriesType selectedType;
   final Function(CategoriesType) onChanged;
   const _TypeToggle({
+    this.title,
     this.showAll = false,
     required this.onChanged,
     required this.isFiltering,
@@ -117,7 +122,7 @@ class _TypeToggle extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CustomText(
-              text: S.of(context).categoryType,
+              text: title ?? S.of(context).categoryType,
               size: 18.sp,
               type: Type.header,
             ),

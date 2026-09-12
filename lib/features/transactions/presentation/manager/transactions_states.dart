@@ -26,6 +26,8 @@ class AddTransactionInitial extends TransactionsStates {}
 
 class AutoValidateModeChanged extends TransactionsStates {}
 
+class UpdateSelectedType extends TransactionsStates {}
+
 class UpdateSelectedCategory extends TransactionsStates {}
 
 class UpdateSelectedDate extends TransactionsStates {}

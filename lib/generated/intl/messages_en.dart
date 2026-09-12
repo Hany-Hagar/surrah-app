@@ -151,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "custom": MessageLookupByLibrary.simpleMessage("Custom"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
+    "date": MessageLookupByLibrary.simpleMessage("Date"),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "emptyCategories": MessageLookupByLibrary.simpleMessage(
       "No categories available",
@@ -278,6 +279,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
     "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
     "today": MessageLookupByLibrary.simpleMessage("Today"),
+    "transactionType": MessageLookupByLibrary.simpleMessage("Transaction Type"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Add, edit, and delete your transactions",

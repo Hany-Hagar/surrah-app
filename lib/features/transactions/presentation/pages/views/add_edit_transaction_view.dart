@@ -15,12 +15,14 @@ import '../../../../../core/services/snack_bar_service.dart';
 class AddEditTransactionView extends StatelessWidget {
   final bool isEdit;
   final bool isIncome;
+  final bool showTypeToggle;
   final TransactionModel? transaction;
   const AddEditTransactionView({
     super.key,
+    this.transaction,
     this.isEdit = false,
     required this.isIncome,
-    this.transaction,
+    this.showTypeToggle = false,
   });
 
   @override
@@ -70,7 +72,11 @@ class AddEditTransactionView extends StatelessWidget {
                 ? s.updateTransactionSubtitle
                 : s.addTransactionSubtitle,
           ),
-          body: AddEditTransactionBody(isIncome: isIncome, isEdit: isEdit),
+          body: AddEditTransactionBody(
+            isIncome: isIncome,
+            isEdit: isEdit,
+            showTypeToggle: showTypeToggle,
+          ),
         ),
       ),
     );

@@ -3,7 +3,7 @@ import '../../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddTransactionCard extends StatelessWidget {
-  final String title;
+  final String? title;
   final IconData icon;
   final Widget? body;
   final Widget? trailing;
@@ -12,7 +12,7 @@ class AddTransactionCard extends StatelessWidget {
   const AddTransactionCard({
     super.key,
     required this.icon,
-    required this.title,
+    this.title,
     this.body,
     this.trailing,
     this.bodySpacing = 8,
@@ -44,7 +44,8 @@ class AddTransactionCard extends StatelessWidget {
             Expanded(
               child: _Body(title: title, subtitle: body, spacing: bodySpacing),
             ),
-          if (trailing != null) _Body(title: title, subtitle: body, spacing: bodySpacing),
+          if (trailing != null)
+            _Body(title: title, subtitle: body, spacing: bodySpacing),
 
           ?trailing,
         ],
@@ -73,10 +74,10 @@ class _Icon extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
-  final String title;
+  final String? title;
   final Widget? subtitle;
   final double spacing;
-  const _Body({required this.title, this.subtitle, required this.spacing});
+  const _Body({this.title, this.subtitle, required this.spacing});
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +86,8 @@ class _Body extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(text: title, size: 18.sp, type: Type.overMedium),
+        if (title != null)
+          CustomText(text: title!, size: 18.sp, type: Type.overMedium),
         ?subtitle,
       ],
     );

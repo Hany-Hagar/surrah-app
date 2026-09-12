@@ -1,4 +1,3 @@
-import '../../../../core/enums/date_filter_type.dart';
 import 'transactions_states.dart';
 import 'package:flutter/material.dart';
 import '../../data/model/balance_model.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repo/transactions_repo.dart';
 import '../../data/model/transaction_model.dart';
 import '../../../../core/enums/category_type.dart';
+import '../../../../core/enums/date_filter_type.dart';
 import '../../data/model/transactions_data_model.dart';
 import '../../../../core/widgets/categories_picker.dart';
 import '../../../categories/data/models/category_model.dart';
@@ -143,13 +143,24 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
     autoValidateMode = AutovalidateMode.disabled;
     clearFields();
     if (isIncome) {
+      selectedType = CategoriesType.income;
       categories = DefaultCategories.income;
       selectedCategory = DefaultCategories.income.first;
     } else {
+      selectedType = CategoriesType.expense;
       categories = DefaultCategories.expense;
       selectedCategory = DefaultCategories.expense.first;
     }
     emit(AddTransactionInitial());
+  }
+
+  void updateSelectedType({required CategoriesType type}) {
+    selectedType = type;
+    categories = type == CategoriesType.income
+        ? DefaultCategories.income
+        : DefaultCategories.expense;
+    selectedCategory = categories.first;
+    emit(UpdateSelectedType());
   }
 
   void updateSelectedCategory({required BuildContext context}) {

@@ -145,6 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
     "custom": MessageLookupByLibrary.simpleMessage("مخصص"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
+    "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "expense": MessageLookupByLibrary.simpleMessage("المصروفات"),
@@ -263,6 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "thisWeek": MessageLookupByLibrary.simpleMessage("هذا الأسبوع"),
     "thisYear": MessageLookupByLibrary.simpleMessage("هذا العام"),
     "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "transactionType": MessageLookupByLibrary.simpleMessage("نوع العملية"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
     "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إضافة وتعديل وحذف العمليات المالية",

@@ -10,6 +10,7 @@ import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/extensions/date_extension.dart';
+import '../../../../../core/widgets/custom_type_toggle.dart';
 import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../core/services/date_time_picker_service.dart';
@@ -17,10 +18,12 @@ import '../../../../../core/services/date_time_picker_service.dart';
 class AddEditTransactionBody extends StatelessWidget {
   final bool isEdit;
   final bool isIncome;
+  final bool showTypeToggle;
   const AddEditTransactionBody({
     super.key,
     required this.isIncome,
     required this.isEdit,
+    required this.showTypeToggle,
   });
 
   @override
@@ -36,6 +39,7 @@ class AddEditTransactionBody extends StatelessWidget {
             autovalidateMode: TransactionsCubit.get(context).autoValidateMode,
             child: _Amount(),
           ),
+          if (showTypeToggle) const _Type(),
           _Category(),
           _Time(),
           _Notes(),
@@ -50,6 +54,25 @@ class AddEditTransactionBody extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _Type extends StatelessWidget {
+  const _Type();
+
+  @override
+  Widget build(BuildContext context) {
+    var cubit = TransactionsCubit.get(context);
+    return BlocBuilder<TransactionsCubit,TransactionsStates>(
+      builder: (context, state) => AddTransactionCard(
+        icon: IconBroken.Swap,
+        body: CustomTypeToggle(
+          selectedType: cubit.selectedType,
+          title: S.of(context).transactionType,
+          onChanged: (type) => cubit.updateSelectedType(type: type),
+        ),
+      )
     );
   }
 }

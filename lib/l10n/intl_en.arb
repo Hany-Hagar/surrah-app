@@ -232,6 +232,14 @@
   "@searchTransactionsHint": {
     "description": "Hint text for the transactions search field"
   },
+  "transactionType":"Transaction Type",
+  "@transactionType": {
+    "description": "Label for the transaction type"
+  },
+  "date": "Date",
+  "@date": {
+    "description": "Label for the date"
+  },
 
 
   "addTransactionTitle": "Add Transaction",
