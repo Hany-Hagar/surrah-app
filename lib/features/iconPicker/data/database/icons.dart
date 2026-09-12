@@ -2234,6 +2234,19 @@ final List<IconModel> technologyIcons = [
 
   // Subscriptions
   IconModel(
+    id: 'subscriptions',
+    icon: FontAwesomeIcons.repeat,
+    keywords: [
+      'الاشتراكات',
+      'اشتراكات',
+      'اشتراك',
+      'subscriptions',
+      'subscription',
+      'recurring',
+      'renewal',
+    ],
+  ),
+  IconModel(
     id: 'video_subscription',
     icon: FontAwesomeIcons.tv,
     keywords: [

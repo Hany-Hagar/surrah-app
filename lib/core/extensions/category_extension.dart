@@ -7,11 +7,13 @@ import '../../features/categories/data/models/category_model.dart';
 extension CategoryNameSize on String {
   double getSize() {
     if (length <= 5) {
-      return 14.sp;
-    } else if (length <= 10) {
       return 13.sp;
-    } else {
+    } else if (length <= 10) {
       return 12.sp;
+    } else if (length <= 15) {
+      return 11.sp;
+    } else {
+      return 10.sp;
     }
   }
 }

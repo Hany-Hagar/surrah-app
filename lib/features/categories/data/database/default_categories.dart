@@ -97,16 +97,16 @@ class DefaultCategories {
     ),
     CategoryModel(
       id: 'bills',
-      name: 'الفواتير والاشتراكات',
+      name: 'الفواتير',
       color: 0xFFFFC107,
       iconId: 'electricity',
       isIncome: false,
     ),
     CategoryModel(
-      id: 'other_expense',
-      name: 'مصاريف أخرى',
-      color: 0xFF607D8B,
-      iconId: 'money',
+      id: 'subscriptions',
+      name: 'الاشتراكات',
+      color: 0xFFFFC107,
+      iconId: 'subscriptions',
       isIncome: false,
     ),
   ];
