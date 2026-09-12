@@ -40,8 +40,9 @@ class AddEditCategory extends StatelessWidget {
                 _Title(isEdit: isEdit),
                 SizedBox(height: 10.h),
                 _Type(),
-                _Body(),
                 SizedBox(height: 12.h),
+                _Body(),
+                SizedBox(height: 16.h),
                 _Button(
                   isEdit: isEdit,
                   formKey: formKey,
@@ -132,7 +133,7 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     var cubit = CategoriesCubit.get(context);
     return Column(
-      spacing: 5.h,
+      spacing: 10.h,
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -151,7 +152,7 @@ class _Name extends StatelessWidget {
     var s = S.of(context);
 
     return Column(
-      spacing: 4.h,
+      spacing: 6.h,
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -177,7 +178,7 @@ class _Data extends StatelessWidget {
     var s = S.of(context);
 
     return Column(
-      spacing: 4.h,
+      spacing: 6.h,
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -209,7 +210,7 @@ class _DataItem extends StatelessWidget {
       horizontalTitleGap: 9.w,
       tileColor: theme.scaffoldBackgroundColor,
       trailing: Icon(Icons.touch_app_rounded, size: 24.sp),
-      leading: CustomCategoryIcon(iconData: icon, color: color),
+      leading: CustomCategoryIcon(iconData: icon, color: color, size: 45.sp),
       title: CustomText(
         size: 17.sp,
         height: 1.2,
