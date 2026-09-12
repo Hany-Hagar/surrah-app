@@ -74,6 +74,7 @@ class CustomText extends StatelessWidget {
   Color _opacityColor(Color color, FontOpacity opacity) {
     return switch (opacity) {
       FontOpacity.high => color,
+      FontOpacity.overMedium => color.withValues(alpha: 0.80),
       FontOpacity.medium => color.withValues(alpha: 0.60),
       FontOpacity.overLow => color.withValues(alpha: 0.40),
       FontOpacity.low => color.withValues(alpha: 0.20),
@@ -91,6 +92,7 @@ enum Type {
 
 enum FontOpacity {
   high,
+  overMedium,
   medium,
   overLow,
   low,

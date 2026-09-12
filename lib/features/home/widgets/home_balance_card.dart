@@ -12,16 +12,16 @@ class HomeBalanceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var s = S.of(context);
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
+      padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 8.h),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(4.r),
+        color: Theme.of(context).primaryColor,
+        borderRadius: BorderRadius.circular(12.r),
       ),
       child: Column(
         children: [
           _Top(currentBalance: currentBalance),
           Padding(
-            padding: EdgeInsets.all(8.w).copyWith(top: 2),
+            padding: EdgeInsets.all(8.w).copyWith(top: 5.h),
             child: Row(
               spacing: 3.w,
               mainAxisSize: MainAxisSize.min,
@@ -74,22 +74,24 @@ class _TopBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var color = Colors.white;
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
         child: Column(
-          spacing: 4.h,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(
               text: S.of(context).currentBalance,
               size: 14.sp,
+              color: color,
               type: Type.overMedium,
-              opacity: FontOpacity.medium,
+              opacity: FontOpacity.overMedium,
             ),
             CustomText(
               text: currentBalance.toStringAsFixed(2),
-              size: 18.sp,
+              size: 20.sp,
+              color: color,
               type: Type.overMedium,
             ),
           ],
@@ -138,6 +140,7 @@ class _Progress extends StatelessWidget {
           text: formatProgress(remaining),
           size: 14.sp,
           type: Type.overMedium,
+          color: Colors.white,
         ),
       ],
     );
@@ -198,11 +201,17 @@ class _BalanceItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomText(text: title, size: 14.sp, type: Type.overMedium),
+                  CustomText(
+                    text: title,
+                    size: 14.sp,
+                    type: Type.overMedium,
+                    color: Colors.white,
+                  ),
                   CustomText(
                     text: amount.toStringAsFixed(2),
                     size: 14.sp,
                     type: Type.overMedium,
+                    color: Colors.white,
                   ),
                 ],
               ),
