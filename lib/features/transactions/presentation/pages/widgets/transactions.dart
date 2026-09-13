@@ -70,8 +70,9 @@ class _Item extends StatelessWidget {
         onTap: () => NavTo.push(
           context: context,
           nextPage: AddEditTransactionView(
-            isIncome: transaction.isIncome,
+            isEdit: true,
             transaction: transaction,
+            isIncome: transaction.isIncome,
           ),
         ),
       ),

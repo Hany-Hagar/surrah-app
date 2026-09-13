@@ -29,8 +29,6 @@ class TransactionsDataModel {
 
   // Empty TransactionsDataModel
   TransactionsDataModel.empty()
-      : currentBalance = BalanceModel.empty(),
-        transactions = [];
-
-
+    : currentBalance = BalanceModel.empty(),
+      transactions = [];
 }

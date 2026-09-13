@@ -25,7 +25,21 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
   BalanceModel currentBalance = BalanceModel.empty();
   TransactionsDataModel transactionsData = TransactionsDataModel.empty();
 
+  // Initial View
+  void initialView() {
+    isSearching = false;
+    isFiltering = false;
+    searchResults.clear();
+    searchController.clear();
+    filteredCategories.clear();
+    selectedType = CategoriesType.all;
+    selectedFilteredCategories.clear();
+    selectedDateFilterTypes = DateFilterType.day;
+    emit(TransactionsInitial());
+  }
+
   // Get Transactions Data
+
   Future<void> getTransactionsData() async {
     emit(GetTransactionsLoading());
     var result = await transactionsRepo.getTransactionsData();

@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<LayoutCubit>()),
         BlocProvider(create: (context) => getIt<SettingsCubit>()),
         BlocProvider(create: (context) => getIt<CategoriesCubit>()),
-        BlocProvider(create: (context) => getIt<TransactionsCubit>())
+        BlocProvider(create: (context) => getIt<TransactionsCubit>()),
       ],
       child: BlocListener<CategoriesCubit, CategoriesStates>(
         listener: (context, state) {

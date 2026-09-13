@@ -1,6 +1,9 @@
 import 'layout_states.dart';
 import 'package:flutter/material.dart';
+import '../../../core/di/server_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../categories/presentation/manager/categories_cubit.dart';
+import '../../transactions/presentation/manager/transactions_cubit.dart';
 
 class LayoutCubit extends Cubit<LayoutStates> {
   LayoutCubit() : super(LayoutInitial());
@@ -12,6 +15,8 @@ class LayoutCubit extends Cubit<LayoutStates> {
   void changeBottomNavBarIndex(int index) {
     if (index == currentIndex) return;
     currentIndex = index;
+    if (index == 1) getIt<CategoriesCubit>().initialView();
+    if (index == 2) getIt<TransactionsCubit>().initialView();
     pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 300),

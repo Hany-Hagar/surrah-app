@@ -25,6 +25,16 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
   List<CategoryModel> incomeCategories = DefaultCategories.income;
   List<CategoryModel> expenseCategories = DefaultCategories.expense;
 
+  void initialView() {
+    isSearching = false;
+    isFiltering = false;
+    searchResults.clear();
+    searchController.clear();
+    filteredCategories.clear();
+    selectedType = CategoriesType.all;
+    emit(CategoriesInitial());
+  }
+
   void getCategories() async {
     if (categories.isNotEmpty) {
       return;

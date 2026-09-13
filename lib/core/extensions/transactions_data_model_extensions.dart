@@ -10,8 +10,9 @@ extension TransactionsDataModelExtensions on TransactionsDataModel {
     final updatedBalance = currentBalance.addTransaction(
       transaction: transaction,
     );
+    // Add New in First Position
     final updatedTransactions = List<TransactionModel>.from(transactions)
-      ..add(transaction);
+      ..insert(0, transaction);
     return copyWith(
       currentBalance: updatedBalance,
       transactions: updatedTransactions,
