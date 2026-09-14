@@ -69,6 +69,7 @@ flutter_intl:
   enabled: true
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/svgs/

@@ -564,5 +564,11 @@
   "contactSupportFooterDescription": "نحن متاحون 24/7 لمساعدتك في أسئلتك واحتياجات الدعم.",
   "@contactSupportFooterDescription": {
     "description": "وصف بطاقة الدعم في نهاية الصفحة"
-  }
+  },
+
+  "report": "التقارير",
+  "@report": {
+  "description": "Label for the report section"
+}
+
 }

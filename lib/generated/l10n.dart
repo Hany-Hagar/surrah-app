@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -1350,6 +1351,16 @@ class S {
       'We\'re available 24/7 to help with your questions and support needs.',
       name: 'contactSupportFooterDescription',
       desc: 'Description for the contact support footer card',
+      args: [],
+    );
+  }
+
+  /// `Report`
+  String get report {
+    return Intl.message(
+      'Report',
+      name: 'report',
+      desc: 'Label for the report section',
       args: [],
     );
   }
