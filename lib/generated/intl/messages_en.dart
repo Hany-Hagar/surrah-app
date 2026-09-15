@@ -250,6 +250,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "privacyTitle": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "quickActions": MessageLookupByLibrary.simpleMessage("Quick Actions"),
     "report": MessageLookupByLibrary.simpleMessage("Report"),
+    "reportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Your financial summary",
+    ),
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "Search Categories",
     ),

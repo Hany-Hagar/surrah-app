@@ -550,5 +550,9 @@
   "report": "Report",
   "@report": {
   "description": "Label for the report section"
-}
+},
+"reportSubtitle": "Your financial summary",
+  "@reportSubtitle": {
+  "description": "Subtitle for the report page"
+  }
 }

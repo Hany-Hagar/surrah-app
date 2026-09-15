@@ -237,6 +237,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "privacyTitle": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "quickActions": MessageLookupByLibrary.simpleMessage("الإجراءات السريعة"),
     "report": MessageLookupByLibrary.simpleMessage("التقارير"),
+    "reportSubtitle": MessageLookupByLibrary.simpleMessage("ملخصك المالي"),
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "ابحث عن تصنيف",
     ),

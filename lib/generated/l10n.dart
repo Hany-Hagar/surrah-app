@@ -1358,9 +1358,19 @@ class S {
   /// `Report`
   String get report {
     return Intl.message(
-      ' Report',
-      name: 'Monthly Report',
-      desc: 'Your financial summary for the month',
+      'Report',
+      name: 'report',
+      desc: 'Label for the report section',
+      args: [],
+    );
+  }
+
+  /// `Your financial summary`
+  String get reportSubtitle {
+    return Intl.message(
+      'Your financial summary',
+      name: 'reportSubtitle',
+      desc: 'Subtitle for the report page',
       args: [],
     );
   }

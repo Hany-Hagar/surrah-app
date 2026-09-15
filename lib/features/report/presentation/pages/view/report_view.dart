@@ -18,7 +18,7 @@ class ReportView extends StatelessWidget {
       child: CustomScaffold(
         appBar: CustomAppBar(
           title: S.of(context).report,
-          leading: const CustomBack(),
+          subtitle: S.of(context).reportSubtitle,
           actions: [
             Action(
               icon: IconBroken.Calendar,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:intl/intl.dart';
 import 'package:surrah/features/report/presentation/manager/report_cubit.dart';
@@ -12,28 +13,40 @@ class ReportDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ReportCubit, ReportState>(
       builder: (context, state) {
-        final selectedMonth = state is ReportMonthSelected ? 
-        state.selectedMonth : DateTime.now();
+        final selectedMonth = state is ReportMonthSelected
+            ? state.selectedMonth
+            : DateTime.now();
+
         return Column(
           children: [
             const SizedBox(height: 3),
             MonthNavigator(
               selectedMonth: selectedMonth,
               onPrevious: () {
-                final previousMonth = DateTime(selectedMonth.year,
-                 selectedMonth.month - 1);
+                final previousMonth = DateTime(
+                  selectedMonth.year,
+                  selectedMonth.month - 1,
+                );
                 context.read<ReportCubit>().selectMonth(previousMonth);
-                // Handle previous month action
               },
               onNext: () {
-                final nextMonth = DateTime(selectedMonth.year,
-                 selectedMonth.month + 1);
+                final nextMonth = DateTime(
+                  selectedMonth.year,
+                  selectedMonth.month + 1,
+                );
                 context.read<ReportCubit>().selectMonth(nextMonth);
-                // Handle next month action
               },
               onMonthLabelTap: () {
                 _pickMonth(context, selectedMonth);
               },
+            ),
+            const SizedBox(height: 8),
+            const SummaryCardsRow(
+              salary: 20000,
+              totalExpenses: 8500,
+              remaining: 11500,
+              expensePercentage: 42.5,
+              savedPercentage: 57.5,
             ),
           ],
         );
@@ -57,11 +70,12 @@ class MonthNavigator extends StatelessWidget {
   final VoidCallback onMonthLabelTap;
 
   @override
-    @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final currentLocale = Localizations.localeOf(context).languageCode;
-final monthLabel = DateFormat('MMMM yyyy', currentLocale).format(selectedMonth);
+    final monthLabel =
+        DateFormat('MMMM yyyy', currentLocale).format(selectedMonth);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       decoration: BoxDecoration(
@@ -75,8 +89,8 @@ final monthLabel = DateFormat('MMMM yyyy', currentLocale).format(selectedMonth);
             icon: const Icon(IconBroken.Arrow___Left_2),
             onPressed: onPrevious,
           ),
-          InkWell(                       
-            onTap: onMonthLabelTap,          
+          InkWell(
+            onTap: onMonthLabelTap,
             borderRadius: BorderRadius.circular(12),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -85,8 +99,8 @@ final monthLabel = DateFormat('MMMM yyyy', currentLocale).format(selectedMonth);
                 children: [
                   Icon(
                     IconBroken.Calendar,
-                    size: 20,
-                    color: theme.colorScheme.primary,
+                    size: 25.sp,
+                    color: theme.colorScheme.secondary,
                   ),
                   const SizedBox(width: 8),
                   Text(
@@ -108,20 +122,147 @@ final monthLabel = DateFormat('MMMM yyyy', currentLocale).format(selectedMonth);
     );
   }
 }
+
 Future<void> _pickMonth(BuildContext context, DateTime current) async {
   final picked = await showDatePicker(
     context: context,
     initialDate: current,
     firstDate: DateTime(2020),
-    lastDate: DateTime(2030, 12),
+    lastDate: DateTime(2035, 12),
     initialDatePickerMode: DatePickerMode.year,
-    //helpText: 'اختر الشهر',
-    locale: const Locale('ar'),
   );
 
   if (picked != null && context.mounted) {
     context.read<ReportCubit>().selectMonth(
       DateTime(picked.year, picked.month),
+    );
+  }
+}
+
+class SummaryCardsRow extends StatelessWidget {
+  const SummaryCardsRow({
+    super.key,
+    required this.salary,
+    required this.totalExpenses,
+    required this.remaining,
+    required this.expensePercentage,
+    required this.savedPercentage,
+  });
+
+  final double salary;
+  final double totalExpenses;
+  final double remaining;
+  final double expensePercentage;
+  final double savedPercentage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: _SummaryCard(
+            label: 'Salary',
+            icon: Icons.add,
+            amount: '\$${salary.toStringAsFixed(0)}',
+            footer: 'Income',
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: _SummaryCard(
+            label: 'Total\nExpenses',
+            icon: Icons.north_east,
+            amount: '\$${totalExpenses.toStringAsFixed(0)}',
+            footer: '${expensePercentage.toStringAsFixed(1)}% spent',
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: _SummaryCard(
+            label: 'Remaining',
+            icon: Icons.account_balance_wallet_outlined,
+            amount: '\$${remaining.toStringAsFixed(0)}',
+            footer: 'Saved ${savedPercentage.toStringAsFixed(1)}%',
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _SummaryCard extends StatelessWidget {
+  const _SummaryCard({
+    required this.label,
+    required this.icon,
+    required this.amount,
+    required this.footer,
+    this.minHeight,
+  });
+
+  final String label;
+  final IconData icon;
+  final String amount;
+  final String footer;
+  final double? minHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Container(
+      constraints: BoxConstraints(minHeight: minHeight ?? 0),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Text(
+                  label,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 10.sp
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.secondary.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(icon, size: 16, 
+                color: theme.colorScheme.secondary),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          Text(
+            amount,
+            style: theme.textTheme.titleLarge?.copyWith(
+              color: theme.colorScheme.onSurface,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            footer,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
