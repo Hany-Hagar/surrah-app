@@ -1358,9 +1358,9 @@ class S {
   /// `Report`
   String get report {
     return Intl.message(
-      'Report',
-      name: 'report',
-      desc: 'Label for the report section',
+      ' Report',
+      name: 'Monthly Report',
+      desc: 'Your financial summary for the month',
       args: [],
     );
   }

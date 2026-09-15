@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../report/presentation/pages/view/report_view.dart';
 import '../../managers/layout_cubit.dart';
 import '../../managers/layout_states.dart';
 import '../../../home/views/home_view.dart';
@@ -21,6 +22,7 @@ class LayoutBody extends StatelessWidget {
             HomeView(),
             CategoriesView(),
             TransactionsView(),
+            ReportView(),
           ],
         );
       },

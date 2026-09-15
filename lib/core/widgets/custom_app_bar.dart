@@ -13,6 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? backgroundColor;
   final Function()? onTrailingPressed;
   final Widget? trailing;
+  final List<Widget>? actions;
   const CustomAppBar({
     super.key,
     this.leading,
@@ -24,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.onTrailingPressed,
     this.bottom,
-    this.trailing,
+    this.trailing, this.actions,
   });
 
   @override
@@ -62,6 +63,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               Expanded(
                 child: _Body(title: title, subtitle: subtitle),
               ),
+              if (actions != null) ...actions!,
               ?trailing,
               _Trailing(
                 trailingIcon: trailingIcon,
@@ -136,6 +138,27 @@ class _Trailing extends StatelessWidget {
     return GestureDetector(
       onTap: onTrailingPressed,
       child: Icon(trailingIcon, size: 28.sp),
+    );
+  }
+  
+}
+class Action extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onPressed;
+
+  const Action({super.key, 
+    required this.icon,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Icon(
+        icon,
+        size: 28.sp,
+      ),
     );
   }
 }
