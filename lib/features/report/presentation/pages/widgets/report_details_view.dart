@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, unused_local_variable, unused_element_parameter
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +15,7 @@ class ReportDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ReportCubit, ReportState>(
       builder: (context, state) {
+        final ReportState = state is ReportMonthSelected ? state :null;
         final selectedMonth = state is ReportMonthSelected
             ? state.selectedMonth
             : DateTime.now();
@@ -41,12 +44,12 @@ class ReportDetailsView extends StatelessWidget {
               },
             ),
             const SizedBox(height: 8),
-            const SummaryCardsRow(
-              salary: 20000,
-              totalExpenses: 8500,
-              remaining: 11500,
-              expensePercentage: 42.5,
-              savedPercentage: 57.5,
+            SummaryCardsRow(
+              salary:ReportState?.salary ?? 0,
+              totalExpenses: ReportState?.totalExpenses ?? 0,
+              remaining: ReportState?.remaining ?? 0,
+              expensePercentage: ReportState?.expensePercentage ?? 0,
+              savedPercentage: ReportState?.savedPercentage ?? 0,
             ),
           ],
         );
