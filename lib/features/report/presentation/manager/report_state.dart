@@ -1,5 +1,7 @@
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
 
+import '../pages/widgets/expense_breakdown_view.dart';
+
 abstract class ReportState {}
 
 class ReportInitial extends ReportState {}
@@ -9,6 +11,7 @@ class ReportMonthSelected extends ReportState {
   final double salary;
   final double totalExpenses;
   final List<WeeklyExpense> weeklyExpenses;
+  final List<CategoryExpense> categoryExpenses;
 
 
   ReportMonthSelected({
@@ -16,6 +19,7 @@ class ReportMonthSelected extends ReportState {
     required this.salary,
     required this.totalExpenses,
     required this.weeklyExpenses,
+    required this.categoryExpenses,
 
   });
 
@@ -30,12 +34,14 @@ class ReportMonthSelected extends ReportState {
     double? salary,
     double? totalExpenses,
     List<WeeklyExpense>? weeklyExpenses,
+    List<CategoryExpense>? categoryExpenses,
   }) {
     return ReportMonthSelected(
       selectedMonth: selectedMonth ?? this.selectedMonth,
       salary: salary ?? this.salary,
       totalExpenses: totalExpenses ?? this.totalExpenses,
       weeklyExpenses: weeklyExpenses ?? this.weeklyExpenses,
+      categoryExpenses: categoryExpenses ?? this.categoryExpenses,
     );
   }
 }

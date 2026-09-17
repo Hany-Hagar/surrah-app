@@ -7,6 +7,7 @@ import 'package:icon_broken/icon_broken.dart';
 import 'package:intl/intl.dart';
 import 'package:surrah/features/report/presentation/manager/report_cubit.dart';
 import 'package:surrah/features/report/presentation/manager/report_state.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
 import '../../../../../core/widgets/custom_text.dart';
 
@@ -54,6 +55,11 @@ class ReportDetailsView extends StatelessWidget {
             const SizedBox(height: 8),
             ExpenseChartView(
               weeks: reportState?.weeklyExpenses ?? [],
+            ),
+            const SizedBox(height: 8),
+            ExpenseBreakdownView(
+              categoryExpenses: reportState?.categoryExpenses ?? [],
+              totalExpenses: reportState?.totalExpenses ?? 0,
             ),
           ],
         );
