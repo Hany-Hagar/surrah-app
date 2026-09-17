@@ -7,6 +7,8 @@ import 'package:icon_broken/icon_broken.dart';
 import 'package:intl/intl.dart';
 import 'package:surrah/features/report/presentation/manager/report_cubit.dart';
 import 'package:surrah/features/report/presentation/manager/report_state.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
+import '../../../../../core/widgets/custom_text.dart';
 
 class ReportDetailsView extends StatelessWidget {
   const ReportDetailsView({super.key});
@@ -15,10 +17,8 @@ class ReportDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ReportCubit, ReportState>(
       builder: (context, state) {
-        final ReportState = state is ReportMonthSelected ? state :null;
-        final selectedMonth = state is ReportMonthSelected
-            ? state.selectedMonth
-            : DateTime.now();
+        final reportState = state is ReportMonthSelected ? state : null;
+        final selectedMonth = reportState?.selectedMonth ?? DateTime.now();
 
         return Column(
           children: [
@@ -45,11 +45,15 @@ class ReportDetailsView extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             SummaryCardsRow(
-              salary:ReportState?.salary ?? 0,
-              totalExpenses: ReportState?.totalExpenses ?? 0,
-              remaining: ReportState?.remaining ?? 0,
-              expensePercentage: ReportState?.expensePercentage ?? 0,
-              savedPercentage: ReportState?.savedPercentage ?? 0,
+              salary: reportState?.salary ?? 0,
+              totalExpenses: reportState?.totalExpenses ?? 0,
+              remaining: reportState?.remaining ?? 0,
+              expensePercentage: reportState?.expensePercentage ?? 0,
+              savedPercentage: reportState?.savedPercentage ?? 0,
+            ),
+            const SizedBox(height: 8),
+            ExpenseChartView(
+              weeks: reportState?.weeklyExpenses ?? [],
             ),
           ],
         );
@@ -106,11 +110,10 @@ class MonthNavigator extends StatelessWidget {
                     color: theme.colorScheme.secondary,
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    monthLabel,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                  CustomText(
+                    text: monthLabel,
+                    size: 16.sp,
+                    type: Type.header,
                   ),
                 ],
               ),
@@ -200,21 +203,18 @@ class _SummaryCard extends StatelessWidget {
     required this.icon,
     required this.amount,
     required this.footer,
-    this.minHeight,
   });
 
   final String label;
   final IconData icon;
   final String amount;
   final String footer;
-  final double? minHeight;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return Container(
-      constraints: BoxConstraints(minHeight: minHeight ?? 0),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: theme.colorScheme.surfaceContainerHighest,
@@ -228,13 +228,11 @@ class _SummaryCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: Text(
-                  label,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 10.sp
-                  ),
+                child: CustomText(
+                  text: label,
+                  size: 10.sp,
+                  type: Type.overMedium,
+                  color: theme.colorScheme.onSurfaceVariant,
                 ),
               ),
               Container(
@@ -243,26 +241,27 @@ class _SummaryCard extends StatelessWidget {
                   color: theme.colorScheme.secondary.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Icon(icon, size: 16, 
-                color: theme.colorScheme.secondary),
+                child: Icon(
+                  icon,
+                  size: 16,
+                  color: theme.colorScheme.secondary,
+                ),
               ),
             ],
           ),
           const SizedBox(height: 14),
-          Text(
-            amount,
-            style: theme.textTheme.titleLarge?.copyWith(
-              color: theme.colorScheme.onSurface,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+          CustomText(
+            text: amount,
+            size: 20.sp,
+            type: Type.header,
+            color: theme.colorScheme.onSurface,
           ),
           const SizedBox(height: 4),
-          Text(
-            footer,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+          CustomText(
+            text: footer,
+            size: 12.sp,
+            type: Type.medium,
+            color: theme.colorScheme.onSurfaceVariant,
           ),
         ],
       ),
