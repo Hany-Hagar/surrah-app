@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
 import '../../data/repo/report_repo.dart';
 import '../../../categories/data/models/category_model.dart';
 import '../../../transactions/data/model/transaction_model.dart';
@@ -70,6 +71,7 @@ class ReportCubit extends Cubit<ReportState> {
         categories,
         totalExpenses,
       ),
+      topExpenses: _calculateTopExpenses(monthTransactions, categories),
     ));
   }
 
@@ -130,4 +132,32 @@ class ReportCubit extends Cubit<ReportState> {
     result.sort((a, b) => b.amount.compareTo(a.amount));
     return result;
   }
+
+  List<TopExpenseItem> _calculateTopExpenses(
+  List<TransactionModel> monthTransactions,
+  List<CategoryModel> categories, {
+  int limit = 4,
+}) {
+  final expenses = monthTransactions.where((t) => !t.isIncome).toList();
+
+  expenses.sort((a, b) => b.amount.compareTo(a.amount));
+
+  return expenses.take(limit).map((t) {
+    final category = categories.firstWhere(
+      (c) => c.id == t.categoryId,
+      orElse: () => CategoryModel(
+        id: t.categoryId,
+        name: 'Other',
+        color: 0xFF8C96A8,
+        iconId: 'other',
+        isIncome: false,
+      ),
+    );
+
+    return TopExpenseItem(
+      transaction: t,
+      category: category,
+    );
+  }).toList();
+}
 }

@@ -1,4 +1,5 @@
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
 
 import '../pages/widgets/expense_breakdown_view.dart';
 
@@ -12,6 +13,8 @@ class ReportMonthSelected extends ReportState {
   final double totalExpenses;
   final List<WeeklyExpense> weeklyExpenses;
   final List<CategoryExpense> categoryExpenses;
+  final List<TopExpenseItem> topExpenses;
+
 
 
   ReportMonthSelected({
@@ -20,6 +23,7 @@ class ReportMonthSelected extends ReportState {
     required this.totalExpenses,
     required this.weeklyExpenses,
     required this.categoryExpenses,
+     required this.topExpenses,
 
   });
 
@@ -35,6 +39,7 @@ class ReportMonthSelected extends ReportState {
     double? totalExpenses,
     List<WeeklyExpense>? weeklyExpenses,
     List<CategoryExpense>? categoryExpenses,
+    List<TopExpenseItem>? topExpenses,
   }) {
     return ReportMonthSelected(
       selectedMonth: selectedMonth ?? this.selectedMonth,
@@ -42,6 +47,7 @@ class ReportMonthSelected extends ReportState {
       totalExpenses: totalExpenses ?? this.totalExpenses,
       weeklyExpenses: weeklyExpenses ?? this.weeklyExpenses,
       categoryExpenses: categoryExpenses ?? this.categoryExpenses,
+      topExpenses: topExpenses ?? this.topExpenses,
     );
   }
 }

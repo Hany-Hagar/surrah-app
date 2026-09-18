@@ -9,7 +9,10 @@ import 'package:surrah/features/report/presentation/manager/report_cubit.dart';
 import 'package:surrah/features/report/presentation/manager/report_state.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
+import '../../../../../core/utils/theme.dart';
 import '../../../../../core/widgets/custom_text.dart';
+import '../../../../transactions/presentation/pages/views/transactions_view.dart';
 
 class ReportDetailsView extends StatelessWidget {
   const ReportDetailsView({super.key});
@@ -61,7 +64,19 @@ class ReportDetailsView extends StatelessWidget {
               categoryExpenses: reportState?.categoryExpenses ?? [],
               totalExpenses: reportState?.totalExpenses ?? 0,
             ),
-          ],
+            const SizedBox(height: 8),
+            TopExpensesView(
+              topExpenses: reportState?.topExpenses ?? [],
+              onViewAll: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const TransactionsView()),
+                );
+              },
+              ),
+              const SizedBox(height: 8),
+              ReadyForExportCard(transactionsCount: 0),
+          ],      
         );
       },
     );
@@ -268,6 +283,67 @@ class _SummaryCard extends StatelessWidget {
             size: 12.sp,
             type: Type.medium,
             color: theme.colorScheme.onSurfaceVariant,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ReadyForExportCard extends StatelessWidget {
+  final int transactionsCount;
+
+  const ReadyForExportCard({super.key, required this.transactionsCount});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Container(
+      padding: EdgeInsets.all(16.w),
+      decoration: BoxDecoration(
+        color: AppTheme.secondary.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(16.r),
+        border: Border.all(color: AppTheme.secondary.withValues(alpha: 0.2)),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(8.w),
+            decoration: BoxDecoration(
+              color: AppTheme.secondary.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(10.r),
+            ),
+            child: Icon(
+              Icons.description_outlined,
+              size: 20.sp,
+              color: AppTheme.secondary,
+            ),
+          ),
+          SizedBox(width: 12.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: 'Ready for Export • $transactionsCount Transactions',
+                  size: 14.sp,
+                  type: Type.overMedium,
+                  color: theme.colorScheme.onSurface,
+                ),
+                SizedBox(height: 4.h),
+                CustomText(
+                  text:
+                      'Full PDF includes categorized charts, transaction ledger, tax summaries, and verified timestamps for this month.',
+                  size: 12.sp,
+                  type: Type.medium,
+                  color: theme.colorScheme.onSurfaceVariant,
+                  height: 1.4,
+                  maxLines: 3,
+                ),
+              ],
+            ),
           ),
         ],
       ),
