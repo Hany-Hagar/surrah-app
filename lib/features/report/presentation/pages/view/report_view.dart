@@ -9,7 +9,6 @@ import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/widgets/custom_scaffold.dart';
 import '../../../../../generated/l10n.dart';
-import '../../manager/report_state.dart';
 
 class ReportView extends StatelessWidget {
   const ReportView({super.key});
@@ -26,11 +25,7 @@ class ReportView extends StatelessWidget {
             Action(
               icon: IconBroken.Calendar,
               onPressed: () {
-                // Implement your action here
-                final currentState = context.read<ReportCubit>().state;
-                final currentMonth = currentState is ReportMonthSelected
-                    ? currentState.selectedMonth
-                    : DateTime.now();
+              
                     
               },
             ),
