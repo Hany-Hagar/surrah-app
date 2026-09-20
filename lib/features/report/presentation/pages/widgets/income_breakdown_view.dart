@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:surrah/core/utils/theme.dart';
-import 'package:surrah/features/categories/data/models/category_model.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../generated/l10n.dart';
+import 'expense_breakdown_view.dart';
 
-class ExpenseBreakdownView extends StatelessWidget {
-  final List<CategoryExpense> categoryExpenses;
-  final double totalExpenses;
+class IncomeBreakdownView extends StatelessWidget {
+  final List<CategoryExpense> incomeBreakdown;
 
-  const ExpenseBreakdownView({
-    super.key,
-    required this.categoryExpenses,
-    required this.totalExpenses,
-  });
+  const IncomeBreakdownView({super.key, required this.incomeBreakdown});
+
+  double get _totalIncome =>
+      incomeBreakdown.fold(0, (sum, c) => sum + c.amount);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final s = S.of(context);
 
-    if (categoryExpenses.isEmpty) {
+    if (incomeBreakdown.isEmpty) {
       return _buildEmptyState(theme, s);
     }
 
@@ -33,7 +31,7 @@ class ExpenseBreakdownView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildHeader(theme, s),
+          _buildHeader(s),
           const SizedBox(height: 24),
           _buildBody(theme, s),
         ],
@@ -52,31 +50,28 @@ class ExpenseBreakdownView extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 40),
           child: CustomText(
-            text: s.noExpensesThisMonth,
+            text: s.noIncomeThisMonth,
             size: 14,
-            type: Type.medium,
-            color: AppTheme.inactiveGrey,
           ),
         ),
       ),
     );
   }
 
-  Widget _buildHeader(ThemeData theme, S s) {
+  Widget _buildHeader(S s) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CustomText(
-          text: s.expenseBreakdown,
+          text: s.incomeBreakdown,
           size: 20,
           type: Type.header,
-          color: theme.colorScheme.onSurface,
         ),
         CustomText(
-          text: s.categoriesCount(categoryExpenses.length),
-          size: 13,
-          type: Type.medium,
-          color: AppTheme.inactiveGrey,
+          text: s.sourcesCount(incomeBreakdown.length),
+          size: 13.sp,
+          type: Type.overSmall,
+          opacity: FontOpacity.medium,
         ),
       ],
     );
@@ -86,14 +81,14 @@ class ExpenseBreakdownView extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(width: 140, height: 140, child: _buildDonutChart(theme, s)),
+        SizedBox(width: 140, height: 140, child: _buildDonutChart()),
         const SizedBox(width: 20),
-        Expanded(child: _buildCategoryList(theme)),
+        Expanded(child: _buildSourceList(s)),
       ],
     );
   }
 
-  Widget _buildDonutChart(ThemeData theme, S s) {
+  Widget _buildDonutChart() {
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -101,7 +96,7 @@ class ExpenseBreakdownView extends StatelessWidget {
           PieChartData(
             sectionsSpace: 2,
             centerSpaceRadius: 48,
-            sections: categoryExpenses.map((c) {
+            sections: incomeBreakdown.map((c) {
               return PieChartSectionData(
                 value: c.amount,
                 color: Color(c.category.color),
@@ -111,42 +106,45 @@ class ExpenseBreakdownView extends StatelessWidget {
             }).toList(),
           ),
         ),
-        _buildCenterLabel(theme, s),
+        _buildCenterLabel(),
       ],
     );
   }
 
-  Widget _buildCenterLabel(ThemeData theme, S s) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CustomText(
-          text: s.totalExpensesLabel,
-          size: 9,
-          type: Type.overSmall,
-          color: AppTheme.inactiveGrey,
-          letterSpacing: 0.5,
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 4),
-        CustomText(
-          text: "\$${totalExpenses.toStringAsFixed(0)}",
-          size: 16,
-          type: Type.header,
-          color: theme.colorScheme.onSurface,
-        ),
-      ],
+  Widget _buildCenterLabel() {
+    return Builder(
+      builder: (context) {
+        final s = S.of(context);
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CustomText(
+              text: s.totalIncomeLabel,
+              size: 9,
+              type: Type.overSmall,
+              opacity: FontOpacity.medium,
+              letterSpacing: 0.5,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 4),
+            CustomText(
+              text: "\$${_totalIncome.toStringAsFixed(0)}",
+              size: 16.sp,
+              type: Type.header,
+            ),
+          ],
+        );
+      },
     );
   }
 
-  Widget _buildCategoryList(ThemeData theme) {
+  Widget _buildSourceList(S s) {
     return Column(
-      children:
-          categoryExpenses.map((c) => _buildCategoryRow(theme, c)).toList(),
+      children: incomeBreakdown.map((c) => _buildSourceRow(c)).toList(),
     );
   }
 
-  Widget _buildCategoryRow(ThemeData theme, CategoryExpense c) {
+  Widget _buildSourceRow(CategoryExpense c) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
@@ -165,16 +163,13 @@ class ExpenseBreakdownView extends StatelessWidget {
               text: c.category.name,
               size: 13,
               type: Type.overMedium,
-              color: theme.colorScheme.onSurface,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
             ),
           ),
           CustomText(
             text: "\$${c.amount.toStringAsFixed(0)}",
             size: 12,
-            type: Type.medium,
-            color: AppTheme.inactiveGrey,
+            type: Type.overSmall,
+            opacity: FontOpacity.medium,
           ),
           const SizedBox(width: 10),
           SizedBox(
@@ -183,7 +178,6 @@ class ExpenseBreakdownView extends StatelessWidget {
               text: "${c.percentage.toStringAsFixed(0)}%",
               size: 13,
               type: Type.header,
-              color: theme.colorScheme.onSurface,
               textAlign: TextAlign.right,
             ),
           ),
@@ -191,16 +185,4 @@ class ExpenseBreakdownView extends StatelessWidget {
       ),
     );
   }
-}
-
-class CategoryExpense {
-  final CategoryModel category;
-  final double amount;
-  final double percentage;
-
-  const CategoryExpense({
-    required this.category,
-    required this.amount,
-    required this.percentage,
-  });
 }

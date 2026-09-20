@@ -6,6 +6,7 @@ import 'package:surrah/features/categories/data/models/category_model.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
 import 'package:surrah/features/transactions/data/model/transaction_model.dart';
+import 'package:surrah/generated/l10n.dart';
 
 import '../../../../../core/services/report_pdf_service.dart';
 import '../../../data/model/income_entry.dart';
@@ -62,7 +63,9 @@ class _ExportReportViewState extends State<ExportReportView> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to generate PDF: $e')),
+          SnackBar(
+            content: Text(S.of(context).pdfGenerationFailed(e.toString())),
+          ),
         );
       }
     } finally {
@@ -72,6 +75,8 @@ class _ExportReportViewState extends State<ExportReportView> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return SizedBox(
       width: double.infinity,
       height: 54,
@@ -90,13 +95,13 @@ class _ExportReportViewState extends State<ExportReportView> {
                 height: 20,
                 child: CircularProgressIndicator(strokeWidth: 2),
               )
-            : const Row(
+            : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(IconBroken.Arrow___Down, size: 18),
-                  SizedBox(width: 8),
+                  const Icon(IconBroken.Arrow___Down, size: 18),
+                  const SizedBox(width: 8),
                   CustomText(
-                    text: 'Download Report PDF',
+                    text: s.downloadReportPdf,
                     size: 15,
                     type: Type.overMedium,
                     color: AppTheme.primary,

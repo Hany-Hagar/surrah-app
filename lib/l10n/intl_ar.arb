@@ -570,9 +570,153 @@
   "@report": {
   "description": "Label for the report section"
 },
-  "reportSubtitle": "ملخصك المالي",
+   "reportSubtitle": "ملخصك المالي",
   "@reportSubtitle": {
-  "description": "Subtitle for the report page"
-  }
+    "description": "Subtitle for the report page"
+  },
 
+  "salary": "المرتب",
+  "@salary": {
+    "description": "Label for the salary summary card"
+  },
+  "totalExpenses": " المصروفات",
+  "@totalExpenses": {
+    "description": "Label for the total expenses summary card"
+  },
+  "remaining": "المتبقي",
+  "@remaining": {
+    "description": "Label for the remaining balance summary card"
+  },
+  "incomeLabel": "الدخل",
+  "@incomeLabel": {
+    "description": "Footer label under the salary card"
+  },
+  "spentPercentage": "تم إنفاق {percent}%",
+  "@spentPercentage": {
+    "description": "Footer label showing percentage spent",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "savedPercentage": "تم توفير {percent}%",
+  "@savedPercentage": {
+    "description": "Footer label showing percentage saved",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+
+  "expenseOverview": "المصروفات الأسبوعية ",
+  "@expenseOverview": {
+    "description": "Title for the weekly expense chart card"
+  },
+  "expenseOverviewSubtitle": "إنفاقك خلال هذا الشهر",
+  "@expenseOverviewSubtitle": {
+    "description": "Subtitle for the weekly expense chart card"
+  },
+  "expensesChip": "المصروفات",
+  "@expensesChip": {
+    "description": "Legend chip label on the expense chart"
+  },
+  "week": "الأسبوع {number}",
+  "@week": {
+    "description": "Label for a week in the expense chart",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+
+  "expenseBreakdown": "توزيع المصروفات",
+  "@expenseBreakdown": {
+    "description": "Title for the category breakdown donut chart"
+  },
+  "categoriesCount": "{count} تصنيفات",
+  "@categoriesCount": {
+    "description": "Number of categories shown in the breakdown card",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalExpensesLabel": "إجمالي المصروفات",
+  "@totalExpensesLabel": {
+    "description": "Label in the center of the expense breakdown donut chart"
+  },
+
+  "incomeBreakdown": "توزيع الدخل",
+  "@incomeBreakdown": {
+    "description": "Title for the income sources donut chart"
+  },
+  "sourcesCount": "{count} مصادر",
+  "@sourcesCount": {
+    "description": "Number of income sources shown in the breakdown card",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalIncomeLabel": "إجمالي الدخل",
+  "@totalIncomeLabel": {
+    "description": "Label in the center of the income breakdown donut chart"
+  },
+
+  "topExpenses": "أعلى المصروفات",
+  "@topExpenses": {
+    "description": "Title for the top expenses list"
+  },
+  "topExpensesSubtitle": "أعلى العمليات الفردية",
+  "@topExpensesSubtitle": {
+    "description": "Subtitle for the top expenses list"
+  },
+  "viewAll": "عرض الكل",
+  "@viewAll": {
+    "description": "Label for the view all button"
+  },
+  "expenseTag": "مصروف",
+  "@expenseTag": {
+    "description": "Tag shown next to an expense transaction"
+  },
+
+  "readyForExport": "جاهز للتصدير • {count} عملية",
+  "@readyForExport": {
+    "description": "Label showing the report is ready to export with transaction count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "readyForExportDescription": "يشمل ملف الـPDF الكامل رسومًا بيانية مصنفة، سجل العمليات، ملخصات ضريبية، وتوقيتات موثقة لهذا الشهر.",
+  "@readyForExportDescription": {
+    "description": "Description explaining what the exported PDF includes"
+  },
+  "downloadReportPdf": "تحميل التقرير PDF",
+  "@downloadReportPdf": {
+    "description": "Label for the download report PDF button"
+  },
+  "noIncomeThisMonth": "لا يوجد دخل هذا الشهر",
+  "@noIncomeThisMonth": {
+    "description": "Empty state message when there is no income this month"
+  },
+  "noExpensesThisMonth": "لا توجد مصروفات هذا الشهر",
+  "@noExpensesThisMonth": {
+    "description": "Empty state message when there are no expenses this month"
+  },
+  "pdfGenerationFailed": "فشل إنشاء ملف PDF: {error}",
+  "@pdfGenerationFailed": {
+    "description": "Error message shown when PDF generation fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

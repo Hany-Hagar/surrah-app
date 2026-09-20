@@ -10,9 +10,11 @@ import 'package:surrah/features/report/presentation/manager/report_state.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/export_report_view.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/income_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
 import '../../../../../core/utils/theme.dart';
 import '../../../../../core/widgets/custom_text.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../transactions/presentation/pages/views/transactions_view.dart';
 
 class ReportDetailsView extends StatelessWidget {
@@ -49,6 +51,7 @@ class ReportDetailsView extends StatelessWidget {
               },
             ),
             const SizedBox(height: 8),
+
             SummaryCardsRow(
               salary: reportState?.salary ?? 0,
               totalExpenses: reportState?.totalExpenses ?? 0,
@@ -56,10 +59,17 @@ class ReportDetailsView extends StatelessWidget {
               expensePercentage: reportState?.expensePercentage ?? 0,
               savedPercentage: reportState?.savedPercentage ?? 0,
             ),
+            if (reportState?.incomeBreakdown.isNotEmpty ?? false) ...[
+              const SizedBox(height: 8),
+              IncomeBreakdownView(
+                incomeBreakdown: reportState?.incomeBreakdown ?? [],
+              ),
+            ],
             const SizedBox(height: 8),
             ExpenseChartView(
               weeks: reportState?.weeklyExpenses ?? [],
             ),
+
             const SizedBox(height: 8),
             ExpenseBreakdownView(
               categoryExpenses: reportState?.categoryExpenses ?? [],
@@ -74,23 +84,25 @@ class ReportDetailsView extends StatelessWidget {
                   MaterialPageRoute(builder: (_) => const TransactionsView()),
                 );
               },
-              ),
-              const SizedBox(height: 8),
-              ReadyForExportCard(transactionsCount: reportState?.monthTransactions.length ?? 0),
-              const SizedBox(height: 8),
-              ExportReportView(
-                month: selectedMonth,
-                salary: reportState?.salary ?? 0,
-                totalExpenses: reportState?.totalExpenses ?? 0,
-                remaining: reportState?.remaining ?? 0,
-                transactions: reportState?.monthTransactions ?? [],
-                categories: reportState?.categories ?? [],
-                weeklyExpenses: reportState?.weeklyExpenses ?? [],
-                categoryExpenses: reportState?.categoryExpenses ?? [],
-                incomeEntries: reportState?.incomeEntries ?? [],
-                incomeBreakdown: reportState?.incomeBreakdown ?? [],
-              ),
-          ],      
+            ),
+            const SizedBox(height: 8),
+            ReadyForExportCard(
+              transactionsCount: reportState?.monthTransactions.length ?? 0,
+            ),
+            const SizedBox(height: 8),
+            ExportReportView(
+              month: selectedMonth,
+              salary: reportState?.salary ?? 0,
+              totalExpenses: reportState?.totalExpenses ?? 0,
+              remaining: reportState?.remaining ?? 0,
+              transactions: reportState?.monthTransactions ?? [],
+              categories: reportState?.categories ?? [],
+              weeklyExpenses: reportState?.weeklyExpenses ?? [],
+              categoryExpenses: reportState?.categoryExpenses ?? [],
+              incomeEntries: reportState?.incomeEntries ?? [],
+              incomeBreakdown: reportState?.incomeBreakdown ?? [],
+            ),
+          ],
         );
       },
     );
@@ -175,8 +187,8 @@ Future<void> _pickMonth(BuildContext context, DateTime current) async {
 
   if (picked != null && context.mounted) {
     context.read<ReportCubit>().selectMonth(
-      DateTime(picked.year, picked.month),
-    );
+          DateTime(picked.year, picked.month),
+        );
   }
 }
 
@@ -198,33 +210,35 @@ class SummaryCardsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: _SummaryCard(
-            label: 'Salary',
+            label: s.salary,
             icon: Icons.add,
             amount: '\$${salary.toStringAsFixed(0)}',
-            footer: 'Income',
+            footer: s.incomeLabel,
           ),
         ),
         const SizedBox(width: 12),
         Expanded(
           child: _SummaryCard(
-            label: 'Total\nExpenses',
+            label: s.totalExpenses,
             icon: Icons.north_east,
             amount: '\$${totalExpenses.toStringAsFixed(0)}',
-            footer: '${expensePercentage.toStringAsFixed(1)}% spent',
+            footer: s.spentPercentage(expensePercentage.toStringAsFixed(1)),
           ),
         ),
         const SizedBox(width: 12),
         Expanded(
           child: _SummaryCard(
-            label: 'Remaining',
+            label: s.remaining,
             icon: Icons.account_balance_wallet_outlined,
             amount: '\$${remaining.toStringAsFixed(0)}',
-            footer: 'Saved ${savedPercentage.toStringAsFixed(1)}%',
+            footer: s.savedPercentage(savedPercentage.toStringAsFixed(1)),
           ),
         ),
       ],
@@ -275,6 +289,7 @@ class _SummaryCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: theme.colorScheme.secondary.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(8),
+                  
                 ),
                 child: Icon(
                   icon,
@@ -290,6 +305,7 @@ class _SummaryCard extends StatelessWidget {
             size: 20.sp,
             type: Type.header,
             color: theme.colorScheme.onSurface,
+            maxLines: 1,
           ),
           const SizedBox(height: 4),
           CustomText(
@@ -297,6 +313,7 @@ class _SummaryCard extends StatelessWidget {
             size: 12.sp,
             type: Type.medium,
             color: theme.colorScheme.onSurfaceVariant,
+            maxLines: 2,
           ),
         ],
       ),
@@ -312,6 +329,7 @@ class ReadyForExportCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final s = S.of(context);
 
     return Container(
       padding: EdgeInsets.all(16.w),
@@ -341,15 +359,14 @@ class ReadyForExportCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  text: 'Ready for Export • $transactionsCount Transactions',
+                  text: s.readyForExport(transactionsCount),
                   size: 14.sp,
                   type: Type.overMedium,
                   color: theme.colorScheme.onSurface,
                 ),
                 SizedBox(height: 4.h),
                 CustomText(
-                  text:
-                      'Full PDF includes categorized charts, transaction ledger, tax summaries, and verified timestamps for this month.',
+                  text: s.readyForExportDescription,
                   size: 12.sp,
                   type: Type.medium,
                   color: theme.colorScheme.onSurfaceVariant,

@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -19,10 +18,8 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(
-      _current != null,
-      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
-    );
+    assert(_current != null,
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
@@ -44,10 +41,8 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -1372,6 +1367,267 @@ class S {
       name: 'reportSubtitle',
       desc: 'Subtitle for the report page',
       args: [],
+    );
+  }
+
+  /// `Salary`
+  String get salary {
+    return Intl.message(
+      'Salary',
+      name: 'salary',
+      desc: 'Label for the salary summary card',
+      args: [],
+    );
+  }
+
+  /// `Total Expenses`
+  String get totalExpenses {
+    return Intl.message(
+      'Total Expenses',
+      name: 'totalExpenses',
+      desc: 'Label for the total expenses summary card',
+      args: [],
+    );
+  }
+
+  /// `Remaining`
+  String get remaining {
+    return Intl.message(
+      'Remaining',
+      name: 'remaining',
+      desc: 'Label for the remaining balance summary card',
+      args: [],
+    );
+  }
+
+  /// `Income`
+  String get incomeLabel {
+    return Intl.message(
+      'Income',
+      name: 'incomeLabel',
+      desc: 'Footer label under the salary card',
+      args: [],
+    );
+  }
+
+  /// `{percent}% spent`
+  String spentPercentage(String percent) {
+    return Intl.message(
+      '$percent% spent',
+      name: 'spentPercentage',
+      desc: 'Footer label showing percentage spent',
+      args: [percent],
+    );
+  }
+
+  /// `Saved {percent}%`
+  String savedPercentage(String percent) {
+    return Intl.message(
+      'Saved $percent%',
+      name: 'savedPercentage',
+      desc: 'Footer label showing percentage saved',
+      args: [percent],
+    );
+  }
+
+  /// `Expense Overview`
+  String get expenseOverview {
+    return Intl.message(
+      'Expense Overview',
+      name: 'expenseOverview',
+      desc: 'Title for the weekly expense chart card',
+      args: [],
+    );
+  }
+
+  /// `Your spending during this month`
+  String get expenseOverviewSubtitle {
+    return Intl.message(
+      'Your spending during this month',
+      name: 'expenseOverviewSubtitle',
+      desc: 'Subtitle for the weekly expense chart card',
+      args: [],
+    );
+  }
+
+  /// `Expenses`
+  String get expensesChip {
+    return Intl.message(
+      'Expenses',
+      name: 'expensesChip',
+      desc: 'Legend chip label on the expense chart',
+      args: [],
+    );
+  }
+
+  /// `Week {number}`
+  String week(int number) {
+    return Intl.message(
+      'Week $number',
+      name: 'week',
+      desc: 'Label for a week in the expense chart',
+      args: [number],
+    );
+  }
+
+  /// `Expense Breakdown`
+  String get expenseBreakdown {
+    return Intl.message(
+      'Expense Breakdown',
+      name: 'expenseBreakdown',
+      desc: 'Title for the category breakdown donut chart',
+      args: [],
+    );
+  }
+
+  /// `{count} Categories`
+  String categoriesCount(int count) {
+    return Intl.message(
+      '$count Categories',
+      name: 'categoriesCount',
+      desc: 'Number of categories shown in the breakdown card',
+      args: [count],
+    );
+  }
+
+  /// `TOTAL EXPENSES`
+  String get totalExpensesLabel {
+    return Intl.message(
+      'TOTAL EXPENSES',
+      name: 'totalExpensesLabel',
+      desc: 'Label in the center of the expense breakdown donut chart',
+      args: [],
+    );
+  }
+
+  /// `Income Breakdown`
+  String get incomeBreakdown {
+    return Intl.message(
+      'Income Breakdown',
+      name: 'incomeBreakdown',
+      desc: 'Title for the income sources donut chart',
+      args: [],
+    );
+  }
+
+  /// `{count} Sources`
+  String sourcesCount(int count) {
+    return Intl.message(
+      '$count Sources',
+      name: 'sourcesCount',
+      desc: 'Number of income sources shown in the breakdown card',
+      args: [count],
+    );
+  }
+
+  /// `TOTAL INCOME`
+  String get totalIncomeLabel {
+    return Intl.message(
+      'TOTAL INCOME',
+      name: 'totalIncomeLabel',
+      desc: 'Label in the center of the income breakdown donut chart',
+      args: [],
+    );
+  }
+
+  /// `Top Expenses`
+  String get topExpenses {
+    return Intl.message(
+      'Top Expenses',
+      name: 'topExpenses',
+      desc: 'Title for the top expenses list',
+      args: [],
+    );
+  }
+
+  /// `Highest individual transactions`
+  String get topExpensesSubtitle {
+    return Intl.message(
+      'Highest individual transactions',
+      name: 'topExpensesSubtitle',
+      desc: 'Subtitle for the top expenses list',
+      args: [],
+    );
+  }
+
+  /// `View all`
+  String get viewAll {
+    return Intl.message(
+      'View all',
+      name: 'viewAll',
+      desc: 'Label for the view all button',
+      args: [],
+    );
+  }
+
+  /// `Expense`
+  String get expenseTag {
+    return Intl.message(
+      'Expense',
+      name: 'expenseTag',
+      desc: 'Tag shown next to an expense transaction',
+      args: [],
+    );
+  }
+
+  /// `Ready for Export • {count} Transactions`
+  String readyForExport(int count) {
+    return Intl.message(
+      'Ready for Export • $count Transactions',
+      name: 'readyForExport',
+      desc:
+          'Label showing the report is ready to export with transaction count',
+      args: [count],
+    );
+  }
+
+  /// `Full PDF includes categorized charts, transaction ledger, tax summaries, and verified timestamps for this month.`
+  String get readyForExportDescription {
+    return Intl.message(
+      'Full PDF includes categorized charts, transaction ledger, tax summaries, and verified timestamps for this month.',
+      name: 'readyForExportDescription',
+      desc: 'Description explaining what the exported PDF includes',
+      args: [],
+    );
+  }
+
+  /// `Download Report PDF`
+  String get downloadReportPdf {
+    return Intl.message(
+      'Download Report PDF',
+      name: 'downloadReportPdf',
+      desc: 'Label for the download report PDF button',
+      args: [],
+    );
+  }
+
+  /// `No income for this month`
+  String get noIncomeThisMonth {
+    return Intl.message(
+      'No income for this month',
+      name: 'noIncomeThisMonth',
+      desc: 'Empty state message when there is no income this month',
+      args: [],
+    );
+  }
+
+  /// `No expenses for this month`
+  String get noExpensesThisMonth {
+    return Intl.message(
+      'No expenses for this month',
+      name: 'noExpensesThisMonth',
+      desc: 'Empty state message when there are no expenses this month',
+      args: [],
+    );
+  }
+
+  /// `Failed to generate PDF: {error}`
+  String pdfGenerationFailed(String error) {
+    return Intl.message(
+      'Failed to generate PDF: $error',
+      name: 'pdfGenerationFailed',
+      desc: 'Error message shown when PDF generation fails',
+      args: [error],
     );
   }
 }

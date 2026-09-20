@@ -3,6 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/theme.dart';
 import '../../../../../core/widgets/custom_text.dart';
+import '../../../../../generated/l10n.dart';
 
 class ExpenseChartView extends StatelessWidget {
   final List<WeeklyExpense> weeks;
@@ -12,13 +13,14 @@ class ExpenseChartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final s = S.of(context);
 
     final displayWeeks = weeks.isEmpty
-        ? const [
-            WeeklyExpense(label: 'Week 1', amount: 0),
-            WeeklyExpense(label: 'Week 2', amount: 0),
-            WeeklyExpense(label: 'Week 3', amount: 0),
-            WeeklyExpense(label: 'Week 4', amount: 0),
+        ? [
+            WeeklyExpense(label: s.week(1), amount: 0),
+            WeeklyExpense(label: s.week(2), amount: 0),
+            WeeklyExpense(label: s.week(3), amount: 0),
+            WeeklyExpense(label: s.week(4), amount: 0),
           ]
         : weeks;
 
@@ -31,7 +33,7 @@ class ExpenseChartView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildHeader(theme),
+          _buildHeader(theme, s),
           const SizedBox(height: 28),
           SizedBox(height: 260, child: _buildChart(theme, displayWeeks)),
         ],
@@ -39,7 +41,7 @@ class ExpenseChartView extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(ThemeData theme) {
+  Widget _buildHeader(ThemeData theme, S s) {
     final onSurface = theme.colorScheme.onSurface;
 
     return Row(
@@ -50,14 +52,15 @@ class ExpenseChartView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomText(
-                text: "Expense Overview",
+                text: s.expenseOverview,
                 size: 20.sp,
                 type: Type.header,
                 color: onSurface,
+                maxLines: 3,
               ),
               const SizedBox(height: 4),
               CustomText(
-                text: "Your spending during this month",
+                text: s.expenseOverviewSubtitle,
                 size: 13.sp,
                 type: Type.medium,
                 color: AppTheme.inactiveGrey,
@@ -65,12 +68,12 @@ class ExpenseChartView extends StatelessWidget {
             ],
           ),
         ),
-        _buildLegendChip(onSurface),
+        _buildLegendChip(onSurface, s),
       ],
     );
   }
 
-  Widget _buildLegendChip(Color onSurface) {
+  Widget _buildLegendChip(Color onSurface, S s) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       decoration: BoxDecoration(
@@ -83,7 +86,7 @@ class ExpenseChartView extends StatelessWidget {
           const CircleAvatar(radius: 5, backgroundColor: AppTheme.secondary),
           const SizedBox(width: 8),
           CustomText(
-            text: "Expenses",
+            text: s.expensesChip,
             size: 14.sp,
             type: Type.overMedium,
             color: onSurface,

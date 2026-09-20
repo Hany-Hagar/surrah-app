@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: deprecated_member_use, unused_local_variable
 
 import 'dart:typed_data';
 
@@ -8,26 +8,66 @@ import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
-import 'package:surrah/features/report/data/model/income_entry.dart';
 
 import '../../core/utils/theme.dart';
 import '../../features/categories/data/models/category_model.dart';
 import '../../features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import '../../features/report/presentation/pages/widgets/expense_chart_view.dart';
+import '../../features/report/data/model/income_entry.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
 class ReportPdfService {
   ReportPdfService._();
 
+  // ---------- Palette (pulled from AppTheme) ----------
+
   static final _navy = _toPdfColor(AppTheme.primary);
   static final _gold = _toPdfColor(AppTheme.secondary);
   static final _grey = _toPdfColor(AppTheme.inactiveGrey);
-  static const _greyLight = PdfColors.grey200;
-  static const _greyBorder = PdfColors.grey300;
-  static const _barGrey = PdfColor.fromInt(0xFFD9DEE6);
+  static const _greyLight = PdfColor.fromInt(0xFFF3F4F6);
+  static const _greyBorder = PdfColor.fromInt(0xFFE5E7EB);
+  static const _success = PdfColor.fromInt(0xFF2E8B57);
+  static const _white = PdfColors.white;
 
   static PdfColor _toPdfColor(Color color) {
     return PdfColor.fromInt(color.value);
+  }
+
+  // ---------- Spacing scale (keep everything consistent) ----------
+
+  static const double _sSm = 8;
+  static const double _sMd = 14;
+  static const double _sLg = 20;
+  static const double _sXl = 90;
+
+  // ---------- Text & dot helpers (the "CustomText" of this PDF) ----------
+
+  static pw.Text _pdfText(
+    String text, {
+    required double size,
+    PdfColor? color,
+    pw.FontWeight? fontWeight,
+    double? letterSpacing,
+    pw.TextAlign? textAlign,
+  }) {
+    return pw.Text(
+      text,
+      textAlign: textAlign,
+      style: pw.TextStyle(
+        fontSize: size,
+        color: color ?? _navy,
+        fontWeight: fontWeight ?? pw.FontWeight.normal,
+        letterSpacing: letterSpacing,
+      ),
+    );
+  }
+
+  static pw.Widget _dot(PdfColor color, {double size = 8}) {
+    return pw.Container(
+      width: size,
+      height: size,
+      decoration: pw.BoxDecoration(color: color, shape: pw.BoxShape.circle),
+    );
   }
 
   static Future<Uint8List> buildReportPdf({
@@ -58,43 +98,65 @@ class ReportPdfService {
     doc.addPage(
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4,
-        margin: const pw.EdgeInsets.fromLTRB(28, 24, 28, 20),
+        margin: const pw.EdgeInsets.fromLTRB(28, 22, 28, 20),
         textDirection: pw.TextDirection.rtl,
         header: (context) => _buildTopBar(),
         footer: (context) => _buildFooter(context),
         build: (context) => [
           _buildTitleBlock(monthLabel),
-          pw.SizedBox(height: 14),
+          pw.SizedBox(height: _sLg),
 
           _buildSummary(salary, totalExpenses, remaining),
-          pw.SizedBox(height: 14),
+          pw.SizedBox(height: _sXl),
 
-          if (weeklyExpenses.isNotEmpty) ...[
+          if (weeklyExpenses.isNotEmpty)
             _buildCard(
               title: 'المصروفات الأسبوعية',
               child: _buildWeeklyChart(weeklyExpenses),
             ),
-            pw.SizedBox(height: 14),
-          ],
 
-          if (categoryExpenses.isNotEmpty) ...[
-            _buildCard(
-              title: 'تفصيل المصروفات',
-              child: _buildExpenseBreakdown(categoryExpenses, totalExpenses),
+          if (categoryExpenses.isNotEmpty || incomeBreakdown.isNotEmpty) ...[
+            pw.SizedBox(height: _sMd),
+            pw.Row(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                if (categoryExpenses.isNotEmpty)
+                  pw.Expanded(
+                    child: _buildCard(
+                      title: 'تفصيل المصروفات',
+                      child: _buildDonutSection(
+                        items: categoryExpenses,
+                        centerValue: totalExpenses,
+                      ),
+                    ),
+                  ),
+                if (categoryExpenses.isNotEmpty && incomeBreakdown.isNotEmpty)
+                  pw.SizedBox(width: _sMd),
+                if (incomeBreakdown.isNotEmpty)
+                  pw.Expanded(
+                    child: _buildCard(
+                      title: 'مصادر الدخل',
+                      child: _buildDonutSection(
+                        items: incomeBreakdown,
+                        centerValue: salary,
+                      ),
+                    ),
+                  ),
+              ],
             ),
-            pw.SizedBox(height: 14),
           ],
 
           if (incomeEntries.isNotEmpty) ...[
+            pw.SizedBox(height: _sXl),
             _buildPageSectionTitle('تفاصيل الدخل'),
-            pw.SizedBox(height: 8),
+            pw.SizedBox(height: _sSm),
             _buildIncomeTable(incomeEntries, incomeBreakdown),
-            pw.SizedBox(height: 14),
           ],
 
           if (transactions.any((t) => !t.isIncome)) ...[
+            pw.SizedBox(height: _sXl),
             _buildPageSectionTitle('تفاصيل المصروفات'),
-            pw.SizedBox(height: 8),
+            pw.SizedBox(height: _sSm),
             _buildExpenseTable(transactions, categories, categoryExpenses),
           ],
         ],
@@ -145,26 +207,19 @@ class ReportPdfService {
         pw.Row(
           mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
           children: [
-            pw.Text('أموالك ـ في أمان', style: pw.TextStyle(fontSize: 9, color: _grey)),
+            _pdfText('أموالك ـ في أمان', size: 9, color: _grey),
             pw.Row(
               children: [
-                pw.Text(
-                  'Surrah',
-                  style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold, color: _navy),
-                ),
+                _pdfText('Surrah', size: 14, fontWeight: pw.FontWeight.bold),
                 pw.SizedBox(width: 6),
-                pw.Container(
-                  width: 18,
-                  height: 18,
-                  decoration: pw.BoxDecoration(color: _gold, shape: pw.BoxShape.circle),
-                ),
+                _dot(_gold, size: 18),
               ],
             ),
           ],
         ),
-        pw.SizedBox(height: 8),
-        pw.Divider(color: _greyBorder, height: 1),
-        pw.SizedBox(height: 12),
+        pw.SizedBox(height: _sSm),
+        pw.Divider(color: _greyBorder, height: 1, thickness: 1),
+        pw.SizedBox(height: _sMd),
       ],
     );
   }
@@ -173,12 +228,9 @@ class ReportPdfService {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        pw.Text(
-          'Monthly Expense Report',
-          style: pw.TextStyle(fontSize: 19, fontWeight: pw.FontWeight.bold, color: _navy),
-        ),
-        pw.SizedBox(height: 2),
-        pw.Text(monthLabel, style: pw.TextStyle(fontSize: 11, color: _grey)),
+        _pdfText('التقرير المالي الشهري', size: 20, fontWeight: pw.FontWeight.bold),
+        pw.SizedBox(height: 3),
+        _pdfText(monthLabel, size: 11, color: _grey),
       ],
     );
   }
@@ -186,14 +238,14 @@ class ReportPdfService {
   static pw.Widget _buildFooter(pw.Context context) {
     return pw.Column(
       children: [
-        pw.Divider(color: _greyBorder, height: 1),
-        pw.SizedBox(height: 4),
-        pw.Align(
-          alignment: pw.Alignment.centerLeft,
-          child: pw.Text(
-            'صفحة ${context.pageNumber} من ${context.pagesCount}',
-            style: pw.TextStyle(fontSize: 8, color: _grey),
-          ),
+        pw.Divider(color: _greyBorder, height: 1, thickness: 1),
+        pw.SizedBox(height: 6),
+        pw.Row(
+          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+          children: [
+            _pdfText('Surrah', size: 8, color: _grey),
+            _pdfText('صفحة ${context.pageNumber} من ${context.pagesCount}', size: 8, color: _grey),
+          ],
         ),
       ],
     );
@@ -204,17 +256,18 @@ class ReportPdfService {
   static pw.Widget _buildCard({required String title, required pw.Widget child}) {
     return pw.Container(
       width: double.infinity,
-      padding: const pw.EdgeInsets.all(12),
+      padding: const pw.EdgeInsets.all(14),
       decoration: pw.BoxDecoration(
-        color: PdfColors.white,
-        border: pw.Border.all(color: _greyBorder, width: 0.7),
-        borderRadius: pw.BorderRadius.circular(8),
+        color: _white,
+        border: pw.Border.all(color: _greyBorder, width: 0.8),
+        borderRadius: pw.BorderRadius.circular(10),
       ),
       child: pw.Column(
+        mainAxisSize: pw.MainAxisSize.min,
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
-          pw.Text(title, style: pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold, color: _navy)),
-          pw.SizedBox(height: 10),
+          _pdfText(title, size: 14.5, fontWeight: pw.FontWeight.bold),
+          pw.SizedBox(height: 12),
           child,
         ],
       ),
@@ -222,9 +275,12 @@ class ReportPdfService {
   }
 
   static pw.Widget _buildPageSectionTitle(String title) {
-    return pw.Text(
-      title,
-      style: pw.TextStyle(fontSize: 13, fontWeight: pw.FontWeight.bold, color: _navy),
+    return pw.Row(
+      children: [
+        pw.Container(width: 3, height: 14, color: _gold),
+        pw.SizedBox(width: 8),
+        _pdfText(title, size: 13.5, fontWeight: pw.FontWeight.bold),
+      ],
     );
   }
 
@@ -233,11 +289,11 @@ class ReportPdfService {
   static pw.Widget _buildSummary(double salary, double totalExpenses, double remaining) {
     return pw.Row(
       children: [
-        _summaryTile('الراتب', 'إجمالي الدخل لهذا الشهر', salary, _navy),
+        _summaryTile('الراتب والدخل', 'إجمالي الدخل لهذا الشهر', salary, _navy),
         pw.SizedBox(width: 10),
         _summaryTile('إجمالي المصروفات', 'إجمالي ما تم إنفاقه هذا الشهر', totalExpenses, _gold),
         pw.SizedBox(width: 10),
-        _summaryTile('المتبقي', 'الراتب بعد المصروفات', remaining, _navy),
+        _summaryTile('المتبقي', 'الدخل بعد خصم المصروفات', remaining, _success),
       ],
     );
   }
@@ -245,38 +301,27 @@ class ReportPdfService {
   static pw.Widget _summaryTile(String label, String hint, double value, PdfColor badgeColor) {
     return pw.Expanded(
       child: pw.Container(
-        padding: const pw.EdgeInsets.all(10),
+        padding: const pw.EdgeInsets.all(12),
         decoration: pw.BoxDecoration(
-          color: PdfColors.white,
-          border: pw.Border.all(color: _greyBorder, width: 0.7),
-          borderRadius: pw.BorderRadius.circular(8),
+          color: _white,
+          border: pw.Border.all(color: _greyBorder, width: 0.8),
+          borderRadius: pw.BorderRadius.circular(10),
         ),
         child: pw.Column(
+          mainAxisSize: pw.MainAxisSize.min,
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
             pw.Row(
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
               children: [
-                pw.Expanded(
-                  child: pw.Text(
-                    label,
-                    style: pw.TextStyle(fontSize: 9.5, fontWeight: pw.FontWeight.bold, color: _navy),
-                  ),
-                ),
-                pw.Container(
-                  width: 16,
-                  height: 16,
-                  decoration: pw.BoxDecoration(color: badgeColor, shape: pw.BoxShape.circle),
-                ),
+                pw.Expanded(child: _pdfText(label, size: 9.5, fontWeight: pw.FontWeight.bold)),
+                _dot(badgeColor),
               ],
             ),
-            pw.SizedBox(height: 2),
-            pw.Text(hint, style: pw.TextStyle(fontSize: 6.5, color: _grey)),
-            pw.SizedBox(height: 8),
-            pw.Text(
-              '\$${value.toStringAsFixed(0)}',
-              style: pw.TextStyle(fontSize: 15, fontWeight: pw.FontWeight.bold, color: _navy),
-            ),
+            pw.SizedBox(height: 3),
+            _pdfText(hint, size: 6.5, color: _grey),
+            pw.SizedBox(height: 10),
+            _pdfText('\$${value.toStringAsFixed(0)}', size: 16, fontWeight: pw.FontWeight.bold),
           ],
         ),
       ),
@@ -287,55 +332,52 @@ class ReportPdfService {
 
   static pw.Widget _buildWeeklyChart(List<WeeklyExpense> weeks) {
     final maxAmount = weeks.map((w) => w.amount).reduce((a, b) => a > b ? a : b);
-    const chartHeight = 80.0;
+    const chartHeight = 75.0;
 
     return pw.Row(
       crossAxisAlignment: pw.CrossAxisAlignment.end,
       mainAxisAlignment: pw.MainAxisAlignment.spaceEvenly,
       children: weeks.map((w) {
-        final isMax = w.amount == maxAmount && maxAmount > 0;
         final barHeight = maxAmount == 0 ? 0.0 : (w.amount / maxAmount) * chartHeight;
 
         return pw.Column(
+          mainAxisSize: pw.MainAxisSize.min,
           mainAxisAlignment: pw.MainAxisAlignment.end,
           children: [
-            pw.Text(
-              '\$${w.amount.toStringAsFixed(0)}',
-              style: pw.TextStyle(
-                fontSize: 8,
-                fontWeight: isMax ? pw.FontWeight.bold : pw.FontWeight.normal,
-                color: isMax ? _navy : _grey,
-              ),
-            ),
+            _pdfText('\$${w.amount.toStringAsFixed(0)}', size: 8, fontWeight: pw.FontWeight.bold),
             pw.SizedBox(height: 4),
             pw.Container(
               width: 30,
               height: barHeight,
               decoration: pw.BoxDecoration(
-                color: isMax ? _gold : _barGrey,
+                color: _gold,
                 borderRadius: const pw.BorderRadius.vertical(top: pw.Radius.circular(4)),
               ),
             ),
             pw.SizedBox(height: 6),
-            pw.Text(w.label, style: pw.TextStyle(fontSize: 8, color: _grey)),
+            _pdfText(w.label, size: 10, color: _grey),
           ],
         );
       }).toList(),
     );
   }
 
-  // ---------- Expense breakdown (donut + legend) ----------
+  // ---------- Shared donut section (used for BOTH expense and income breakdown) ----------
 
-  static pw.Widget _buildExpenseBreakdown(List<CategoryExpense> items, double totalExpenses) {
-    return pw.Row(
+  static pw.Widget _buildDonutSection({
+    required List<CategoryExpense> items,
+    required double centerValue,
+  }) {
+    return pw.Column(
+      mainAxisSize: pw.MainAxisSize.min,
       crossAxisAlignment: pw.CrossAxisAlignment.center,
       children: [
         pw.Stack(
           alignment: pw.Alignment.center,
           children: [
             pw.SizedBox(
-              width: 110,
-              height: 110,
+              width: 100,
+              height: 100,
               child: pw.Chart(
                 grid: pw.PieGrid(),
                 datasets: items.map((c) {
@@ -344,83 +386,72 @@ class ReportPdfService {
               ),
             ),
             pw.Container(
-              width: 52,
-              height: 52,
+              width: 48,
+              height: 48,
               alignment: pw.Alignment.center,
-              decoration: const pw.BoxDecoration(color: PdfColors.white, shape: pw.BoxShape.circle),
-              child: pw.Text(
-                '\$${totalExpenses.toStringAsFixed(0)}',
+              padding: const pw.EdgeInsets.all(2),
+              decoration: const pw.BoxDecoration(color: _white, shape: pw.BoxShape.circle),
+              child: _pdfText(
+                '\$${centerValue.toStringAsFixed(0)}',
+                size: 8,
+                fontWeight: pw.FontWeight.bold,
                 textAlign: pw.TextAlign.center,
-                style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold, color: _navy),
               ),
             ),
           ],
         ),
-        pw.SizedBox(width: 18),
-        pw.Expanded(
-          child: pw.Column(
-            crossAxisAlignment: pw.CrossAxisAlignment.start,
-            children: items.map((c) {
-              return pw.Padding(
-                padding: const pw.EdgeInsets.symmetric(vertical: 3),
-                child: pw.Row(
-                  children: [
-                    pw.Container(
-                      width: 7,
-                      height: 7,
-                      decoration: pw.BoxDecoration(color: PdfColor.fromInt(c.category.color), shape: pw.BoxShape.circle),
-                    ),
-                    pw.SizedBox(width: 6),
-                    pw.Expanded(child: pw.Text(c.category.name, style: pw.TextStyle(fontSize: 9))),
-                    pw.SizedBox(width: 40, child: pw.Text('\$${c.amount.toStringAsFixed(0)}', style: pw.TextStyle(fontSize: 9))),
-                    pw.SizedBox(
-                      width: 28,
-                      child: pw.Text(
-                        '${c.percentage.toStringAsFixed(0)}%',
-                        style: pw.TextStyle(fontSize: 9, fontWeight: pw.FontWeight.bold, color: _navy),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }).toList(),
-          ),
+        pw.SizedBox(height: 12),
+        pw.Column(
+          mainAxisSize: pw.MainAxisSize.min,
+          children: items.map((c) => _donutLegendRow(c)).toList(),
         ),
       ],
     );
   }
 
-  // ---------- ONE combined table for income: Date | Amount | Percentage | Source ----------
+  static pw.Widget _donutLegendRow(CategoryExpense c) {
+    return pw.Padding(
+      padding: const pw.EdgeInsets.symmetric(vertical: 3),
+      child: pw.Row(
+        children: [
+          _dot(PdfColor.fromInt(c.category.color), size: 7),
+          pw.SizedBox(width: 6),
+          pw.Expanded(child: _pdfText(c.category.name, size: 9, fontWeight: pw.FontWeight.normal)),
+          _pdfText('\$${c.amount.toStringAsFixed(0)}', size: 9, fontWeight: pw.FontWeight.normal),
+          pw.SizedBox(width: 8),
+          pw.SizedBox(
+            width: 30,
+            child: _pdfText(
+              '${c.percentage.toStringAsFixed(0)}%',
+              size: 9,
+              fontWeight: pw.FontWeight.bold,
+              textAlign: pw.TextAlign.right,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
-  static pw.Widget _buildIncomeTable(
-    List<IncomeEntry> entries,
-    List<CategoryExpense> breakdown,
-  ) {
-    final percentageByCategory = <String, double>{
-      for (final b in breakdown) b.category.id: b.percentage,
-    };
+  // ---------- Shared table style ----------
 
-    final headers = ['التاريخ', 'المبلغ', 'النسبة', 'المصدر'];
-
-    final rows = entries.map((e) {
-      final percentage = percentageByCategory[e.category.id] ?? 0;
-      return [
-        DateFormat('yyyy-MM-dd').format(e.transaction.createdAt),
-        '+\$${e.transaction.amount.toStringAsFixed(0)}',
-        '${percentage.toStringAsFixed(0)}%',
-        e.category.name,
-      ];
-    }).toList();
-
+  static pw.Widget _buildTable({
+    required List<String> headers,
+    required List<List<String>> rows,
+  }) {
     return pw.TableHelper.fromTextArray(
       headers: headers,
       data: rows,
       tableDirection: pw.TextDirection.rtl,
       headerStyle: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 9.5, color: _navy),
-      cellStyle: pw.TextStyle(fontSize: 9),
-      headerDecoration: pw.BoxDecoration(color: _greyLight),
-      cellPadding: const pw.EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-      border: pw.TableBorder(horizontalInside: pw.BorderSide(color: _greyBorder, width: 0.5)),
+      cellStyle: pw.TextStyle(fontSize: 9, color: _navy),
+      headerDecoration: const pw.BoxDecoration(color: _greyLight),
+      cellPadding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      border: pw.TableBorder(
+        horizontalInside: pw.BorderSide(color: _greyBorder, width: 0.6),
+        top: pw.BorderSide(color: _greyBorder, width: 0.8),
+        bottom: pw.BorderSide(color: _greyBorder, width: 0.8),
+      ),
       cellAlignments: {
         0: pw.Alignment.centerLeft,
         1: pw.Alignment.centerLeft,
@@ -436,7 +467,29 @@ class ReportPdfService {
     );
   }
 
-  // ---------- ONE combined table for expenses: Date | Amount | Percentage | Category ----------
+  static pw.Widget _buildIncomeTable(
+    List<IncomeEntry> entries,
+    List<CategoryExpense> breakdown,
+  ) {
+    final percentageByCategory = <String, double>{
+      for (final b in breakdown) b.category.id: b.percentage,
+    };
+
+    final rows = entries.map((e) {
+      final percentage = percentageByCategory[e.category.id] ?? 0;
+      return [
+        DateFormat('yyyy-MM-dd').format(e.transaction.createdAt),
+        '+\$${e.transaction.amount.toStringAsFixed(0)}',
+        '${percentage.toStringAsFixed(0)}%',
+        e.category.name,
+      ];
+    }).toList();
+
+    return _buildTable(
+      headers: const ['التاريخ', 'المبلغ', 'النسبة', 'المصدر'],
+      rows: rows,
+    );
+  }
 
   static pw.Widget _buildExpenseTable(
     List<TransactionModel> transactions,
@@ -449,8 +502,6 @@ class ReportPdfService {
 
     final expenseTransactions = transactions.where((t) => !t.isIncome).toList()
       ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-
-    final headers = ['التاريخ', 'المبلغ', 'النسبة', 'الفئة'];
 
     final rows = expenseTransactions.map((t) {
       final category = categories.firstWhere(
@@ -474,27 +525,9 @@ class ReportPdfService {
       ];
     }).toList();
 
-    return pw.TableHelper.fromTextArray(
-      headers: headers,
-      data: rows,
-      tableDirection: pw.TextDirection.rtl,
-      headerStyle: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 9.5, color: _navy),
-      cellStyle: pw.TextStyle(fontSize: 9),
-      headerDecoration: pw.BoxDecoration(color: _greyLight),
-      cellPadding: const pw.EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-      border: pw.TableBorder(horizontalInside: pw.BorderSide(color: _greyBorder, width: 0.5)),
-      cellAlignments: {
-        0: pw.Alignment.centerLeft,
-        1: pw.Alignment.centerLeft,
-        2: pw.Alignment.centerLeft,
-        3: pw.Alignment.centerRight,
-      },
-      columnWidths: {
-        0: const pw.FlexColumnWidth(2),
-        1: const pw.FlexColumnWidth(2),
-        2: const pw.FlexColumnWidth(1.5),
-        3: const pw.FlexColumnWidth(2.5),
-      },
+    return _buildTable(
+      headers: const ['التاريخ', 'المبلغ', 'النسبة', 'الفئة'],
+      rows: rows,
     );
   }
 }
