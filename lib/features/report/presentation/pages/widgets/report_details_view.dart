@@ -9,6 +9,7 @@ import 'package:surrah/features/report/presentation/manager/report_cubit.dart';
 import 'package:surrah/features/report/presentation/manager/report_state.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/export_report_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
 import '../../../../../core/utils/theme.dart';
 import '../../../../../core/widgets/custom_text.dart';
@@ -75,7 +76,20 @@ class ReportDetailsView extends StatelessWidget {
               },
               ),
               const SizedBox(height: 8),
-              ReadyForExportCard(transactionsCount: 0),
+              ReadyForExportCard(transactionsCount: reportState?.monthTransactions.length ?? 0),
+              const SizedBox(height: 8),
+              ExportReportView(
+                month: selectedMonth,
+                salary: reportState?.salary ?? 0,
+                totalExpenses: reportState?.totalExpenses ?? 0,
+                remaining: reportState?.remaining ?? 0,
+                transactions: reportState?.monthTransactions ?? [],
+                categories: reportState?.categories ?? [],
+                weeklyExpenses: reportState?.weeklyExpenses ?? [],
+                categoryExpenses: reportState?.categoryExpenses ?? [],
+                incomeEntries: reportState?.incomeEntries ?? [],
+                incomeBreakdown: reportState?.incomeBreakdown ?? [],
+              ),
           ],      
         );
       },

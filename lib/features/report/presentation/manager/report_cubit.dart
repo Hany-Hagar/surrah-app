@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
+import '../../data/model/income_entry.dart';
 import '../../data/repo/report_repo.dart';
 import '../../../categories/data/models/category_model.dart';
 import '../../../transactions/data/model/transaction_model.dart';
@@ -72,6 +73,14 @@ class ReportCubit extends Cubit<ReportState> {
         totalExpenses,
       ),
       topExpenses: _calculateTopExpenses(monthTransactions, categories),
+      monthTransactions: monthTransactions,
+      categories: categories,
+      incomeBreakdown: _calculateIncomeBreakdown(
+        monthTransactions,
+        categories,
+        salary,
+      ),
+      incomeEntries: _calculateIncomeEntries(monthTransactions, categories),
     ));
   }
 
@@ -134,30 +143,94 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   List<TopExpenseItem> _calculateTopExpenses(
-  List<TransactionModel> monthTransactions,
-  List<CategoryModel> categories, {
-  int limit = 4,
-}) {
-  final expenses = monthTransactions.where((t) => !t.isIncome).toList();
+    List<TransactionModel> monthTransactions,
+    List<CategoryModel> categories, {
+    int limit = 4,
+  }) {
+    final expenses = monthTransactions.where((t) => !t.isIncome).toList();
 
-  expenses.sort((a, b) => b.amount.compareTo(a.amount));
+    expenses.sort((a, b) => b.amount.compareTo(a.amount));
 
-  return expenses.take(limit).map((t) {
-    final category = categories.firstWhere(
-      (c) => c.id == t.categoryId,
-      orElse: () => CategoryModel(
-        id: t.categoryId,
-        name: 'Other',
-        color: 0xFF8C96A8,
-        iconId: 'other',
-        isIncome: false,
-      ),
-    );
+    return expenses.take(limit).map((t) {
+      final category = categories.firstWhere(
+        (c) => c.id == t.categoryId,
+        orElse: () => CategoryModel(
+          id: t.categoryId,
+          name: 'Other',
+          color: 0xFF8C96A8,
+          iconId: 'other',
+          isIncome: false,
+        ),
+      );
 
-    return TopExpenseItem(
-      transaction: t,
-      category: category,
-    );
-  }).toList();
-}
+      return TopExpenseItem(
+        transaction: t,
+        category: category,
+      );
+    }).toList();
+  }
+
+  List<CategoryExpense> _calculateIncomeBreakdown(
+    List<TransactionModel> monthTransactions,
+    List<CategoryModel> categories,
+    double totalIncome,
+  ) {
+    final totalsBySource = <String, double>{};
+
+    for (final t in monthTransactions) {
+      if (!t.isIncome) continue;
+      totalsBySource[t.categoryId] =
+          (totalsBySource[t.categoryId] ?? 0) + t.amount;
+    }
+
+    final result = totalsBySource.entries.map((entry) {
+      final category = categories.firstWhere(
+        (c) => c.id == entry.key,
+        orElse: () => CategoryModel(
+          id: entry.key,
+          name: 'Other',
+          color: 0xFF8C96A8,
+          iconId: 'other',
+          isIncome: true,
+        ),
+      );
+
+      final percentage =
+          totalIncome == 0 ? 0.0 : (entry.value / totalIncome) * 100;
+
+      return CategoryExpense(
+        category: category,
+        amount: entry.value,
+        percentage: percentage,
+      );
+    }).toList();
+
+    result.sort((a, b) => b.amount.compareTo(a.amount));
+    return result;
+  }
+
+  List<IncomeEntry> _calculateIncomeEntries(
+    List<TransactionModel> monthTransactions,
+    List<CategoryModel> categories,
+  ) {
+    final incomeTransactions =
+        monthTransactions.where((t) => t.isIncome).toList();
+
+    incomeTransactions.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+
+    return incomeTransactions.map((t) {
+      final category = categories.firstWhere(
+        (c) => c.id == t.categoryId,
+        orElse: () => CategoryModel(
+          id: t.categoryId,
+          name: 'Other',
+          color: 0xFF8C96A8,
+          iconId: 'other',
+          isIncome: true,
+        ),
+      );
+
+      return IncomeEntry(transaction: t, category: category);
+    }).toList();
+  }
 }
