@@ -52,12 +52,10 @@ class ReportDetailsView extends StatelessWidget {
             ),
             const SizedBox(height: 8),
 
-            SummaryCardsRow(
+            NetBalanceCard(
               salary: reportState?.salary ?? 0,
               totalExpenses: reportState?.totalExpenses ?? 0,
               remaining: reportState?.remaining ?? 0,
-              expensePercentage: reportState?.expensePercentage ?? 0,
-              savedPercentage: reportState?.savedPercentage ?? 0,
             ),
             if (reportState?.incomeBreakdown.isNotEmpty ?? false) ...[
               const SizedBox(height: 8),
@@ -192,128 +190,151 @@ Future<void> _pickMonth(BuildContext context, DateTime current) async {
   }
 }
 
-class SummaryCardsRow extends StatelessWidget {
-  const SummaryCardsRow({
+class NetBalanceCard extends StatelessWidget {
+  const NetBalanceCard({
     super.key,
     required this.salary,
     required this.totalExpenses,
     required this.remaining,
-    required this.expensePercentage,
-    required this.savedPercentage,
   });
 
   final double salary;
   final double totalExpenses;
   final double remaining;
-  final double expensePercentage;
-  final double savedPercentage;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final s = S.of(context);
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: _SummaryCard(
-            label: s.salary,
-            icon: Icons.add,
-            amount: '\$${salary.toStringAsFixed(0)}',
-            footer: s.incomeLabel,
+    return Container(
+      padding: EdgeInsets.all(16.w),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(20.r),
+        image: const DecorationImage(
+          image: AssetImage('assets/images/bg_report.jpeg'),
+          fit: BoxFit.cover,
+        )
+
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomText(
+                text: s.thisMonth,
+                size: 18.sp,
+                type: Type.overMedium,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+              Icon(
+                IconBroken.Calendar,
+                size: 18.sp,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ],
           ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: _SummaryCard(
-            label: s.totalExpenses,
-            icon: Icons.north_east,
-            amount: '\$${totalExpenses.toStringAsFixed(0)}',
-            footer: s.spentPercentage(expensePercentage.toStringAsFixed(1)),
+          SizedBox(height: 8.h),
+          CustomText(
+            text: s.remaining,
+            size: 14.sp,
+            type: Type.medium,
+            color: theme.colorScheme.onSurfaceVariant,
           ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: _SummaryCard(
-            label: s.remaining,
-            icon: Icons.account_balance_wallet_outlined,
-            amount: '\$${remaining.toStringAsFixed(0)}',
-            footer: s.savedPercentage(savedPercentage.toStringAsFixed(1)),
+          SizedBox(height: 4.h),
+          CustomText(
+            text: '\$${remaining.toStringAsFixed(0)}',
+            size: 28.sp,
+            type: Type.header,
+            color: theme.colorScheme.onSurface,
           ),
-        ),
-      ],
+          SizedBox(height: 16.h),
+          Row(
+            children: [
+              Expanded(
+                child: _MiniStat(
+                  label: s.incomeLabel,
+                  amount: salary,
+                  icon: Icons.arrow_upward_rounded,
+                  color: Colors.green,
+                ),
+              ),
+              SizedBox(width: 12.w),
+              Expanded(
+                child: _MiniStat(
+                  label: s.totalExpenses,
+                  amount: totalExpenses,
+                  icon: Icons.arrow_downward_rounded,
+                  color: Colors.redAccent,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
 
-class _SummaryCard extends StatelessWidget {
-  const _SummaryCard({
+class _MiniStat extends StatelessWidget {
+  const _MiniStat({
     required this.label,
-    required this.icon,
     required this.amount,
-    required this.footer,
+    required this.icon,
+    required this.color,
   });
 
   final String label;
+  final double amount;
   final IconData icon;
-  final String amount;
-  final String footer;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return Container(
-      padding: const EdgeInsets.all(14),
+      padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(16),
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(14.r),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Container(
+                padding: EdgeInsets.all(4.w),
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                child: Icon(icon, size: 12.sp, color: color),
+              ),
+              SizedBox(width: 6.w),
               Expanded(
                 child: CustomText(
                   text: label,
-                  size: 10.sp,
-                  type: Type.overMedium,
+                  size: 14.sp,
+                  type: Type.medium,
                   color: theme.colorScheme.onSurfaceVariant,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.secondary.withValues(alpha: 0.15),
-                  borderRadius: BorderRadius.circular(8),
-                  
-                ),
-                child: Icon(
-                  icon,
-                  size: 16,
-                  color: theme.colorScheme.secondary,
+                  maxLines: 1,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          SizedBox(height: 8.h),
           CustomText(
-            text: amount,
-            size: 20.sp,
+            text: '\$${amount.toStringAsFixed(0)}',
+            size: 16.sp,
             type: Type.header,
             color: theme.colorScheme.onSurface,
             maxLines: 1,
-          ),
-          const SizedBox(height: 4),
-          CustomText(
-            text: footer,
-            size: 12.sp,
-            type: Type.medium,
-            color: theme.colorScheme.onSurfaceVariant,
-            maxLines: 2,
           ),
         ],
       ),

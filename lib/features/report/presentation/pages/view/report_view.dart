@@ -23,7 +23,7 @@ class ReportView extends StatelessWidget {
           subtitle: S.of(context).reportSubtitle,
           actions: [
             Action(
-              icon: IconBroken.Calendar,
+              icon: IconBroken.Profile,
               onPressed: () {
               
                     
