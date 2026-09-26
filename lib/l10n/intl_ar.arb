@@ -718,5 +718,21 @@
         "type": "String"
       }
     }
-  }
+  },
+  "periodDay": "يوم",
+"@periodDay": {
+  "description": "Label for the day period tab"
+},
+"periodWeek": "أسبوع",
+"@periodWeek": {
+  "description": "Label for the week period tab"
+},
+"periodMonth": "شهر",
+"@periodMonth": {
+  "description": "Label for the month period tab"
+},
+"periodYear": "سنة",
+"@periodYear": {
+  "description": "Label for the year period tab"
+}
 }

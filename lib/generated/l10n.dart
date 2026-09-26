@@ -1630,6 +1630,46 @@ class S {
       args: [error],
     );
   }
+
+  /// `Day`
+  String get periodDay {
+    return Intl.message(
+      'Day',
+      name: 'periodDay',
+      desc: 'Label for the day period tab',
+      args: [],
+    );
+  }
+
+  /// `Week`
+  String get periodWeek {
+    return Intl.message(
+      'Week',
+      name: 'periodWeek',
+      desc: 'Label for the week period tab',
+      args: [],
+    );
+  }
+
+  /// `Month`
+  String get periodMonth {
+    return Intl.message(
+      'Month',
+      name: 'periodMonth',
+      desc: 'Label for the month period tab',
+      args: [],
+    );
+  }
+
+  /// `Year`
+  String get periodYear {
+    return Intl.message(
+      'Year',
+      name: 'periodYear',
+      desc: 'Label for the year period tab',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

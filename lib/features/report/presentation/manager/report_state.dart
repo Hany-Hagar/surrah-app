@@ -3,8 +3,9 @@ import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_v
 
 import '../../../categories/data/models/category_model.dart';
 import '../../../transactions/data/model/transaction_model.dart';
-import '../../data/model/income_entry.dart';
 import '../pages/widgets/expense_breakdown_view.dart';
+import '../../data/model/income_entry.dart';
+import 'report_cubit.dart';
 
 abstract class ReportState {}
 
@@ -12,6 +13,7 @@ class ReportInitial extends ReportState {}
 
 class ReportMonthSelected extends ReportState {
   final DateTime selectedMonth;
+  final ReportPeriod selectedPeriod;
   final double salary;
   final double totalExpenses;
   final List<WeeklyExpense> weeklyExpenses;
@@ -24,6 +26,7 @@ class ReportMonthSelected extends ReportState {
 
   ReportMonthSelected({
     required this.selectedMonth,
+    required this.selectedPeriod,
     required this.salary,
     required this.totalExpenses,
     required this.weeklyExpenses,
@@ -44,6 +47,7 @@ class ReportMonthSelected extends ReportState {
 
   ReportState copyWith({
     DateTime? selectedMonth,
+    ReportPeriod? selectedPeriod,
     double? salary,
     double? totalExpenses,
     List<WeeklyExpense>? weeklyExpenses,
@@ -56,6 +60,7 @@ class ReportMonthSelected extends ReportState {
   }) {
     return ReportMonthSelected(
       selectedMonth: selectedMonth ?? this.selectedMonth,
+      selectedPeriod: selectedPeriod ?? this.selectedPeriod,
       salary: salary ?? this.salary,
       totalExpenses: totalExpenses ?? this.totalExpenses,
       weeklyExpenses: weeklyExpenses ?? this.weeklyExpenses,

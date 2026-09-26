@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icon_broken/icon_broken.dart';
-import 'package:intl/intl.dart';
 import 'package:surrah/features/report/presentation/manager/report_cubit.dart';
 import 'package:surrah/features/report/presentation/manager/report_state.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/export_report_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/income_breakdown_view.dart';
+import 'package:surrah/features/report/presentation/pages/widgets/period_selector_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
 import '../../../../../core/utils/theme.dart';
 import '../../../../../core/widgets/custom_text.dart';
@@ -26,43 +26,30 @@ class ReportDetailsView extends StatelessWidget {
       builder: (context, state) {
         final reportState = state is ReportMonthSelected ? state : null;
         final selectedMonth = reportState?.selectedMonth ?? DateTime.now();
+        final selectedPeriod = reportState?.selectedPeriod ?? ReportPeriod.month;
 
         return Column(
           children: [
-            const SizedBox(height: 3),
-            MonthNavigator(
-              selectedMonth: selectedMonth,
-              onPrevious: () {
-                final previousMonth = DateTime(
-                  selectedMonth.year,
-                  selectedMonth.month - 1,
-                );
-                context.read<ReportCubit>().selectMonth(previousMonth);
-              },
-              onNext: () {
-                final nextMonth = DateTime(
-                  selectedMonth.year,
-                  selectedMonth.month + 1,
-                );
-                context.read<ReportCubit>().selectMonth(nextMonth);
-              },
-              onMonthLabelTap: () {
-                _pickMonth(context, selectedMonth);
-              },
-            ),
-            const SizedBox(height: 8),
-
+           
             NetBalanceCard(
               salary: reportState?.salary ?? 0,
               totalExpenses: reportState?.totalExpenses ?? 0,
               remaining: reportState?.remaining ?? 0,
             ),
+            const SizedBox(height: 8),
+            PeriodSelectorView(
+              selectedPeriod: selectedPeriod,
+              selectedDate: selectedMonth,
+              onMonthLabelTap: () => _pickMonth(context, selectedMonth),
+            ),
+            const SizedBox(height: 8),
             if (reportState?.incomeBreakdown.isNotEmpty ?? false) ...[
               const SizedBox(height: 8),
               IncomeBreakdownView(
                 incomeBreakdown: reportState?.incomeBreakdown ?? [],
               ),
             ],
+            
             const SizedBox(height: 8),
             ExpenseChartView(
               weeks: reportState?.weeklyExpenses ?? [],
@@ -103,73 +90,6 @@ class ReportDetailsView extends StatelessWidget {
           ],
         );
       },
-    );
-  }
-}
-
-class MonthNavigator extends StatelessWidget {
-  const MonthNavigator({
-    super.key,
-    required this.selectedMonth,
-    required this.onPrevious,
-    required this.onNext,
-    required this.onMonthLabelTap,
-  });
-
-  final DateTime selectedMonth;
-  final VoidCallback onPrevious;
-  final VoidCallback onNext;
-  final VoidCallback onMonthLabelTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final currentLocale = Localizations.localeOf(context).languageCode;
-    final monthLabel =
-        DateFormat('MMMM yyyy', currentLocale).format(selectedMonth);
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-            icon: const Icon(IconBroken.Arrow___Left_2),
-            onPressed: onPrevious,
-          ),
-          InkWell(
-            onTap: onMonthLabelTap,
-            borderRadius: BorderRadius.circular(12),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    IconBroken.Calendar,
-                    size: 25.sp,
-                    color: theme.colorScheme.secondary,
-                  ),
-                  const SizedBox(width: 8),
-                  CustomText(
-                    text: monthLabel,
-                    size: 16.sp,
-                    type: Type.header,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(IconBroken.Arrow___Right_2),
-            onPressed: onNext,
-          ),
-        ],
-      ),
     );
   }
 }
@@ -215,8 +135,7 @@ class NetBalanceCard extends StatelessWidget {
         image: const DecorationImage(
           image: AssetImage('assets/images/bg_report.jpeg'),
           fit: BoxFit.cover,
-        )
-
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,7 +145,7 @@ class NetBalanceCard extends StatelessWidget {
             children: [
               CustomText(
                 text: s.thisMonth,
-                size: 18.sp,
+                size: 13.sp,
                 type: Type.overMedium,
                 color: theme.colorScheme.onSurfaceVariant,
               ),
@@ -240,7 +159,7 @@ class NetBalanceCard extends StatelessWidget {
           SizedBox(height: 8.h),
           CustomText(
             text: s.remaining,
-            size: 14.sp,
+            size: 13.sp,
             type: Type.medium,
             color: theme.colorScheme.onSurfaceVariant,
           ),
@@ -320,7 +239,7 @@ class _MiniStat extends StatelessWidget {
               Expanded(
                 child: CustomText(
                   text: label,
-                  size: 14.sp,
+                  size: 11.sp,
                   type: Type.medium,
                   color: theme.colorScheme.onSurfaceVariant,
                   maxLines: 1,

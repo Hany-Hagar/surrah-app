@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file: strict_top_level_inference,unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -187,6 +187,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تحكم الكامل بأموالك"),
         "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى :"),
         "pdfGenerationFailed": m1,
+        "periodDay": MessageLookupByLibrary.simpleMessage("يوم"),
+        "periodMonth": MessageLookupByLibrary.simpleMessage("شهر"),
+        "periodWeek": MessageLookupByLibrary.simpleMessage("أسبوع"),
+        "periodYear": MessageLookupByLibrary.simpleMessage("سنة"),
         "privacyPolicyCard1Description": MessageLookupByLibrary.simpleMessage(
             "لا يجمع التطبيق أي بيانات شخصية. يتم حفظ المصروفات والتصنيفات التي تضيفها محليًا على جهازك فقط."),
         "privacyPolicyCard1Title": MessageLookupByLibrary.simpleMessage(

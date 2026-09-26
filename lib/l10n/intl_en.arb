@@ -699,6 +699,22 @@
         "type": "String"
       }
     }
-  }
+  },
+  "periodDay": "Day",
+"@periodDay": {
+  "description": "Label for the day period tab"
+},
+"periodWeek": "Week",
+"@periodWeek": {
+  "description": "Label for the week period tab"
+},
+"periodMonth": "Month",
+"@periodMonth": {
+  "description": "Label for the month period tab"
+},
+"periodYear": "Year",
+"@periodYear": {
+  "description": "Label for the year period tab"
+}
 
 }

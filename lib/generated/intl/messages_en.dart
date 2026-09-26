@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file: strict_top_level_inference,unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -190,6 +190,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "otherLanguages":
             MessageLookupByLibrary.simpleMessage("Other Languages :"),
         "pdfGenerationFailed": m1,
+        "periodDay": MessageLookupByLibrary.simpleMessage("Day"),
+        "periodMonth": MessageLookupByLibrary.simpleMessage("Month"),
+        "periodWeek": MessageLookupByLibrary.simpleMessage("Week"),
+        "periodYear": MessageLookupByLibrary.simpleMessage("Year"),
         "privacyPolicyCard1Description": MessageLookupByLibrary.simpleMessage(
             "We do not collect personal data. Your expenses and categories are stored locally on your device."),
         "privacyPolicyCard1Title":
