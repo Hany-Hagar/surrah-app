@@ -6,16 +6,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../features/categories/data/models/category_model.dart';
 
 class CustomCategoryIcon extends StatelessWidget {
+  final double size;
   final Color? color;
+  final bool isCircle;
   final IconModel? iconData;
   final CategoryModel? category;
-  final double size;
   const CustomCategoryIcon({
     super.key,
     this.color,
     this.iconData,
     this.category,
     this.size = 50,
+    this.isCircle = true,
   });
 
   @override
@@ -25,9 +27,9 @@ class CustomCategoryIcon extends StatelessWidget {
       width: size.r,
       height: size.r,
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
         color: color ?? Color(category!.color),
-       // borderRadius: BorderRadius.circular(4.r),
+        shape:isCircle ? BoxShape.circle : BoxShape.rectangle,
+        borderRadius:isCircle?null :BorderRadius.circular( 8.r),
       ),
       child: Center(
         child: FaIcon(icon, color: Colors.white, size: (size * 0.5).r),
