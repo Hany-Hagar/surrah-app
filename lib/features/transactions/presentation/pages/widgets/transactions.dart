@@ -56,10 +56,10 @@ class _Item extends StatelessWidget {
         minTileHeight: 60.h,
         minVerticalPadding: 0,
         horizontalTitleGap: 12.w,
-        leading: _Leading(category: category),
         trailing: _Amount(transaction: transaction),
         subtitle: _SubTitle(transaction: transaction),
         title: _Title(transaction: transaction, category: category),
+        leading: CustomCategoryIcon(isCircle: false, category: category),
         contentPadding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
         onTap: () => NavTo.push(
           context: context,
@@ -70,16 +70,6 @@ class _Item extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _Leading extends StatelessWidget {
-  final CategoryModel category;
-  const _Leading({required this.category});
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomCategoryIcon(category: category);
   }
 }
 
