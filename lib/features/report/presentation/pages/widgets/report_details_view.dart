@@ -36,7 +36,7 @@ class ReportDetailsView extends StatelessWidget {
               totalExpenses: reportState?.totalExpenses ?? 0,
               remaining: reportState?.remaining ?? 0,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 10),
             PeriodSelectorView(
               selectedPeriod: selectedPeriod,
               selectedDate: selectedMonth,

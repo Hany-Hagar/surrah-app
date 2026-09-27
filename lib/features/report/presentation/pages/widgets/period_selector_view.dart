@@ -1,7 +1,8 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icon_broken/icon_broken.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../core/widgets/custom_text.dart';
@@ -101,7 +102,7 @@ class _PeriodTab extends StatelessWidget {
       borderRadius: BorderRadius.circular(10.r),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: EdgeInsets.symmetric(vertical: 8.h),
+        padding: EdgeInsets.symmetric(vertical: 4.h),
         decoration: BoxDecoration(
           color: isSelected ? theme.colorScheme.secondary : Colors.transparent,
           borderRadius: BorderRadius.circular(10.r),
@@ -109,7 +110,7 @@ class _PeriodTab extends StatelessWidget {
         alignment: Alignment.center,
         child: CustomText(
           text: label,
-          size: 13.sp,
+          size: 15.sp,
           type: isSelected ? Type.overMedium : Type.medium,
           color: isSelected
               ? theme.colorScheme.onSecondary

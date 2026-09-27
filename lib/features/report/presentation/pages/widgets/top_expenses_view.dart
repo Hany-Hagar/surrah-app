@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:icon_broken/icon_broken.dart';
 import 'package:intl/intl.dart';
 import 'package:surrah/core/utils/theme.dart';
+import 'package:surrah/core/widgets/custom_category_icon.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:surrah/features/categories/data/models/category_model.dart';
 import 'package:surrah/features/transactions/data/model/transaction_model.dart';
@@ -110,7 +110,10 @@ class TopExpensesView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
-          _buildIcon(item.category),
+          CustomCategoryIcon(
+            category: item.category,
+            size: 40,
+          ),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -154,45 +157,6 @@ class TopExpensesView extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-Widget _buildIcon(CategoryModel category) {
-  return Container(
-    width: 40,
-    height: 40,
-    decoration: BoxDecoration(
-      color: Color(category.color).withValues(alpha: 0.15),
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: Icon(
-      _iconFromId(category.iconId),
-      color: Color(category.color),
-      size: 18,
-    ),
-  );
-}
-
-IconData _iconFromId(String iconId) {
-  switch (iconId) {
-    case 'food':
-      return IconBroken.Bag_2;
-    case 'bills':
-      return IconBroken.Danger;
-    case 'shopping':
-      return IconBroken.Bag;
-    case 'transport':
-      return IconBroken.Location;
-    case 'entertainment':
-      return IconBroken.Game;
-    case 'health':
-      return IconBroken.Heart;
-    case 'education':
-      return IconBroken.Paper;
-    case 'salary':
-      return IconBroken.Wallet;
-    default:
-      return IconBroken.More_Circle;
   }
 }
 

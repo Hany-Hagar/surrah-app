@@ -10,6 +10,56 @@ import 'report_state.dart';
 
 enum ReportPeriod { day, week, month, year }
 
+// ---------------- Period logic (extension on DateTime, lives here only) ----------------
+
+extension DateFilterExtension on DateTime {
+  DateTime startOfPeriod(ReportPeriod period) {
+    switch (period) {
+      case ReportPeriod.day:
+        return DateTime(year, month, day);
+      case ReportPeriod.week:
+        return DateTime(year, month, day).subtract(Duration(days: weekday - 1));
+      case ReportPeriod.month:
+        return DateTime(year, month, 1);
+      case ReportPeriod.year:
+        return DateTime(year, 1, 1);
+    }
+  }
+
+  DateTime endOfPeriod(ReportPeriod period) {
+    switch (period) {
+      case ReportPeriod.day:
+        return startOfPeriod(period).add(const Duration(days: 1));
+      case ReportPeriod.week:
+        return startOfPeriod(period).add(const Duration(days: 7));
+      case ReportPeriod.month:
+        return DateTime(year, month + 1, 1);
+      case ReportPeriod.year:
+        return DateTime(year + 1, 1, 1);
+    }
+  }
+
+  DateTime shiftPeriod(ReportPeriod period, {required bool forward}) {
+    final d = forward ? 1 : -1;
+    switch (period) {
+      case ReportPeriod.day:
+        return add(Duration(days: d));
+      case ReportPeriod.week:
+        return add(Duration(days: 7 * d));
+      case ReportPeriod.month:
+        return DateTime(year, month + d, day);
+      case ReportPeriod.year:
+        return DateTime(year + d, month, day);
+    }
+  }
+
+  bool isWithinPeriod(ReportPeriod period, DateTime anchor) {
+    final start = anchor.startOfPeriod(period);
+    final end = anchor.endOfPeriod(period);
+    return isAfter(start) && isBefore(end);
+  }
+}
+
 class ReportCubit extends Cubit<ReportState> {
   ReportCubit({required this.reportRepo}) : super(ReportInitial()) {
     loadReport(DateTime.now(), ReportPeriod.month);
@@ -34,7 +84,10 @@ class ReportCubit extends Cubit<ReportState> {
   Future<void> shiftPeriod({required bool forward}) async {
     if (state is! ReportMonthSelected) return;
     final current = state as ReportMonthSelected;
-    final newAnchor = _shift(current.selectedPeriod, current.selectedMonth, forward: forward);
+    final newAnchor = current.selectedMonth.shiftPeriod(
+      current.selectedPeriod,
+      forward: forward,
+    );
     await loadReport(newAnchor, current.selectedPeriod);
   }
 
@@ -63,60 +116,12 @@ class ReportCubit extends Cubit<ReportState> {
     );
   }
 
-  // ---------------- Period logic (private, lives here only) ----------------
-
-  DateTime _startOf(ReportPeriod period, DateTime anchor) {
-    switch (period) {
-      case ReportPeriod.day:
-        return DateTime(anchor.year, anchor.month, anchor.day);
-      case ReportPeriod.week:
-        return DateTime(anchor.year, anchor.month, anchor.day)
-            .subtract(Duration(days: anchor.weekday - 1));
-      case ReportPeriod.month:
-        return DateTime(anchor.year, anchor.month, 1);
-      case ReportPeriod.year:
-        return DateTime(anchor.year, 1, 1);
-    }
-  }
-
-  DateTime _endOf(ReportPeriod period, DateTime anchor) {
-    switch (period) {
-      case ReportPeriod.day:
-        return _startOf(period, anchor).add(const Duration(days: 1));
-      case ReportPeriod.week:
-        return _startOf(period, anchor).add(const Duration(days: 7));
-      case ReportPeriod.month:
-        return DateTime(anchor.year, anchor.month + 1, 1);
-      case ReportPeriod.year:
-        return DateTime(anchor.year + 1, 1, 1);
-    }
-  }
-
-  DateTime _shift(ReportPeriod period, DateTime anchor, {required bool forward}) {
-    final d = forward ? 1 : -1;
-    switch (period) {
-      case ReportPeriod.day:
-        return anchor.add(Duration(days: d));
-      case ReportPeriod.week:
-        return anchor.add(Duration(days: 7 * d));
-      case ReportPeriod.month:
-        return DateTime(anchor.year, anchor.month + d, anchor.day);
-      case ReportPeriod.year:
-        return DateTime(anchor.year + d, anchor.month, anchor.day);
-    }
-  }
-
   List<TransactionModel> _filterByPeriod(
     List<TransactionModel> transactions,
     ReportPeriod period,
     DateTime anchor,
   ) {
-    final start = _startOf(period, anchor);
-    final end = _endOf(period, anchor);
-
-    return transactions.where((t) {
-      return t.createdAt.isAfter(start) && t.createdAt.isBefore(end);
-    }).toList();
+    return transactions.where((t) => t.createdAt.isWithinPeriod(period, anchor)).toList();
   }
 
   // ---------------- Report building ----------------
