@@ -610,28 +610,6 @@
     }
   },
 
-  "expenseOverview": "المصروفات الأسبوعية ",
-  "@expenseOverview": {
-    "description": "Title for the weekly expense chart card"
-  },
-  "expenseOverviewSubtitle": "إنفاقك خلال هذا الشهر",
-  "@expenseOverviewSubtitle": {
-    "description": "Subtitle for the weekly expense chart card"
-  },
-  "expensesChip": "المصروفات",
-  "@expensesChip": {
-    "description": "Legend chip label on the expense chart"
-  },
-  "week": "الأسبوع {number}",
-  "@week": {
-    "description": "Label for a week in the expense chart",
-    "placeholders": {
-      "number": {
-        "type": "int"
-      }
-    }
-  },
-
   "expenseBreakdown": "توزيع المصروفات",
   "@expenseBreakdown": {
     "description": "Title for the category breakdown donut chart"

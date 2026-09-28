@@ -58,7 +58,7 @@ class ExpenseChartView extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               CustomText(
-                text: s.expenseTrendSubtitle,
+                text: s.expenseOverviewSubtitle,
                 size: 13.sp,
                 type: Type.medium,
                 color: AppTheme.inactiveGrey,
