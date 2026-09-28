@@ -180,6 +180,7 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
   void updateSelectedCategory({required BuildContext context}) {
     CategoriesPicker.show(
       context: context,
+      
       categoriesType: selectedCategory.isIncome
           ? CategoriesType.income
           : CategoriesType.expense,

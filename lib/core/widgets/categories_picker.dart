@@ -81,6 +81,8 @@ class _Body extends StatelessWidget {
         color: Theme.of(context).scaffoldBackgroundColor,
       ),
       child: Categories(
+        crossAxisCount: 3,
+        childAspectRatio: 1.1,
         categories: categories,
         padding: EdgeInsets.zero,
         selectedCategory: selectedCategory,

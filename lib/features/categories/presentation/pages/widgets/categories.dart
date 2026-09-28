@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../const/app_data.dart';
 import '../../../data/models/category_model.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_grid.dart';
@@ -7,6 +8,7 @@ import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/extensions/category_extension.dart';
 
 class Categories extends StatelessWidget {
+  final int crossAxisCount;
   final EdgeInsets? padding;
   final double childAspectRatio;
   final Function(CategoryModel)? onTap;
@@ -17,6 +19,7 @@ class Categories extends StatelessWidget {
     this.onTap,
     this.padding,
     this.selectedCategory,
+    this.crossAxisCount = 4,
     required this.categories,
     this.childAspectRatio = 0.96,
   });
@@ -25,6 +28,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomGrid<CategoryModel>(
       items: categories,
+      crossAxisCount: crossAxisCount,
       childAspectRatio: childAspectRatio,
       padding: padding ?? EdgeInsets.all(12.h),
       itemBuilder: (context, category) => _Item(
@@ -67,8 +71,8 @@ class _ItemBody extends StatelessWidget {
     final cardColor = Theme.of(context).cardColor;
 
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
       curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 200),
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
       decoration: BoxDecoration(
         color: isSelected
@@ -79,15 +83,7 @@ class _ItemBody extends StatelessWidget {
           width: 1.5,
           color: isSelected ? color : Colors.transparent,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: isSelected
-                ? color.withAlpha(60)
-                : Colors.black.withAlpha(13),
-            blurRadius: 16,
-            offset: const Offset(0, 6),
-          ),
-        ],
+        boxShadow: defaultBoxShadow(),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -96,8 +92,8 @@ class _ItemBody extends StatelessWidget {
           CustomText(
             maxLines: 1,
             type: Type.header,
-            textAlign: TextAlign.center,
             text: category.name,
+            textAlign: TextAlign.center,
             size: category.name.getSize(),
           ),
         ],

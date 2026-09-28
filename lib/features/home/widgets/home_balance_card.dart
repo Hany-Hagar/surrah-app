@@ -1,8 +1,11 @@
 import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
+import '../../../core/utils/theme.dart';
 import '../../../core/widgets/custom_text.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../transactions/data/model/balance_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/extensions/number_formatting_extension.dart';
 
 class HomeBalanceCard extends StatelessWidget {
   final BalanceModel currentBalance;
@@ -27,17 +30,17 @@ class HomeBalanceCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _BalanceItem(
-                  color: Colors.green,
                   title: s.income,
-                  icon: Icons.arrow_downward,
+                  color: AppTheme.income,
                   amount: currentBalance.totalIncome,
+                  icon: PhosphorIconsDuotone.trendUp,
                 ),
                 SizedBox(width: 5.w),
                 _BalanceItem(
-                  color: Colors.red,
                   title: s.expense,
-                  icon: Icons.arrow_upward,
+                  color: AppTheme.expense,
                   amount: currentBalance.totalExpense,
+                  icon: PhosphorIconsDuotone.trendDown,
                 ),
               ],
             ),
@@ -89,7 +92,7 @@ class _TopBody extends StatelessWidget {
               opacity: FontOpacity.overMedium,
             ),
             CustomText(
-              text: currentBalance.toStringAsFixed(2),
+              text: currentBalance.moneyFormat(context: context),
               size: 20.sp,
               color: color,
               type: Type.overMedium,
@@ -208,7 +211,7 @@ class _BalanceItem extends StatelessWidget {
                     color: Colors.white,
                   ),
                   CustomText(
-                    text: amount.toStringAsFixed(2),
+                    text: amount.moneyFormat(context: context),
                     size: 14.sp,
                     type: Type.overMedium,
                     color: Colors.white,
