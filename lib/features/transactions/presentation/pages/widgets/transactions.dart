@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/extensions/category_extension.dart';
 import '../../../../categories/data/models/category_model.dart';
-import '../../../../../core/extensions/number_formatting_extension.dart';
+import '../../../../../core/extensions/transaction_extension.dart';
 
 class Transactions extends StatelessWidget {
   final bool isLoading;
@@ -56,14 +56,14 @@ class _Item extends StatelessWidget {
         minTileHeight: 60.h,
         minVerticalPadding: 0,
         horizontalTitleGap: 12.w,
-        leading: _Leading(category: category),
-        title: _Row(
+        leading: CustomCategoryIcon(category: category),
+        title: _ItemRow(
           leading: _Title(category: category),
-          trailing: _Amount(transaction: transaction),
+          trailing: transaction.getAmount(),
         ),
-        subtitle: _Row(
-          leading: _SubTitle(transaction: transaction, category: category),
-          trailing: _Time(transaction: transaction),
+        subtitle: _ItemRow(
+          leading: _Time(transaction: transaction),
+          trailing: transaction.getLocalizedType(context),
         ),
 
         contentPadding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
@@ -80,30 +80,14 @@ class _Item extends StatelessWidget {
   }
 }
 
-class _Row extends StatelessWidget {
+class _ItemRow extends StatelessWidget {
   final Widget leading;
   final Widget trailing;
-  const _Row({required this.leading, required this.trailing});
+  const _ItemRow({required this.leading, required this.trailing});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(child: leading),
-        trailing,
-      ],
-    );
-  }
-}
-
-class _Leading extends StatelessWidget {
-  final CategoryModel category;
-  const _Leading({required this.category});
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomCategoryIcon(category: category);
+    return Row(children: [leading, Spacer(), trailing]);
   }
 }
 
@@ -117,44 +101,6 @@ class _Title extends StatelessWidget {
       text: category.name,
       height: 1.4.h,
       size: 16.sp,
-      type: Type.header,
-    );
-  }
-}
-
-class _SubTitle extends StatelessWidget {
-  final CategoryModel category;
-  final TransactionModel transaction;
-  const _SubTitle({required this.transaction, required this.category});
-
-  @override
-  Widget build(BuildContext context) {
-    var title = transaction.notes.isNotEmpty
-        ? transaction.notes
-        : category.name;
-    return CustomText(
-      text: title,
-      size: 13.5.sp,
-      height: 1.5.h,
-      type: Type.overMedium,
-      opacity: FontOpacity.medium,
-    );
-  }
-}
-
-class _Amount extends StatelessWidget {
-  final TransactionModel transaction;
-  const _Amount({required this.transaction});
-
-  @override
-  Widget build(BuildContext context) {
-    var sign = transaction.isIncome ? '+' : '-';
-    var color = transaction.isIncome ? Color(0xFF4CAF50) : Color(0xFFF44336);
-    return CustomText(
-      text: "$sign \$${transaction.amount.moneyFormat}",
-      size: 18.sp,
-      color: color,
-      height: 1.4.h,
       type: Type.header,
     );
   }

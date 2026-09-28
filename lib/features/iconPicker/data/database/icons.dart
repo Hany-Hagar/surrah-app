@@ -1,5 +1,5 @@
 import '../models/icon_model.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 final List<IconModel> iconsData = [
   ...homeIcons,
@@ -18,7 +18,7 @@ final List<IconModel> iconsData = [
 final List<IconModel> homeIcons = [
   IconModel(
     id: 'home',
-    icon: FontAwesomeIcons.house,
+    icon: PhosphorIconsDuotone.house,
     keywords: [
       'منزل',
       'بيت',
@@ -34,7 +34,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'building',
-    icon: FontAwesomeIcons.building,
+    icon: PhosphorIconsDuotone.buildings,
     keywords: [
       'مبنى',
       'عمارة',
@@ -49,7 +49,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'bedroom',
-    icon: FontAwesomeIcons.bed,
+    icon: PhosphorIconsDuotone.bed,
     keywords: [
       'غرفة نوم',
       'غرفة',
@@ -64,7 +64,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'sofa',
-    icon: FontAwesomeIcons.couch,
+    icon: PhosphorIconsDuotone.couch,
     keywords: [
       'كنبة',
       'أريكة',
@@ -79,7 +79,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'shower',
-    icon: FontAwesomeIcons.shower,
+    icon: PhosphorIconsDuotone.shower,
     keywords: [
       'دش',
       'استحمام',
@@ -95,7 +95,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'lightbulb',
-    icon: FontAwesomeIcons.lightbulb,
+    icon: PhosphorIconsDuotone.lightbulb,
     keywords: [
       'لمبة',
       'مصباح',
@@ -110,7 +110,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'electricity',
-    icon: FontAwesomeIcons.bolt,
+    icon: PhosphorIconsDuotone.lightning,
     keywords: [
       'كهرباء',
       'كهربا',
@@ -126,7 +126,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'water',
-    icon: FontAwesomeIcons.droplet,
+    icon: PhosphorIconsDuotone.drop,
     keywords: [
       'مياه',
       'ماء',
@@ -141,7 +141,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'gas',
-    icon: FontAwesomeIcons.fire,
+    icon: PhosphorIconsDuotone.fire,
     keywords: [
       'غاز',
       'غاز طبيعي',
@@ -156,7 +156,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'cleaning',
-    icon: FontAwesomeIcons.broom,
+    icon: PhosphorIconsDuotone.broom,
     keywords: [
       'تنظيف',
       'نظافة',
@@ -172,7 +172,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'laundry',
-    icon: FontAwesomeIcons.jugDetergent,
+    icon: PhosphorIconsDuotone.tShirt,
     keywords: [
       'غسيل',
       'غسيل ملابس',
@@ -187,7 +187,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'tools',
-    icon: FontAwesomeIcons.screwdriverWrench,
+    icon: PhosphorIconsDuotone.wrench,
     keywords: [
       'أدوات',
       'عدة',
@@ -202,7 +202,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'furniture',
-    icon: FontAwesomeIcons.chair,
+    icon: PhosphorIconsDuotone.armchair,
     keywords: [
       'أثاث',
       'فرش',
@@ -217,7 +217,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'renovation',
-    icon: FontAwesomeIcons.trowelBricks,
+    icon: PhosphorIconsDuotone.hammer,
     keywords: [
       'ترميم',
       'تجديد',
@@ -232,7 +232,7 @@ final List<IconModel> homeIcons = [
   ),
   IconModel(
     id: 'key',
-    icon: FontAwesomeIcons.key,
+    icon: PhosphorIconsDuotone.key,
     keywords: [
       'مفتاح',
       'مفاتيح',
@@ -251,7 +251,7 @@ final List<IconModel> homeIcons = [
 final List<IconModel> foodIcons = [
   IconModel(
     id: 'burger',
-    icon: FontAwesomeIcons.burger,
+    icon: PhosphorIconsDuotone.hamburger,
     keywords: [
       'برجر',
       'همبرجر',
@@ -265,12 +265,12 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'pizza',
-    icon: FontAwesomeIcons.pizzaSlice,
+    icon: PhosphorIconsDuotone.pizza,
     keywords: ['بيتزا', 'بيتسا', 'طعام', 'وجبة', 'pizza', 'food', 'meal'],
   ),
   IconModel(
     id: 'food',
-    icon: FontAwesomeIcons.utensils,
+    icon: PhosphorIconsDuotone.forkKnife,
     keywords: [
       'أكل',
       'طعام',
@@ -286,7 +286,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'noodles',
-    icon: FontAwesomeIcons.bowlFood,
+    icon: PhosphorIconsDuotone.bowlSteam,
     keywords: [
       'نودلز',
       'مكرونة',
@@ -299,7 +299,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'meal',
-    icon: FontAwesomeIcons.plateWheat,
+    icon: PhosphorIconsDuotone.bowlFood,
     keywords: [
       'وجبة',
       'طبق',
@@ -315,6 +315,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'salad',
+    icon: PhosphorIconsDuotone.carrot,
     keywords: [
       'سلطة',
       'خضار',
@@ -325,11 +326,10 @@ final List<IconModel> foodIcons = [
       'healthy food',
       'healthy meal',
     ],
-    icon: FontAwesomeIcons.bowlFood,
   ),
   IconModel(
     id: 'coffee',
-    icon: FontAwesomeIcons.mugSaucer,
+    icon: PhosphorIconsDuotone.coffee,
     keywords: [
       'قهوة',
       'كافيه',
@@ -345,7 +345,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'drink',
-    icon: FontAwesomeIcons.glassWater,
+    icon: PhosphorIconsDuotone.dropHalf,
     keywords: [
       'مشروب',
       'مشروبات',
@@ -361,7 +361,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'cake',
-    icon: FontAwesomeIcons.cakeCandles,
+    icon: PhosphorIconsDuotone.cake,
     keywords: [
       'كيك',
       'كيكة',
@@ -376,7 +376,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'fruit',
-    icon: FontAwesomeIcons.appleWhole,
+    icon: PhosphorIconsDuotone.orange,
     keywords: [
       'فاكهة',
       'فواكه',
@@ -391,7 +391,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'grocery',
-    icon: FontAwesomeIcons.cartShopping,
+    icon: PhosphorIconsDuotone.shoppingCart,
     keywords: [
       'بقالة',
       'مشتريات',
@@ -407,7 +407,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'meat',
-    icon: FontAwesomeIcons.drumstickBite,
+    icon: PhosphorIconsDuotone.cow,
     keywords: [
       'لحمة',
       'لحم',
@@ -422,7 +422,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'bakery',
-    icon: FontAwesomeIcons.breadSlice,
+    icon: PhosphorIconsDuotone.bread,
     keywords: [
       'مخبوزات',
       'عيش',
@@ -437,7 +437,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'breakfast',
-    icon: FontAwesomeIcons.egg,
+    icon: PhosphorIconsDuotone.egg,
     keywords: [
       'فطار',
       'فطور',
@@ -452,7 +452,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'restaurant',
-    icon: FontAwesomeIcons.utensils,
+    icon: PhosphorIconsDuotone.storefront,
     keywords: [
       'مطعم',
       'مطاعم',
@@ -466,7 +466,7 @@ final List<IconModel> foodIcons = [
   ),
   IconModel(
     id: 'chef',
-    icon: FontAwesomeIcons.kitchenSet,
+    icon: PhosphorIconsDuotone.chefHat,
     keywords: [
       'شيف',
       'طباخ',
@@ -482,10 +482,11 @@ final List<IconModel> foodIcons = [
   ),
 ];
 
+
 final List<IconModel> transportationIcons = [
   IconModel(
     id: 'car',
-    icon: FontAwesomeIcons.car,
+    icon: PhosphorIconsDuotone.car,
     keywords: [
       'سيارة',
       'عربية',
@@ -498,12 +499,12 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'taxi',
-    icon: FontAwesomeIcons.taxi,
+    icon: PhosphorIconsDuotone.taxi,
     keywords: ['تاكسي', 'أجرة', 'تاكسيات', 'taxi', 'cab', 'taxicab'],
   ),
   IconModel(
     id: 'bus',
-    icon: FontAwesomeIcons.bus,
+    icon: PhosphorIconsDuotone.bus,
     keywords: [
       'أتوبيس',
       'باص',
@@ -516,7 +517,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'train',
-    icon: FontAwesomeIcons.train,
+    icon: PhosphorIconsDuotone.train,
     keywords: [
       'قطار',
       'قطر',
@@ -529,7 +530,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'metro',
-    icon: FontAwesomeIcons.trainSubway,
+    icon: PhosphorIconsDuotone.subway,
     keywords: [
       'مترو',
       'مترو الأنفاق',
@@ -542,7 +543,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'plane',
-    icon: FontAwesomeIcons.plane,
+    icon: PhosphorIconsDuotone.airplane,
     keywords: [
       'طائرة',
       'طيارة',
@@ -556,7 +557,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'ship',
-    icon: FontAwesomeIcons.ship,
+    icon: PhosphorIconsDuotone.boat,
     keywords: [
       'سفينة',
       'مركب',
@@ -570,7 +571,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'motorcycle',
-    icon: FontAwesomeIcons.motorcycle,
+    icon: PhosphorIconsDuotone.motorcycle,
     keywords: [
       'موتوسيكل',
       'دراجة نارية',
@@ -583,7 +584,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'bicycle',
-    icon: FontAwesomeIcons.bicycle,
+    icon: PhosphorIconsDuotone.bicycle,
     keywords: [
       'عجلة',
       'دراجة',
@@ -596,7 +597,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'gas_station',
-    icon: FontAwesomeIcons.gasPump,
+    icon: PhosphorIconsDuotone.gasPump,
     keywords: [
       'بنزين',
       'محطة بنزين',
@@ -611,7 +612,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'car_service',
-    icon: FontAwesomeIcons.carBurst,
+    icon: PhosphorIconsDuotone.carProfile,
     keywords: [
       'صيانة سيارة',
       'تصليح سيارة',
@@ -627,7 +628,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'parking',
-    icon: FontAwesomeIcons.squareParking,
+    icon: PhosphorIconsDuotone.signpost,
     keywords: [
       'ركنة',
       'موقف',
@@ -641,7 +642,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'road',
-    icon: FontAwesomeIcons.road,
+    icon: PhosphorIconsDuotone.roadHorizon,
     keywords: [
       'طريق',
       'شارع',
@@ -655,7 +656,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'traffic',
-    icon: FontAwesomeIcons.trafficLight,
+    icon: PhosphorIconsDuotone.trafficSignal,
     keywords: [
       'مرور',
       'زحمة',
@@ -670,7 +671,7 @@ final List<IconModel> transportationIcons = [
   ),
   IconModel(
     id: 'navigation',
-    icon: FontAwesomeIcons.locationArrow,
+    icon: PhosphorIconsDuotone.navigationArrow,
     keywords: [
       'ملاحة',
       'اتجاهات',
@@ -689,7 +690,7 @@ final List<IconModel> transportationIcons = [
 final List<IconModel> shoppingIcons = [
   IconModel(
     id: 'shopping',
-    icon: FontAwesomeIcons.bagShopping,
+    icon: PhosphorIconsDuotone.shoppingBag,
     keywords: [
       'تسوق',
       'شراء',
@@ -705,7 +706,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'cart',
-    icon: FontAwesomeIcons.cartShopping,
+    icon: PhosphorIconsDuotone.basket,
     keywords: [
       'عربة',
       'عربة تسوق',
@@ -720,7 +721,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'clothes',
-    icon: FontAwesomeIcons.shirt,
+    icon: PhosphorIconsDuotone.tShirt,
     keywords: [
       'ملابس',
       'هدوم',
@@ -736,7 +737,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'shoes',
-    icon: FontAwesomeIcons.shoePrints,
+    icon: PhosphorIconsDuotone.sneaker,
     keywords: [
       'أحذية',
       'جزمة',
@@ -751,7 +752,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'bag',
-    icon: FontAwesomeIcons.bagShopping,
+    icon: PhosphorIconsDuotone.handbag,
     keywords: [
       'شنطة',
       'حقيبة',
@@ -766,7 +767,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'jewelry',
-    icon: FontAwesomeIcons.gem,
+    icon: PhosphorIconsDuotone.diamond,
     keywords: [
       'مجوهرات',
       'ذهب',
@@ -783,7 +784,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'watch',
-    icon: FontAwesomeIcons.clock,
+    icon: PhosphorIconsDuotone.watch,
     keywords: [
       'ساعة',
       'ساعة يد',
@@ -797,7 +798,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'phone',
-    icon: FontAwesomeIcons.mobileScreen,
+    icon: PhosphorIconsDuotone.deviceMobile,
     keywords: [
       'موبايل',
       'هاتف',
@@ -812,7 +813,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'laptop',
-    icon: FontAwesomeIcons.laptop,
+    icon: PhosphorIconsDuotone.laptop,
     keywords: [
       'لاب توب',
       'لابتوب',
@@ -827,7 +828,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'headphones',
-    icon: FontAwesomeIcons.headphones,
+    icon: PhosphorIconsDuotone.headphones,
     keywords: [
       'سماعات',
       'هيدفون',
@@ -841,7 +842,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'tv',
-    icon: FontAwesomeIcons.tv,
+    icon: PhosphorIconsDuotone.television,
     keywords: [
       'تلفزيون',
       'تليفزيون',
@@ -856,7 +857,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'gaming',
-    icon: FontAwesomeIcons.gamepad,
+    icon: PhosphorIconsDuotone.gameController,
     keywords: [
       'ألعاب',
       'جيمز',
@@ -872,7 +873,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'toys',
-    icon: FontAwesomeIcons.chess,
+    icon: PhosphorIconsDuotone.puzzlePiece,
     keywords: [
       'ألعاب أطفال',
       'لعب',
@@ -887,7 +888,7 @@ final List<IconModel> shoppingIcons = [
   ),
   IconModel(
     id: 'gift',
-    icon: FontAwesomeIcons.gift,
+    icon: PhosphorIconsDuotone.gift,
     keywords: [
       'هدية',
       'هدايا',
@@ -902,10 +903,12 @@ final List<IconModel> shoppingIcons = [
   ),
 ];
 
+// import 'package:phosphor_flutter/phosphor_flutter.dart';
+
 final List<IconModel> healthIcons = [
   IconModel(
     id: 'hospital',
-    icon: FontAwesomeIcons.hospital,
+    icon: PhosphorIconsDuotone.firstAid,
     keywords: [
       'مستشفى',
       'مستشفي',
@@ -918,7 +921,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'medicine',
-    icon: FontAwesomeIcons.pills,
+    icon: PhosphorIconsDuotone.pill,
     keywords: [
       'دواء',
       'أدوية',
@@ -933,7 +936,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'doctor',
-    icon: FontAwesomeIcons.stethoscope,
+    icon: PhosphorIconsDuotone.stethoscope,
     keywords: [
       'دكتور',
       'طبيب',
@@ -947,7 +950,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'dentist',
-    icon: FontAwesomeIcons.tooth,
+    icon: PhosphorIconsDuotone.tooth,
     keywords: [
       'أسنان',
       'دكتور أسنان',
@@ -961,7 +964,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'health',
-    icon: FontAwesomeIcons.heartPulse,
+    icon: PhosphorIconsDuotone.heartbeat,
     keywords: [
       'صحة',
       'صحي',
@@ -975,7 +978,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'mental_health',
-    icon: FontAwesomeIcons.brain,
+    icon: PhosphorIconsDuotone.brain,
     keywords: [
       'صحة نفسية',
       'نفسية',
@@ -990,7 +993,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'glasses',
-    icon: FontAwesomeIcons.glasses,
+    icon: PhosphorIconsDuotone.eyeglasses,
     keywords: [
       'نظارة',
       'نظارات',
@@ -1005,7 +1008,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'gym',
-    icon: FontAwesomeIcons.dumbbell,
+    icon: PhosphorIconsDuotone.barbell,
     keywords: [
       'جيم',
       'صالة رياضية',
@@ -1021,7 +1024,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'fitness',
-    icon: FontAwesomeIcons.personRunning,
+    icon: PhosphorIconsDuotone.personSimpleRun,
     keywords: [
       'لياقة',
       'رياضة',
@@ -1037,7 +1040,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'pharmacy',
-    icon: FontAwesomeIcons.prescriptionBottleMedical,
+    icon: PhosphorIconsDuotone.firstAidKit,
     keywords: [
       'صيدلية',
       'صيدليات',
@@ -1052,7 +1055,7 @@ final List<IconModel> healthIcons = [
   ),
   IconModel(
     id: 'first_aid',
-    icon: FontAwesomeIcons.kitMedical,
+    icon: PhosphorIconsDuotone.bandaids,
     keywords: [
       'إسعافات أولية',
       'إسعاف',
@@ -1070,7 +1073,7 @@ final List<IconModel> healthIcons = [
 final List<IconModel> educationIcons = [
   IconModel(
     id: 'graduation',
-    icon: FontAwesomeIcons.graduationCap,
+    icon: PhosphorIconsDuotone.graduationCap,
     keywords: [
       'تخرج',
       'شهادة',
@@ -1084,7 +1087,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'books',
-    icon: FontAwesomeIcons.bookBookmark,
+    icon: PhosphorIconsDuotone.books,
     keywords: [
       'كتب',
       'مكتبة',
@@ -1099,7 +1102,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'book',
-    icon: FontAwesomeIcons.book,
+    icon: PhosphorIconsDuotone.bookOpen,
     keywords: [
       'كتاب',
       'قراءة',
@@ -1115,7 +1118,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'education',
-    icon: FontAwesomeIcons.graduationCap,
+    icon: PhosphorIconsDuotone.student,
     keywords: [
       'تعليم',
       'دراسة',
@@ -1131,7 +1134,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'pen',
-    icon: FontAwesomeIcons.pen,
+    icon: PhosphorIconsDuotone.pencilSimple,
     keywords: [
       'قلم',
       'كتابة',
@@ -1146,7 +1149,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'school',
-    icon: FontAwesomeIcons.school,
+    icon: PhosphorIconsDuotone.chalkboard,
     keywords: [
       'مدرسة',
       'مدرس',
@@ -1161,7 +1164,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'teacher',
-    icon: FontAwesomeIcons.chalkboardUser,
+    icon: PhosphorIconsDuotone.chalkboardTeacher,
     keywords: [
       'مدرس',
       'معلم',
@@ -1176,7 +1179,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'online_course',
-    icon: FontAwesomeIcons.laptop,
+    icon: PhosphorIconsDuotone.monitorPlay,
     keywords: [
       'كورس',
       'دورة',
@@ -1192,7 +1195,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'exam',
-    icon: FontAwesomeIcons.fileLines,
+    icon: PhosphorIconsDuotone.exam,
     keywords: [
       'امتحان',
       'اختبار',
@@ -1208,7 +1211,7 @@ final List<IconModel> educationIcons = [
   ),
   IconModel(
     id: 'math',
-    icon: FontAwesomeIcons.calculator,
+    icon: PhosphorIconsDuotone.mathOperations,
     keywords: [
       'رياضيات',
       'حساب',
@@ -1227,7 +1230,7 @@ final List<IconModel> educationIcons = [
 final List<IconModel> entertainmentIcons = [
   IconModel(
     id: 'game',
-    icon: FontAwesomeIcons.gamepad,
+    icon: PhosphorIconsDuotone.diceFive,
     keywords: [
       'لعبة',
       'ألعاب',
@@ -1241,7 +1244,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'movie',
-    icon: FontAwesomeIcons.clapperboard,
+    icon: PhosphorIconsDuotone.filmSlate,
     keywords: [
       'فيلم',
       'أفلام',
@@ -1257,7 +1260,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'music',
-    icon: FontAwesomeIcons.music,
+    icon: PhosphorIconsDuotone.musicNotes,
     keywords: [
       'موسيقى',
       'أغاني',
@@ -1272,7 +1275,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'concert',
-    icon: FontAwesomeIcons.microphone,
+    icon: PhosphorIconsDuotone.microphoneStage,
     keywords: [
       'حفلة',
       'حفلات',
@@ -1287,7 +1290,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'audio',
-    icon: FontAwesomeIcons.headphones,
+    icon: PhosphorIconsDuotone.waveform,
     keywords: [
       'صوت',
       'استماع',
@@ -1303,7 +1306,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'camera',
-    icon: FontAwesomeIcons.camera,
+    icon: PhosphorIconsDuotone.camera,
     keywords: [
       'كاميرا',
       'تصوير',
@@ -1318,7 +1321,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'art',
-    icon: FontAwesomeIcons.palette,
+    icon: PhosphorIconsDuotone.palette,
     keywords: [
       'فن',
       'رسم',
@@ -1334,7 +1337,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'sports',
-    icon: FontAwesomeIcons.futbol,
+    icon: PhosphorIconsDuotone.soccerBall,
     keywords: [
       'رياضة',
       'رياضات',
@@ -1350,7 +1353,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'swimming',
-    icon: FontAwesomeIcons.personSwimming,
+    icon: PhosphorIconsDuotone.personSimpleSwim,
     keywords: [
       'سباحة',
       'سباحة في حمام السباحة',
@@ -1364,7 +1367,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'beach',
-    icon: FontAwesomeIcons.sun,
+    icon: PhosphorIconsDuotone.umbrellaSimple,
     keywords: [
       'شاطئ',
       'بحر',
@@ -1380,7 +1383,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'camping',
-    icon: FontAwesomeIcons.fire,
+    icon: PhosphorIconsDuotone.tent,
     keywords: [
       'تخييم',
       'مخيم',
@@ -1395,7 +1398,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'travel',
-    icon: FontAwesomeIcons.plane,
+    icon: PhosphorIconsDuotone.airplaneTilt,
     keywords: [
       'سفر',
       'رحلة',
@@ -1411,7 +1414,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'theater',
-    icon: FontAwesomeIcons.clapperboard,
+    icon: PhosphorIconsDuotone.maskHappy,
     keywords: [
       'مسرح',
       'مسرحية',
@@ -1427,7 +1430,7 @@ final List<IconModel> entertainmentIcons = [
   ),
   IconModel(
     id: 'entertainment',
-    icon: FontAwesomeIcons.champagneGlasses,
+    icon: PhosphorIconsDuotone.confetti,
     keywords: [
       'ترفيه',
       'تسلية',
@@ -1446,7 +1449,7 @@ final List<IconModel> entertainmentIcons = [
 final List<IconModel> moneyIcons = [
   IconModel(
     id: 'money',
-    icon: FontAwesomeIcons.sackDollar,
+    icon: PhosphorIconsDuotone.piggyBank,
     keywords: [
       'فلوس',
       'مال',
@@ -1461,7 +1464,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'cash',
-    icon: FontAwesomeIcons.moneyBillWave,
+    icon: PhosphorIconsDuotone.money,
     keywords: [
       'كاش',
       'نقد',
@@ -1476,7 +1479,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'card',
-    icon: FontAwesomeIcons.creditCard,
+    icon: PhosphorIconsDuotone.creditCard,
     keywords: [
       'كارت',
       'بطاقة',
@@ -1492,7 +1495,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'bank',
-    icon: FontAwesomeIcons.buildingColumns,
+    icon: PhosphorIconsDuotone.bank,
     keywords: [
       'بنك',
       'بنك مصر',
@@ -1507,7 +1510,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'atm',
-    icon: FontAwesomeIcons.moneyBillTransfer,
+    icon: PhosphorIconsDuotone.handWithdraw,
     keywords: [
       'ماكينة صراف',
       'صراف آلي',
@@ -1522,7 +1525,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'investment',
-    icon: FontAwesomeIcons.chartLine,
+    icon: PhosphorIconsDuotone.trendUp,
     keywords: [
       'استثمار',
       'استثمارات',
@@ -1538,7 +1541,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'loss',
-    icon: FontAwesomeIcons.arrowTrendDown,
+    icon: PhosphorIconsDuotone.trendDown,
     keywords: [
       'خسارة',
       'خسائر',
@@ -1554,7 +1557,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'coin',
-    icon: FontAwesomeIcons.coins,
+    icon: PhosphorIconsDuotone.coins,
     keywords: [
       'عملة',
       'عملات',
@@ -1570,7 +1573,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'payment',
-    icon: FontAwesomeIcons.wallet,
+    icon: PhosphorIconsDuotone.wallet,
     keywords: [
       'دفع',
       'مدفوعات',
@@ -1586,7 +1589,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'receipt',
-    icon: FontAwesomeIcons.receipt,
+    icon: PhosphorIconsDuotone.receipt,
     keywords: [
       'إيصال',
       'فاتورة',
@@ -1601,7 +1604,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'calculator',
-    icon: FontAwesomeIcons.calculator,
+    icon: PhosphorIconsDuotone.calculator,
     keywords: [
       'آلة حاسبة',
       'حاسبة',
@@ -1616,7 +1619,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'salary',
-    icon: FontAwesomeIcons.handHoldingDollar,
+    icon: PhosphorIconsDuotone.handCoins,
     keywords: [
       'مرتب',
       'راتب',
@@ -1632,7 +1635,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'bonus',
-    icon: FontAwesomeIcons.gift,
+    icon: PhosphorIconsDuotone.gift,
     keywords: [
       'مكافأة',
       'بونص',
@@ -1647,7 +1650,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'reward',
-    icon: FontAwesomeIcons.award,
+    icon: PhosphorIconsDuotone.medal,
     keywords: [
       'مكافأة',
       'جائزة',
@@ -1663,7 +1666,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'transfer',
-    icon: FontAwesomeIcons.rightLeft,
+    icon: PhosphorIconsDuotone.arrowsLeftRight,
     keywords: [
       'تحويل',
       'تحويل فلوس',
@@ -1678,7 +1681,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'currency',
-    icon: FontAwesomeIcons.dollarSign,
+    icon: PhosphorIconsDuotone.currencyDollar,
     keywords: [
       'عملة',
       'عملات',
@@ -1694,7 +1697,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'statistics',
-    icon: FontAwesomeIcons.chartColumn,
+    icon: PhosphorIconsDuotone.chartBar,
     keywords: [
       'إحصائيات',
       'إحصاء',
@@ -1710,7 +1713,7 @@ final List<IconModel> moneyIcons = [
   ),
   IconModel(
     id: 'budget',
-    icon: FontAwesomeIcons.wallet,
+    icon: PhosphorIconsDuotone.chartPieSlice,
     keywords: [
       'ميزانية',
       'مصروفات',
@@ -1728,7 +1731,7 @@ final List<IconModel> moneyIcons = [
 final List<IconModel> workIcons = [
   IconModel(
     id: 'work',
-    icon: FontAwesomeIcons.briefcase,
+    icon: PhosphorIconsDuotone.briefcase,
     keywords: [
       'عمل',
       'شغل',
@@ -1744,7 +1747,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'office',
-    icon: FontAwesomeIcons.building,
+    icon: PhosphorIconsDuotone.buildingOffice,
     keywords: [
       'مكتب',
       'شركة',
@@ -1760,7 +1763,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'business',
-    icon: FontAwesomeIcons.handshake,
+    icon: PhosphorIconsDuotone.handshake,
     keywords: [
       'أعمال',
       'بيزنس',
@@ -1776,7 +1779,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'laptop',
-    icon: FontAwesomeIcons.laptop,
+    icon: PhosphorIconsDuotone.laptop,
     keywords: [
       'لابتوب',
       'حاسوب محمول',
@@ -1790,7 +1793,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'computer',
-    icon: FontAwesomeIcons.desktop,
+    icon: PhosphorIconsDuotone.desktop,
     keywords: [
       'كمبيوتر',
       'حاسب آلي',
@@ -1804,7 +1807,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'phone',
-    icon: FontAwesomeIcons.phone,
+    icon: PhosphorIconsDuotone.phone,
     keywords: [
       'تليفون',
       'هاتف',
@@ -1820,7 +1823,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'email',
-    icon: FontAwesomeIcons.envelope,
+    icon: PhosphorIconsDuotone.envelope,
     keywords: [
       'إيميل',
       'بريد إلكتروني',
@@ -1834,7 +1837,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'calendar',
-    icon: FontAwesomeIcons.calendar,
+    icon: PhosphorIconsDuotone.calendar,
     keywords: [
       'تقويم',
       'موعد',
@@ -1850,7 +1853,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'time',
-    icon: FontAwesomeIcons.clock,
+    icon: PhosphorIconsDuotone.clock,
     keywords: [
       'وقت',
       'ساعة',
@@ -1865,7 +1868,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'employee',
-    icon: FontAwesomeIcons.user,
+    icon: PhosphorIconsDuotone.identificationBadge,
     keywords: [
       'موظف',
       'عامل',
@@ -1881,7 +1884,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'teamwork',
-    icon: FontAwesomeIcons.users,
+    icon: PhosphorIconsDuotone.usersThree,
     keywords: [
       'فريق',
       'تعاون',
@@ -1897,7 +1900,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'analytics',
-    icon: FontAwesomeIcons.chartLine,
+    icon: PhosphorIconsDuotone.chartLineUp,
     keywords: [
       'تحليل',
       'إحصائيات',
@@ -1913,7 +1916,7 @@ final List<IconModel> workIcons = [
   ),
   IconModel(
     id: 'files',
-    icon: FontAwesomeIcons.folder,
+    icon: PhosphorIconsDuotone.folder,
     keywords: [
       'ملفات',
       'مستندات',
@@ -1932,7 +1935,7 @@ final List<IconModel> workIcons = [
 final List<IconModel> familyIcons = [
   IconModel(
     id: 'person',
-    icon: FontAwesomeIcons.user,
+    icon: PhosphorIconsDuotone.user,
     keywords: [
       'شخص',
       'فرد',
@@ -1946,7 +1949,7 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'people',
-    icon: FontAwesomeIcons.users,
+    icon: PhosphorIconsDuotone.users,
     keywords: [
       'أشخاص',
       'ناس',
@@ -1960,12 +1963,12 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'man',
-    icon: FontAwesomeIcons.user,
+    icon: PhosphorIconsDuotone.genderMale,
     keywords: ['رجل', 'راجل', 'ذكر', 'شخص', 'man', 'male', 'guy', 'person'],
   ),
   IconModel(
     id: 'woman',
-    icon: FontAwesomeIcons.user,
+    icon: PhosphorIconsDuotone.genderFemale,
     keywords: [
       'امرأة',
       'ست',
@@ -1979,7 +1982,7 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'baby',
-    icon: FontAwesomeIcons.baby,
+    icon: PhosphorIconsDuotone.baby,
     keywords: [
       'طفل',
       'رضيع',
@@ -1993,7 +1996,7 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'family',
-    icon: FontAwesomeIcons.users,
+    icon: PhosphorIconsDuotone.houseLine,
     keywords: [
       'عائلة',
       'أسرة',
@@ -2007,7 +2010,7 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'couple',
-    icon: FontAwesomeIcons.heart,
+    icon: PhosphorIconsDuotone.heart,
     keywords: [
       'زوجين',
       'ثنائي',
@@ -2023,7 +2026,7 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'friends',
-    icon: FontAwesomeIcons.users,
+    icon: PhosphorIconsDuotone.usersFour,
     keywords: [
       'أصدقاء',
       'صحاب',
@@ -2038,7 +2041,7 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'pet',
-    icon: FontAwesomeIcons.paw,
+    icon: PhosphorIconsDuotone.pawPrint,
     keywords: [
       'حيوان أليف',
       'حيوانات أليفة',
@@ -2052,7 +2055,7 @@ final List<IconModel> familyIcons = [
   ),
   IconModel(
     id: 'cat',
-    icon: FontAwesomeIcons.cat,
+    icon: PhosphorIconsDuotone.cat,
     keywords: [
       'قطة',
       'قط',
@@ -2069,7 +2072,7 @@ final List<IconModel> familyIcons = [
 final List<IconModel> technologyIcons = [
   IconModel(
     id: 'mobile',
-    icon: FontAwesomeIcons.mobileScreenButton,
+    icon: PhosphorIconsDuotone.deviceMobile,
     keywords: [
       'موبايل',
       'هاتف',
@@ -2084,7 +2087,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'computer',
-    icon: FontAwesomeIcons.desktop,
+    icon: PhosphorIconsDuotone.desktop,
     keywords: [
       'كمبيوتر',
       'حاسوب',
@@ -2098,7 +2101,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'monitor',
-    icon: FontAwesomeIcons.desktop,
+    icon: PhosphorIconsDuotone.monitor,
     keywords: [
       'شاشة',
       'مونيتور',
@@ -2112,7 +2115,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'keyboard',
-    icon: FontAwesomeIcons.keyboard,
+    icon: PhosphorIconsDuotone.keyboard,
     keywords: [
       'كيبورد',
       'لوحة مفاتيح',
@@ -2124,12 +2127,12 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'mouse',
-    icon: FontAwesomeIcons.computerMouse,
+    icon: PhosphorIconsDuotone.mouse,
     keywords: ['ماوس', 'فأرة', 'ماوس كمبيوتر', 'mouse', 'computer mouse'],
   ),
   IconModel(
     id: 'headset',
-    icon: FontAwesomeIcons.headset,
+    icon: PhosphorIconsDuotone.headset,
     keywords: [
       'سماعة',
       'هيدسيت',
@@ -2143,7 +2146,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'internet',
-    icon: FontAwesomeIcons.globe,
+    icon: PhosphorIconsDuotone.globe,
     keywords: [
       'إنترنت',
       'انترنت',
@@ -2159,7 +2162,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'network',
-    icon: FontAwesomeIcons.shareNodes,
+    icon: PhosphorIconsDuotone.shareNetwork,
     keywords: [
       'شبكة',
       'شبكات',
@@ -2173,7 +2176,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'cloud',
-    icon: FontAwesomeIcons.cloud,
+    icon: PhosphorIconsDuotone.cloud,
     keywords: [
       'سحابة',
       'كلاود',
@@ -2187,7 +2190,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'security',
-    icon: FontAwesomeIcons.lock,
+    icon: PhosphorIconsDuotone.lockKey,
     keywords: [
       'أمان',
       'حماية',
@@ -2203,7 +2206,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'battery',
-    icon: FontAwesomeIcons.batteryFull,
+    icon: PhosphorIconsDuotone.batteryFull,
     keywords: [
       'بطارية',
       'شحن',
@@ -2217,7 +2220,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'charging',
-    icon: FontAwesomeIcons.bolt,
+    icon: PhosphorIconsDuotone.batteryCharging,
     keywords: [
       'شحن',
       'شاحن',
@@ -2235,7 +2238,7 @@ final List<IconModel> technologyIcons = [
   // Subscriptions
   IconModel(
     id: 'subscriptions',
-    icon: FontAwesomeIcons.repeat,
+    icon: PhosphorIconsDuotone.repeat,
     keywords: [
       'الاشتراكات',
       'اشتراكات',
@@ -2248,7 +2251,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'video_subscription',
-    icon: FontAwesomeIcons.tv,
+    icon: PhosphorIconsDuotone.playCircle,
     keywords: [
       'اشتراك أفلام',
       'اشتراك فيديو',
@@ -2263,7 +2266,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'music_subscription',
-    icon: FontAwesomeIcons.music,
+    icon: PhosphorIconsDuotone.musicNote,
     keywords: [
       'اشتراك موسيقى',
       'موسيقى',
@@ -2278,7 +2281,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'cloud_storage',
-    icon: FontAwesomeIcons.cloud,
+    icon: PhosphorIconsDuotone.cloudArrowUp,
     keywords: [
       'تخزين سحابي',
       'اشتراك كلاود',
@@ -2292,7 +2295,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'mobile_subscription',
-    icon: FontAwesomeIcons.mobileScreenButton,
+    icon: PhosphorIconsDuotone.simCard,
     keywords: [
       'باقة موبايل',
       'باقة إنترنت',
@@ -2307,7 +2310,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'internet_subscription',
-    icon: FontAwesomeIcons.globe,
+    icon: PhosphorIconsDuotone.wifiHigh,
     keywords: [
       'اشتراك إنترنت',
       'باقة نت',
@@ -2321,7 +2324,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'software_subscription',
-    icon: FontAwesomeIcons.code,
+    icon: PhosphorIconsDuotone.code,
     keywords: [
       'اشتراك برنامج',
       'برنامج',
@@ -2335,7 +2338,7 @@ final List<IconModel> technologyIcons = [
   ),
   IconModel(
     id: 'gaming_subscription',
-    icon: FontAwesomeIcons.gamepad,
+    icon: PhosphorIconsDuotone.gameController,
     keywords: [
       'اشتراك ألعاب',
       'جيمز',

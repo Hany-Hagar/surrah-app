@@ -1,7 +1,12 @@
 import 'date_extension.dart';
 import 'category_extension.dart';
+import '../../generated/l10n.dart';
 import '../enums/category_type.dart';
+import '../widgets/custom_text.dart';
+import 'package:flutter/material.dart';
 import '../enums/date_filter_type.dart';
+import 'number_formatting_extension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/categories/data/models/category_model.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
@@ -85,5 +90,38 @@ extension SearchExtension on List<TransactionModel> {
         CategoriesType.expense => !category.isIncome,
       };
     }).toList();
+  }
+}
+
+extension TransactionModelExtension on TransactionModel {
+  // Gets the category associated with the transaction.
+  CategoryModel getCategory() {
+    return categoryId.getCategory();
+  }
+
+  // Gets the formatted amount with a sign based on whether it's income or expense.
+  Widget getAmount() {
+    var sign = isIncome ? '+' : '-';
+    var color = isIncome ? Color(0xFF4CAF50) : Color(0xFFF44336);
+    return CustomText(
+      text: "$sign \$${amount.moneyFormat}",
+      size: 18.sp,
+      color: color,
+      height: 1.4.h,
+      type: Type.header,
+    );
+  }
+
+  // Get Localized Type of Transaction
+  Widget getLocalizedType(BuildContext context) {
+    var s = S.of(context);
+    var type = isIncome ? s.income : s.expense;
+    return CustomText(
+      text: type,
+      size: 14.sp,
+      height: 1.5.h,
+      type: Type.header,
+      opacity: FontOpacity.medium,
+    );
   }
 }
