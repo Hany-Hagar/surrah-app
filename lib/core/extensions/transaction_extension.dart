@@ -100,11 +100,10 @@ extension TransactionModelExtension on TransactionModel {
   }
 
   // Gets the formatted amount with a sign based on whether it's income or expense.
-  Widget getAmount() {
-    var sign = isIncome ? '+' : '-';
+  Widget getAmount(BuildContext context) {
     var color = isIncome ? Color(0xFF4CAF50) : Color(0xFFF44336);
     return CustomText(
-      text: "$sign \$${amount.moneyFormat}",
+      text: amount.moneyFormatWithSign(context: context, isIncome: isIncome),
       size: 18.sp,
       color: color,
       height: 1.4.h,

@@ -48,7 +48,7 @@ class _Item extends StatelessWidget {
     var category = transaction.categoryId.getCategory();
     return DecoratedBox(
       decoration: BoxDecoration(
-        boxShadow: defaultBoxShadow,
+        boxShadow: defaultBoxShadow(),
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(12.h),
       ),
@@ -59,7 +59,7 @@ class _Item extends StatelessWidget {
         leading: CustomCategoryIcon(category: category),
         title: _ItemRow(
           leading: _Title(category: category),
-          trailing: transaction.getAmount(),
+          trailing: transaction.getAmount(context),
         ),
         subtitle: _ItemRow(
           leading: _Time(transaction: transaction),
