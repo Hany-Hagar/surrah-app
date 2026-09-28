@@ -42,18 +42,20 @@ class ReportDetailsView extends StatelessWidget {
               selectedDate: selectedMonth,
               onMonthLabelTap: () => _pickMonth(context, selectedMonth),
             ),
+
             const SizedBox(height: 8),
             if (reportState?.incomeBreakdown.isNotEmpty ?? false) ...[
+              const SizedBox(height: 8),
+            ExpenseChartView(
+              weeks: reportState?.weeklyExpenses ?? [],
+            ),
               const SizedBox(height: 8),
               IncomeBreakdownView(
                 incomeBreakdown: reportState?.incomeBreakdown ?? [],
               ),
             ],
             
-            const SizedBox(height: 8),
-            ExpenseChartView(
-              weeks: reportState?.weeklyExpenses ?? [],
-            ),
+            
 
             const SizedBox(height: 8),
             ExpenseBreakdownView(

@@ -715,6 +715,11 @@
 "periodYear": "Year",
 "@periodYear": {
   "description": "Label for the year period tab"
+},
+  "expenseOverview": "Expenses Trend",
+  "expenseTrendSubtitle": "Track your spending over time",
+  "@expenseTrendSubtitle": {
+  "description": "Subtitle for the expenses trend chart"
 }
 
 }

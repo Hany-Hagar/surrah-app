@@ -734,5 +734,10 @@
 "periodYear": "سنة",
 "@periodYear": {
   "description": "Label for the year period tab"
+},
+  "expenseOverview": "اتجاه المصروفات",
+  "expenseTrendSubtitle": "تتبّع إنفاقك عبر الوقت",
+  "@expenseTrendSubtitle": {
+  "description": "Subtitle for the expenses trend chart"
 }
 }

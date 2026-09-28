@@ -1,4 +1,7 @@
+import 'dart:math' as math;
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
 import '../../data/repo/report_repo.dart';
 import '../../data/model/income_entry.dart';
@@ -18,7 +21,7 @@ extension DateFilterExtension on DateTime {
       case ReportPeriod.day:
         return DateTime(year, month, day);
       case ReportPeriod.week:
-        return DateTime(year, month, day).subtract(Duration(days: weekday - 1));
+        return DateTime(year, month, day - (weekday - 1));
       case ReportPeriod.month:
         return DateTime(year, month, 1);
       case ReportPeriod.year:
@@ -27,11 +30,12 @@ extension DateFilterExtension on DateTime {
   }
 
   DateTime endOfPeriod(ReportPeriod period) {
+    final start = startOfPeriod(period);
     switch (period) {
       case ReportPeriod.day:
-        return startOfPeriod(period).add(const Duration(days: 1));
+        return DateTime(start.year, start.month, start.day + 1);
       case ReportPeriod.week:
-        return startOfPeriod(period).add(const Duration(days: 7));
+        return DateTime(start.year, start.month, start.day + 7);
       case ReportPeriod.month:
         return DateTime(year, month + 1, 1);
       case ReportPeriod.year:
@@ -43,20 +47,22 @@ extension DateFilterExtension on DateTime {
     final d = forward ? 1 : -1;
     switch (period) {
       case ReportPeriod.day:
-        return add(Duration(days: d));
+        return DateTime(year, month, day + d);
       case ReportPeriod.week:
-        return add(Duration(days: 7 * d));
+        return DateTime(year, month, day + 7 * d);
       case ReportPeriod.month:
-        return DateTime(year, month + d, day);
+        final lastDay = DateTime(year, month + d + 1, 0).day;
+        return DateTime(year, month + d, math.min(day, lastDay));
       case ReportPeriod.year:
-        return DateTime(year + d, month, day);
+        final lastDay = DateTime(year + d, month + 1, 0).day;
+        return DateTime(year + d, month, math.min(day, lastDay));
     }
   }
 
   bool isWithinPeriod(ReportPeriod period, DateTime anchor) {
     final start = anchor.startOfPeriod(period);
     final end = anchor.endOfPeriod(period);
-    return isAfter(start) && isBefore(end);
+    return !isBefore(start) && isBefore(end);
   }
 }
 
@@ -110,7 +116,8 @@ class ReportCubit extends Cubit<ReportState> {
       (data) {
         categoriesResult.fold(
           (failure) => emit(ReportError(message: failure.message)),
-          (categories) => _emitReport(anchor, period, data.transactions, categories),
+          (categories) =>
+              _emitReport(anchor, period, data.transactions, categories),
         );
       },
     );
@@ -121,7 +128,9 @@ class ReportCubit extends Cubit<ReportState> {
     ReportPeriod period,
     DateTime anchor,
   ) {
-    return transactions.where((t) => t.createdAt.isWithinPeriod(period, anchor)).toList();
+    return transactions
+        .where((t) => t.createdAt.isWithinPeriod(period, anchor))
+        .toList();
   }
 
   // ---------------- Report building ----------------
@@ -150,7 +159,7 @@ class ReportCubit extends Cubit<ReportState> {
       selectedPeriod: period,
       salary: salary,
       totalExpenses: totalExpenses,
-      weeklyExpenses: _calculateWeeklyExpenses(periodTransactions),
+      weeklyExpenses: _calculateTrend(allTransactions, anchor, period),
       categoryExpenses: _calculateCategoryExpenses(
         periodTransactions,
         categories,
@@ -168,23 +177,75 @@ class ReportCubit extends Cubit<ReportState> {
     ));
   }
 
-  List<WeeklyExpense> _calculateWeeklyExpenses(
-    List<TransactionModel> periodTransactions,
+  // يحسب نقاط الشارت حسب الفترة المختارة، ولازم يشتغل على كل المعاملات
+  // مش المفلترة، لأن الشارت بيعرض الفترة الأكبر حوالين الفترة المختارة:
+  // يوم -> أيام الأسبوع | أسبوع -> أسابيع الشهر | شهر -> شهور السنة | سنة -> آخر 5 سنين
+  List<WeeklyExpense> _calculateTrend(
+    List<TransactionModel> allTransactions,
+    DateTime anchor,
+    ReportPeriod period,
   ) {
-    final weeks = [0.0, 0.0, 0.0, 0.0];
+    final expenses = allTransactions.where((t) => !t.isIncome).toList();
 
-    for (final t in periodTransactions) {
-      if (t.isIncome) continue;
-      final weekIndex = ((t.createdAt.day - 1) ~/ 7).clamp(0, 3);
-      weeks[weekIndex] += t.amount;
+    double sumBetween(DateTime start, DateTime end) {
+      var total = 0.0;
+      for (final t in expenses) {
+        if (!t.createdAt.isBefore(start) && t.createdAt.isBefore(end)) {
+          total += t.amount;
+        }
+      }
+      return total;
     }
 
-    return [
-      WeeklyExpense(label: 'Week 1', amount: weeks[0]),
-      WeeklyExpense(label: 'Week 2', amount: weeks[1]),
-      WeeklyExpense(label: 'Week 3', amount: weeks[2]),
-      WeeklyExpense(label: 'Week 4', amount: weeks[3]),
-    ];
+    switch (period) {
+      case ReportPeriod.day:
+        final weekStart = anchor.startOfPeriod(ReportPeriod.week);
+        return List.generate(7, (i) {
+          final start =
+              DateTime(weekStart.year, weekStart.month, weekStart.day + i);
+          final end = DateTime(start.year, start.month, start.day + 1);
+          return WeeklyExpense(
+            label: DateFormat('E').format(start),
+            subLabel: '${start.day}',
+            amount: sumBetween(start, end),
+          );
+        });
+
+      case ReportPeriod.week:
+        final lastDay = DateTime(anchor.year, anchor.month + 1, 0).day;
+        return List.generate(4, (i) {
+          final startDay = 1 + i * 7;
+          final start = DateTime(anchor.year, anchor.month, startDay);
+          final end = i == 3
+              ? DateTime(anchor.year, anchor.month + 1, 1)
+              : DateTime(anchor.year, anchor.month, startDay + 7);
+          final endDay = i == 3 ? lastDay : startDay + 6;
+          return WeeklyExpense(
+            label: 'W${i + 1}',
+            subLabel: '$startDay-$endDay',
+            amount: sumBetween(start, end),
+          );
+        });
+
+      case ReportPeriod.month:
+        return List.generate(12, (i) {
+          final start = DateTime(anchor.year, i + 1, 1);
+          final end = DateTime(anchor.year, i + 2, 1);
+          return WeeklyExpense(
+            label: DateFormat('MMM').format(start),
+            amount: sumBetween(start, end),
+          );
+        });
+
+      case ReportPeriod.year:
+        return List.generate(5, (i) {
+          final year = anchor.year - 4 + i;
+          return WeeklyExpense(
+            label: '$year',
+            amount: sumBetween(DateTime(year, 1, 1), DateTime(year + 1, 1, 1)),
+          );
+        });
+    }
   }
 
   List<CategoryExpense> _calculateCategoryExpenses(
