@@ -6,11 +6,11 @@ import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/custom_text.dart';
 import '../../../../core/services/dialog_service.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:flex_color_picker/flex_color_picker.dart';
 import '../../../../core/extensions/color_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 abstract class IconPicker {
   static Future<({IconModel icon, Color color})> show(
@@ -138,7 +138,7 @@ class _Icon extends StatelessWidget {
     return IconButton(
       onPressed: () =>
           Navigator.of(context).pop({"icon": icon, "color": color}),
-      icon: FaIcon(icon.icon, size: 24.sp, color: color),
+      icon: PhosphorIcon(icon.icon, size: 24.sp, color: color),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../const/app_data.dart';
 import '../../../data/models/category_model.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_grid.dart';
@@ -49,7 +48,7 @@ class _Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isSelected = category == selectedCategory;
+    final isSelected = category == selectedCategory;
     return GestureDetector(
       onTap: () => onTap?.call(category),
       child: _ItemBody(isSelected: isSelected, category: category),
@@ -64,17 +63,31 @@ class _ItemBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = Color(category.color);
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+    final color = Color(category.color);
+    final cardColor = Theme.of(context).cardColor;
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOut,
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
       decoration: BoxDecoration(
-        boxShadow: defaultBoxShadow,
-        color: isSelected ? color.withAlpha(45) : Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(4.r),
+        color: isSelected
+            ? Color.alphaBlend(color.withAlpha(30), cardColor)
+            : cardColor,
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
-          width: isSelected ? 2 : 0,
+          width: 1.5,
           color: isSelected ? color : Colors.transparent,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: isSelected
+                ? color.withAlpha(60)
+                : Colors.black.withAlpha(13),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
+          ),
+        ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
