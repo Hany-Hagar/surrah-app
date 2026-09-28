@@ -8,6 +8,7 @@ import '../../../../../core/widgets/custom_category_icon.dart';
 import '../../../../../core/extensions/category_extension.dart';
 
 class Categories extends StatelessWidget {
+  final int crossAxisCount;
   final EdgeInsets? padding;
   final double childAspectRatio;
   final Function(CategoryModel)? onTap;
@@ -18,6 +19,7 @@ class Categories extends StatelessWidget {
     this.onTap,
     this.padding,
     this.selectedCategory,
+    this.crossAxisCount = 4,
     required this.categories,
     this.childAspectRatio = 0.96,
   });
@@ -26,6 +28,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomGrid<CategoryModel>(
       items: categories,
+      crossAxisCount: crossAxisCount,
       childAspectRatio: childAspectRatio,
       padding: padding ?? EdgeInsets.all(12.h),
       itemBuilder: (context, category) => _Item(
@@ -49,7 +52,7 @@ class _Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isSelected = category == selectedCategory;
+    final isSelected = category == selectedCategory;
     return GestureDetector(
       onTap: () => onTap?.call(category),
       child: _ItemBody(isSelected: isSelected, category: category),
@@ -64,17 +67,23 @@ class _ItemBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = Color(category.color);
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+    final color = Color(category.color);
+    final cardColor = Theme.of(context).cardColor;
+
+    return AnimatedContainer(
+      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 200),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
       decoration: BoxDecoration(
-        boxShadow: defaultBoxShadow,
-        color: isSelected ? color.withAlpha(45) : Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(4.r),
+        color: isSelected
+            ? Color.alphaBlend(color.withAlpha(30), cardColor)
+            : cardColor,
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
-          width: isSelected ? 2 : 0,
+          width: 1.5,
           color: isSelected ? color : Colors.transparent,
         ),
+        boxShadow: defaultBoxShadow(),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,8 +92,8 @@ class _ItemBody extends StatelessWidget {
           CustomText(
             maxLines: 1,
             type: Type.header,
-            textAlign: TextAlign.center,
             text: category.name,
+            textAlign: TextAlign.center,
             size: category.name.getSize(),
           ),
         ],

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-var defaultBoxShadow = [
-  BoxShadow(
-    color: Colors.black.withAlpha(25),
-    blurRadius: 4,
-    offset: const Offset(0, 2),
-  ),
-];
+List<BoxShadow> defaultBoxShadow({
+  bool isSelected = false,
+  Color color = Colors.blue,
+}) {
+  return [
+    BoxShadow(
+      color: isSelected ? color.withAlpha(60) : Colors.black.withAlpha(13),
+      blurRadius: 16,
+      offset: const Offset(0, 6),
+    ),
+  ];
+}

@@ -15,6 +15,10 @@ class Assets {
   static const String onboarding3 = 'assets/svgs/onBoarding3.svg';
   static const String onboarding4 = 'assets/svgs/onBoarding4.svg';
 
+  // Balance Card Assets
+  static const String balanceCardBackground =
+      'assets/images/balanceCardBg.jpeg';
+
   // Category Assets
   static const String categoryLogo = 'assets/lotties/create.json';
 
