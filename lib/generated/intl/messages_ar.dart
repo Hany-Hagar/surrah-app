@@ -242,6 +242,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchTransactionsHint": MessageLookupByLibrary.simpleMessage(
       "بحث في العمليات",
     ),
+    "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),
@@ -251,8 +252,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
       "🔒 الخصوصية والدعم",
     ),
-    "settingsSubtitle": MessageLookupByLibrary.simpleMessage("إدارة تفضيلاتك"),
-    "settingsTitle": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تخصيص تجربة التطبيق",
+    ),
+    "settingsTitle": MessageLookupByLibrary.simpleMessage("إدارة إعداداتك"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "systemTheme": MessageLookupByLibrary.simpleMessage("نظام"),
     "themeSubtitle": MessageLookupByLibrary.simpleMessage(

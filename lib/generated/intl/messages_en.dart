@@ -255,6 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchTransactionsHint": MessageLookupByLibrary.simpleMessage(
       "Search Transactions",
     ),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),
@@ -265,9 +266,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "🔒 Privacy & Support",
     ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Manage your preferences",
+      "Customize your app experience",
     ),
-    "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
+    "settingsTitle": MessageLookupByLibrary.simpleMessage(
+      "Manage Your Settings",
+    ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "systemTheme": MessageLookupByLibrary.simpleMessage("System"),
     "themeSubtitle": MessageLookupByLibrary.simpleMessage(

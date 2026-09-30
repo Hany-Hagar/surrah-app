@@ -310,11 +310,15 @@
   },
 
 
-  "settingsTitle": "Settings",
+  "settings": "Settings",
+  "@settings": {
+    "description": "Label for the settings button"
+  },
+  "settingsTitle": "Manage Your Settings",
   "@settingsTitle": {
     "description": "Title for the settings page"
   },
-  "settingsSubtitle": "Manage your preferences",
+  "settingsSubtitle": "Customize your app experience",
   "@settingsSubtitle": {
     "description": "Subtitle for the settings page"
   },

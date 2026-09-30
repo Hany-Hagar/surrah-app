@@ -785,19 +785,29 @@ class S {
   }
 
   /// `Settings`
-  String get settingsTitle {
+  String get settings {
     return Intl.message(
       'Settings',
+      name: 'settings',
+      desc: 'Label for the settings button',
+      args: [],
+    );
+  }
+
+  /// `Manage Your Settings`
+  String get settingsTitle {
+    return Intl.message(
+      'Manage Your Settings',
       name: 'settingsTitle',
       desc: 'Title for the settings page',
       args: [],
     );
   }
 
-  /// `Manage your preferences`
+  /// `Customize your app experience`
   String get settingsSubtitle {
     return Intl.message(
-      'Manage your preferences',
+      'Customize your app experience',
       name: 'settingsSubtitle',
       desc: 'Subtitle for the settings page',
       args: [],
