@@ -34,7 +34,7 @@ class ContactSupportBody extends StatelessWidget {
           icon: IconBroken.Message,
           title: s.contactSupportEmailTitle,
           subtitle: s.contactSupportEmailSubtitle,
-          onTap:() => SupportService.email(context: context),
+          onTap: () => SupportService.email(context: context),
         ),
         SettingsItem(
           color: Colors.green,
@@ -108,15 +108,18 @@ class _FaqItem extends StatelessWidget {
         tilePadding: padding,
         collapsedShape: shape,
         childrenPadding: padding,
+        iconColor: Theme.of(context).hintColor,
         backgroundColor: Theme.of(context).cardColor,
+        collapsedIconColor: Theme.of(context).hintColor,
         collapsedBackgroundColor: Theme.of(context).cardColor,
         title: CustomText(text: question, size: 14.sp, type: Type.overMedium),
         children: [
           SizedBox(height: 6.h),
           CustomText(
             text: answer,
-            size: 13.sp,
+            size: 14.sp,
             maxLines: 4,
+            type: Type.overMedium,
             opacity: FontOpacity.medium,
           ),
           SizedBox(height: 12.h),
