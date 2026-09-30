@@ -66,12 +66,14 @@ class IncomeBreakdownView extends StatelessWidget {
           text: s.incomeBreakdown,
           size: 20,
           type: Type.header,
+          maxLines: 2,
         ),
         CustomText(
           text: s.sourcesCount(incomeBreakdown.length),
           size: 13.sp,
           type: Type.overSmall,
           opacity: FontOpacity.medium,
+          maxLines: 2,
         ),
       ],
     );
@@ -125,12 +127,14 @@ class IncomeBreakdownView extends StatelessWidget {
               opacity: FontOpacity.medium,
               letterSpacing: 0.5,
               textAlign: TextAlign.center,
+              maxLines: 2,
             ),
             const SizedBox(height: 4),
             CustomText(
               text: "\$${_totalIncome.toStringAsFixed(0)}",
               size: 16.sp,
               type: Type.header,
+              maxLines: 2,
             ),
           ],
         );
@@ -163,6 +167,7 @@ class IncomeBreakdownView extends StatelessWidget {
               text: c.category.name,
               size: 13,
               type: Type.overMedium,
+              maxLines: 2,
             ),
           ),
           CustomText(
@@ -170,6 +175,7 @@ class IncomeBreakdownView extends StatelessWidget {
             size: 12,
             type: Type.overSmall,
             opacity: FontOpacity.medium,
+            maxLines: 2,
           ),
           const SizedBox(width: 10),
           SizedBox(
@@ -179,6 +185,7 @@ class IncomeBreakdownView extends StatelessWidget {
               size: 13,
               type: Type.header,
               textAlign: TextAlign.right,
+              maxLines: 2,
             ),
           ),
         ],

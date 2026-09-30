@@ -71,12 +71,14 @@ class ExpenseBreakdownView extends StatelessWidget {
           size: 20,
           type: Type.header,
           color: theme.colorScheme.onSurface,
+          maxLines: 2,
         ),
         CustomText(
           text: s.categoriesCount(categoryExpenses.length),
           size: 13,
           type: Type.medium,
           color: AppTheme.inactiveGrey,
+          maxLines: 2,
         ),
       ],
     );
