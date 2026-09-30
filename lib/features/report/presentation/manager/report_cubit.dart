@@ -173,13 +173,10 @@ class ReportCubit extends Cubit<ReportState> {
         categories,
         salary,
       ),
-      incomeEntries: _calculateIncomeEntries(periodTransactions, categories),
+      incomeEntries: _calculateIncomeEntries(periodTransactions, categories), allTransactions: [],
     ));
   }
 
-  // يحسب نقاط الشارت حسب الفترة المختارة، ولازم يشتغل على كل المعاملات
-  // مش المفلترة، لأن الشارت بيعرض الفترة الأكبر حوالين الفترة المختارة:
-  // يوم -> أيام الأسبوع | أسبوع -> أسابيع الشهر | شهر -> شهور السنة | سنة -> آخر 5 سنين
   List<WeeklyExpense> _calculateTrend(
     List<TransactionModel> allTransactions,
     DateTime anchor,

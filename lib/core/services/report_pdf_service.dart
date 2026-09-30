@@ -11,6 +11,7 @@ import 'package:printing/printing.dart';
 
 import '../../core/utils/theme.dart';
 import '../../features/categories/data/models/category_model.dart';
+import '../../features/report/presentation/manager/report_cubit.dart';
 import '../../features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import '../../features/report/presentation/pages/widgets/expense_chart_view.dart';
 import '../../features/report/data/model/income_entry.dart';
@@ -33,14 +34,14 @@ class ReportPdfService {
     return PdfColor.fromInt(color.value);
   }
 
-  // ---------- Spacing scale (keep everything consistent) ----------
+  // ---------- Spacing scale ----------
 
   static const double _sSm = 8;
   static const double _sMd = 14;
   static const double _sLg = 20;
-  static const double _sXl = 90;
+  static const double _sXl = 24;
 
-  // ---------- Text & dot helpers (the "CustomText" of this PDF) ----------
+  // ---------- Text & dot helpers ----------
 
   static pw.Text _pdfText(
     String text, {
@@ -70,12 +71,35 @@ class ReportPdfService {
     );
   }
 
+  static String _trendTitle(ReportPeriod period) {
+    switch (period) {
+      case ReportPeriod.day:
+        return 'مصروفات أيام الأسبوع';
+      case ReportPeriod.week:
+        return 'مصروفات أسابيع الشهر';
+      case ReportPeriod.month:
+        return 'مصروفات شهور السنة';
+      case ReportPeriod.year:
+        return 'مصروفات آخر 5 سنوات';
+    }
+  }
+
+  static String _shortAmount(double value) {
+    if (value >= 1000) {
+      final k = value / 1000;
+      return '${k.toStringAsFixed(k == k.roundToDouble() ? 0 : 1)}k';
+    }
+    return value.toStringAsFixed(0);
+  }
+
   static Future<Uint8List> buildReportPdf({
     required DateTime month,
+    required ReportPeriod selectedPeriod,
     required double salary,
     required double totalExpenses,
     required double remaining,
     required List<TransactionModel> transactions,
+    required List<TransactionModel> allTransactions,
     required List<CategoryModel> categories,
     required List<WeeklyExpense> weeklyExpenses,
     required List<CategoryExpense> categoryExpenses,
@@ -95,6 +119,28 @@ class ReportPdfService {
 
     final monthLabel = DateFormat('MMMM yyyy').format(month);
 
+    final dayTrend = _trendForPeriod(allTransactions, month, ReportPeriod.day);
+    final weekTrend = _trendForPeriod(allTransactions, month, ReportPeriod.week);
+    final monthTrend = _trendForPeriod(allTransactions, month, ReportPeriod.month);
+    final yearTrend = _trendForPeriod(allTransactions, month, ReportPeriod.year);
+
+    final allIncomeEntries = allTransactions
+        .where((t) => t.isIncome)
+        .map((t) {
+          final category = categories.firstWhere(
+            (c) => c.id == t.categoryId,
+            orElse: () => CategoryModel(
+              id: t.categoryId,
+              name: 'Other',
+              color: 0xFF8C96A8,
+              iconId: 'other',
+              isIncome: true,
+            ),
+          );
+          return IncomeEntry(transaction: t, category: category);
+        })
+        .toList();
+
     doc.addPage(
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4,
@@ -108,11 +154,31 @@ class ReportPdfService {
 
           _buildSummary(salary, totalExpenses, remaining),
           pw.SizedBox(height: _sXl),
-
-          if (weeklyExpenses.isNotEmpty)
+          if (dayTrend.any((e) => e.amount > 0))
             _buildCard(
-              title: 'المصروفات الأسبوعية',
-              child: _buildWeeklyChart(weeklyExpenses),
+              title: _trendTitle(ReportPeriod.day),
+              child: _buildTrendChart(dayTrend),
+            ),
+          pw.SizedBox(height: _sMd),
+
+          if (weekTrend.any((e) => e.amount > 0))
+            _buildCard(
+              title: _trendTitle(ReportPeriod.week),
+              child: _buildTrendChart(weekTrend),
+            ),
+          pw.SizedBox(height: _sXl),
+
+          if (monthTrend.any((e) => e.amount > 0))
+            _buildCard(
+              title: _trendTitle(ReportPeriod.month),
+              child: _buildTrendChart(monthTrend),
+            ),
+          pw.SizedBox(height: _sXl),
+
+          if (yearTrend.any((e) => e.amount > 0))
+            _buildCard(
+              title: _trendTitle(ReportPeriod.year),
+              child: _buildTrendChart(yearTrend),
             ),
 
           if (categoryExpenses.isNotEmpty || incomeBreakdown.isNotEmpty) ...[
@@ -146,18 +212,18 @@ class ReportPdfService {
             ),
           ],
 
-          if (incomeEntries.isNotEmpty) ...[
+          if (allIncomeEntries.isNotEmpty) ...[
             pw.SizedBox(height: _sXl),
-            _buildPageSectionTitle('تفاصيل الدخل'),
+            _buildPageSectionTitle('تفاصيل الدخل (كل الفترات)'),
             pw.SizedBox(height: _sSm),
-            _buildIncomeTable(incomeEntries, incomeBreakdown),
+            _buildIncomeTable(allIncomeEntries, incomeBreakdown),
           ],
 
-          if (transactions.any((t) => !t.isIncome)) ...[
+          if (allTransactions.any((t) => !t.isIncome)) ...[
             pw.SizedBox(height: _sXl),
-            _buildPageSectionTitle('تفاصيل المصروفات'),
+            _buildPageSectionTitle('تفاصيل المصروفات (كل الفترات)'),
             pw.SizedBox(height: _sSm),
-            _buildExpenseTable(transactions, categories, categoryExpenses),
+            _buildExpenseTable(allTransactions, categories, categoryExpenses),
           ],
         ],
       ),
@@ -168,10 +234,12 @@ class ReportPdfService {
 
   static Future<void> shareReportPdf({
     required DateTime month,
+    required ReportPeriod selectedPeriod,
     required double salary,
     required double totalExpenses,
     required double remaining,
     required List<TransactionModel> transactions,
+    required List<TransactionModel> allTransactions,
     required List<CategoryModel> categories,
     required List<WeeklyExpense> weeklyExpenses,
     required List<CategoryExpense> categoryExpenses,
@@ -180,10 +248,12 @@ class ReportPdfService {
   }) async {
     final bytes = await buildReportPdf(
       month: month,
+      selectedPeriod: selectedPeriod,
       salary: salary,
       totalExpenses: totalExpenses,
       remaining: remaining,
       transactions: transactions,
+      allTransactions: allTransactions,
       categories: categories,
       weeklyExpenses: weeklyExpenses,
       categoryExpenses: categoryExpenses,
@@ -228,7 +298,7 @@ class ReportPdfService {
     return pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        _pdfText('التقرير المالي الشهري', size: 20, fontWeight: pw.FontWeight.bold),
+        _pdfText('التقرير المالي الشامل', size: 20, fontWeight: pw.FontWeight.bold),
         pw.SizedBox(height: 3),
         _pdfText(monthLabel, size: 11, color: _grey),
       ],
@@ -328,41 +398,59 @@ class ReportPdfService {
     );
   }
 
-  // ---------- Weekly bar chart ----------
+  // ---------- Trend chart (count-agnostic via Expanded columns) ----------
 
-  static pw.Widget _buildWeeklyChart(List<WeeklyExpense> weeks) {
-    final maxAmount = weeks.map((w) => w.amount).reduce((a, b) => a > b ? a : b);
-    const chartHeight = 75.0;
+  static pw.Widget _buildTrendChart(List<WeeklyExpense> points) {
+    final maxAmount = points.map((p) => p.amount).reduce((a, b) => a > b ? a : b);
+    const chartHeight = 90.0;
 
     return pw.Row(
       crossAxisAlignment: pw.CrossAxisAlignment.end,
-      mainAxisAlignment: pw.MainAxisAlignment.spaceEvenly,
-      children: weeks.map((w) {
-        final barHeight = maxAmount == 0 ? 0.0 : (w.amount / maxAmount) * chartHeight;
+      children: points.map((p) {
+        final barHeight = maxAmount == 0 ? 2.0 : (p.amount / maxAmount) * chartHeight;
 
-        return pw.Column(
-          mainAxisSize: pw.MainAxisSize.min,
-          mainAxisAlignment: pw.MainAxisAlignment.end,
-          children: [
-            _pdfText('\$${w.amount.toStringAsFixed(0)}', size: 8, fontWeight: pw.FontWeight.bold),
-            pw.SizedBox(height: 4),
-            pw.Container(
-              width: 30,
-              height: barHeight,
-              decoration: pw.BoxDecoration(
-                color: _gold,
-                borderRadius: const pw.BorderRadius.vertical(top: pw.Radius.circular(4)),
+        return pw.Expanded(
+          child: pw.Column(
+            mainAxisSize: pw.MainAxisSize.min,
+            mainAxisAlignment: pw.MainAxisAlignment.end,
+            children: [
+              if (p.amount > 0)
+                _pdfText('\$${_shortAmount(p.amount)}', size: 7, fontWeight: pw.FontWeight.bold),
+              pw.SizedBox(height: 3),
+              pw.Center(
+                child: pw.Container(
+                  width: 18,
+                  height: barHeight < 2 ? 2 : barHeight,
+                  decoration: pw.BoxDecoration(
+                    color: _gold,
+                    borderRadius: const pw.BorderRadius.vertical(top: pw.Radius.circular(3)),
+                  ),
+                ),
               ),
-            ),
-            pw.SizedBox(height: 6),
-            _pdfText(w.label, size: 10, color: _grey),
-          ],
+              pw.SizedBox(height: 6),
+              _pdfText(
+                p.label,
+                size: 8.5,
+                fontWeight: pw.FontWeight.bold,
+                textAlign: pw.TextAlign.center,
+              ),
+              if (p.subLabel.isNotEmpty) ...[
+                pw.SizedBox(height: 1),
+                _pdfText(
+                  p.subLabel,
+                  size: 6.5,
+                  color: _grey,
+                  textAlign: pw.TextAlign.center,
+                ),
+              ],
+            ],
+          ),
         );
       }).toList(),
     );
   }
 
-  // ---------- Shared donut section (used for BOTH expense and income breakdown) ----------
+  // ---------- Shared donut section ----------
 
   static pw.Widget _buildDonutSection({
     required List<CategoryExpense> items,
@@ -475,7 +563,10 @@ class ReportPdfService {
       for (final b in breakdown) b.category.id: b.percentage,
     };
 
-    final rows = entries.map((e) {
+    final sortedEntries = [...entries]
+      ..sort((a, b) => b.transaction.createdAt.compareTo(a.transaction.createdAt));
+
+    final rows = sortedEntries.map((e) {
       final percentage = percentageByCategory[e.category.id] ?? 0;
       return [
         DateFormat('yyyy-MM-dd').format(e.transaction.createdAt),
@@ -529,5 +620,72 @@ class ReportPdfService {
       headers: const ['التاريخ', 'المبلغ', 'النسبة', 'الفئة'],
       rows: rows,
     );
+  }
+
+  static List<WeeklyExpense> _trendForPeriod(
+    List<TransactionModel> allTransactions,
+    DateTime anchor,
+    ReportPeriod period,
+  ) {
+    final expenses = allTransactions.where((t) => !t.isIncome).toList();
+
+    double sumBetween(DateTime start, DateTime end) {
+      var total = 0.0;
+      for (final t in expenses) {
+        if (!t.createdAt.isBefore(start) && t.createdAt.isBefore(end)) {
+          total += t.amount;
+        }
+      }
+      return total;
+    }
+
+    switch (period) {
+      case ReportPeriod.day:
+        final weekStart = anchor.startOfPeriod(ReportPeriod.week);
+        return List.generate(7, (i) {
+          final start = DateTime(weekStart.year, weekStart.month, weekStart.day + i);
+          final end = DateTime(start.year, start.month, start.day + 1);
+          return WeeklyExpense(
+            label: DateFormat('E').format(start),
+            subLabel: '${start.day}',
+            amount: sumBetween(start, end),
+          );
+        });
+
+      case ReportPeriod.week:
+        final lastDay = DateTime(anchor.year, anchor.month + 1, 0).day;
+        return List.generate(4, (i) {
+          final startDay = 1 + i * 7;
+          final start = DateTime(anchor.year, anchor.month, startDay);
+          final end = i == 3
+              ? DateTime(anchor.year, anchor.month + 1, 1)
+              : DateTime(anchor.year, anchor.month, startDay + 7);
+          final endDay = i == 3 ? lastDay : startDay + 6;
+          return WeeklyExpense(
+            label: 'W${i + 1}',
+            subLabel: '$startDay-$endDay',
+            amount: sumBetween(start, end),
+          );
+        });
+
+      case ReportPeriod.month:
+        return List.generate(12, (i) {
+          final start = DateTime(anchor.year, i + 1, 1);
+          final end = DateTime(anchor.year, i + 2, 1);
+          return WeeklyExpense(
+            label: DateFormat('MMM').format(start),
+            amount: sumBetween(start, end),
+          );
+        });
+
+      case ReportPeriod.year:
+        return List.generate(5, (i) {
+          final year = anchor.year - 4 + i;
+          return WeeklyExpense(
+            label: '$year',
+            amount: sumBetween(DateTime(year, 1, 1), DateTime(year + 1, 1, 1)),
+          );
+        });
+    }
   }
 }

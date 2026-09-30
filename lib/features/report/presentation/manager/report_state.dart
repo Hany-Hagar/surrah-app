@@ -20,6 +20,7 @@ class ReportMonthSelected extends ReportState {
   final List<CategoryExpense> categoryExpenses;
   final List<TopExpenseItem> topExpenses;
   final List<TransactionModel> monthTransactions;
+  final List<TransactionModel> allTransactions; // ⬅️ جديد
   final List<CategoryModel> categories;
   final List<CategoryExpense> incomeBreakdown;
   final List<IncomeEntry> incomeEntries;
@@ -33,6 +34,7 @@ class ReportMonthSelected extends ReportState {
     required this.categoryExpenses,
     required this.topExpenses,
     required this.monthTransactions,
+    required this.allTransactions, // ⬅️ جديد
     required this.categories,
     this.incomeBreakdown = const [],
     this.incomeEntries = const [],
@@ -54,6 +56,7 @@ class ReportMonthSelected extends ReportState {
     List<CategoryExpense>? categoryExpenses,
     List<TopExpenseItem>? topExpenses,
     List<TransactionModel>? monthTransactions,
+    List<TransactionModel>? allTransactions,
     List<CategoryModel>? categories,
     List<CategoryExpense>? incomeBreakdown,
     List<IncomeEntry>? incomeEntries,
@@ -67,6 +70,7 @@ class ReportMonthSelected extends ReportState {
       categoryExpenses: categoryExpenses ?? this.categoryExpenses,
       topExpenses: topExpenses ?? this.topExpenses,
       monthTransactions: monthTransactions ?? this.monthTransactions,
+      allTransactions: allTransactions ?? this.allTransactions,
       categories: categories ?? this.categories,
       incomeBreakdown: incomeBreakdown ?? this.incomeBreakdown,
       incomeEntries: incomeEntries ?? this.incomeEntries,

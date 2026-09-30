@@ -79,6 +79,7 @@ class ReportDetailsView extends StatelessWidget {
             const SizedBox(height: 8),
             ExportReportView(
               month: selectedMonth,
+              selectedPeriod: selectedPeriod,
               salary: reportState?.salary ?? 0,
               totalExpenses: reportState?.totalExpenses ?? 0,
               remaining: reportState?.remaining ?? 0,
@@ -88,7 +89,9 @@ class ReportDetailsView extends StatelessWidget {
               categoryExpenses: reportState?.categoryExpenses ?? [],
               incomeEntries: reportState?.incomeEntries ?? [],
               incomeBreakdown: reportState?.incomeBreakdown ?? [],
-            ),
+              allTransactions: reportState?.monthTransactions ?? [], // ⬅️ جديد
+),
+    
           ],
         );
       },

@@ -3,6 +3,7 @@ import 'package:icon_broken/icon_broken.dart';
 import 'package:surrah/core/utils/theme.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:surrah/features/categories/data/models/category_model.dart';
+import 'package:surrah/features/report/presentation/manager/report_cubit.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_breakdown_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
 import 'package:surrah/features/transactions/data/model/transaction_model.dart';
@@ -13,10 +14,12 @@ import '../../../data/model/income_entry.dart';
 
 class ExportReportView extends StatefulWidget {
   final DateTime month;
+  final ReportPeriod selectedPeriod;
   final double salary;
   final double totalExpenses;
   final double remaining;
   final List<TransactionModel> transactions;
+  final List<TransactionModel> allTransactions; // ⬅️ جديد
   final List<CategoryModel> categories;
   final List<WeeklyExpense> weeklyExpenses;
   final List<CategoryExpense> categoryExpenses;
@@ -26,10 +29,12 @@ class ExportReportView extends StatefulWidget {
   const ExportReportView({
     super.key,
     required this.month,
+    required this.selectedPeriod,
     required this.salary,
     required this.totalExpenses,
     required this.remaining,
     required this.transactions,
+    required this.allTransactions,
     required this.categories,
     required this.weeklyExpenses,
     required this.categoryExpenses,
@@ -50,10 +55,12 @@ class _ExportReportViewState extends State<ExportReportView> {
     try {
       await ReportPdfService.shareReportPdf(
         month: widget.month,
+        selectedPeriod: widget.selectedPeriod,
         salary: widget.salary,
         totalExpenses: widget.totalExpenses,
         remaining: widget.remaining,
         transactions: widget.transactions,
+        allTransactions: widget.allTransactions, 
         categories: widget.categories,
         weeklyExpenses: widget.weeklyExpenses,
         categoryExpenses: widget.categoryExpenses,
