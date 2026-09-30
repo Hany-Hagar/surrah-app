@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m5(percent) => "تم إنفاق ${percent}%";
 
+  static String m6(number) => "الأسبوع ${number}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addCategory": MessageLookupByLibrary.simpleMessage("إضافة تصنيف"),
@@ -46,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addTransactionAmountTitle":
             MessageLookupByLibrary.simpleMessage("المبلغ"),
         "addTransactionAmountTypeHint":
-            MessageLookupByLibrary.simpleMessage("أدخل المبلغ :"),
+            MessageLookupByLibrary.simpleMessage("أدخل المبلغ:"),
         "addTransactionButton":
             MessageLookupByLibrary.simpleMessage("إضافة عملية"),
         "addTransactionCategoryTitle":
@@ -79,7 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اضغط لتغيير الأيقونة"),
         "categoryName": MessageLookupByLibrary.simpleMessage("اسم التصنيف"),
         "categoryNameHint": MessageLookupByLibrary.simpleMessage(
-            "e.g., Food, Transportation, Salary"),
+            "مثال: الطعام، المواصلات، الراتب"),
         "categoryType": MessageLookupByLibrary.simpleMessage("نوع التصنيف"),
         "clearFilterButton":
             MessageLookupByLibrary.simpleMessage("مسح التصفية"),
@@ -128,20 +130,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الدعم عبر واتساب"),
         "currentBalance": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
         "currentLanguage":
-            MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
+            MessageLookupByLibrary.simpleMessage("اللغة الحالية:"),
         "custom": MessageLookupByLibrary.simpleMessage("مخصص"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "downloadReportPdf":
             MessageLookupByLibrary.simpleMessage("تحميل التقرير PDF"),
         "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
+        "emptyCategories":
+            MessageLookupByLibrary.simpleMessage("لا توجد تصنيفات"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
         "expense": MessageLookupByLibrary.simpleMessage("المصروفات"),
         "expenseBreakdown":
             MessageLookupByLibrary.simpleMessage("توزيع المصروفات"),
         "expenseOverview":
             MessageLookupByLibrary.simpleMessage("اتجاه المصروفات"),
+        "expenseOverviewSubtitle":
+            MessageLookupByLibrary.simpleMessage("مصروفاتك خلال هذا الشهر"),
         "expenseTag": MessageLookupByLibrary.simpleMessage("مصروف"),
+        "expenseTrendSubtitle":
+            MessageLookupByLibrary.simpleMessage("تتبّع إنفاقك عبر الوقت"),
+        "expensesChip": MessageLookupByLibrary.simpleMessage("المصروفات"),
         "filterButton": MessageLookupByLibrary.simpleMessage("تصفية"),
         "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
         "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
@@ -180,7 +189,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حقق أهدافك المالية"),
         "onboardingTitle4":
             MessageLookupByLibrary.simpleMessage("تحكم الكامل بأموالك"),
-        "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى :"),
+        "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى:"),
         "pdfGenerationFailed": m1,
         "periodDay": MessageLookupByLibrary.simpleMessage("يوم"),
         "periodMonth": MessageLookupByLibrary.simpleMessage("شهر"),
@@ -255,7 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "topExpenses": MessageLookupByLibrary.simpleMessage("أعلى المصروفات"),
         "topExpensesSubtitle":
             MessageLookupByLibrary.simpleMessage("أعلى العمليات الفردية"),
-        "totalExpenses": MessageLookupByLibrary.simpleMessage(" المصروفات"),
+        "totalExpenses": MessageLookupByLibrary.simpleMessage("المصروفات"),
         "totalExpensesLabel":
             MessageLookupByLibrary.simpleMessage("إجمالي المصروفات"),
         "totalIncomeLabel":
@@ -287,6 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "updateTransactionTitle":
             MessageLookupByLibrary.simpleMessage("تحديث العملية"),
         "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+        "week": m6,
         "yesterday": MessageLookupByLibrary.simpleMessage("أمس")
       };
 }

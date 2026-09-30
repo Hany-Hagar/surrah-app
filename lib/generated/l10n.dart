@@ -1430,12 +1430,12 @@ class S {
     );
   }
 
-  /// `Expense Overview`
+  /// `Expense Trend`
   String get expenseOverview {
     return Intl.message(
-      'Expense Overview',
+      'Expense Trend',
       name: 'expenseOverview',
-      desc: 'Title for the weekly expense chart card',
+      desc: 'Title for the expenses trend chart',
       args: [],
     );
   }
@@ -1446,6 +1446,16 @@ class S {
       'Your spending during this month',
       name: 'expenseOverviewSubtitle',
       desc: 'Subtitle for the weekly expense chart card',
+      args: [],
+    );
+  }
+
+  /// `Track your spending over time`
+  String get expenseTrendSubtitle {
+    return Intl.message(
+      'Track your spending over time',
+      name: 'expenseTrendSubtitle',
+      desc: 'Subtitle for the expenses trend chart',
       args: [],
     );
   }

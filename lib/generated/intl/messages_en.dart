@@ -143,10 +143,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "expenseBreakdown":
             MessageLookupByLibrary.simpleMessage("Expense Breakdown"),
         "expenseOverview":
-            MessageLookupByLibrary.simpleMessage("Expense Overview"),
+            MessageLookupByLibrary.simpleMessage("Expense Trend"),
         "expenseOverviewSubtitle": MessageLookupByLibrary.simpleMessage(
             "Your spending during this month"),
         "expenseTag": MessageLookupByLibrary.simpleMessage("Expense"),
+        "expenseTrendSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Track your spending over time"),
         "expensesChip": MessageLookupByLibrary.simpleMessage("Expenses"),
         "filterButton": MessageLookupByLibrary.simpleMessage("Filter"),
         "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),

@@ -591,13 +591,17 @@
     }
   },
 
-  "expenseOverview": "Expense Overview",
+   "expenseOverview": "Expense Trend",
   "@expenseOverview": {
-    "description": "Title for the weekly expense chart card"
+    "description": "Title for the expenses trend chart"
   },
   "expenseOverviewSubtitle": "Your spending during this month",
   "@expenseOverviewSubtitle": {
     "description": "Subtitle for the weekly expense chart card"
+  },
+  "expenseTrendSubtitle": "Track your spending over time",
+  "@expenseTrendSubtitle": {
+    "description": "Subtitle for the expenses trend chart"
   },
   "expensesChip": "Expenses",
   "@expensesChip": {

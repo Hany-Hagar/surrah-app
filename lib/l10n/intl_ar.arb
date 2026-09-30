@@ -1,467 +1,550 @@
 {
   "@@locale": "ar",
 
-  
   "now": "الآن",
   "@now": {
     "description": "نص لتحديد الوقت الحالي"
   },
+
   "today": "اليوم",
   "@today": {
     "description": "نص لتحديد اليوم الحالي"
   },
+
   "yesterday": "أمس",
   "@yesterday": {
     "description": "نص لتحديد اليوم السابق"
   },
+
   "thisWeek": "هذا الأسبوع",
   "@thisWeek": {
     "description": "نص لتحديد الأسبوع الحالي"
   },
+
   "thisMonth": "هذا الشهر",
   "@thisMonth": {
     "description": "نص لتحديد الشهر الحالي"
   },
+
   "thisYear": "هذا العام",
   "@thisYear": {
     "description": "نص لتحديد العام الحالي"
   },
+
   "custom": "مخصص",
   "@custom": {
     "description": "نص لتحديد نطاق زمني مخصص"
   },
 
-  
   "cancel": "إلغاء",
   "@cancel": {
     "description": "Label for the cancel button"
   },
+
   "all": "الكل",
   "@all": {
     "description": "Label for the all categories type"
   },
+
   "income": "الدخل",
   "@income": {
     "description": "Label for the income section"
   },
+
   "expense": "المصروفات",
   "@expense": {
     "description": "Label for the expenses section"
   },
-  
-
 
   "onboardingTitle1": "تابع كل جنيه",
   "@onboardingTitle1": {
     "description": "Onboarding title for the first slide"
   },
+
   "onboardingDescription1": "تتبّع دخلك ومصروفاتك بسهولة.",
   "@onboardingDescription1": {
     "description": "Onboarding description for the first slide"
   },
+
   "onboardingTitle2": "ابنِ عادات مالية أفضل",
   "@onboardingTitle2": {
     "description": "Onboarding title for the second slide"
   },
+
   "onboardingDescription2": "طوّر عادات مالية تساعدك على إدارة أموالك بذكاء.",
   "@onboardingDescription2": {
     "description": "Onboarding description for the second slide"
   },
+
   "onboardingTitle3": "حقق أهدافك المالية",
   "@onboardingTitle3": {
     "description": "Onboarding title for the third slide"
   },
+
   "onboardingDescription3": "ادخر بانتظام واقترب من تحقيق أهدافك المالية.",
   "@onboardingDescription3": {
     "description": "Onboarding description for the third slide"
   },
+
   "onboardingTitle4": "تحكم الكامل بأموالك",
   "@onboardingTitle4": {
     "description": "Onboarding title for the fourth slide"
   },
+
   "onboardingDescription4": "تابع نفقاتك واتخذ قرارات مالية بثقة.",
   "@onboardingDescription4": {
     "description": "Onboarding description for the fourth slide"
   },
+
   "next": "التالي",
   "@next": {
     "description": "Label for the next button"
   },
+
   "getStarted": "ابدأ الآن",
   "@getStarted": {
     "description": "Label for the get started button"
   },
+
   "skip": "تخطي",
   "@skip": {
     "description": "Label for the skip button"
   },
 
-
   "home": "الرئيسية",
   "@home": {
     "description": "Label for the home button"
   },
+
   "homeTitle": "مرحبًا بك في صُرّة",
   "@homeTitle": {
     "description": "Title for the home button"
   },
+
   "homeSubtitle": "مرشدك الشخصي في إدارة الموارد المالية",
   "@homeSubtitle": {
     "description": "Subtitle for the home button"
   },
+
   "currentBalance": "الرصيد الحالي",
   "@currentBalance": {
     "description": "Label for the current balance section"
   },
+
   "quickActions": "الإجراءات السريعة",
   "@quickActions": {
     "description": "Label for the quick actions section"
   },
+
   "addIncome": "إضافة دخل",
   "@addIncome": {
     "description": "Label for the add income button"
   },
+
   "addExpense": "إضافة مصروف",
   "@addExpense": {
     "description": "Label for the add expense button"
   },
+
   "addCategory": "إضافة تصنيف",
   "@addCategory": {
     "description": "Label for the add category button"
   },
+
   "lastTransactions": "آخر العمليات",
   "@lastTransactions": {
     "description": "Label for the last transactions section"
   },
 
-
   "categories": "التصنيفات",
   "@categories": {
     "description": "نص التصنيفات"
   },
+
   "categoriesTitle": "إدارة التصنيفات",
   "@categoriesTitle": {
     "description": "عنوان صفحة التصنيفات"
   },
+
   "categoriesSubtitle": "إضافة وتعديل وحذف تصنيفات المصروفات",
   "@categoriesSubtitle": {
     "description": "وصف صفحة التصنيفات"
   },
+
   "searchCategoriesHint": "ابحث عن تصنيف",
   "@searchCategoriesHint": {
     "description": "نص تلميحي لحقل البحث عن التصنيفات"
   },
-  "categoriesEmpty": "لا توجد تصنيفات",
-  "@categoriesEmpty": {
+
+  "emptyCategories": "لا توجد تصنيفات",
+  "@emptyCategories": {
     "description": "نص لحالة عدم وجود تصنيفات"
   },
+
   "categoryType": "نوع التصنيف",
   "@categoryType": {
     "description": "نص لتحديد نوع التصنيف"
   },
+
   "filterButton": "تصفية",
   "@filterButton": {
     "description": "نص زر التصفية"
   },
+
   "clearFilterButton": "مسح التصفية",
   "@clearFilterButton": {
     "description": "نص زر مسح التصفية"
   },
+
   "addCategoryDialogTitle": "إضافة تصنيف جديد",
   "@addCategoryDialogTitle": {
     "description": "عنوان حوار إضافة تصنيف جديد"
   },
+
   "addCategoryDialogDescription": "أدخل تفاصيل التصنيف الجديد الذي ترغب في إضافته.",
   "@addCategoryDialogDescription": {
     "description": "وصف حوار إضافة تصنيف جديد"
   },
+
   "categoryName": "اسم التصنيف",
   "@categoryName": {
     "description": "نص تلميحي لحقل اسم التصنيف"
   },
-  "categoryNameHint": "e.g., Food, Transportation, Salary",
+
+  "categoryNameHint": "مثال: الطعام، المواصلات، الراتب",
   "@categoryNameHint": {
-    "description": "Hint text for the category name input field"
+    "description": "نص تلميحي لحقل اسم التصنيف"
   },
+
   "categoryIconData": "بيانات الأيقونة",
   "@categoryIconData": {
     "description": "Label for the category icon data input field"
   },
+
   "categoryIconDataHint": "اضغط لتغيير الأيقونة",
   "@categoryIconDataHint": {
     "description": "نص تلميحي لحقل بيانات أيقونة التصنيف"
   },
+
   "color": "اللون",
   "@color": {
     "description": "نص"
   },
+
   "addNewCategorySuccess": "تمت إضافة التصنيف بنجاح",
   "@addNewCategorySuccess": {
     "description": "رسالة نجاح عند إضافة تصنيف جديد"
   },
+
   "updateCategoryDialogTitle": "تحديث التصنيف",
   "@updateCategoryDialogTitle": {
     "description": "عنوان حوار تحديث التصنيف"
   },
+
   "updateCategoryDialogDescription": "أدخل تفاصيل التصنيف الذي ترغب في تحديثه.",
   "@updateCategoryDialogDescription": {
     "description": "وصف حوار تحديث التصنيف"
   },
+
   "updateCategoryButton": "تحديث التصنيف",
   "@updateCategoryButton": {
     "description": "نص زر تحديث التصنيف"
   },
+
   "updateCategorySuccess": "تم تحديث التصنيف بنجاح",
   "@updateCategorySuccess": {
     "description": "رسالة نجاح عند تحديث التصنيف"
   },
 
-
   "transactions": "العمليات",
   "@transactions": {
     "description": "نص العمليات"
   },
+
   "transactionsTitle": "إدارة العمليات",
   "@transactionsTitle": {
     "description": "عنوان صفحة العمليات"
   },
+
   "transactionsSubtitle": "إضافة وتعديل وحذف العمليات المالية",
   "@transactionsSubtitle": {
     "description": "وصف صفحة العمليات"
   },
+
   "searchTransactionsHint": "بحث في العمليات",
   "@searchTransactionsHint": {
     "description": "نص تلميحي لحقل بحث العمليات"
   },
-  "transactionType":"نوع العملية",
+
+  "transactionType": "نوع العملية",
   "@transactionType": {
     "description": "نص لتحديد نوع العملية"
   },
+
   "date": "التاريخ",
   "@date": {
     "description": "نص لتحديد التاريخ"
   },
 
-
   "addTransactionTitle": "إضافة عملية جديدة",
   "@addTransactionTitle": {
     "description": "عنوان صفحة إضافة عملية جديدة"
   },
+
   "addTransactionSubtitle": "أدخل تفاصيل العملية المالية التي ترغب في إضافتها.",
   "@addTransactionSubtitle": {
     "description": "وصف صفحة إضافة عملية جديدة"
   },
+
   "addTransactionAmountTitle": "المبلغ",
   "@addTransactionAmountTitle": {
     "description": "عنوان حقل المبلغ"
   },
-  "addTransactionAmountTypeHint": "أدخل المبلغ :",
+
+  "addTransactionAmountTypeHint": "أدخل المبلغ:",
   "@addTransactionAmountTypeHint": {
     "description": "نص تلميحي لحقل المبلغ"
   },
+
   "addTransactionCategoryTitle": "الفئة",
   "@addTransactionCategoryTitle": {
     "description": "عنوان حقل الفئة"
   },
+
   "addTransactionDate": "التاريخ",
   "@addTransactionDate": {
     "description": "عنوان حقل التاريخ"
   },
+
   "addTransactionNotes": "الملاحظات",
   "@addTransactionNotes": {
     "description": "عنوان حقل الملاحظات"
   },
+
   "addTransactionNotesHint": "أضف وصفًا مختصرًا أو ملاحظة لهذه العملية",
   "@addTransactionNotesHint": {
     "description": "نص تلميحي لحقل الملاحظات"
   },
+
   "addTransactionButton": "إضافة عملية",
   "@addTransactionButton": {
     "description": "نص زر إضافة عملية"
   },
+
   "addTransactionSuccess": "تمت إضافة العملية بنجاح",
   "@addTransactionSuccess": {
     "description": "رسالة نجاح عند إضافة عملية جديدة"
   },
+
   "addTransactionFailure": "فشل في إضافة العملية",
   "@addTransactionFailure": {
     "description": "رسالة فشل عند إضافة عملية جديدة"
   },
 
-
   "updateTransactionTitle": "تحديث العملية",
   "@updateTransactionTitle": {
     "description": "عنوان صفحة تحديث العملية"
   },
+
   "updateTransactionSubtitle": "أدخل تفاصيل العملية المالية التي ترغب في تحديثها.",
   "@updateTransactionSubtitle": {
     "description": "وصف صفحة تحديث العملية"
   },
+
   "updateTransactionButton": "تحديث العملية",
   "@updateTransactionButton": {
     "description": "نص زر تحديث العملية"
   },
+
   "updateTransactionSuccess": "تم تحديث العملية بنجاح",
   "@updateTransactionSuccess": {
     "description": "رسالة نجاح عند تحديث العملية"
   },
+
   "updateTransactionFailure": "فشل في تحديث العملية",
   "@updateTransactionFailure": {
     "description": "رسالة فشل عند تحديث العملية"
   },
 
-
   "settingsTitle": "الإعدادات",
   "@settingsTitle": {
     "description": "Title for the settings page"
   },
+
   "settingsSubtitle": "إدارة تفضيلاتك",
   "@settingsSubtitle": {
     "description": "Subtitle for the settings page"
   },
+
   "generalSettings": "⚙️ عامة",
   "@generalSettings": {
     "description": "Title for the general settings section"
   },
+
   "settingsNotificationsTitle": "الإشعارات",
   "@settingsNotificationsTitle": {
     "description": "Title for the notifications settings section"
   },
+
   "settingsNotificationsSubtitle": "إدارة تفضيلات الإشعارات",
   "@settingsNotificationsSubtitle": {
     "description": "Subtitle for the notifications settings section"
   },
+
   "settingsPrivacySupportTitle": "🔒 الخصوصية والدعم",
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
 
-
   "themeTitle": "المظهر",
   "@themeTitle": {
     "description": "Title for the theme settings section"
   },
+
   "themeSubtitle": "تخصيص المظهر والشعور",
   "@themeSubtitle": {
     "description": "Subtitle for the theme settings section"
   },
+
   "themes": "المظاهر",
   "@themes": {
     "description": "Label for the themes section"
   },
+
   "lightTheme": "فاتح",
   "@lightTheme": {
     "description": "Label for the light theme option"
   },
+
   "darkTheme": "داكن",
   "@darkTheme": {
     "description": "Label for the dark theme option"
   },
+
   "systemTheme": "نظام",
   "@systemTheme": {
     "description": "Label for the system theme option"
   },
 
-
   "languageTitle": "اللغة",
   "@languageTitle": {
     "description": "Title for the language settings section"
   },
+
   "languageSubtitle": "تغيير لغة التطبيق",
   "@languageSubtitle": {
     "description": "Subtitle for the language settings section"
   },
-  "currentLanguage": "اللغة الحالية :",
+
+  "currentLanguage": "اللغة الحالية:",
   "@currentLanguage": {
     "description": "Label for the current language setting"
   },
-  "otherLanguages": "لغات أخرى :",
+
+  "otherLanguages": "لغات أخرى:",
   "@otherLanguages": {
     "description": "Label for the other languages setting"
   },
+
   "english": "الإنجليزية",
   "@english": {
     "description": "The English language name"
   },
+
   "arabic": "العربية",
   "@arabic": {
     "description": "The Arabic language name"
   },
+
   "unitedStates": "الولايات المتحدة",
   "@unitedStates": {
     "description": "United States country name"
   },
+
   "egypt": "مصر",
   "@egypt": {
     "description": "Egypt country name"
   },
 
-
   "privacyTitle": "سياسة الخصوصية",
   "@privacyTitle": {
     "description": "Title for the privacy policy settings section"
   },
+
   "privacySubtitle": "اقرأ سياسة الخصوصية الخاصة بنا",
   "@privacySubtitle": {
     "description": "Subtitle for the privacy policy settings section"
   },
+
   "privacyPolicyCardTitle": "خصوصيتك تهمنا",
   "@privacyPolicyCardTitle": {
     "description": "Title for the privacy policy card"
   },
+
   "privacyPolicyCardDescription": "نحترم خصوصيتك ونلتزم بحماية بياناتك. تعرّف على كيفية جمع بياناتك واستخدامها وحمايتها.",
   "@privacyPolicyCardDescription": {
     "description": "Description for the privacy policy card"
   },
+
   "privacyPolicyCard1Title": "البيانات التي يجمعها التطبيق",
   "@privacyPolicyCard1Title": {
     "description": "عنوان البطاقة الأولى"
   },
+
   "privacyPolicyCard1Description": "لا يجمع التطبيق أي بيانات شخصية. يتم حفظ المصروفات والتصنيفات التي تضيفها محليًا على جهازك فقط.",
   "@privacyPolicyCard1Description": {
     "description": "وصف البطاقة الأولى"
   },
+
   "privacyPolicyCard2Title": "تخزين البيانات",
   "@privacyPolicyCard2Title": {
     "description": "عنوان البطاقة الثانية"
   },
+
   "privacyPolicyCard2Description": "يتم تخزين جميع بياناتك على جهازك فقط، ولا يتم إرسالها إلى أي خادم أو جهة خارجية.",
   "@privacyPolicyCard2Description": {
     "description": "وصف البطاقة الثانية"
   },
+
   "privacyPolicyCard3Title": "مشاركة البيانات",
   "@privacyPolicyCard3Title": {
     "description": "عنوان البطاقة الثالثة"
   },
+
   "privacyPolicyCard3Description": "لا تتم مشاركة بياناتك مع أي طرف ثالث أو أي خدمات خارجية.",
   "@privacyPolicyCard3Description": {
     "description": "وصف البطاقة الثالثة"
   },
+
   "privacyPolicyCard4Title": "أمان البيانات",
   "@privacyPolicyCard4Title": {
     "description": "عنوان البطاقة الرابعة"
   },
+
   "privacyPolicyCard4Description": "يتم الاحتفاظ ببياناتك محليًا على جهازك، ونسعى لتوفير مستوى مناسب من الحماية لها.",
   "@privacyPolicyCard4Description": {
     "description": "وصف البطاقة الرابعة"
   },
+
   "privacyPolicyCard5Title": "حذف البيانات",
   "@privacyPolicyCard5Title": {
     "description": "عنوان البطاقة الخامسة"
   },
+
   "privacyPolicyCard5Description": "يمكنك حذف جميع المصروفات والتصنيفات في أي وقت من داخل التطبيق.",
   "@privacyPolicyCard5Description": {
     "description": "وصف البطاقة الخامسة"
   },
+
   "privacyPolicyCard6Title": "تحديثات سياسة الخصوصية",
   "@privacyPolicyCard6Title": {
     "description": "عنوان البطاقة السادسة"
   },
+
   "privacyPolicyCard6Description": "قد نقوم بتحديث سياسة الخصوصية عند الحاجة، وسيتم إعلامك بأي تغييرات مهمة داخل التطبيق.",
   "@privacyPolicyCard6Description": {
     "description": "وصف البطاقة السادسة"
   },
-
 
   "contactSupportTitle": "تواصل مع الدعم",
   "@contactSupportTitle": {
@@ -557,10 +640,12 @@
   "@contactSupportFaq4Answer": {
     "description": "إجابة السؤال الرابع في الأسئلة الشائعة"
   },
+
   "contactSupportFooterTitle": "كيف يمكننا مساعدتك؟",
   "@contactSupportFooterTitle": {
     "description": "عنوان بطاقة الدعم في نهاية الصفحة"
   },
+
   "contactSupportFooterDescription": "نحن متاحون 24/7 لمساعدتك في أسئلتك واحتياجات الدعم.",
   "@contactSupportFooterDescription": {
     "description": "وصف بطاقة الدعم في نهاية الصفحة"
@@ -568,9 +653,10 @@
 
   "report": "التقارير",
   "@report": {
-  "description": "Label for the report section"
-},
-   "reportSubtitle": "ملخصك المالي",
+    "description": "Label for the report section"
+  },
+
+  "reportSubtitle": "ملخصك المالي",
   "@reportSubtitle": {
     "description": "Subtitle for the report page"
   },
@@ -579,18 +665,22 @@
   "@salary": {
     "description": "Label for the salary summary card"
   },
-  "totalExpenses": " المصروفات",
+
+  "totalExpenses": "المصروفات",
   "@totalExpenses": {
     "description": "Label for the total expenses summary card"
   },
+
   "remaining": "المتبقي",
   "@remaining": {
     "description": "Label for the remaining balance summary card"
   },
+
   "incomeLabel": "الدخل",
   "@incomeLabel": {
     "description": "Footer label under the salary card"
   },
+
   "spentPercentage": "تم إنفاق {percent}%",
   "@spentPercentage": {
     "description": "Footer label showing percentage spent",
@@ -600,6 +690,7 @@
       }
     }
   },
+
   "savedPercentage": "تم توفير {percent}%",
   "@savedPercentage": {
     "description": "Footer label showing percentage saved",
@@ -610,10 +701,41 @@
     }
   },
 
+  "expenseOverview": "اتجاه المصروفات",
+  "@expenseOverview": {
+    "description": "Title for the expenses trend chart"
+  },
+
+  "expenseOverviewSubtitle": "مصروفاتك خلال هذا الشهر",
+  "@expenseOverviewSubtitle": {
+    "description": "Subtitle for the weekly expense chart card"
+  },
+
+  "expenseTrendSubtitle": "تتبّع إنفاقك عبر الوقت",
+  "@expenseTrendSubtitle": {
+    "description": "Subtitle for the expenses trend chart"
+  },
+
+  "expensesChip": "المصروفات",
+  "@expensesChip": {
+    "description": "Legend chip label on the expense chart"
+  },
+
+  "week": "الأسبوع {number}",
+  "@week": {
+    "description": "Label for a week in the expense chart",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+
   "expenseBreakdown": "توزيع المصروفات",
   "@expenseBreakdown": {
     "description": "Title for the category breakdown donut chart"
   },
+
   "categoriesCount": "{count} تصنيفات",
   "@categoriesCount": {
     "description": "Number of categories shown in the breakdown card",
@@ -623,6 +745,7 @@
       }
     }
   },
+
   "totalExpensesLabel": "إجمالي المصروفات",
   "@totalExpensesLabel": {
     "description": "Label in the center of the expense breakdown donut chart"
@@ -632,6 +755,7 @@
   "@incomeBreakdown": {
     "description": "Title for the income sources donut chart"
   },
+
   "sourcesCount": "{count} مصادر",
   "@sourcesCount": {
     "description": "Number of income sources shown in the breakdown card",
@@ -641,6 +765,7 @@
       }
     }
   },
+
   "totalIncomeLabel": "إجمالي الدخل",
   "@totalIncomeLabel": {
     "description": "Label in the center of the income breakdown donut chart"
@@ -650,14 +775,17 @@
   "@topExpenses": {
     "description": "Title for the top expenses list"
   },
+
   "topExpensesSubtitle": "أعلى العمليات الفردية",
   "@topExpensesSubtitle": {
     "description": "Subtitle for the top expenses list"
   },
+
   "viewAll": "عرض الكل",
   "@viewAll": {
     "description": "Label for the view all button"
   },
+
   "expenseTag": "مصروف",
   "@expenseTag": {
     "description": "Tag shown next to an expense transaction"
@@ -672,22 +800,27 @@
       }
     }
   },
+
   "readyForExportDescription": "يشمل ملف الـPDF الكامل رسومًا بيانية مصنفة، سجل العمليات، ملخصات ضريبية، وتوقيتات موثقة لهذا الشهر.",
   "@readyForExportDescription": {
     "description": "Description explaining what the exported PDF includes"
   },
+
   "downloadReportPdf": "تحميل التقرير PDF",
   "@downloadReportPdf": {
     "description": "Label for the download report PDF button"
   },
+
   "noIncomeThisMonth": "لا يوجد دخل هذا الشهر",
   "@noIncomeThisMonth": {
     "description": "Empty state message when there is no income this month"
   },
+
   "noExpensesThisMonth": "لا توجد مصروفات هذا الشهر",
   "@noExpensesThisMonth": {
     "description": "Empty state message when there are no expenses this month"
   },
+
   "pdfGenerationFailed": "فشل إنشاء ملف PDF: {error}",
   "@pdfGenerationFailed": {
     "description": "Error message shown when PDF generation fails",
@@ -697,25 +830,25 @@
       }
     }
   },
+
   "periodDay": "يوم",
-"@periodDay": {
-  "description": "Label for the day period tab"
-},
-"periodWeek": "أسبوع",
-"@periodWeek": {
-  "description": "Label for the week period tab"
-},
-"periodMonth": "شهر",
-"@periodMonth": {
-  "description": "Label for the month period tab"
-},
-"periodYear": "سنة",
-"@periodYear": {
-  "description": "Label for the year period tab"
-},
-  "expenseOverview": "اتجاه المصروفات",
-  "expenseTrendSubtitle": "تتبّع إنفاقك عبر الوقت",
-  "@expenseTrendSubtitle": {
-  "description": "Subtitle for the expenses trend chart"
-}
+  "@periodDay": {
+    "description": "Label for the day period tab"
+  },
+
+  "periodWeek": "أسبوع",
+  "@periodWeek": {
+    "description": "Label for the week period tab"
+  },
+
+  "periodMonth": "شهر",
+  "@periodMonth": {
+    "description": "Label for the month period tab"
+  },
+
+  "periodYear": "سنة",
+  "@periodYear": {
+    "description": "Label for the year period tab"
+  }
+  
 }
