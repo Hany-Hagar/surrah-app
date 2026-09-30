@@ -62,12 +62,16 @@ class IncomeBreakdownView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomText(
-          text: s.incomeBreakdown,
-          size: 20,
-          type: Type.header,
-          maxLines: 2,
+        // Expanded so a long title never overflows the row
+        Expanded(
+          child: CustomText(
+            text: s.incomeBreakdown,
+            size: 20,
+            type: Type.header,
+            maxLines: 2,
+          ),
         ),
+        const SizedBox(width: 10),
         CustomText(
           text: s.sourcesCount(incomeBreakdown.length),
           size: 13.sp,
@@ -83,8 +87,9 @@ class IncomeBreakdownView extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(width: 140, height: 140, child: _buildDonutChart()),
-        const SizedBox(width: 20),
+        // chart 140 -> 120 to give the legend more room
+        SizedBox(width: 120, height: 120, child: _buildDonutChart()),
+        const SizedBox(width: 16),
         Expanded(child: _buildSourceList(s)),
       ],
     );
@@ -97,12 +102,12 @@ class IncomeBreakdownView extends StatelessWidget {
         PieChart(
           PieChartData(
             sectionsSpace: 2,
-            centerSpaceRadius: 48,
+            centerSpaceRadius: 40, // was 48
             sections: incomeBreakdown.map((c) {
               return PieChartSectionData(
                 value: c.amount,
                 color: Color(c.category.color),
-                radius: 22,
+                radius: 20, // was 22
                 showTitle: false,
               );
             }).toList(),
@@ -117,26 +122,33 @@ class IncomeBreakdownView extends StatelessWidget {
     return Builder(
       builder: (context) {
         final s = S.of(context);
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CustomText(
-              text: s.totalIncomeLabel,
-              size: 9,
-              type: Type.overSmall,
-              opacity: FontOpacity.medium,
-              letterSpacing: 0.5,
-              textAlign: TextAlign.center,
-              maxLines: 2,
+        // FittedBox so the label always fits inside the hole
+        return SizedBox(
+          width: 68,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CustomText(
+                  text: s.totalIncomeLabel,
+                  size: 9,
+                  type: Type.overSmall,
+                  opacity: FontOpacity.medium,
+                  letterSpacing: 0.5,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                ),
+                const SizedBox(height: 4),
+                CustomText(
+                  text: "\$${_totalIncome.toStringAsFixed(0)}",
+                  size: 16.sp,
+                  type: Type.header,
+                  maxLines: 2,
+                ),
+              ],
             ),
-            const SizedBox(height: 4),
-            CustomText(
-              text: "\$${_totalIncome.toStringAsFixed(0)}",
-              size: 16.sp,
-              type: Type.header,
-              maxLines: 2,
-            ),
-          ],
+          ),
         );
       },
     );
@@ -168,25 +180,30 @@ class IncomeBreakdownView extends StatelessWidget {
               size: 13,
               type: Type.overMedium,
               maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
-          CustomText(
-            text: "\$${c.amount.toStringAsFixed(0)}",
-            size: 12,
-            type: Type.overSmall,
-            opacity: FontOpacity.medium,
-            maxLines: 2,
-          ),
-          const SizedBox(width: 10),
-          SizedBox(
-            width: 34,
-            child: CustomText(
-              text: "${c.percentage.toStringAsFixed(0)}%",
-              size: 13,
-              type: Type.header,
-              textAlign: TextAlign.right,
-              maxLines: 2,
-            ),
+          // gap between the name and the numbers
+          const SizedBox(width: 8),
+          // percentage above the amount instead of side by side
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomText(
+                text: "${c.percentage.toStringAsFixed(0)}%",
+                size: 13,
+                type: Type.header,
+                maxLines: 1,
+              ),
+              CustomText(
+                text: "\$${c.amount.toStringAsFixed(0)}",
+                size: 12,
+                type: Type.overSmall,
+                opacity: FontOpacity.medium,
+                maxLines: 1,
+              ),
+            ],
           ),
         ],
       ),

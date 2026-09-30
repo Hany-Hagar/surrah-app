@@ -66,19 +66,23 @@ class ExpenseBreakdownView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomText(
-          text: s.expenseBreakdown,
-          size: 20,
-          type: Type.header,
-          color: theme.colorScheme.onSurface,
-          maxLines: 2,
+        // Expanded so a long title never overflows the row
+        Expanded(
+          child: CustomText(
+            text: s.expenseBreakdown,
+            size: 20,
+            type: Type.header,
+            color: theme.colorScheme.onSurface,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
+        const SizedBox(width: 10),
         CustomText(
           text: s.categoriesCount(categoryExpenses.length),
           size: 13,
           type: Type.medium,
           color: AppTheme.inactiveGrey,
-          maxLines: 2,
         ),
       ],
     );
@@ -88,8 +92,9 @@ class ExpenseBreakdownView extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(width: 140, height: 140, child: _buildDonutChart(theme, s)),
-        const SizedBox(width: 20),
+        // chart 140 -> 120 to give the legend more room
+        SizedBox(width: 120, height: 120, child: _buildDonutChart(theme, s)),
+        const SizedBox(width: 16),
         Expanded(child: _buildCategoryList(theme)),
       ],
     );
@@ -102,12 +107,12 @@ class ExpenseBreakdownView extends StatelessWidget {
         PieChart(
           PieChartData(
             sectionsSpace: 2,
-            centerSpaceRadius: 48,
+            centerSpaceRadius: 40, // was 48
             sections: categoryExpenses.map((c) {
               return PieChartSectionData(
                 value: c.amount,
                 color: Color(c.category.color),
-                radius: 22,
+                radius: 20, // was 22
                 showTitle: false,
               );
             }).toList(),
@@ -119,25 +124,32 @@ class ExpenseBreakdownView extends StatelessWidget {
   }
 
   Widget _buildCenterLabel(ThemeData theme, S s) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CustomText(
-          text: s.totalExpensesLabel,
-          size: 9,
-          type: Type.overSmall,
-          color: AppTheme.inactiveGrey,
-          letterSpacing: 0.5,
-          textAlign: TextAlign.center,
+    // FittedBox so the label always fits inside the hole
+    return SizedBox(
+      width: 68,
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CustomText(
+              text: s.totalExpensesLabel,
+              size: 9,
+              type: Type.overSmall,
+              color: AppTheme.inactiveGrey,
+              letterSpacing: 0.5,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 4),
+            CustomText(
+              text: "\$${totalExpenses.toStringAsFixed(0)}",
+              size: 16,
+              type: Type.header,
+              color: theme.colorScheme.onSurface,
+            ),
+          ],
         ),
-        const SizedBox(height: 4),
-        CustomText(
-          text: "\$${totalExpenses.toStringAsFixed(0)}",
-          size: 16,
-          type: Type.header,
-          color: theme.colorScheme.onSurface,
-        ),
-      ],
+      ),
     );
   }
 
@@ -168,26 +180,30 @@ class ExpenseBreakdownView extends StatelessWidget {
               size: 13,
               type: Type.overMedium,
               color: theme.colorScheme.onSurface,
-              maxLines: 1,
+              maxLines: 2, // was 1
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          CustomText(
-            text: "\$${c.amount.toStringAsFixed(0)}",
-            size: 12,
-            type: Type.medium,
-            color: AppTheme.inactiveGrey,
-          ),
-          const SizedBox(width: 10),
-          SizedBox(
-            width: 34,
-            child: CustomText(
-              text: "${c.percentage.toStringAsFixed(0)}%",
-              size: 13,
-              type: Type.header,
-              color: theme.colorScheme.onSurface,
-              textAlign: TextAlign.right,
-            ),
+          // gap between the name and the numbers
+          const SizedBox(width: 8),
+          // percentage above the amount instead of side by side
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomText(
+                text: "${c.percentage.toStringAsFixed(0)}%",
+                size: 13,
+                type: Type.header,
+                color: theme.colorScheme.onSurface,
+              ),
+              CustomText(
+                text: "\$${c.amount.toStringAsFixed(0)}",
+                size: 12,
+                type: Type.medium,
+                color: AppTheme.inactiveGrey,
+              ),
+            ],
           ),
         ],
       ),
