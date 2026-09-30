@@ -6,7 +6,8 @@ import 'snack_bar_service.dart';
 class SupportService {
   SupportService._();
 
-  static const String supportEmail = 'support@example.com';
+  static const String websiteUrl = 'https://surrah-livid.vercel.app/';
+  static const String supportEmail = 'hanymagdyhager@gmail.com';
   static const String supportPhone = '+201000000000';
   static const String whatsappNumber = '201000000000';
 
@@ -21,6 +22,18 @@ class SupportService {
       context: context,
       uri: uri,
       errorMessage: 'No email app found on your device.',
+    );
+  }
+
+
+  /// 🌐 Open website
+  static Future<void> website({required BuildContext context}) async {
+    final Uri uri = Uri.parse(websiteUrl);
+
+    await _launch(
+      context: context,
+      uri: uri,
+      errorMessage: 'Unable to open the website.',
     );
   }
 

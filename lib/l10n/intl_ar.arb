@@ -292,8 +292,6 @@
   "@updateTransactionFailure": {
     "description": "رسالة فشل عند تحديث العملية"
   },
-
-  
   "settings": "الإعدادات",
   "@settings": {
     "description": "Label for the settings button"
@@ -465,6 +463,13 @@
   "contactSupportEmailSubtitle": "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
   "@contactSupportEmailSubtitle": {
     "description": "وصف خيار الدعم عبر البريد الإلكتروني"
+  },
+  "contactSupportWebsiteTitle": "الدعم عبر الموقع الإلكتروني",
+  "@contactSupportWebsiteTitle": {
+    "description": "عنوان خيار الدعم عبر الموقع الإلكتروني"
+  },
+  "contactSupportWebsiteSubtitle": "تفضل بزيارة موقعنا للحصول على المساعدة والموارد",  "@contactSupportWebsiteSubtitle": {
+    "description": "وصف خيار الدعم عبر الموقع الإلكتروني"
   },
   "contactSupportPhoneTitle": "الدعم عبر الهاتف",
   "@contactSupportPhoneTitle": {

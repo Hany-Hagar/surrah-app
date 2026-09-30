@@ -1214,6 +1214,26 @@ class S {
     );
   }
 
+  /// `Support via Website`
+  String get contactSupportWebsiteTitle {
+    return Intl.message(
+      'Support via Website',
+      name: 'contactSupportWebsiteTitle',
+      desc: 'Title for website support option',
+      args: [],
+    );
+  }
+
+  /// `Visit our website for help and resources`
+  String get contactSupportWebsiteSubtitle {
+    return Intl.message(
+      'Visit our website for help and resources',
+      name: 'contactSupportWebsiteSubtitle',
+      desc: 'Subtitle for website support option',
+      args: [],
+    );
+  }
+
   /// `Phone Support`
   String get contactSupportPhoneTitle {
     return Intl.message(

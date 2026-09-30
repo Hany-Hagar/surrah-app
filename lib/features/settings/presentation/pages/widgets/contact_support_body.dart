@@ -37,18 +37,11 @@ class ContactSupportBody extends StatelessWidget {
           onTap: () => SupportService.email(context: context),
         ),
         SettingsItem(
-          color: Colors.green,
-          icon: IconBroken.Call,
-          title: s.contactSupportPhoneTitle,
-          subtitle: s.contactSupportPhoneSubtitle,
-          onTap: () => SupportService.call(context: context),
-        ),
-        SettingsItem(
-          color: Colors.teal,
-          icon: IconBroken.Chat,
-          title: s.contactSupportWhatsAppTitle,
-          subtitle: s.contactSupportWhatsAppSubtitle,
-          onTap: () => SupportService.whatsapp(context: context),
+          color: Colors.orange,
+          icon: IconBroken.Discovery,
+          title: s.contactSupportWebsiteTitle,
+          subtitle: s.contactSupportWebsiteSubtitle,
+          onTap: () => SupportService.website(context: context),
         ),
         SizedBox(height: 15.h),
         CustomText(

@@ -139,6 +139,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactSupportTitle": MessageLookupByLibrary.simpleMessage(
       "Contact Support",
     ),
+    "contactSupportWebsiteSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Visit our website for help and resources",
+    ),
+    "contactSupportWebsiteTitle": MessageLookupByLibrary.simpleMessage(
+      "Support via Website",
+    ),
     "contactSupportWhatsAppSubtitle": MessageLookupByLibrary.simpleMessage(
       "Chat with us on WhatsApp for quick support.",
     ),

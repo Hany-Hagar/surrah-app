@@ -490,6 +490,14 @@
   "@contactSupportEmailSubtitle": {
     "description": "Subtitle for email support option"
   },
+  "contactSupportWebsiteTitle": "Support via Website",
+  "@contactSupportWebsiteTitle": {
+    "description": "Title for website support option"
+  },
+  "contactSupportWebsiteSubtitle": "Visit our website for help and resources",
+  "@contactSupportWebsiteSubtitle": {
+    "description": "Subtitle for website support option"
+  },
   "contactSupportPhoneTitle": "Phone Support",
   "@contactSupportPhoneTitle": {
     "description": "Title for phone support option"
