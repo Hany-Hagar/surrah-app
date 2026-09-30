@@ -310,11 +310,15 @@
   },
 
 
-  "settingsTitle": "Settings",
+  "settings": "Settings",
+  "@settings": {
+    "description": "Label for the settings button"
+  },
+  "settingsTitle": "Manage Your Settings",
   "@settingsTitle": {
     "description": "Title for the settings page"
   },
-  "settingsSubtitle": "Manage your preferences",
+  "settingsSubtitle": "Customize your app experience",
   "@settingsSubtitle": {
     "description": "Subtitle for the settings page"
   },
@@ -485,6 +489,14 @@
   "contactSupportEmailSubtitle": "Reach out by email and we'll be happy to help.",
   "@contactSupportEmailSubtitle": {
     "description": "Subtitle for email support option"
+  },
+  "contactSupportWebsiteTitle": "Support via Website",
+  "@contactSupportWebsiteTitle": {
+    "description": "Title for website support option"
+  },
+  "contactSupportWebsiteSubtitle": "Visit our website for help and resources",
+  "@contactSupportWebsiteSubtitle": {
+    "description": "Subtitle for website support option"
   },
   "contactSupportPhoneTitle": "Phone Support",
   "@contactSupportPhoneTitle": {

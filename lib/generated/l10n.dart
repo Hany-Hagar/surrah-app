@@ -18,8 +18,10 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -781,19 +785,29 @@ class S {
   }
 
   /// `Settings`
-  String get settingsTitle {
+  String get settings {
     return Intl.message(
       'Settings',
+      name: 'settings',
+      desc: 'Label for the settings button',
+      args: [],
+    );
+  }
+
+  /// `Manage Your Settings`
+  String get settingsTitle {
+    return Intl.message(
+      'Manage Your Settings',
       name: 'settingsTitle',
       desc: 'Title for the settings page',
       args: [],
     );
   }
 
-  /// `Manage your preferences`
+  /// `Customize your app experience`
   String get settingsSubtitle {
     return Intl.message(
-      'Manage your preferences',
+      'Customize your app experience',
       name: 'settingsSubtitle',
       desc: 'Subtitle for the settings page',
       args: [],
@@ -1196,6 +1210,26 @@ class S {
       'Reach out by email and we\'ll be happy to help.',
       name: 'contactSupportEmailSubtitle',
       desc: 'Subtitle for email support option',
+      args: [],
+    );
+  }
+
+  /// `Support via Website`
+  String get contactSupportWebsiteTitle {
+    return Intl.message(
+      'Support via Website',
+      name: 'contactSupportWebsiteTitle',
+      desc: 'Title for website support option',
+      args: [],
+    );
+  }
+
+  /// `Visit our website for help and resources`
+  String get contactSupportWebsiteSubtitle {
+    return Intl.message(
+      'Visit our website for help and resources',
+      name: 'contactSupportWebsiteSubtitle',
+      desc: 'Subtitle for website support option',
       args: [],
     );
   }

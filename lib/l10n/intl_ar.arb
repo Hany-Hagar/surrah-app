@@ -1,6 +1,5 @@
 {
   "@@locale": "ar",
-
   "now": "الآن",
   "@now": {
     "description": "نص لتحديد الوقت الحالي"
@@ -35,7 +34,6 @@
   "@custom": {
     "description": "نص لتحديد نطاق زمني مخصص"
   },
-
   "cancel": "إلغاء",
   "@cancel": {
     "description": "Label for the cancel button"
@@ -55,7 +53,6 @@
   "@expense": {
     "description": "Label for the expenses section"
   },
-
   "onboardingTitle1": "تابع كل جنيه",
   "@onboardingTitle1": {
     "description": "Onboarding title for the first slide"
@@ -110,7 +107,6 @@
   "@skip": {
     "description": "Label for the skip button"
   },
-
   "home": "الرئيسية",
   "@home": {
     "description": "Label for the home button"
@@ -155,7 +151,6 @@
   "@lastTransactions": {
     "description": "Label for the last transactions section"
   },
-
   "categories": "التصنيفات",
   "@categories": {
     "description": "نص التصنيفات"
@@ -255,7 +250,6 @@
   "@updateCategorySuccess": {
     "description": "رسالة نجاح عند تحديث التصنيف"
   },
-
   "transactions": "العمليات",
   "@transactions": {
     "description": "نص العمليات"
@@ -275,7 +269,6 @@
   "@searchTransactionsHint": {
     "description": "نص تلميحي لحقل بحث العمليات"
   },
-
   "transactionType": "نوع العملية",
   "@transactionType": {
     "description": "نص لتحديد نوع العملية"
@@ -285,7 +278,6 @@
   "@date": {
     "description": "نص لتحديد التاريخ"
   },
-
   "addTransactionTitle": "إضافة عملية جديدة",
   "@addTransactionTitle": {
     "description": "عنوان صفحة إضافة عملية جديدة"
@@ -340,7 +332,6 @@
   "@addTransactionFailure": {
     "description": "رسالة فشل عند إضافة عملية جديدة"
   },
-
   "updateTransactionTitle": "تحديث العملية",
   "@updateTransactionTitle": {
     "description": "عنوان صفحة تحديث العملية"
@@ -365,13 +356,15 @@
   "@updateTransactionFailure": {
     "description": "رسالة فشل عند تحديث العملية"
   },
-
-  "settingsTitle": "الإعدادات",
+  "settings": "الإعدادات",
+  "@settings": {
+    "description": "Label for the settings button"
+  },
+  "settingsTitle": "إدارة إعداداتك",
   "@settingsTitle": {
     "description": "Title for the settings page"
   },
-
-  "settingsSubtitle": "إدارة تفضيلاتك",
+  "settingsSubtitle": "تخصيص تجربة التطبيق",
   "@settingsSubtitle": {
     "description": "Subtitle for the settings page"
   },
@@ -395,7 +388,6 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
-
   "themeTitle": "المظهر",
   "@themeTitle": {
     "description": "Title for the theme settings section"
@@ -425,7 +417,6 @@
   "@systemTheme": {
     "description": "Label for the system theme option"
   },
-
   "languageTitle": "اللغة",
   "@languageTitle": {
     "description": "Title for the language settings section"
@@ -465,7 +456,6 @@
   "@egypt": {
     "description": "Egypt country name"
   },
-
   "privacyTitle": "سياسة الخصوصية",
   "@privacyTitle": {
     "description": "Title for the privacy policy settings section"
@@ -545,97 +535,85 @@
   "@privacyPolicyCard6Description": {
     "description": "وصف البطاقة السادسة"
   },
-
   "contactSupportTitle": "تواصل مع الدعم",
   "@contactSupportTitle": {
     "description": "عنوان قسم التواصل مع الدعم"
   },
-
   "contactSupportSubtitle": "احصل على المساعدة والدعم",
   "@contactSupportSubtitle": {
     "description": "وصف قسم التواصل مع الدعم"
   },
-
   "contactSupportHeaderTitle": "كيف يمكننا مساعدتك؟",
   "@contactSupportHeaderTitle": {
     "description": "عنوان بطاقة الدعم الرئيسية"
   },
-
   "contactSupportHeaderDescription": "ابحث عن إجابات للأسئلة الشائعة أو تواصل مع فريق الدعم.",
   "@contactSupportHeaderDescription": {
     "description": "وصف بطاقة الدعم الرئيسية"
   },
-
   "contactSupportEmailTitle": "الدعم عبر البريد الإلكتروني",
   "@contactSupportEmailTitle": {
     "description": "عنوان خيار الدعم عبر البريد الإلكتروني"
   },
-
   "contactSupportEmailSubtitle": "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
   "@contactSupportEmailSubtitle": {
     "description": "وصف خيار الدعم عبر البريد الإلكتروني"
   },
-
+  "contactSupportWebsiteTitle": "الدعم عبر الموقع الإلكتروني",
+  "@contactSupportWebsiteTitle": {
+    "description": "عنوان خيار الدعم عبر الموقع الإلكتروني"
+  },
+  "contactSupportWebsiteSubtitle": "تفضل بزيارة موقعنا للحصول على المساعدة والموارد",  "@contactSupportWebsiteSubtitle": {
+    "description": "وصف خيار الدعم عبر الموقع الإلكتروني"
+  },
   "contactSupportPhoneTitle": "الدعم عبر الهاتف",
   "@contactSupportPhoneTitle": {
     "description": "عنوان خيار الدعم عبر الهاتف"
   },
-
   "contactSupportPhoneSubtitle": "اتصل بفريق الدعم للحصول على المساعدة الفورية.",
   "@contactSupportPhoneSubtitle": {
     "description": "وصف خيار الدعم عبر الهاتف"
   },
-
   "contactSupportWhatsAppTitle": "الدعم عبر واتساب",
   "@contactSupportWhatsAppTitle": {
     "description": "عنوان خيار الدعم عبر واتساب"
   },
-
   "contactSupportWhatsAppSubtitle": "تواصل معنا عبر واتساب للحصول على دعم سريع.",
   "@contactSupportWhatsAppSubtitle": {
     "description": "وصف خيار الدعم عبر واتساب"
   },
-
   "contactSupportFaqTitle": "الأسئلة الشائعة",
   "@contactSupportFaqTitle": {
     "description": "عنوان قسم الأسئلة الشائعة"
   },
-
   "contactSupportFaq1Question": "أين يتم تخزين بياناتي؟",
   "@contactSupportFaq1Question": {
     "description": "السؤال الأول في الأسئلة الشائعة"
   },
-
   "contactSupportFaq1Answer": "يتم تخزين مصروفاتك وتصنيفاتك محليًا على جهازك.",
   "@contactSupportFaq1Answer": {
     "description": "إجابة السؤال الأول في الأسئلة الشائعة"
   },
-
   "contactSupportFaq2Question": "هل يمكنني حذف بياناتي؟",
   "@contactSupportFaq2Question": {
     "description": "السؤال الثاني في الأسئلة الشائعة"
   },
-
   "contactSupportFaq2Answer": "نعم، يمكنك حذف مصروفاتك وتصنيفاتك من التطبيق في أي وقت.",
   "@contactSupportFaq2Answer": {
     "description": "إجابة السؤال الثاني في الأسئلة الشائعة"
   },
-
   "contactSupportFaq3Question": "هل يجمع التطبيق بياناتي الشخصية؟",
   "@contactSupportFaq3Question": {
     "description": "السؤال الثالث في الأسئلة الشائعة"
   },
-
   "contactSupportFaq3Answer": "لا، الإصدار الحالي لا يجمع بياناتك الشخصية أو يرسلها إلى أي جهة.",
   "@contactSupportFaq3Answer": {
     "description": "إجابة السؤال الثالث في الأسئلة الشائعة"
   },
-
   "contactSupportFaq4Question": "هل يمكنني إضافة أو تعديل التصنيفات؟",
   "@contactSupportFaq4Question": {
     "description": "السؤال الرابع في الأسئلة الشائعة"
   },
-
   "contactSupportFaq4Answer": "نعم، يمكنك إضافة وتعديل وحذف تصنيفات المصروفات.",
   "@contactSupportFaq4Answer": {
     "description": "إجابة السؤال الرابع في الأسئلة الشائعة"

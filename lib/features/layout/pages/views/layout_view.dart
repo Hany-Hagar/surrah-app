@@ -43,6 +43,7 @@ class _BottomNavigatorBar extends StatelessWidget {
             _item(icon: IconBroken.Category, label: s.categories),
             _item(icon: IconBroken.Paper, label: s.transactions),
             _item(icon: IconBroken.Chart, label: s.report),
+            _item(icon: IconBroken.Setting, label: s.settings)
           ],
         );
       },
