@@ -17,7 +17,8 @@ class SettingsCubit extends HydratedCubit<AppUserPref> {
     emit(state.copyWith(isFirstTime: isFirstTime));
   }
 
-  void setNotificationsEnabled(bool enabled) {
+  void toggleNotifications() {
+    final enabled = !state.notificationsEnabled;
     emit(state.copyWith(notificationsEnabled: enabled));
   }
 

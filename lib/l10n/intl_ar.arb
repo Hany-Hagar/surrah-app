@@ -1,7 +1,366 @@
 {
   "@@locale": "ar",
-  
-  "english": "الإنكليزية",
+  "now": "الآن",
+  "@now": {
+    "description": "نص لتحديد الوقت الحالي"
+  },
+  "today": "اليوم",
+  "@today": {
+    "description": "نص لتحديد اليوم الحالي"
+  },
+  "yesterday": "أمس",
+  "@yesterday": {
+    "description": "نص لتحديد اليوم السابق"
+  },
+  "thisWeek": "هذا الأسبوع",
+  "@thisWeek": {
+    "description": "نص لتحديد الأسبوع الحالي"
+  },
+  "thisMonth": "هذا الشهر",
+  "@thisMonth": {
+    "description": "نص لتحديد الشهر الحالي"
+  },
+  "thisYear": "هذا العام",
+  "@thisYear": {
+    "description": "نص لتحديد العام الحالي"
+  },
+  "custom": "مخصص",
+  "@custom": {
+    "description": "نص لتحديد نطاق زمني مخصص"
+  },
+  "cancel": "إلغاء",
+  "@cancel": {
+    "description": "Label for the cancel button"
+  },
+  "all": "الكل",
+  "@all": {
+    "description": "Label for the all categories type"
+  },
+  "income": "الدخل",
+  "@income": {
+    "description": "Label for the income section"
+  },
+  "expense": "المصروفات",
+  "@expense": {
+    "description": "Label for the expenses section"
+  },
+  "onboardingTitle1": "تابع كل جنيه",
+  "@onboardingTitle1": {
+    "description": "Onboarding title for the first slide"
+  },
+  "onboardingDescription1": "تتبّع دخلك ومصروفاتك بسهولة.",
+  "@onboardingDescription1": {
+    "description": "Onboarding description for the first slide"
+  },
+  "onboardingTitle2": "ابنِ عادات مالية أفضل",
+  "@onboardingTitle2": {
+    "description": "Onboarding title for the second slide"
+  },
+  "onboardingDescription2": "طوّر عادات مالية تساعدك على إدارة أموالك بذكاء.",
+  "@onboardingDescription2": {
+    "description": "Onboarding description for the second slide"
+  },
+  "onboardingTitle3": "حقق أهدافك المالية",
+  "@onboardingTitle3": {
+    "description": "Onboarding title for the third slide"
+  },
+  "onboardingDescription3": "ادخر بانتظام واقترب من تحقيق أهدافك المالية.",
+  "@onboardingDescription3": {
+    "description": "Onboarding description for the third slide"
+  },
+  "onboardingTitle4": "تحكم الكامل بأموالك",
+  "@onboardingTitle4": {
+    "description": "Onboarding title for the fourth slide"
+  },
+  "onboardingDescription4": "تابع نفقاتك واتخذ قرارات مالية بثقة.",
+  "@onboardingDescription4": {
+    "description": "Onboarding description for the fourth slide"
+  },
+  "next": "التالي",
+  "@next": {
+    "description": "Label for the next button"
+  },
+  "getStarted": "ابدأ الآن",
+  "@getStarted": {
+    "description": "Label for the get started button"
+  },
+  "skip": "تخطي",
+  "@skip": {
+    "description": "Label for the skip button"
+  },
+  "home": "الرئيسية",
+  "@home": {
+    "description": "Label for the home button"
+  },
+  "homeTitle": "مرحبًا بك في صُرّة",
+  "@homeTitle": {
+    "description": "Title for the home button"
+  },
+  "homeSubtitle": "مرشدك الشخصي في إدارة الموارد المالية",
+  "@homeSubtitle": {
+    "description": "Subtitle for the home button"
+  },
+  "currentBalance": "الرصيد الحالي",
+  "@currentBalance": {
+    "description": "Label for the current balance section"
+  },
+  "quickActions": "الإجراءات السريعة",
+  "@quickActions": {
+    "description": "Label for the quick actions section"
+  },
+  "addIncome": "إضافة دخل",
+  "@addIncome": {
+    "description": "Label for the add income button"
+  },
+  "addExpense": "إضافة مصروف",
+  "@addExpense": {
+    "description": "Label for the add expense button"
+  },
+  "addCategory": "إضافة تصنيف",
+  "@addCategory": {
+    "description": "Label for the add category button"
+  },
+  "lastTransactions": "آخر العمليات",
+  "@lastTransactions": {
+    "description": "Label for the last transactions section"
+  },
+  "categories": "التصنيفات",
+  "@categories": {
+    "description": "نص التصنيفات"
+  },
+  "categoriesTitle": "إدارة التصنيفات",
+  "@categoriesTitle": {
+    "description": "عنوان صفحة التصنيفات"
+  },
+  "categoriesSubtitle": "إضافة وتعديل وحذف تصنيفات المصروفات",
+  "@categoriesSubtitle": {
+    "description": "وصف صفحة التصنيفات"
+  },
+  "searchCategoriesHint": "ابحث عن تصنيف",
+  "@searchCategoriesHint": {
+    "description": "نص تلميحي لحقل البحث عن التصنيفات"
+  },
+  "categoriesEmpty": "لا توجد تصنيفات",
+  "@categoriesEmpty": {
+    "description": "نص لحالة عدم وجود تصنيفات"
+  },
+  "categoryType": "نوع التصنيف",
+  "@categoryType": {
+    "description": "نص لتحديد نوع التصنيف"
+  },
+  "filterButton": "تصفية",
+  "@filterButton": {
+    "description": "نص زر التصفية"
+  },
+  "clearFilterButton": "مسح التصفية",
+  "@clearFilterButton": {
+    "description": "نص زر مسح التصفية"
+  },
+  "addCategoryDialogTitle": "إضافة تصنيف جديد",
+  "@addCategoryDialogTitle": {
+    "description": "عنوان حوار إضافة تصنيف جديد"
+  },
+  "addCategoryDialogDescription": "أدخل تفاصيل التصنيف الجديد الذي ترغب في إضافته.",
+  "@addCategoryDialogDescription": {
+    "description": "وصف حوار إضافة تصنيف جديد"
+  },
+  "categoryName": "اسم التصنيف",
+  "@categoryName": {
+    "description": "نص تلميحي لحقل اسم التصنيف"
+  },
+  "categoryNameHint": "e.g., Food, Transportation, Salary",
+  "@categoryNameHint": {
+    "description": "Hint text for the category name input field"
+  },
+  "categoryIconData": "بيانات الأيقونة",
+  "@categoryIconData": {
+    "description": "Label for the category icon data input field"
+  },
+  "categoryIconDataHint": "اضغط لتغيير الأيقونة",
+  "@categoryIconDataHint": {
+    "description": "نص تلميحي لحقل بيانات أيقونة التصنيف"
+  },
+  "color": "اللون",
+  "@color": {
+    "description": "نص"
+  },
+  "addNewCategorySuccess": "تمت إضافة التصنيف بنجاح",
+  "@addNewCategorySuccess": {
+    "description": "رسالة نجاح عند إضافة تصنيف جديد"
+  },
+  "updateCategoryDialogTitle": "تحديث التصنيف",
+  "@updateCategoryDialogTitle": {
+    "description": "عنوان حوار تحديث التصنيف"
+  },
+  "updateCategoryDialogDescription": "أدخل تفاصيل التصنيف الذي ترغب في تحديثه.",
+  "@updateCategoryDialogDescription": {
+    "description": "وصف حوار تحديث التصنيف"
+  },
+  "updateCategoryButton": "تحديث التصنيف",
+  "@updateCategoryButton": {
+    "description": "نص زر تحديث التصنيف"
+  },
+  "updateCategorySuccess": "تم تحديث التصنيف بنجاح",
+  "@updateCategorySuccess": {
+    "description": "رسالة نجاح عند تحديث التصنيف"
+  },
+  "transactions": "العمليات",
+  "@transactions": {
+    "description": "نص العمليات"
+  },
+  "transactionsTitle": "إدارة العمليات",
+  "@transactionsTitle": {
+    "description": "عنوان صفحة العمليات"
+  },
+  "transactionsSubtitle": "إضافة وتعديل وحذف العمليات المالية",
+  "@transactionsSubtitle": {
+    "description": "وصف صفحة العمليات"
+  },
+  "searchTransactionsHint": "بحث في العمليات",
+  "@searchTransactionsHint": {
+    "description": "نص تلميحي لحقل بحث العمليات"
+  },
+  "transactionType": "نوع العملية",
+  "@transactionType": {
+    "description": "نص لتحديد نوع العملية"
+  },
+  "date": "التاريخ",
+  "@date": {
+    "description": "نص لتحديد التاريخ"
+  },
+  "addTransactionTitle": "إضافة عملية جديدة",
+  "@addTransactionTitle": {
+    "description": "عنوان صفحة إضافة عملية جديدة"
+  },
+  "addTransactionSubtitle": "أدخل تفاصيل العملية المالية التي ترغب في إضافتها.",
+  "@addTransactionSubtitle": {
+    "description": "وصف صفحة إضافة عملية جديدة"
+  },
+  "addTransactionAmountTitle": "المبلغ",
+  "@addTransactionAmountTitle": {
+    "description": "عنوان حقل المبلغ"
+  },
+  "addTransactionAmountTypeHint": "أدخل المبلغ :",
+  "@addTransactionAmountTypeHint": {
+    "description": "نص تلميحي لحقل المبلغ"
+  },
+  "addTransactionCategoryTitle": "الفئة",
+  "@addTransactionCategoryTitle": {
+    "description": "عنوان حقل الفئة"
+  },
+  "addTransactionDate": "التاريخ",
+  "@addTransactionDate": {
+    "description": "عنوان حقل التاريخ"
+  },
+  "addTransactionNotes": "الملاحظات",
+  "@addTransactionNotes": {
+    "description": "عنوان حقل الملاحظات"
+  },
+  "addTransactionNotesHint": "أضف وصفًا مختصرًا أو ملاحظة لهذه العملية",
+  "@addTransactionNotesHint": {
+    "description": "نص تلميحي لحقل الملاحظات"
+  },
+  "addTransactionButton": "إضافة عملية",
+  "@addTransactionButton": {
+    "description": "نص زر إضافة عملية"
+  },
+  "addTransactionSuccess": "تمت إضافة العملية بنجاح",
+  "@addTransactionSuccess": {
+    "description": "رسالة نجاح عند إضافة عملية جديدة"
+  },
+  "addTransactionFailure": "فشل في إضافة العملية",
+  "@addTransactionFailure": {
+    "description": "رسالة فشل عند إضافة عملية جديدة"
+  },
+  "updateTransactionTitle": "تحديث العملية",
+  "@updateTransactionTitle": {
+    "description": "عنوان صفحة تحديث العملية"
+  },
+  "updateTransactionSubtitle": "أدخل تفاصيل العملية المالية التي ترغب في تحديثها.",
+  "@updateTransactionSubtitle": {
+    "description": "وصف صفحة تحديث العملية"
+  },
+  "updateTransactionButton": "تحديث العملية",
+  "@updateTransactionButton": {
+    "description": "نص زر تحديث العملية"
+  },
+  "updateTransactionSuccess": "تم تحديث العملية بنجاح",
+  "@updateTransactionSuccess": {
+    "description": "رسالة نجاح عند تحديث العملية"
+  },
+  "updateTransactionFailure": "فشل في تحديث العملية",
+  "@updateTransactionFailure": {
+    "description": "رسالة فشل عند تحديث العملية"
+  },
+  "settings": "الإعدادات",
+  "@settings": {
+    "description": "Label for the settings button"
+  },
+  "settingsTitle": "إدارة إعداداتك",
+  "@settingsTitle": {
+    "description": "Title for the settings page"
+  },
+  "settingsSubtitle": "تخصيص تجربة التطبيق",
+  "@settingsSubtitle": {
+    "description": "Subtitle for the settings page"
+  },
+  "generalSettings": "⚙️ عامة",
+  "@generalSettings": {
+    "description": "Title for the general settings section"
+  },
+  "settingsNotificationsTitle": "الإشعارات",
+  "@settingsNotificationsTitle": {
+    "description": "Title for the notifications settings section"
+  },
+  "settingsNotificationsSubtitle": "إدارة تفضيلات الإشعارات",
+  "@settingsNotificationsSubtitle": {
+    "description": "Subtitle for the notifications settings section"
+  },
+  "settingsPrivacySupportTitle": "🔒 الخصوصية والدعم",
+  "@settingsPrivacySupportTitle": {
+    "description": "Title for the privacy and support settings section"
+  },
+  "themeTitle": "المظهر",
+  "@themeTitle": {
+    "description": "Title for the theme settings section"
+  },
+  "themeSubtitle": "تخصيص المظهر والشعور",
+  "@themeSubtitle": {
+    "description": "Subtitle for the theme settings section"
+  },
+  "themes": "المظاهر",
+  "@themes": {
+    "description": "Label for the themes section"
+  },
+  "lightTheme": "فاتح",
+  "@lightTheme": {
+    "description": "Label for the light theme option"
+  },
+  "darkTheme": "داكن",
+  "@darkTheme": {
+    "description": "Label for the dark theme option"
+  },
+  "systemTheme": "نظام",
+  "@systemTheme": {
+    "description": "Label for the system theme option"
+  },
+  "languageTitle": "اللغة",
+  "@languageTitle": {
+    "description": "Title for the language settings section"
+  },
+  "languageSubtitle": "تغيير لغة التطبيق",
+  "@languageSubtitle": {
+    "description": "Subtitle for the language settings section"
+  },
+  "currentLanguage": "اللغة الحالية :",
+  "@currentLanguage": {
+    "description": "Label for the current language setting"
+  },
+  "otherLanguages": "لغات أخرى :",
+  "@otherLanguages": {
+    "description": "Label for the other languages setting"
+  },
+  "english": "الإنجليزية",
   "@english": {
     "description": "The English language name"
   },
@@ -16,5 +375,160 @@
   "egypt": "مصر",
   "@egypt": {
     "description": "Egypt country name"
+  },
+  "privacyTitle": "سياسة الخصوصية",
+  "@privacyTitle": {
+    "description": "Title for the privacy policy settings section"
+  },
+  "privacySubtitle": "اقرأ سياسة الخصوصية الخاصة بنا",
+  "@privacySubtitle": {
+    "description": "Subtitle for the privacy policy settings section"
+  },
+  "privacyPolicyCardTitle": "خصوصيتك تهمنا",
+  "@privacyPolicyCardTitle": {
+    "description": "Title for the privacy policy card"
+  },
+  "privacyPolicyCardDescription": "نحترم خصوصيتك ونلتزم بحماية بياناتك. تعرّف على كيفية جمع بياناتك واستخدامها وحمايتها.",
+  "@privacyPolicyCardDescription": {
+    "description": "Description for the privacy policy card"
+  },
+  "privacyPolicyCard1Title": "البيانات التي يجمعها التطبيق",
+  "@privacyPolicyCard1Title": {
+    "description": "عنوان البطاقة الأولى"
+  },
+  "privacyPolicyCard1Description": "لا يجمع التطبيق أي بيانات شخصية. يتم حفظ المصروفات والتصنيفات التي تضيفها محليًا على جهازك فقط.",
+  "@privacyPolicyCard1Description": {
+    "description": "وصف البطاقة الأولى"
+  },
+  "privacyPolicyCard2Title": "تخزين البيانات",
+  "@privacyPolicyCard2Title": {
+    "description": "عنوان البطاقة الثانية"
+  },
+  "privacyPolicyCard2Description": "يتم تخزين جميع بياناتك على جهازك فقط، ولا يتم إرسالها إلى أي خادم أو جهة خارجية.",
+  "@privacyPolicyCard2Description": {
+    "description": "وصف البطاقة الثانية"
+  },
+  "privacyPolicyCard3Title": "مشاركة البيانات",
+  "@privacyPolicyCard3Title": {
+    "description": "عنوان البطاقة الثالثة"
+  },
+  "privacyPolicyCard3Description": "لا تتم مشاركة بياناتك مع أي طرف ثالث أو أي خدمات خارجية.",
+  "@privacyPolicyCard3Description": {
+    "description": "وصف البطاقة الثالثة"
+  },
+  "privacyPolicyCard4Title": "أمان البيانات",
+  "@privacyPolicyCard4Title": {
+    "description": "عنوان البطاقة الرابعة"
+  },
+  "privacyPolicyCard4Description": "يتم الاحتفاظ ببياناتك محليًا على جهازك، ونسعى لتوفير مستوى مناسب من الحماية لها.",
+  "@privacyPolicyCard4Description": {
+    "description": "وصف البطاقة الرابعة"
+  },
+  "privacyPolicyCard5Title": "حذف البيانات",
+  "@privacyPolicyCard5Title": {
+    "description": "عنوان البطاقة الخامسة"
+  },
+  "privacyPolicyCard5Description": "يمكنك حذف جميع المصروفات والتصنيفات في أي وقت من داخل التطبيق.",
+  "@privacyPolicyCard5Description": {
+    "description": "وصف البطاقة الخامسة"
+  },
+  "privacyPolicyCard6Title": "تحديثات سياسة الخصوصية",
+  "@privacyPolicyCard6Title": {
+    "description": "عنوان البطاقة السادسة"
+  },
+  "privacyPolicyCard6Description": "قد نقوم بتحديث سياسة الخصوصية عند الحاجة، وسيتم إعلامك بأي تغييرات مهمة داخل التطبيق.",
+  "@privacyPolicyCard6Description": {
+    "description": "وصف البطاقة السادسة"
+  },
+  "contactSupportTitle": "تواصل مع الدعم",
+  "@contactSupportTitle": {
+    "description": "عنوان قسم التواصل مع الدعم"
+  },
+  "contactSupportSubtitle": "احصل على المساعدة والدعم",
+  "@contactSupportSubtitle": {
+    "description": "وصف قسم التواصل مع الدعم"
+  },
+  "contactSupportHeaderTitle": "كيف يمكننا مساعدتك؟",
+  "@contactSupportHeaderTitle": {
+    "description": "عنوان بطاقة الدعم الرئيسية"
+  },
+  "contactSupportHeaderDescription": "ابحث عن إجابات للأسئلة الشائعة أو تواصل مع فريق الدعم.",
+  "@contactSupportHeaderDescription": {
+    "description": "وصف بطاقة الدعم الرئيسية"
+  },
+  "contactSupportEmailTitle": "الدعم عبر البريد الإلكتروني",
+  "@contactSupportEmailTitle": {
+    "description": "عنوان خيار الدعم عبر البريد الإلكتروني"
+  },
+  "contactSupportEmailSubtitle": "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
+  "@contactSupportEmailSubtitle": {
+    "description": "وصف خيار الدعم عبر البريد الإلكتروني"
+  },
+  "contactSupportWebsiteTitle": "الدعم عبر الموقع الإلكتروني",
+  "@contactSupportWebsiteTitle": {
+    "description": "عنوان خيار الدعم عبر الموقع الإلكتروني"
+  },
+  "contactSupportWebsiteSubtitle": "تفضل بزيارة موقعنا للحصول على المساعدة والموارد",  "@contactSupportWebsiteSubtitle": {
+    "description": "وصف خيار الدعم عبر الموقع الإلكتروني"
+  },
+  "contactSupportPhoneTitle": "الدعم عبر الهاتف",
+  "@contactSupportPhoneTitle": {
+    "description": "عنوان خيار الدعم عبر الهاتف"
+  },
+  "contactSupportPhoneSubtitle": "اتصل بفريق الدعم للحصول على المساعدة الفورية.",
+  "@contactSupportPhoneSubtitle": {
+    "description": "وصف خيار الدعم عبر الهاتف"
+  },
+  "contactSupportWhatsAppTitle": "الدعم عبر واتساب",
+  "@contactSupportWhatsAppTitle": {
+    "description": "عنوان خيار الدعم عبر واتساب"
+  },
+  "contactSupportWhatsAppSubtitle": "تواصل معنا عبر واتساب للحصول على دعم سريع.",
+  "@contactSupportWhatsAppSubtitle": {
+    "description": "وصف خيار الدعم عبر واتساب"
+  },
+  "contactSupportFaqTitle": "الأسئلة الشائعة",
+  "@contactSupportFaqTitle": {
+    "description": "عنوان قسم الأسئلة الشائعة"
+  },
+  "contactSupportFaq1Question": "أين يتم تخزين بياناتي؟",
+  "@contactSupportFaq1Question": {
+    "description": "السؤال الأول في الأسئلة الشائعة"
+  },
+  "contactSupportFaq1Answer": "يتم تخزين مصروفاتك وتصنيفاتك محليًا على جهازك.",
+  "@contactSupportFaq1Answer": {
+    "description": "إجابة السؤال الأول في الأسئلة الشائعة"
+  },
+  "contactSupportFaq2Question": "هل يمكنني حذف بياناتي؟",
+  "@contactSupportFaq2Question": {
+    "description": "السؤال الثاني في الأسئلة الشائعة"
+  },
+  "contactSupportFaq2Answer": "نعم، يمكنك حذف مصروفاتك وتصنيفاتك من التطبيق في أي وقت.",
+  "@contactSupportFaq2Answer": {
+    "description": "إجابة السؤال الثاني في الأسئلة الشائعة"
+  },
+  "contactSupportFaq3Question": "هل يجمع التطبيق بياناتي الشخصية؟",
+  "@contactSupportFaq3Question": {
+    "description": "السؤال الثالث في الأسئلة الشائعة"
+  },
+  "contactSupportFaq3Answer": "لا، الإصدار الحالي لا يجمع بياناتك الشخصية أو يرسلها إلى أي جهة.",
+  "@contactSupportFaq3Answer": {
+    "description": "إجابة السؤال الثالث في الأسئلة الشائعة"
+  },
+  "contactSupportFaq4Question": "هل يمكنني إضافة أو تعديل التصنيفات؟",
+  "@contactSupportFaq4Question": {
+    "description": "السؤال الرابع في الأسئلة الشائعة"
+  },
+  "contactSupportFaq4Answer": "نعم، يمكنك إضافة وتعديل وحذف تصنيفات المصروفات.",
+  "@contactSupportFaq4Answer": {
+    "description": "إجابة السؤال الرابع في الأسئلة الشائعة"
+  },
+  "contactSupportFooterTitle": "كيف يمكننا مساعدتك؟",
+  "@contactSupportFooterTitle": {
+    "description": "عنوان بطاقة الدعم في نهاية الصفحة"
+  },
+  "contactSupportFooterDescription": "نحن متاحون 24/7 لمساعدتك في أسئلتك واحتياجات الدعم.",
+  "@contactSupportFooterDescription": {
+    "description": "وصف بطاقة الدعم في نهاية الصفحة"
   }
 }

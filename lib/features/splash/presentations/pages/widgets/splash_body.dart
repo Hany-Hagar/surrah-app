@@ -1,4 +1,4 @@
-import '../../../../const/assets.dart';
+import '../../../../../const/assets.dart';
 import 'package:flutter/material.dart';
 
 class SplashBody extends StatefulWidget {

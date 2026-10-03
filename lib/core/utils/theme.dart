@@ -8,6 +8,11 @@ import 'styles.dart';
 class AppTheme {
   // ================= Brand Colors =================
 
+  // Income
+  static const Color income = Color(0xFF4CAF50);
+  // Expense
+  static const Color expense = Color(0xFFF44336);
+
   static const Color primary = Color(0xFF001233);
   static const Color secondary = Color(0xFFE5B84A);
 
@@ -27,11 +32,11 @@ class AppTheme {
     brightness: Brightness.light,
 
     primaryColor: primary,
-    scaffoldBackgroundColor: white,
     canvasColor: white,
     cardColor: Colors.white,
-    dividerColor: const Color(0xFFE5E7EB),
     hintColor: Colors.black87,
+    scaffoldBackgroundColor: white,
+    dividerColor: const Color(0xFFE5E7EB),
 
     colorScheme: const ColorScheme(
       brightness: Brightness.light,

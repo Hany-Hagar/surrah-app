@@ -22,9 +22,291 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
-        "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
-        "english": MessageLookupByLibrary.simpleMessage("الإنكليزية"),
-        "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة")
-      };
+    "addCategory": MessageLookupByLibrary.simpleMessage("إضافة تصنيف"),
+    "addCategoryDialogDescription": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل التصنيف الجديد الذي ترغب في إضافته.",
+    ),
+    "addCategoryDialogTitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة تصنيف جديد",
+    ),
+    "addExpense": MessageLookupByLibrary.simpleMessage("إضافة مصروف"),
+    "addIncome": MessageLookupByLibrary.simpleMessage("إضافة دخل"),
+    "addNewCategorySuccess": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة التصنيف بنجاح",
+    ),
+    "addTransactionAmountTitle": MessageLookupByLibrary.simpleMessage("المبلغ"),
+    "addTransactionAmountTypeHint": MessageLookupByLibrary.simpleMessage(
+      "أدخل المبلغ :",
+    ),
+    "addTransactionButton": MessageLookupByLibrary.simpleMessage("إضافة عملية"),
+    "addTransactionCategoryTitle": MessageLookupByLibrary.simpleMessage(
+      "الفئة",
+    ),
+    "addTransactionDate": MessageLookupByLibrary.simpleMessage("التاريخ"),
+    "addTransactionFailure": MessageLookupByLibrary.simpleMessage(
+      "فشل في إضافة العملية",
+    ),
+    "addTransactionNotes": MessageLookupByLibrary.simpleMessage("الملاحظات"),
+    "addTransactionNotesHint": MessageLookupByLibrary.simpleMessage(
+      "أضف وصفًا مختصرًا أو ملاحظة لهذه العملية",
+    ),
+    "addTransactionSubtitle": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل العملية المالية التي ترغب في إضافتها.",
+    ),
+    "addTransactionSuccess": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة العملية بنجاح",
+    ),
+    "addTransactionTitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة عملية جديدة",
+    ),
+    "all": MessageLookupByLibrary.simpleMessage("الكل"),
+    "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "categories": MessageLookupByLibrary.simpleMessage("التصنيفات"),
+    "categoriesSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة وتعديل وحذف تصنيفات المصروفات",
+    ),
+    "categoriesTitle": MessageLookupByLibrary.simpleMessage("إدارة التصنيفات"),
+    "categoryIconData": MessageLookupByLibrary.simpleMessage("بيانات الأيقونة"),
+    "categoryIconDataHint": MessageLookupByLibrary.simpleMessage(
+      "اضغط لتغيير الأيقونة",
+    ),
+    "categoryName": MessageLookupByLibrary.simpleMessage("اسم التصنيف"),
+    "categoryNameHint": MessageLookupByLibrary.simpleMessage(
+      "e.g., Food, Transportation, Salary",
+    ),
+    "categoryType": MessageLookupByLibrary.simpleMessage("نوع التصنيف"),
+    "clearFilterButton": MessageLookupByLibrary.simpleMessage("مسح التصفية"),
+    "color": MessageLookupByLibrary.simpleMessage("اللون"),
+    "contactSupportEmailSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تواصل معنا عبر البريد الإلكتروني وسنسعد بمساعدتك.",
+    ),
+    "contactSupportEmailTitle": MessageLookupByLibrary.simpleMessage(
+      "الدعم عبر البريد الإلكتروني",
+    ),
+    "contactSupportFaq1Answer": MessageLookupByLibrary.simpleMessage(
+      "يتم تخزين مصروفاتك وتصنيفاتك محليًا على جهازك.",
+    ),
+    "contactSupportFaq1Question": MessageLookupByLibrary.simpleMessage(
+      "أين يتم تخزين بياناتي؟",
+    ),
+    "contactSupportFaq2Answer": MessageLookupByLibrary.simpleMessage(
+      "نعم، يمكنك حذف مصروفاتك وتصنيفاتك من التطبيق في أي وقت.",
+    ),
+    "contactSupportFaq2Question": MessageLookupByLibrary.simpleMessage(
+      "هل يمكنني حذف بياناتي؟",
+    ),
+    "contactSupportFaq3Answer": MessageLookupByLibrary.simpleMessage(
+      "لا، الإصدار الحالي لا يجمع بياناتك الشخصية أو يرسلها إلى أي جهة.",
+    ),
+    "contactSupportFaq3Question": MessageLookupByLibrary.simpleMessage(
+      "هل يجمع التطبيق بياناتي الشخصية؟",
+    ),
+    "contactSupportFaq4Answer": MessageLookupByLibrary.simpleMessage(
+      "نعم، يمكنك إضافة وتعديل وحذف تصنيفات المصروفات.",
+    ),
+    "contactSupportFaq4Question": MessageLookupByLibrary.simpleMessage(
+      "هل يمكنني إضافة أو تعديل التصنيفات؟",
+    ),
+    "contactSupportFaqTitle": MessageLookupByLibrary.simpleMessage(
+      "الأسئلة الشائعة",
+    ),
+    "contactSupportFooterDescription": MessageLookupByLibrary.simpleMessage(
+      "نحن متاحون 24/7 لمساعدتك في أسئلتك واحتياجات الدعم.",
+    ),
+    "contactSupportFooterTitle": MessageLookupByLibrary.simpleMessage(
+      "كيف يمكننا مساعدتك؟",
+    ),
+    "contactSupportHeaderDescription": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن إجابات للأسئلة الشائعة أو تواصل مع فريق الدعم.",
+    ),
+    "contactSupportHeaderTitle": MessageLookupByLibrary.simpleMessage(
+      "كيف يمكننا مساعدتك؟",
+    ),
+    "contactSupportPhoneSubtitle": MessageLookupByLibrary.simpleMessage(
+      "اتصل بفريق الدعم للحصول على المساعدة الفورية.",
+    ),
+    "contactSupportPhoneTitle": MessageLookupByLibrary.simpleMessage(
+      "الدعم عبر الهاتف",
+    ),
+    "contactSupportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "احصل على المساعدة والدعم",
+    ),
+    "contactSupportTitle": MessageLookupByLibrary.simpleMessage(
+      "تواصل مع الدعم",
+    ),
+    "contactSupportWebsiteSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تفضل بزيارة موقعنا للحصول على المساعدة والموارد",
+    ),
+    "contactSupportWebsiteTitle": MessageLookupByLibrary.simpleMessage(
+      "الدعم عبر الموقع الإلكتروني",
+    ),
+    "contactSupportWhatsAppSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تواصل معنا عبر واتساب للحصول على دعم سريع.",
+    ),
+    "contactSupportWhatsAppTitle": MessageLookupByLibrary.simpleMessage(
+      "الدعم عبر واتساب",
+    ),
+    "currentBalance": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
+    "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
+    "custom": MessageLookupByLibrary.simpleMessage("مخصص"),
+    "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
+    "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+    "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
+    "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "expense": MessageLookupByLibrary.simpleMessage("المصروفات"),
+    "filterButton": MessageLookupByLibrary.simpleMessage("تصفية"),
+    "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "homeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "مرشدك الشخصي في إدارة الموارد المالية",
+    ),
+    "homeTitle": MessageLookupByLibrary.simpleMessage("مرحبًا بك في صُرّة"),
+    "income": MessageLookupByLibrary.simpleMessage("الدخل"),
+    "languageSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تغيير لغة التطبيق",
+    ),
+    "languageTitle": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "lastTransactions": MessageLookupByLibrary.simpleMessage("آخر العمليات"),
+    "lightTheme": MessageLookupByLibrary.simpleMessage("فاتح"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "now": MessageLookupByLibrary.simpleMessage("الآن"),
+    "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
+      "تتبّع دخلك ومصروفاتك بسهولة.",
+    ),
+    "onboardingDescription2": MessageLookupByLibrary.simpleMessage(
+      "طوّر عادات مالية تساعدك على إدارة أموالك بذكاء.",
+    ),
+    "onboardingDescription3": MessageLookupByLibrary.simpleMessage(
+      "ادخر بانتظام واقترب من تحقيق أهدافك المالية.",
+    ),
+    "onboardingDescription4": MessageLookupByLibrary.simpleMessage(
+      "تابع نفقاتك واتخذ قرارات مالية بثقة.",
+    ),
+    "onboardingTitle1": MessageLookupByLibrary.simpleMessage("تابع كل جنيه"),
+    "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
+      "ابنِ عادات مالية أفضل",
+    ),
+    "onboardingTitle3": MessageLookupByLibrary.simpleMessage(
+      "حقق أهدافك المالية",
+    ),
+    "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
+      "تحكم الكامل بأموالك",
+    ),
+    "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى :"),
+    "privacyPolicyCard1Description": MessageLookupByLibrary.simpleMessage(
+      "لا يجمع التطبيق أي بيانات شخصية. يتم حفظ المصروفات والتصنيفات التي تضيفها محليًا على جهازك فقط.",
+    ),
+    "privacyPolicyCard1Title": MessageLookupByLibrary.simpleMessage(
+      "البيانات التي يجمعها التطبيق",
+    ),
+    "privacyPolicyCard2Description": MessageLookupByLibrary.simpleMessage(
+      "يتم تخزين جميع بياناتك على جهازك فقط، ولا يتم إرسالها إلى أي خادم أو جهة خارجية.",
+    ),
+    "privacyPolicyCard2Title": MessageLookupByLibrary.simpleMessage(
+      "تخزين البيانات",
+    ),
+    "privacyPolicyCard3Description": MessageLookupByLibrary.simpleMessage(
+      "لا تتم مشاركة بياناتك مع أي طرف ثالث أو أي خدمات خارجية.",
+    ),
+    "privacyPolicyCard3Title": MessageLookupByLibrary.simpleMessage(
+      "مشاركة البيانات",
+    ),
+    "privacyPolicyCard4Description": MessageLookupByLibrary.simpleMessage(
+      "يتم الاحتفاظ ببياناتك محليًا على جهازك، ونسعى لتوفير مستوى مناسب من الحماية لها.",
+    ),
+    "privacyPolicyCard4Title": MessageLookupByLibrary.simpleMessage(
+      "أمان البيانات",
+    ),
+    "privacyPolicyCard5Description": MessageLookupByLibrary.simpleMessage(
+      "يمكنك حذف جميع المصروفات والتصنيفات في أي وقت من داخل التطبيق.",
+    ),
+    "privacyPolicyCard5Title": MessageLookupByLibrary.simpleMessage(
+      "حذف البيانات",
+    ),
+    "privacyPolicyCard6Description": MessageLookupByLibrary.simpleMessage(
+      "قد نقوم بتحديث سياسة الخصوصية عند الحاجة، وسيتم إعلامك بأي تغييرات مهمة داخل التطبيق.",
+    ),
+    "privacyPolicyCard6Title": MessageLookupByLibrary.simpleMessage(
+      "تحديثات سياسة الخصوصية",
+    ),
+    "privacyPolicyCardDescription": MessageLookupByLibrary.simpleMessage(
+      "نحترم خصوصيتك ونلتزم بحماية بياناتك. تعرّف على كيفية جمع بياناتك واستخدامها وحمايتها.",
+    ),
+    "privacyPolicyCardTitle": MessageLookupByLibrary.simpleMessage(
+      "خصوصيتك تهمنا",
+    ),
+    "privacySubtitle": MessageLookupByLibrary.simpleMessage(
+      "اقرأ سياسة الخصوصية الخاصة بنا",
+    ),
+    "privacyTitle": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("الإجراءات السريعة"),
+    "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن تصنيف",
+    ),
+    "searchTransactionsHint": MessageLookupByLibrary.simpleMessage(
+      "بحث في العمليات",
+    ),
+    "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إدارة تفضيلات الإشعارات",
+    ),
+    "settingsNotificationsTitle": MessageLookupByLibrary.simpleMessage(
+      "الإشعارات",
+    ),
+    "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
+      "🔒 الخصوصية والدعم",
+    ),
+    "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تخصيص تجربة التطبيق",
+    ),
+    "settingsTitle": MessageLookupByLibrary.simpleMessage("إدارة إعداداتك"),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "systemTheme": MessageLookupByLibrary.simpleMessage("نظام"),
+    "themeSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تخصيص المظهر والشعور",
+    ),
+    "themeTitle": MessageLookupByLibrary.simpleMessage("المظهر"),
+    "themes": MessageLookupByLibrary.simpleMessage("المظاهر"),
+    "thisMonth": MessageLookupByLibrary.simpleMessage("هذا الشهر"),
+    "thisWeek": MessageLookupByLibrary.simpleMessage("هذا الأسبوع"),
+    "thisYear": MessageLookupByLibrary.simpleMessage("هذا العام"),
+    "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "transactionType": MessageLookupByLibrary.simpleMessage("نوع العملية"),
+    "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
+    "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إضافة وتعديل وحذف العمليات المالية",
+    ),
+    "transactionsTitle": MessageLookupByLibrary.simpleMessage("إدارة العمليات"),
+    "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
+    "updateCategoryButton": MessageLookupByLibrary.simpleMessage(
+      "تحديث التصنيف",
+    ),
+    "updateCategoryDialogDescription": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل التصنيف الذي ترغب في تحديثه.",
+    ),
+    "updateCategoryDialogTitle": MessageLookupByLibrary.simpleMessage(
+      "تحديث التصنيف",
+    ),
+    "updateCategorySuccess": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث التصنيف بنجاح",
+    ),
+    "updateTransactionButton": MessageLookupByLibrary.simpleMessage(
+      "تحديث العملية",
+    ),
+    "updateTransactionFailure": MessageLookupByLibrary.simpleMessage(
+      "فشل في تحديث العملية",
+    ),
+    "updateTransactionSubtitle": MessageLookupByLibrary.simpleMessage(
+      "أدخل تفاصيل العملية المالية التي ترغب في تحديثها.",
+    ),
+    "updateTransactionSuccess": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث العملية بنجاح",
+    ),
+    "updateTransactionTitle": MessageLookupByLibrary.simpleMessage(
+      "تحديث العملية",
+    ),
+    "yesterday": MessageLookupByLibrary.simpleMessage("أمس"),
+  };
 }

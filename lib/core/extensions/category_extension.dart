@@ -1,0 +1,50 @@
+import '../../features/categories/presentation/manager/categories_cubit.dart';
+import '../di/server_locator.dart';
+import '../enums/category_type.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../features/categories/data/models/category_model.dart';
+
+extension CategoryNameSize on String {
+  double getSize() {
+    if (length <= 5) {
+      return 13.sp;
+    } else if (length <= 10) {
+      return 12.sp;
+    } else if (length <= 15) {
+      return 11.sp;
+    } else {
+      return 10.sp;
+    }
+  }
+}
+
+// Get Category by ID extension
+extension CategoryById on String {
+  CategoryModel getCategory() {
+    var categories = getIt<CategoriesCubit>().categories;
+    return categories.firstWhere((category) => category.id == this);
+  }
+}
+
+// Search extension
+extension SearchExtension on List<CategoryModel> {
+  List<CategoryModel> search(String query) {
+    return where(
+      (category) => category.name.toLowerCase().contains(query.toLowerCase()),
+    ).toList();
+  }
+}
+
+// Filter extension
+extension FilterExtension on List<CategoryModel> {
+  List<CategoryModel> filterByType(CategoriesType type) {
+    switch (type) {
+      case CategoriesType.all:
+        return this;
+      case CategoriesType.income:
+        return where((category) => category.isIncome).toList();
+      case CategoriesType.expense:
+        return where((category) => !category.isIncome).toList();
+    }
+  }
+}

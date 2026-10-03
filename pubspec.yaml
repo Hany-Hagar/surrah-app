@@ -1,21 +1,7 @@
 name: surrah
 description: "A new Flutter project."
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-# In Windows, build-name is used as the major, minor, and patch parts
-# of the product and file versions while build-number is used as the build suffix.
+publish_to: 'none' 
 version: 1.0.0+1
 
 environment:
@@ -35,15 +21,35 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # UI
+  lottie: ^3.3.3
+  fl_chart: ^1.2.0
+  flutter_svg: ^2.3.0
+  icon_broken: ^1.1.0
+  skeletonizer: ^2.1.3
+  country_flags: ^4.1.2
+  flex_color_picker: ^3.8.0
   flutter_screenutil: ^5.9.3
+  omni_datetime_picker: ^2.0.5
+  smooth_page_indicator: ^2.0.1
+  font_awesome_flutter: ^11.0.0
 
   # State Management & Dependency Injection
   get_it: ^9.2.1
   flutter_bloc: ^8.1.0
   hydrated_bloc: ^9.0.0
 
+  # Functional Programming
+  dartz: ^0.10.1
+
   # Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
   path_provider: ^2.1.5
+
+  # External Services
+  url_launcher: ^6.3.2
+  phosphor_flutter: ^2.1.0
+  local_auth: ^3.0.2
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +58,10 @@ dev_dependencies:
   # Development Tools
   rename: ^3.1.0
   flutter_lints: ^6.0.0
+
+  # Code Generation
+  build_runner: ^2.4.13
+  hive_generator: ^2.0.1
 
   # App Assets
   flutter_native_splash: ^2.4.7
@@ -63,7 +73,29 @@ flutter_intl:
 flutter:
   uses-material-design: true
   assets:
+    - assets/svgs/
+    - assets/fonts/
     - assets/images/
+    - assets/lotties/
+
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo/Cairo-Regular.ttf
+        - asset: assets/fonts/cairo/Cairo-Light.ttf
+          weight: 300
+        - asset: assets/fonts/cairo/Cairo-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/cairo/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/cairo/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/cairo/Cairo-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/cairo/Cairo-Black.ttf
+          weight: 900
 
 flutter_launcher_icons:
   android: true

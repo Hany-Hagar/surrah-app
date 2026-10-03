@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import '../widgets/settings_body.dart';
+import '../../../../../generated/l10n.dart';
+import 'package:surrah/core/widgets/custom_app_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class SettingsView extends StatelessWidget {
+  const SettingsView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var s = S.of(context);
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: s.settingsTitle,
+        subtitle: s.settingsSubtitle,
+      ),
+      body: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 12.w),
+        child: SettingsBody()
+      ),
+    );
+  }
+}
