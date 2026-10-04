@@ -1,3 +1,7 @@
+// ignore_for_file: unnecessary_underscores
+
+import 'core/services/app_lock_service.dart';
+import 'core/widgets/app_lock_overlay.dart';
 import 'generated/l10n.dart';
 import 'core/utils/theme.dart';
 import 'core/di/server_locator.dart';
@@ -22,7 +26,9 @@ final rootNavigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  AppLockService.instance.init();
   Bloc.observer = MyBlocObserver();
+  await AppLockService.instance.setEnabled(true);
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
@@ -95,6 +101,16 @@ class MyApp extends StatelessWidget {
                   GlobalCupertinoLocalizations.delegate,
                 ],
                 supportedLocales: S.delegate.supportedLocales,
+                  builder: (context, child) => Stack(
+                    children: [
+                      child!,
+                      ValueListenableBuilder<bool>(
+                        valueListenable: AppLockService.instance.locked,
+                        builder: (_, locked, __) =>
+                            locked ? const AppLockOverlay() : const SizedBox.shrink(),
+                      ),
+                    ],
+                  ),
                 home: const SplashView(),
               );
             },
