@@ -1,3 +1,4 @@
+import '../../report/presentation/manager/report_cubit.dart';
 import 'layout_states.dart';
 import 'package:flutter/material.dart';
 import '../../../core/di/server_locator.dart';
@@ -17,6 +18,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
     currentIndex = index;
     if (index == 1) getIt<CategoriesCubit>().initialView();
     if (index == 2) getIt<TransactionsCubit>().initialView();
+    if (index == 3) getIt<ReportCubit>().refresh(); 
     pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 300),
@@ -28,6 +30,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
   void updateCurrentIndex(int index) {
     if (index == currentIndex) return;
     currentIndex = index;
+    if (index == 3) getIt<ReportCubit>().refresh();
     emit(ChangeBottomNavBarIndex());
   }
 }

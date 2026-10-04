@@ -20,6 +20,20 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(count) => "${count} Categories";
+
+  static String m1(error) => "Failed to generate PDF: ${error}";
+
+  static String m2(count) => "Ready for Export • ${count} Transactions";
+
+  static String m3(percent) => "Saved ${percent}%";
+
+  static String m4(count) => "${count} Sources";
+
+  static String m5(percent) => "${percent}% spent";
+
+  static String m6(number) => "Week ${number}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "addCategory": MessageLookupByLibrary.simpleMessage("Add Category"),
@@ -65,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "categoriesCount": m0,
     "categoriesSubtitle": MessageLookupByLibrary.simpleMessage(
       "Add, edit, and delete your expense categories",
     ),
@@ -158,12 +173,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "custom": MessageLookupByLibrary.simpleMessage("Custom"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
     "date": MessageLookupByLibrary.simpleMessage("Date"),
+    "downloadReportPdf": MessageLookupByLibrary.simpleMessage(
+      "Download Report PDF",
+    ),
     "egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
     "emptyCategories": MessageLookupByLibrary.simpleMessage(
       "No categories available",
     ),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "expense": MessageLookupByLibrary.simpleMessage("Expense"),
+    "expenseBreakdown": MessageLookupByLibrary.simpleMessage(
+      "Expense Breakdown",
+    ),
+    "expenseOverview": MessageLookupByLibrary.simpleMessage("Expense Trend"),
+    "expenseOverviewSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Your spending during this month",
+    ),
+    "expenseTag": MessageLookupByLibrary.simpleMessage("Expense"),
+    "expenseTrendSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Track your spending over time",
+    ),
+    "expensesChip": MessageLookupByLibrary.simpleMessage("Expenses"),
     "filterButton": MessageLookupByLibrary.simpleMessage("Filter"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ General"),
     "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
@@ -173,6 +203,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeTitle": MessageLookupByLibrary.simpleMessage("Welcome to Surrah"),
     "income": MessageLookupByLibrary.simpleMessage("Income"),
+    "incomeBreakdown": MessageLookupByLibrary.simpleMessage("Income Breakdown"),
+    "incomeLabel": MessageLookupByLibrary.simpleMessage("Income"),
     "languageSubtitle": MessageLookupByLibrary.simpleMessage(
       "Change the app language",
     ),
@@ -182,6 +214,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "lightTheme": MessageLookupByLibrary.simpleMessage("Light"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "noExpensesThisMonth": MessageLookupByLibrary.simpleMessage(
+      "No expenses for this month",
+    ),
+    "noIncomeThisMonth": MessageLookupByLibrary.simpleMessage(
+      "No income for this month",
+    ),
     "now": MessageLookupByLibrary.simpleMessage("Now"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "Easily track your income and expenses.",
@@ -208,6 +246,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Full Control Over Your Money",
     ),
     "otherLanguages": MessageLookupByLibrary.simpleMessage("Other Languages :"),
+    "pdfGenerationFailed": m1,
+    "periodDay": MessageLookupByLibrary.simpleMessage("Day"),
+    "periodMonth": MessageLookupByLibrary.simpleMessage("Month"),
+    "periodWeek": MessageLookupByLibrary.simpleMessage("Week"),
+    "periodYear": MessageLookupByLibrary.simpleMessage("Year"),
     "privacyPolicyCard1Description": MessageLookupByLibrary.simpleMessage(
       "We do not collect personal data. Your expenses and categories are stored locally on your device.",
     ),
@@ -255,6 +298,17 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "quickActions": MessageLookupByLibrary.simpleMessage("Quick Actions"),
+    "readyForExport": m2,
+    "readyForExportDescription": MessageLookupByLibrary.simpleMessage(
+      "Full PDF includes categorized charts, transaction ledger, tax summaries, and verified timestamps for this month.",
+    ),
+    "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
+    "report": MessageLookupByLibrary.simpleMessage("Report"),
+    "reportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Your financial summary",
+    ),
+    "salary": MessageLookupByLibrary.simpleMessage("Salary"),
+    "savedPercentage": m3,
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "Search Categories",
     ),
@@ -278,6 +332,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Manage Your Settings",
     ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "sourcesCount": m4,
+    "spentPercentage": m5,
     "systemTheme": MessageLookupByLibrary.simpleMessage("System"),
     "themeSubtitle": MessageLookupByLibrary.simpleMessage(
       "Customize the look and feel",
@@ -288,6 +344,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
     "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
     "today": MessageLookupByLibrary.simpleMessage("Today"),
+    "topExpenses": MessageLookupByLibrary.simpleMessage("Top Expenses"),
+    "topExpensesSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Highest individual transactions",
+    ),
+    "totalExpenses": MessageLookupByLibrary.simpleMessage("Total Expenses"),
+    "totalExpensesLabel": MessageLookupByLibrary.simpleMessage(
+      "TOTAL EXPENSES",
+    ),
+    "totalIncomeLabel": MessageLookupByLibrary.simpleMessage("TOTAL INCOME"),
     "transactionType": MessageLookupByLibrary.simpleMessage("Transaction Type"),
     "transactions": MessageLookupByLibrary.simpleMessage("Transactions"),
     "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -324,6 +389,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateTransactionTitle": MessageLookupByLibrary.simpleMessage(
       "Update Transaction",
     ),
+    "viewAll": MessageLookupByLibrary.simpleMessage("View all"),
+    "week": m6,
     "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
   };
 }

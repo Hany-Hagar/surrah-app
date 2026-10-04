@@ -20,6 +20,20 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(count) => "${count} تصنيفات";
+
+  static String m1(error) => "فشل إنشاء ملف PDF: ${error}";
+
+  static String m2(count) => "جاهز للتصدير • ${count} عملية";
+
+  static String m3(percent) => "تم توفير ${percent}%";
+
+  static String m4(count) => "${count} مصادر";
+
+  static String m5(percent) => "تم إنفاق ${percent}%";
+
+  static String m6(number) => "الأسبوع ${number}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "addCategory": MessageLookupByLibrary.simpleMessage("إضافة تصنيف"),
@@ -36,7 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "addTransactionAmountTitle": MessageLookupByLibrary.simpleMessage("المبلغ"),
     "addTransactionAmountTypeHint": MessageLookupByLibrary.simpleMessage(
-      "أدخل المبلغ :",
+      "أدخل المبلغ:",
     ),
     "addTransactionButton": MessageLookupByLibrary.simpleMessage("إضافة عملية"),
     "addTransactionCategoryTitle": MessageLookupByLibrary.simpleMessage(
@@ -63,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "categories": MessageLookupByLibrary.simpleMessage("التصنيفات"),
+    "categoriesCount": m0,
     "categoriesSubtitle": MessageLookupByLibrary.simpleMessage(
       "إضافة وتعديل وحذف تصنيفات المصروفات",
     ),
@@ -73,7 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "categoryName": MessageLookupByLibrary.simpleMessage("اسم التصنيف"),
     "categoryNameHint": MessageLookupByLibrary.simpleMessage(
-      "e.g., Food, Transportation, Salary",
+      "مثال: الطعام، المواصلات، الراتب",
     ),
     "categoryType": MessageLookupByLibrary.simpleMessage("نوع التصنيف"),
     "clearFilterButton": MessageLookupByLibrary.simpleMessage("مسح التصفية"),
@@ -148,13 +163,27 @@ class MessageLookup extends MessageLookupByLibrary {
       "الدعم عبر واتساب",
     ),
     "currentBalance": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
-    "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية :"),
+    "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية:"),
     "custom": MessageLookupByLibrary.simpleMessage("مخصص"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("داكن"),
     "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+    "downloadReportPdf": MessageLookupByLibrary.simpleMessage(
+      "تحميل التقرير PDF",
+    ),
     "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
+    "emptyCategories": MessageLookupByLibrary.simpleMessage("لا توجد تصنيفات"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "expense": MessageLookupByLibrary.simpleMessage("المصروفات"),
+    "expenseBreakdown": MessageLookupByLibrary.simpleMessage("توزيع المصروفات"),
+    "expenseOverview": MessageLookupByLibrary.simpleMessage("اتجاه المصروفات"),
+    "expenseOverviewSubtitle": MessageLookupByLibrary.simpleMessage(
+      "مصروفاتك خلال هذا الشهر",
+    ),
+    "expenseTag": MessageLookupByLibrary.simpleMessage("مصروف"),
+    "expenseTrendSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تتبّع إنفاقك عبر الوقت",
+    ),
+    "expensesChip": MessageLookupByLibrary.simpleMessage("المصروفات"),
     "filterButton": MessageLookupByLibrary.simpleMessage("تصفية"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("⚙️ عامة"),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
@@ -164,6 +193,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeTitle": MessageLookupByLibrary.simpleMessage("مرحبًا بك في صُرّة"),
     "income": MessageLookupByLibrary.simpleMessage("الدخل"),
+    "incomeBreakdown": MessageLookupByLibrary.simpleMessage("توزيع الدخل"),
+    "incomeLabel": MessageLookupByLibrary.simpleMessage("الدخل"),
     "languageSubtitle": MessageLookupByLibrary.simpleMessage(
       "تغيير لغة التطبيق",
     ),
@@ -171,6 +202,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastTransactions": MessageLookupByLibrary.simpleMessage("آخر العمليات"),
     "lightTheme": MessageLookupByLibrary.simpleMessage("فاتح"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noExpensesThisMonth": MessageLookupByLibrary.simpleMessage(
+      "لا توجد مصروفات هذا الشهر",
+    ),
+    "noIncomeThisMonth": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد دخل هذا الشهر",
+    ),
     "now": MessageLookupByLibrary.simpleMessage("الآن"),
     "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
       "تتبّع دخلك ومصروفاتك بسهولة.",
@@ -194,7 +231,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingTitle4": MessageLookupByLibrary.simpleMessage(
       "تحكم الكامل بأموالك",
     ),
-    "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى :"),
+    "otherLanguages": MessageLookupByLibrary.simpleMessage("لغات أخرى:"),
+    "pdfGenerationFailed": m1,
+    "periodDay": MessageLookupByLibrary.simpleMessage("يوم"),
+    "periodMonth": MessageLookupByLibrary.simpleMessage("شهر"),
+    "periodWeek": MessageLookupByLibrary.simpleMessage("أسبوع"),
+    "periodYear": MessageLookupByLibrary.simpleMessage("سنة"),
     "privacyPolicyCard1Description": MessageLookupByLibrary.simpleMessage(
       "لا يجمع التطبيق أي بيانات شخصية. يتم حفظ المصروفات والتصنيفات التي تضيفها محليًا على جهازك فقط.",
     ),
@@ -242,6 +284,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyTitle": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "quickActions": MessageLookupByLibrary.simpleMessage("الإجراءات السريعة"),
+    "readyForExport": m2,
+    "readyForExportDescription": MessageLookupByLibrary.simpleMessage(
+      "يشمل ملف الـPDF الكامل رسومًا بيانية مصنفة، سجل العمليات، ملخصات ضريبية، وتوقيتات موثقة لهذا الشهر.",
+    ),
+    "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
+    "report": MessageLookupByLibrary.simpleMessage("التقارير"),
+    "reportSubtitle": MessageLookupByLibrary.simpleMessage("ملخصك المالي"),
+    "salary": MessageLookupByLibrary.simpleMessage("المرتب"),
+    "savedPercentage": m3,
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(
       "ابحث عن تصنيف",
     ),
@@ -263,6 +314,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("إدارة إعداداتك"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "sourcesCount": m4,
+    "spentPercentage": m5,
     "systemTheme": MessageLookupByLibrary.simpleMessage("نظام"),
     "themeSubtitle": MessageLookupByLibrary.simpleMessage(
       "تخصيص المظهر والشعور",
@@ -273,6 +326,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "thisWeek": MessageLookupByLibrary.simpleMessage("هذا الأسبوع"),
     "thisYear": MessageLookupByLibrary.simpleMessage("هذا العام"),
     "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "topExpenses": MessageLookupByLibrary.simpleMessage("أعلى المصروفات"),
+    "topExpensesSubtitle": MessageLookupByLibrary.simpleMessage(
+      "أعلى العمليات الفردية",
+    ),
+    "totalExpenses": MessageLookupByLibrary.simpleMessage("المصروفات"),
+    "totalExpensesLabel": MessageLookupByLibrary.simpleMessage(
+      "إجمالي المصروفات",
+    ),
+    "totalIncomeLabel": MessageLookupByLibrary.simpleMessage("إجمالي الدخل"),
     "transactionType": MessageLookupByLibrary.simpleMessage("نوع العملية"),
     "transactions": MessageLookupByLibrary.simpleMessage("العمليات"),
     "transactionsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -307,6 +369,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateTransactionTitle": MessageLookupByLibrary.simpleMessage(
       "تحديث العملية",
     ),
+    "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+    "week": m6,
     "yesterday": MessageLookupByLibrary.simpleMessage("أمس"),
   };
 }

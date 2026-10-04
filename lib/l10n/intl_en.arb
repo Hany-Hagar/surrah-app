@@ -558,5 +558,179 @@
   "contactSupportFooterDescription": "We're available 24/7 to help with your questions and support needs.",
   "@contactSupportFooterDescription": {
     "description": "Description for the contact support footer card"
-  }
+  },
+  "report": "Report",
+  "@report": {
+  "description": "Label for the report section"
+},
+  "reportSubtitle": "Your financial summary",
+  "@reportSubtitle": {
+    "description": "Subtitle for the report page"
+  },
+
+  "salary": "Salary",
+  "@salary": {
+    "description": "Label for the salary summary card"
+  },
+  "totalExpenses": "Total Expenses",
+  "@totalExpenses": {
+    "description": "Label for the total expenses summary card"
+  },
+  "remaining": "Remaining",
+  "@remaining": {
+    "description": "Label for the remaining balance summary card"
+  },
+  "incomeLabel": "Income",
+  "@incomeLabel": {
+    "description": "Footer label under the salary card"
+  },
+  "spentPercentage": "{percent}% spent",
+  "@spentPercentage": {
+    "description": "Footer label showing percentage spent",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "savedPercentage": "Saved {percent}%",
+  "@savedPercentage": {
+    "description": "Footer label showing percentage saved",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+
+   "expenseOverview": "Expense Trend",
+  "@expenseOverview": {
+    "description": "Title for the expenses trend chart"
+  },
+  "expenseOverviewSubtitle": "Your spending during this month",
+  "@expenseOverviewSubtitle": {
+    "description": "Subtitle for the weekly expense chart card"
+  },
+  "expenseTrendSubtitle": "Track your spending over time",
+  "@expenseTrendSubtitle": {
+    "description": "Subtitle for the expenses trend chart"
+  },
+  "expensesChip": "Expenses",
+  "@expensesChip": {
+    "description": "Legend chip label on the expense chart"
+  },
+  "week": "Week {number}",
+  "@week": {
+    "description": "Label for a week in the expense chart",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+
+  "expenseBreakdown": "Expense Breakdown",
+  "@expenseBreakdown": {
+    "description": "Title for the category breakdown donut chart"
+  },
+  "categoriesCount": "{count} Categories",
+  "@categoriesCount": {
+    "description": "Number of categories shown in the breakdown card",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalExpensesLabel": "TOTAL EXPENSES",
+  "@totalExpensesLabel": {
+    "description": "Label in the center of the expense breakdown donut chart"
+  },
+
+  "incomeBreakdown": "Income Breakdown",
+  "@incomeBreakdown": {
+    "description": "Title for the income sources donut chart"
+  },
+  "sourcesCount": "{count} Sources",
+  "@sourcesCount": {
+    "description": "Number of income sources shown in the breakdown card",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalIncomeLabel": "TOTAL INCOME",
+  "@totalIncomeLabel": {
+    "description": "Label in the center of the income breakdown donut chart"
+  },
+
+  "topExpenses": "Top Expenses",
+  "@topExpenses": {
+    "description": "Title for the top expenses list"
+  },
+  "topExpensesSubtitle": "Highest individual transactions",
+  "@topExpensesSubtitle": {
+    "description": "Subtitle for the top expenses list"
+  },
+  "viewAll": "View all",
+  "@viewAll": {
+    "description": "Label for the view all button"
+  },
+  "expenseTag": "Expense",
+  "@expenseTag": {
+    "description": "Tag shown next to an expense transaction"
+  },
+
+  "readyForExport": "Ready for Export • {count} Transactions",
+  "@readyForExport": {
+    "description": "Label showing the report is ready to export with transaction count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "readyForExportDescription": "Full PDF includes categorized charts, transaction ledger, tax summaries, and verified timestamps for this month.",
+  "@readyForExportDescription": {
+    "description": "Description explaining what the exported PDF includes"
+  },
+  "downloadReportPdf": "Download Report PDF",
+  "@downloadReportPdf": {
+    "description": "Label for the download report PDF button"
+  },
+  "noIncomeThisMonth": "No income for this month",
+  "@noIncomeThisMonth": {
+    "description": "Empty state message when there is no income this month"
+  },
+  "noExpensesThisMonth": "No expenses for this month",
+  "@noExpensesThisMonth": {
+    "description": "Empty state message when there are no expenses this month"
+  },
+  "pdfGenerationFailed": "Failed to generate PDF: {error}",
+  "@pdfGenerationFailed": {
+    "description": "Error message shown when PDF generation fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "periodDay": "Day",
+"@periodDay": {
+  "description": "Label for the day period tab"
+},
+"periodWeek": "Week",
+"@periodWeek": {
+  "description": "Label for the week period tab"
+},
+"periodMonth": "Month",
+"@periodMonth": {
+  "description": "Label for the month period tab"
+},
+"periodYear": "Year",
+"@periodYear": {
+  "description": "Label for the year period tab"
+}
+
 }

@@ -184,6 +184,8 @@ class _Time extends StatelessWidget {
             context: context,
             initialDate: cubit.selectedDate,
           ).then((value) {
+
+
             if (value != null) {
               cubit.updateSelectedDate(date: value);
             }
