@@ -6,7 +6,6 @@ import 'splash_state.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit({required this.settingsCubit}) : super(SplashInitial());
-
   final SettingsCubit settingsCubit;
 
   Future<void> startSplash() async {
