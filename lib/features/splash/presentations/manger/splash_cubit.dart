@@ -1,21 +1,26 @@
+import 'dart:developer';
+import 'splash_states.dart';
+import 'package:flutter/material.dart';
+import '../../data/repo/splash_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/services/app_lock_service.dart';
-import '../../../settings/presentation/manager/settings_cubit.dart';
-import 'splash_state.dart';
+class SplashCubit extends Cubit<SplashStates> {
+  final SplashRepo splashRepo;
+  SplashCubit({required this.splashRepo}) : super(SplashInitial());
+  static SplashCubit get(BuildContext context) => BlocProvider.of(context);
 
-class SplashCubit extends Cubit<SplashState> {
-  SplashCubit({required this.settingsCubit}) : super(SplashInitial());
-  final SettingsCubit settingsCubit;
-
-  Future<void> startSplash() async {
+  void authenticate({required bool isFirstTime}) async {
     await Future.delayed(const Duration(seconds: 1));
-    await AppLockService.instance.onSplashFinished();
-
-    if (settingsCubit.state.isFirstTime) {
-      emit(SplashNavigateToOnBoarding());
-    } else {
-      emit(SplashNavigateToHome());
+    if (isFirstTime) {
+      log('****** First time user detected. Navigating to onboarding. ******');
+      emit(FirstTimeCheckComplete());
+      return;
     }
+    emit(AuthenticationLoading());
+    final result = await splashRepo.authenticate();
+    result.fold(
+      (failure) => emit(AuthenticationFailure()),
+      (success) => emit(AuthenticationComplete()),
+    );
   }
 }
