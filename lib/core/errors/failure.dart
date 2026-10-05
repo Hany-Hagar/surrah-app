@@ -6,3 +6,7 @@ abstract class Failure {
 class LocalAuthFailure extends Failure {
   LocalAuthFailure({required String message}) : super(message);
 }
+
+class UpdateFailure extends Failure {
+  UpdateFailure({required String message}) : super(message);
+}

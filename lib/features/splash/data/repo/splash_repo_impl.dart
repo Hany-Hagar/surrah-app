@@ -21,4 +21,14 @@ class SplashRepoImpl extends SplashRepo {
       return Left(LocalAuthFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> checkForUpdate() async {
+    try {
+      await splashData.checkForUpdate();
+      return const Right(null);
+    } catch (e) {
+      return Left(UpdateFailure(message: e.toString()));
+    }
+  }
 }

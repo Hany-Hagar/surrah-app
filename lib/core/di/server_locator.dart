@@ -1,10 +1,11 @@
 import 'package:get_it/get_it.dart';
 import '../services/hive_service.dart';
+import '../services/update_service.dart';
+import '../services/local_auth_service.dart';
 import '../../features/layout/managers/layout_cubit.dart';
 import '../../features/splash/data/repo/splash_repo.dart';
 import '../../features/report/data/repo/report_repo.dart';
 import '../../features/splash/data/database/splash_data.dart';
-import 'package:surrah/core/services/local_auth_service.dart';
 import '../../features/report/data/database/report_data.dart';
 import '../../features/report/data/repo/report_impl_repo.dart';
 import '../../features/splash/data/repo/splash_repo_impl.dart';
@@ -26,6 +27,8 @@ void setupLocator() {
   // Services
   getIt.registerLazySingleton<LocalAuthService>(() => LocalAuthService());
 
+  getIt.registerLazySingleton<UpdateService>(() => UpdateService());
+
   getIt.registerLazySingleton<HiveService>(() => HiveService());
 
   // Settings
@@ -33,7 +36,10 @@ void setupLocator() {
 
   // Splash
   getIt.registerFactory<SplashData>(
-    () => SplashData(localAuth: getIt<LocalAuthService>()),
+    () => SplashData(
+      updateService: getIt<UpdateService>(),
+      localAuth: getIt<LocalAuthService>(),
+    ),
   );
 
   getIt.registerFactory<SplashRepo>(
@@ -74,7 +80,7 @@ void setupLocator() {
   getIt.registerLazySingleton<TransactionsCubit>(
     () => TransactionsCubit(transactionsRepo: getIt<TransactionsRepo>()),
   );
-  
+
   // Report
   getIt.registerLazySingleton<ReportData>(
     () => ReportData(hiveService: getIt<HiveService>()),

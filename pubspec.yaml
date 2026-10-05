@@ -13,25 +13,32 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  
+
   # Localization
   intl: ^0.20.2
-  
-  # Icons
-  cupertino_icons: ^1.0.8
 
-  # UI
-  lottie: ^3.3.3
-  fl_chart: ^1.2.0
-  flutter_svg: ^2.3.0
+  # Icons
   icon_broken: ^1.1.0
+  cupertino_icons: ^1.0.8
+  phosphor_flutter: ^2.1.0
+  font_awesome_flutter: ^11.0.0
+
+  # Responsive
+  flutter_screenutil: ^5.9.3
+
+  # Animations & Graphics
+  lottie: ^3.3.3
+  flutter_svg: ^2.3.0
+
+  # Charts
+  fl_chart: ^1.2.0
+
+  # UI Components
   skeletonizer: ^2.1.3
   country_flags: ^4.1.2
   flex_color_picker: ^3.8.0
-  flutter_screenutil: ^5.9.3
   omni_datetime_picker: ^2.0.5
   smooth_page_indicator: ^2.0.1
-  font_awesome_flutter: ^11.0.0
 
   # State Management & Dependency Injection
   get_it: ^9.2.1
@@ -45,14 +52,18 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   path_provider: ^2.1.5
+  shared_preferences: ^2.5.5
 
-  # External Services
-  url_launcher: ^6.3.2
+  # PDF & Printing
   pdf: ^3.12.0
   printing: ^5.14.3
-  phosphor_flutter: ^2.1.0
+
+  # Security
   local_auth: ^3.0.2
-  shared_preferences: ^2.5.5
+
+  # External Services & Platform
+  url_launcher: ^6.3.2
+  in_app_update: ^4.2.5
 
 dev_dependencies:
   flutter_test:
