@@ -1,4 +1,4 @@
-import '../widget/report_body.dart';
+import '../widgets/report_body.dart';
 import 'package:flutter/material.dart';
 import '../../manager/report_state.dart';
 import '../../manager/report_cubit.dart';
@@ -16,7 +16,7 @@ class ReportView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: getIt<ReportCubit>()..getTransactions(),
+      value: getIt<ReportCubit>()..fetchData(),
       child: Scaffold(
         appBar: CustomAppBar(
           bottom: const _Top(),
@@ -40,8 +40,8 @@ class _Top extends StatelessWidget {
         return CustomToggle<DateFilterType>(
           selectedItem: cubit.dateFilter,
           items: DateFilterType.values.reportValues,
-          onChanged: (value) => cubit.changeDateFilter(value),
           itemLabel: (value) => value.reportLabel(context: context),
+          onChanged: (value) => cubit.changeDateFilter(filter: value),
         );
       },
     );

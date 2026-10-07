@@ -3,7 +3,7 @@ import '../../managers/layout_cubit.dart';
 import '../../managers/layout_states.dart';
 import '../../../home/views/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../report/presentation/pages/view/report_view.dart';
+import '../../../report/presentation/pages/views/report_view.dart';
 import '../../../settings/presentation/pages/views/settings_view.dart';
 import '../../../categories/presentation/pages/views/categories_view.dart';
 import '../../../transactions/presentation/pages/views/transactions_view.dart';

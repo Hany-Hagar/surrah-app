@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../enums/date_filter_type.dart';
 import 'number_formatting_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../features/report/data/model/report_model.dart';
 import '../../features/categories/data/models/category_model.dart';
 import '../../features/transactions/data/model/transaction_model.dart';
 
@@ -14,18 +15,15 @@ extension SearchExtension on List<TransactionModel> {
   /// Searches transactions by notes or category name.
   List<TransactionModel> search({required String query}) {
     final normalizedQuery = query.trim().toLowerCase();
-
     if (normalizedQuery.isEmpty) {
       return List<TransactionModel>.from(this);
     }
-
     return where((transaction) {
       final notes = transaction.notes.toLowerCase();
       final categoryName = transaction.categoryId
           .getCategory()
           .name
           .toLowerCase();
-
       return notes.contains(normalizedQuery) ||
           categoryName.contains(normalizedQuery);
     }).toList();
@@ -51,11 +49,7 @@ extension SearchExtension on List<TransactionModel> {
   }
 
   /// Filters transactions by date filter type.
-  List<TransactionModel> filterByDate({
-    required DateFilterType type,
-    DateTime? startDate,
-    DateTime? endDate,
-  }) {
+  List<TransactionModel> filterByDate({required DateFilterType type}) {
     return where((transaction) {
       final date = transaction.createdAt;
       return switch (type) {
@@ -91,6 +85,40 @@ extension SearchExtension on List<TransactionModel> {
       };
     }).toList();
   }
+
+  /// return report data model
+  ReportModel getReportData({required DateFilterType dateFilterType}) {
+    final incomes = filter(
+      type: CategoriesType.income,
+      dateFilterType: dateFilterType,
+    );
+    final expenses = filter(
+      type: CategoriesType.expense,
+      dateFilterType: dateFilterType,
+    );
+    final totalIncome = incomes.fold<double>(
+      0.0,
+      (sum, transaction) => sum + transaction.amount,
+    );
+    final totalExpense = expenses.fold<double>(
+      0.0,
+      (sum, transaction) => sum + transaction.amount,
+    );
+
+    return ReportModel(
+      totalIncome: totalIncome,
+      totalExpense: totalExpense,
+      incomes: incomes,
+      expenses: expenses,
+    );
+  }
+
+  /// Sort transactions by amount
+  List<TransactionModel> sortByAmount() {
+    final sortedList = List<TransactionModel>.from(this);
+    sortedList.sort((a, b) => b.amount.compareTo(a.amount));
+    return sortedList;
+  }
 }
 
 extension TransactionModelExtension on TransactionModel {
@@ -122,5 +150,10 @@ extension TransactionModelExtension on TransactionModel {
       type: Type.header,
       opacity: FontOpacity.medium,
     );
+  }
+
+  // Get Color
+  Color getCategoryColor() {
+    return Color(categoryId.getCategory().color);
   }
 }

@@ -20,9 +20,8 @@ extension IconSearch on List<IconModel> {
   }
 }
 
-
 // Extensions to get icon models by id
-extension IconById on  String{
+extension IconById on String {
   IconModel? getIconById() {
     try {
       return iconsData.firstWhere((icon) => icon.id == this);

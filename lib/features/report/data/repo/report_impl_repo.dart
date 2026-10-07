@@ -1,31 +1,24 @@
+import 'report_repo.dart';
 import 'package:dartz/dartz.dart';
-import 'package:surrah/core/errors/failure.dart';
-import 'package:surrah/features/report/data/database/report_data.dart';
-import 'package:surrah/features/report/data/repo/report_repo.dart';
-import 'package:surrah/features/transactions/data/model/transactions_data_model.dart';
-
+import '../model/report_model.dart';
+import '../database/report_data.dart';
+import '../../../../core/errors/failure.dart';
 import '../../../../core/errors/hive_failure.dart';
-import '../../../categories/data/models/category_model.dart';
+import '../../../../core/enums/date_filter_type.dart';
+import '../../../../core/extensions/transaction_extension.dart';
 
 class ReportRepoImpl implements ReportRepo {
+  final ReportData reportData;
   ReportRepoImpl({required this.reportData});
 
-  final ReportData reportData;
-
   @override
-  Future<Either<Failure, TransactionsDataModel>> getTransactionsData() async {
+  Future<Either<Failure, ReportModel>> fetchData({
+    required DateFilterType date,
+  }) async {
     try {
-      final data = reportData.getTransactionsData();
-      return Right(data);
-    } catch (e) {
-      return Left(HiveFailure.fromError(e));
-    }
-  }
-  @override
-  Future<Either<Failure, List<CategoryModel>>> getCategoriesData() async {
-    try {
-      final data = reportData.getCategoriesData();
-      return Right(data);
+      final data = reportData.fetchData().transactions.sortByAmount();
+      var report = data.getReportData(dateFilterType: date);
+      return Right(report);
     } catch (e) {
       return Left(HiveFailure.fromError(e));
     }
