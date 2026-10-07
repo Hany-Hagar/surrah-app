@@ -2,16 +2,18 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 extension NumberFormattingExtension on num {
+
   String moneyFormat({required BuildContext context}) {
     String localeCode = Localizations.localeOf(context).languageCode;
-    bool isArabic = localeCode == 'ar';
-    if (isArabic) localeCode = 'ar_EG';
+    if (localeCode == 'ar') {
+      localeCode = 'ar_EG';
+    }
     final num absoluteValue = abs();
     final formatter = NumberFormat.decimalPatternDigits(
       locale: localeCode,
       decimalDigits: absoluteValue is int || absoluteValue % 1 == 0 ? 0 : 2,
     );
-    return formatter.format(absoluteValue);
+    return '\$${formatter.format(absoluteValue)}';
   }
 
   String moneyFormatWithSign({
@@ -34,5 +36,12 @@ extension NumberFormattingExtension on num {
     } else {
       return '$sign $currencySymbol$formattedNumber';
     }
+  }
+
+  // Percentage formatting
+  String getPercentage({required double total}) {
+    if (total == 0) return '0%';
+    final percentage = (this / total) * 100;
+    return '${percentage.toStringAsFixed(2)}%';
   }
 }

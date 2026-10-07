@@ -141,7 +141,7 @@ class _Item extends StatelessWidget {
           size: 14.sp,
           type: Type.header,
           opacity: FontOpacity.medium,
-          text: '${(transaction.amount / total * 100).toStringAsFixed(1)}%',
+          text: transaction.amount.getPercentage(total: total),
         ),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.17,

@@ -1,9 +1,11 @@
 import 'analysis_card.dart';
+import 'report_balance_card.dart';
 import 'package:flutter/material.dart';
 import '../../manager/report_cubit.dart';
 import '../../manager/report_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class ReportBody extends StatelessWidget {
   const ReportBody({super.key});
@@ -18,6 +20,10 @@ class ReportBody extends StatelessWidget {
           child: Column(
             spacing: 10.h,
             children: [
+              ReportBalanceCard(
+                isLoading: state is FetchReportLoading,
+                data: cubit.data,
+              ),
               AnalysisCard(
                 title: 'Spending Analysis',
                 total: cubit.data.totalExpense,
@@ -30,7 +36,6 @@ class ReportBody extends StatelessWidget {
                 isLoading: state is FetchReportLoading,
                 transactions: cubit.data.groupedIncomes,
               ),
-              
             ],
           ),
         );

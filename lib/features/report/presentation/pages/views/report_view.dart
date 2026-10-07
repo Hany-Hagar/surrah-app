@@ -40,8 +40,8 @@ class _Top extends StatelessWidget {
         return CustomToggle<DateFilterType>(
           selectedItem: cubit.dateFilter,
           items: DateFilterType.values.reportValues,
+          onChanged: (value) => cubit.fetchData(date: value),
           itemLabel: (value) => value.reportLabel(context: context),
-          onChanged: (value) => cubit.changeDateFilter(filter: value),
         );
       },
     );

@@ -16,6 +16,7 @@ class ReportCubit extends Cubit<ReportStates> {
 
   // Functions
   void fetchData({DateFilterType date = DateFilterType.day}) async {
+    dateFilter = date;
     emit(FetchReportLoading());
     final reportResult = await reportRepo.fetchData(date: date);
     reportResult.fold(
@@ -27,8 +28,4 @@ class ReportCubit extends Cubit<ReportStates> {
     );
   }
 
-  void changeDateFilter({required DateFilterType filter}) {
-    dateFilter = filter;
-    fetchData(date: filter);
-  }
 }
