@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 
 class ReportTransactionModel {
-  final int id;
+  final String id;
   final String title;
-  final Color color;
+  final int color;
   final double amount;
   ReportTransactionModel({
     required this.id,
@@ -11,4 +10,26 @@ class ReportTransactionModel {
     required this.color,
     required this.amount,
   });
+
+  // Empty 
+  ReportTransactionModel.empty()
+      : id = '',
+        title = '',
+        color = 0,
+        amount = 0.0;
+
+  // Copy with
+  ReportTransactionModel copyWith({
+    String? id,
+    String? title,
+    int? color,
+    double? amount,
+  }) {
+    return ReportTransactionModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      color: color ?? this.color,
+      amount: amount ?? this.amount,
+    );
+  }
 }

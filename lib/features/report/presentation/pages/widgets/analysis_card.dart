@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import '../../../../../const/app_data.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/widgets/custom_text.dart';
+import '../../../data/model/report_transaction_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/extensions/category_extension.dart';
-import '../../../../../core/extensions/transaction_extension.dart';
-import '../../../../transactions/data/model/transaction_model.dart';
 import '../../../../../core/extensions/number_formatting_extension.dart';
 
 class AnalysisCard extends StatelessWidget {
   final String title;
   final double total;
   final bool isLoading;
-  final List<TransactionModel> transactions;
+  final List<ReportTransactionModel> transactions;
   const AnalysisCard({
     super.key,
     required this.title,
@@ -67,7 +65,7 @@ class _Top extends StatelessWidget {
 class _Bar extends StatelessWidget {
   final double total;
   final bool isLoading;
-  final List<TransactionModel> transactions;
+  final List<ReportTransactionModel> transactions;
   const _Bar({
     required this.total,
     required this.isLoading,
@@ -85,10 +83,10 @@ class _Bar extends StatelessWidget {
           child: Row(
             spacing: 2.w,
             children: [
-              for (final t in transactions)
+              for (final transaction in transactions)
                 Expanded(
-                  flex: (t.amount / total * 1000).round() + 15,
-                  child: Container(color: t.getCategoryColor()),
+                  flex: (transaction.amount / total * 1000).round() + 15,
+                  child: Container(color: Color(transaction.color)),
                 ),
             ],
           ),
@@ -100,7 +98,7 @@ class _Bar extends StatelessWidget {
 
 class _Items extends StatelessWidget {
   final double total;
-  final List<TransactionModel> transactions;
+  final List<ReportTransactionModel> transactions;
   const _Items({required this.total, required this.transactions});
 
   @override
@@ -116,7 +114,7 @@ class _Items extends StatelessWidget {
 
 class _Item extends StatelessWidget {
   final double total;
-  final TransactionModel transaction;
+  final ReportTransactionModel transaction;
   const _Item({required this.transaction, required this.total});
 
   @override
@@ -127,7 +125,7 @@ class _Item extends StatelessWidget {
           width: 20.w,
           height: 20.h,
           decoration: BoxDecoration(
-            color: transaction.getCategoryColor(),
+            color: Color(transaction.color),
             borderRadius: BorderRadius.circular(5.r),
           ),
         ),
@@ -136,7 +134,7 @@ class _Item extends StatelessWidget {
           child: CustomText(
             size: 14.sp,
             type: Type.header,
-            text: transaction.categoryId.getCategory().name,
+            text: transaction.title,
           ),
         ),
         CustomText(
@@ -151,7 +149,6 @@ class _Item extends StatelessWidget {
             size: 16.sp,
             type: Type.header,
             textAlign: TextAlign.end,
-            //text: "1000000",
             text: transaction.amount.moneyFormat(context: context),
           ),
         ),

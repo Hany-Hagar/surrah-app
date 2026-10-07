@@ -8,6 +8,7 @@ import '../../../../core/enums/category_type.dart';
 import '../../../../core/enums/date_filter_type.dart';
 import '../../data/model/transactions_data_model.dart';
 import '../../../../core/widgets/categories_picker.dart';
+import '../../../../core/extensions/category_extension.dart';
 import '../../../categories/data/models/category_model.dart';
 import '../../../../core/extensions/transaction_extension.dart';
 import '../../../categories/data/database/default_categories.dart';

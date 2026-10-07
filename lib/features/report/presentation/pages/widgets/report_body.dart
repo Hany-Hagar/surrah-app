@@ -20,16 +20,17 @@ class ReportBody extends StatelessWidget {
             children: [
               AnalysisCard(
                 title: 'Spending Analysis',
-                total: cubit.data.totalIncome,
-                transactions: cubit.data.expenses,
+                total: cubit.data.totalExpense,
                 isLoading: state is FetchReportLoading,
+                transactions: cubit.data.groupedExpenses,
               ),
               AnalysisCard(
                 title: 'Income Analysis',
-                total: cubit.data.totalExpense,
-                transactions: cubit.data.incomes,
+                total: cubit.data.totalIncome,
                 isLoading: state is FetchReportLoading,
+                transactions: cubit.data.groupedIncomes,
               ),
+              
             ],
           ),
         );

@@ -5,6 +5,7 @@ import '../database/report_data.dart';
 import '../../../../core/errors/failure.dart';
 import '../../../../core/errors/hive_failure.dart';
 import '../../../../core/enums/date_filter_type.dart';
+import '../../../../core/extensions/report_extensions.dart';
 import '../../../../core/extensions/transaction_extension.dart';
 
 class ReportRepoImpl implements ReportRepo {

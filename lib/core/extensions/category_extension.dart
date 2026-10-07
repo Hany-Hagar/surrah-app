@@ -1,8 +1,9 @@
-import '../../features/categories/presentation/manager/categories_cubit.dart';
 import '../di/server_locator.dart';
 import '../enums/category_type.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/categories/data/models/category_model.dart';
+import '../../features/categories/presentation/manager/categories_cubit.dart';
+import '../../features/transactions/data/model/transaction_model.dart';
 
 extension CategoryNameSize on String {
   double getSize() {
@@ -46,5 +47,24 @@ extension FilterExtension on List<CategoryModel> {
       case CategoriesType.expense:
         return where((category) => !category.isIncome).toList();
     }
+  }
+}
+
+// Get Categories
+extension GetCategories on List<TransactionModel> {
+  List<CategoryModel> getCategories({
+    CategoriesType type = CategoriesType.all,
+  }) {
+    final categories = map(
+      (transaction) => transaction.categoryId.getCategory(),
+    ).toSet();
+
+    return categories.where((category) {
+      return switch (type) {
+        CategoriesType.all => true,
+        CategoriesType.income => category.isIncome,
+        CategoriesType.expense => !category.isIncome,
+      };
+    }).toList();
   }
 }
