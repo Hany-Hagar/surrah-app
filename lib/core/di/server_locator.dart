@@ -37,7 +37,9 @@ void setupLocator() {
   );
 
   getIt.registerLazySingleton<CategoriesCubit>(
-    () => CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>())..getCategories(),
+    () =>
+        CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>())
+          ..getCategories(),
   );
 
   // Transactions
@@ -52,16 +54,17 @@ void setupLocator() {
   getIt.registerLazySingleton<TransactionsCubit>(
     () => TransactionsCubit(transactionsRepo: getIt<TransactionsRepo>()),
   );
+  
   // Report
-getIt.registerLazySingleton<ReportData>(
-  () => ReportData(hiveService: getIt<HiveService>()),
-);
+  getIt.registerLazySingleton<ReportData>(
+    () => ReportData(hiveService: getIt<HiveService>()),
+  );
 
-getIt.registerLazySingleton<ReportRepo>(
-  () => ReportRepoImpl(reportData: getIt<ReportData>()),
-);
+  getIt.registerLazySingleton<ReportRepo>(
+    () => ReportRepoImpl(reportData: getIt<ReportData>()),
+  );
 
-getIt.registerLazySingleton<ReportCubit>(
-  () => ReportCubit(reportRepo: getIt<ReportRepo>()),
-);
+  getIt.registerLazySingleton<ReportCubit>(
+    () => ReportCubit(reportRepo: getIt<ReportRepo>()),
+  );
 }

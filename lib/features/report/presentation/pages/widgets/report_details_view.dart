@@ -22,15 +22,15 @@ class ReportDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ReportCubit, ReportState>(
+    return BlocBuilder<ReportCubit, ReportStates>(
       builder: (context, state) {
         final reportState = state is ReportMonthSelected ? state : null;
         final selectedMonth = reportState?.selectedMonth ?? DateTime.now();
-        final selectedPeriod = reportState?.selectedPeriod ?? ReportPeriod.month;
+        final selectedPeriod =
+            reportState?.selectedPeriod ?? ReportPeriod.month;
 
         return Column(
           children: [
-           
             NetBalanceCard(
               salary: reportState?.salary ?? 0,
               totalExpenses: reportState?.totalExpenses ?? 0,
@@ -46,16 +46,12 @@ class ReportDetailsView extends StatelessWidget {
             const SizedBox(height: 8),
             if (reportState?.incomeBreakdown.isNotEmpty ?? false) ...[
               const SizedBox(height: 8),
-            ExpenseChartView(
-              weeks: reportState?.weeklyExpenses ?? [],
-            ),
+              ExpenseChartView(weeks: reportState?.weeklyExpenses ?? []),
               const SizedBox(height: 8),
               IncomeBreakdownView(
                 incomeBreakdown: reportState?.incomeBreakdown ?? [],
               ),
             ],
-            
-            
 
             const SizedBox(height: 8),
             ExpenseBreakdownView(
@@ -90,8 +86,7 @@ class ReportDetailsView extends StatelessWidget {
               incomeEntries: reportState?.incomeEntries ?? [],
               incomeBreakdown: reportState?.incomeBreakdown ?? [],
               allTransactions: reportState?.monthTransactions ?? [], // ⬅️ جديد
-),
-    
+            ),
           ],
         );
       },
@@ -110,8 +105,8 @@ Future<void> _pickMonth(BuildContext context, DateTime current) async {
 
   if (picked != null && context.mounted) {
     context.read<ReportCubit>().selectMonth(
-          DateTime(picked.year, picked.month),
-        );
+      DateTime(picked.year, picked.month),
+    );
   }
 }
 

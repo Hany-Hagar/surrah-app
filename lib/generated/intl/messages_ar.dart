@@ -290,7 +290,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
     "report": MessageLookupByLibrary.simpleMessage("التقارير"),
-    "reportSubtitle": MessageLookupByLibrary.simpleMessage("ملخصك المالي"),
+    "reportDay": MessageLookupByLibrary.simpleMessage("يوم"),
+    "reportMonth": MessageLookupByLibrary.simpleMessage("شهر"),
+    "reportSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تحليل شامل لمصروفاتك ودخلك",
+    ),
+    "reportTitle": MessageLookupByLibrary.simpleMessage("ملخصك المالي"),
+    "reportWeek": MessageLookupByLibrary.simpleMessage("أسبوع"),
+    "reportYear": MessageLookupByLibrary.simpleMessage("سنة"),
     "salary": MessageLookupByLibrary.simpleMessage("المرتب"),
     "savedPercentage": m3,
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(

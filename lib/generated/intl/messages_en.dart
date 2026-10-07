@@ -304,9 +304,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
     "report": MessageLookupByLibrary.simpleMessage("Report"),
+    "reportDay": MessageLookupByLibrary.simpleMessage("Day"),
+    "reportMonth": MessageLookupByLibrary.simpleMessage("Month"),
     "reportSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Your financial summary",
+      "Your financial summary and insights",
     ),
+    "reportTitle": MessageLookupByLibrary.simpleMessage("Financial Report"),
+    "reportWeek": MessageLookupByLibrary.simpleMessage("Week"),
+    "reportYear": MessageLookupByLibrary.simpleMessage("Year"),
     "salary": MessageLookupByLibrary.simpleMessage("Salary"),
     "savedPercentage": m3,
     "searchCategoriesHint": MessageLookupByLibrary.simpleMessage(

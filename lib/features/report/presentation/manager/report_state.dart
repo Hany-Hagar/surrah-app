@@ -1,17 +1,34 @@
 import 'package:surrah/features/report/presentation/pages/widgets/expense_chart_view.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
-
 import '../../../categories/data/models/category_model.dart';
 import '../../../transactions/data/model/transaction_model.dart';
 import '../pages/widgets/expense_breakdown_view.dart';
 import '../../data/model/income_entry.dart';
 import 'report_cubit.dart';
 
-abstract class ReportState {}
+abstract class ReportStates {}
 
-class ReportInitial extends ReportState {}
+class ReportInitial extends ReportStates {}
 
-class ReportMonthSelected extends ReportState {
+// New state class
+
+// Transaction states
+
+class FetchTransactionsLoading extends ReportStates {}
+
+class FetchTransactionsSuccess extends ReportStates {}
+
+class FetchTransactionsFailure extends ReportStates {
+  final String errorMessage;
+  FetchTransactionsFailure({required this.errorMessage});
+}
+
+// Filter change state
+class ChangeDateFilter extends ReportStates {}
+
+// Old state class
+
+class ReportMonthSelected extends ReportStates {
   final DateTime selectedMonth;
   final ReportPeriod selectedPeriod;
   final double salary;
@@ -47,7 +64,7 @@ class ReportMonthSelected extends ReportState {
 
   double get savedPercentage => salary == 0 ? 0 : (remaining / salary) * 100;
 
-  ReportState copyWith({
+  ReportStates copyWith({
     DateTime? selectedMonth,
     ReportPeriod? selectedPeriod,
     double? salary,
@@ -78,7 +95,7 @@ class ReportMonthSelected extends ReportState {
   }
 }
 
-class ReportError extends ReportState {
+class ReportError extends ReportStates {
   final String message;
   ReportError({required this.message});
 }

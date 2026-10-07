@@ -27,7 +27,9 @@ class CustomScaffold extends StatelessWidget {
             padding: contentPadding,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraints.maxHeight - 30.h),
-              child: IntrinsicHeight(child: body),
+              child: IntrinsicHeight(
+                child: body
+              ),
             ),
           );
         },

@@ -18,8 +18,10 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -780,6 +784,76 @@ class S {
     );
   }
 
+  /// `Report`
+  String get report {
+    return Intl.message(
+      'Report',
+      name: 'report',
+      desc: 'Label for the report section',
+      args: [],
+    );
+  }
+
+  /// `Financial Report`
+  String get reportTitle {
+    return Intl.message(
+      'Financial Report',
+      name: 'reportTitle',
+      desc: 'Title for the report page',
+      args: [],
+    );
+  }
+
+  /// `Your financial summary and insights`
+  String get reportSubtitle {
+    return Intl.message(
+      'Your financial summary and insights',
+      name: 'reportSubtitle',
+      desc: 'Subtitle for the report page',
+      args: [],
+    );
+  }
+
+  /// `Day`
+  String get reportDay {
+    return Intl.message(
+      'Day',
+      name: 'reportDay',
+      desc: 'Label for the day period tab',
+      args: [],
+    );
+  }
+
+  /// `Week`
+  String get reportWeek {
+    return Intl.message(
+      'Week',
+      name: 'reportWeek',
+      desc: 'Label for the week period tab',
+      args: [],
+    );
+  }
+
+  /// `Month`
+  String get reportMonth {
+    return Intl.message(
+      'Month',
+      name: 'reportMonth',
+      desc: 'Label for the month period tab',
+      args: [],
+    );
+  }
+
+  /// `Year`
+  String get reportYear {
+    return Intl.message(
+      'Year',
+      name: 'reportYear',
+      desc: 'Label for the year period tab',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settings {
     return Intl.message(
@@ -1376,26 +1450,6 @@ class S {
       'We\'re available 24/7 to help with your questions and support needs.',
       name: 'contactSupportFooterDescription',
       desc: 'Description for the contact support footer card',
-      args: [],
-    );
-  }
-
-  /// `Report`
-  String get report {
-    return Intl.message(
-      'Report',
-      name: 'report',
-      desc: 'Label for the report section',
-      args: [],
-    );
-  }
-
-  /// `Your financial summary`
-  String get reportSubtitle {
-    return Intl.message(
-      'Your financial summary',
-      name: 'reportSubtitle',
-      desc: 'Subtitle for the report page',
       args: [],
     );
   }

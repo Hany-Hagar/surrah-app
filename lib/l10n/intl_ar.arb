@@ -356,6 +356,37 @@
   "@updateTransactionFailure": {
     "description": "رسالة فشل عند تحديث العملية"
   },
+
+  "report": "التقارير",
+  "@report": {
+    "description": "Label for the report section"
+  },
+  "reportTitle": "ملخصك المالي",
+  "@reportTitle": {
+    "description": "Title for the report page"
+  },
+  "reportSubtitle": "تحليل شامل لمصروفاتك ودخلك",
+  "@reportSubtitle": {
+    "description": "Subtitle for the report page"
+  },
+  "reportDay": "يوم",
+  "@reportDay": {
+    "description": "Label for the day period tab"
+  },
+  "reportWeek": "أسبوع",
+  "@reportWeek": {
+    "description": "Label for the week period tab"
+  },
+  "reportMonth": "شهر",
+  "@reportMonth": {
+    "description": "Label for the month period tab"
+  },
+  "reportYear": "سنة",
+  "@reportYear": {
+    "description": "Label for the year period tab"
+  },
+
+
   "settings": "الإعدادات",
   "@settings": {
     "description": "Label for the settings button"
@@ -627,16 +658,6 @@
   "contactSupportFooterDescription": "نحن متاحون 24/7 لمساعدتك في أسئلتك واحتياجات الدعم.",
   "@contactSupportFooterDescription": {
     "description": "وصف بطاقة الدعم في نهاية الصفحة"
-  },
-
-  "report": "التقارير",
-  "@report": {
-    "description": "Label for the report section"
-  },
-
-  "reportSubtitle": "ملخصك المالي",
-  "@reportSubtitle": {
-    "description": "Subtitle for the report page"
   },
 
   "salary": "المرتب",

@@ -310,6 +310,36 @@
   },
 
 
+  "report": "Report",
+  "@report": {
+    "description": "Label for the report section"
+  },
+  "reportTitle": "Financial Report",
+  "@reportTitle": {
+    "description": "Title for the report page"
+  },
+  "reportSubtitle": "Your financial summary and insights",
+  "@reportSubtitle": {
+    "description": "Subtitle for the report page"
+  },
+  "reportDay": "Day",
+  "@reportDay": {
+    "description": "Label for the day period tab"
+  },
+  "reportWeek": "Week",
+  "@reportWeek": {
+    "description": "Label for the week period tab"
+  },
+  "reportMonth": "Month",
+  "@reportMonth": {
+    "description": "Label for the month period tab"
+  },
+  "reportYear": "Year",
+  "@reportYear": {
+    "description": "Label for the year period tab"
+  },
+
+
   "settings": "Settings",
   "@settings": {
     "description": "Label for the settings button"
@@ -559,14 +589,7 @@
   "@contactSupportFooterDescription": {
     "description": "Description for the contact support footer card"
   },
-  "report": "Report",
-  "@report": {
-  "description": "Label for the report section"
-},
-  "reportSubtitle": "Your financial summary",
-  "@reportSubtitle": {
-    "description": "Subtitle for the report page"
-  },
+
 
   "salary": "Salary",
   "@salary": {

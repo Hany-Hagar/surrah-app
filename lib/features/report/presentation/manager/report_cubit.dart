@@ -1,8 +1,12 @@
 import 'dart:math' as math;
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:surrah/core/extensions/transaction_extension.dart';
 import 'package:surrah/features/report/presentation/pages/widgets/top_expenses_view.dart';
+import '../../../../core/enums/category_type.dart';
+import '../../../../core/enums/date_filter_type.dart';
 import '../../data/repo/report_repo.dart';
 import '../../data/model/income_entry.dart';
 import '../../../categories/data/models/category_model.dart';
@@ -11,68 +15,43 @@ import '../pages/widgets/expense_breakdown_view.dart';
 import '../pages/widgets/expense_chart_view.dart';
 import 'report_state.dart';
 
-enum ReportPeriod { day, week, month, year }
-
-// ---------------- Period logic (extension on DateTime, lives here only) ----------------
-
-extension DateFilterExtension on DateTime {
-  DateTime startOfPeriod(ReportPeriod period) {
-    switch (period) {
-      case ReportPeriod.day:
-        return DateTime(year, month, day);
-      case ReportPeriod.week:
-        return DateTime(year, month, day - (weekday - 1));
-      case ReportPeriod.month:
-        return DateTime(year, month, 1);
-      case ReportPeriod.year:
-        return DateTime(year, 1, 1);
-    }
-  }
-
-  DateTime endOfPeriod(ReportPeriod period) {
-    final start = startOfPeriod(period);
-    switch (period) {
-      case ReportPeriod.day:
-        return DateTime(start.year, start.month, start.day + 1);
-      case ReportPeriod.week:
-        return DateTime(start.year, start.month, start.day + 7);
-      case ReportPeriod.month:
-        return DateTime(year, month + 1, 1);
-      case ReportPeriod.year:
-        return DateTime(year + 1, 1, 1);
-    }
-  }
-
-  DateTime shiftPeriod(ReportPeriod period, {required bool forward}) {
-    final d = forward ? 1 : -1;
-    switch (period) {
-      case ReportPeriod.day:
-        return DateTime(year, month, day + d);
-      case ReportPeriod.week:
-        return DateTime(year, month, day + 7 * d);
-      case ReportPeriod.month:
-        final lastDay = DateTime(year, month + d + 1, 0).day;
-        return DateTime(year, month + d, math.min(day, lastDay));
-      case ReportPeriod.year:
-        final lastDay = DateTime(year + d, month + 1, 0).day;
-        return DateTime(year + d, month, math.min(day, lastDay));
-    }
-  }
-
-  bool isWithinPeriod(ReportPeriod period, DateTime anchor) {
-    final start = anchor.startOfPeriod(period);
-    final end = anchor.endOfPeriod(period);
-    return !isBefore(start) && isBefore(end);
-  }
-}
-
-class ReportCubit extends Cubit<ReportState> {
+class ReportCubit extends Cubit<ReportStates> {
+  final ReportRepo reportRepo;
   ReportCubit({required this.reportRepo}) : super(ReportInitial()) {
     loadReport(DateTime.now(), ReportPeriod.month);
   }
+  static ReportCubit get(BuildContext context) => BlocProvider.of(context);
 
-  final ReportRepo reportRepo;
+  // New
+  bool isFiltered = false;
+  List<TransactionModel> transactions = [];
+  List<TransactionModel> filteredTransactions = [];
+  DateFilterType dateFilter = DateFilterType.day;
 
+  void getTransactions() async {
+    emit(FetchTransactionsLoading());
+    final transactionsResult = await reportRepo.getTransactionsData();
+    transactionsResult.fold(
+      (failure) =>
+          emit(FetchTransactionsFailure(errorMessage: failure.message)),
+      (data) {
+        transactions = data.transactions;
+        emit(FetchTransactionsSuccess());
+      },
+    );
+  }
+
+  void changeDateFilter(DateFilterType filter) {
+    isFiltered = true;
+    dateFilter = filter;
+    filteredTransactions.clear();
+    filteredTransactions.addAll(
+      transactions.filter(type: CategoriesType.all, dateFilterType: filter),
+    );
+    emit(ChangeDateFilter());
+  }
+
+  // Old
   Future<void> selectMonth(DateTime date) async {
     final currentPeriod = state is ReportMonthSelected
         ? (state as ReportMonthSelected).selectedPeriod
@@ -154,27 +133,30 @@ class ReportCubit extends Cubit<ReportState> {
       }
     }
 
-    emit(ReportMonthSelected(
-      selectedMonth: anchor,
-      selectedPeriod: period,
-      salary: salary,
-      totalExpenses: totalExpenses,
-      weeklyExpenses: _calculateTrend(allTransactions, anchor, period),
-      categoryExpenses: _calculateCategoryExpenses(
-        periodTransactions,
-        categories,
-        totalExpenses,
+    emit(
+      ReportMonthSelected(
+        selectedMonth: anchor,
+        selectedPeriod: period,
+        salary: salary,
+        totalExpenses: totalExpenses,
+        weeklyExpenses: _calculateTrend(allTransactions, anchor, period),
+        categoryExpenses: _calculateCategoryExpenses(
+          periodTransactions,
+          categories,
+          totalExpenses,
+        ),
+        topExpenses: _calculateTopExpenses(periodTransactions, categories),
+        monthTransactions: periodTransactions,
+        categories: categories,
+        incomeBreakdown: _calculateIncomeBreakdown(
+          periodTransactions,
+          categories,
+          salary,
+        ),
+        incomeEntries: _calculateIncomeEntries(periodTransactions, categories),
+        allTransactions: [],
       ),
-      topExpenses: _calculateTopExpenses(periodTransactions, categories),
-      monthTransactions: periodTransactions,
-      categories: categories,
-      incomeBreakdown: _calculateIncomeBreakdown(
-        periodTransactions,
-        categories,
-        salary,
-      ),
-      incomeEntries: _calculateIncomeEntries(periodTransactions, categories), allTransactions: [],
-    ));
+    );
   }
 
   List<WeeklyExpense> _calculateTrend(
@@ -198,8 +180,11 @@ class ReportCubit extends Cubit<ReportState> {
       case ReportPeriod.day:
         final weekStart = anchor.startOfPeriod(ReportPeriod.week);
         return List.generate(7, (i) {
-          final start =
-              DateTime(weekStart.year, weekStart.month, weekStart.day + i);
+          final start = DateTime(
+            weekStart.year,
+            weekStart.month,
+            weekStart.day + i,
+          );
           final end = DateTime(start.year, start.month, start.day + 1);
           return WeeklyExpense(
             label: DateFormat('E').format(start),
@@ -270,8 +255,9 @@ class ReportCubit extends Cubit<ReportState> {
         ),
       );
 
-      final percentage =
-          totalExpenses == 0 ? 0.0 : (entry.value / totalExpenses) * 100;
+      final percentage = totalExpenses == 0
+          ? 0.0
+          : (entry.value / totalExpenses) * 100;
 
       return CategoryExpense(
         category: category,
@@ -305,10 +291,7 @@ class ReportCubit extends Cubit<ReportState> {
         ),
       );
 
-      return TopExpenseItem(
-        transaction: t,
-        category: category,
-      );
+      return TopExpenseItem(transaction: t, category: category);
     }).toList();
   }
 
@@ -337,8 +320,9 @@ class ReportCubit extends Cubit<ReportState> {
         ),
       );
 
-      final percentage =
-          totalIncome == 0 ? 0.0 : (entry.value / totalIncome) * 100;
+      final percentage = totalIncome == 0
+          ? 0.0
+          : (entry.value / totalIncome) * 100;
 
       return CategoryExpense(
         category: category,
@@ -355,8 +339,9 @@ class ReportCubit extends Cubit<ReportState> {
     List<TransactionModel> periodTransactions,
     List<CategoryModel> categories,
   ) {
-    final incomeTransactions =
-        periodTransactions.where((t) => t.isIncome).toList();
+    final incomeTransactions = periodTransactions
+        .where((t) => t.isIncome)
+        .toList();
 
     incomeTransactions.sort((a, b) => b.createdAt.compareTo(a.createdAt));
 
@@ -374,5 +359,60 @@ class ReportCubit extends Cubit<ReportState> {
 
       return IncomeEntry(transaction: t, category: category);
     }).toList();
+  }
+}
+
+enum ReportPeriod { day, week, month, year }
+
+// ---------------- Period logic (extension on DateTime, lives here only) ----------------
+
+extension DateFilterExtension on DateTime {
+  DateTime startOfPeriod(ReportPeriod period) {
+    switch (period) {
+      case ReportPeriod.day:
+        return DateTime(year, month, day);
+      case ReportPeriod.week:
+        return DateTime(year, month, day - (weekday - 1));
+      case ReportPeriod.month:
+        return DateTime(year, month, 1);
+      case ReportPeriod.year:
+        return DateTime(year, 1, 1);
+    }
+  }
+
+  DateTime endOfPeriod(ReportPeriod period) {
+    final start = startOfPeriod(period);
+    switch (period) {
+      case ReportPeriod.day:
+        return DateTime(start.year, start.month, start.day + 1);
+      case ReportPeriod.week:
+        return DateTime(start.year, start.month, start.day + 7);
+      case ReportPeriod.month:
+        return DateTime(year, month + 1, 1);
+      case ReportPeriod.year:
+        return DateTime(year + 1, 1, 1);
+    }
+  }
+
+  DateTime shiftPeriod(ReportPeriod period, {required bool forward}) {
+    final d = forward ? 1 : -1;
+    switch (period) {
+      case ReportPeriod.day:
+        return DateTime(year, month, day + d);
+      case ReportPeriod.week:
+        return DateTime(year, month, day + 7 * d);
+      case ReportPeriod.month:
+        final lastDay = DateTime(year, month + d + 1, 0).day;
+        return DateTime(year, month + d, math.min(day, lastDay));
+      case ReportPeriod.year:
+        final lastDay = DateTime(year + d, month + 1, 0).day;
+        return DateTime(year + d, month, math.min(day, lastDay));
+    }
+  }
+
+  bool isWithinPeriod(ReportPeriod period, DateTime anchor) {
+    final start = anchor.startOfPeriod(period);
+    final end = anchor.endOfPeriod(period);
+    return !isBefore(start) && isBefore(end);
   }
 }
