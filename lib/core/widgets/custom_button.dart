@@ -109,18 +109,20 @@ class _Body extends StatelessWidget {
         ),
       ),
       child: Row(
+        spacing: 7.w,
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CustomText(
-            text: text ?? '',
+          if (icon != null)
+            Icon(icon, size: (itemSize + 4).sp, color: fontColor),
+          if (text != null)
+            CustomText(
+            text: text!,
             size: itemSize.sp,
             type: Type.overMedium,
             color: fontColor,
           ),
-          if (icon != null) ...[
-            SizedBox(width: 4.w),
-            Icon(icon, size: (itemSize + 6).sp, color: fontColor),
-          ],
         ],
       ),
     );

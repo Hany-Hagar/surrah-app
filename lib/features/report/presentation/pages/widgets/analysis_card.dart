@@ -1,5 +1,5 @@
+import 'report_card.dart';
 import 'package:flutter/material.dart';
-import '../../../../../const/app_data.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../data/model/report_transaction_model.dart';
@@ -21,43 +21,16 @@ class AnalysisCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
-      decoration: BoxDecoration(
-        boxShadow: defaultBoxShadow(),
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(12.h),
-      ),
-      child: Column(
-        spacing: 10.h,
+    return ReportCard(
+      title: title,
+      subtitle: total.moneyFormat(context: context),
+      body: Column(
+        spacing: 5.h,
         children: [
-          _Top(title: title, total: total),
           _Bar(total: total, isLoading: isLoading, transactions: transactions),
           _Items(total: total, transactions: transactions),
         ],
       ),
-    );
-  }
-}
-
-class _Top extends StatelessWidget {
-  final String title;
-  final double total;
-  const _Top({required this.title, required this.total});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomText(text: title, size: 16.5.sp, type: Type.overMedium),
-        Spacer(),
-        CustomText(
-          text: total.moneyFormat(context: context),
-          size: 15.5.sp,
-          type: Type.header,
-          opacity: FontOpacity.medium,
-        ),
-      ],
     );
   }
 }

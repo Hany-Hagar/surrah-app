@@ -15,33 +15,54 @@ import '../../../../../core/extensions/transaction_extension.dart';
 
 class Transactions extends StatelessWidget {
   final bool isLoading;
+  final double? itemSperator;
+  final double? categoryIconSize;
+  final bool? isCircleCategoryIcon;
   final EdgeInsetsGeometry? padding;
   final ScrollPhysics? scrollPhysics;
+  final EdgeInsetsGeometry? itemPadding;
   final List<TransactionModel> transactions;
   const Transactions({
     super.key,
     this.padding,
-    required this.isLoading,
-    required this.transactions,
+    this.itemPadding,
+    this.itemSperator,
     this.scrollPhysics,
+    this.categoryIconSize,
+    required this.isLoading,
+    this.isCircleCategoryIcon,
+    required this.transactions,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomList(
       padding: padding,
-      itemSperator: 10,
       items: transactions,
       isLoading: isLoading,
       scrollPhysics: scrollPhysics,
-      itemBuilder: (transaction) => _Item(transaction: transaction),
+      itemSperator: itemSperator ?? 10,
+      itemBuilder: (transaction) => _Item(
+        itemPadding: itemPadding,
+        transaction: transaction,
+        categoryIconSize: categoryIconSize,
+        isCircleCategoryIcon: isCircleCategoryIcon,
+      ),
     );
   }
 }
 
 class _Item extends StatelessWidget {
+  final double? categoryIconSize;
+  final bool? isCircleCategoryIcon;
   final TransactionModel transaction;
-  const _Item({required this.transaction});
+  final EdgeInsetsGeometry? itemPadding;
+  const _Item({
+    this.itemPadding,
+    this.categoryIconSize,
+    required this.transaction,
+    this.isCircleCategoryIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +77,11 @@ class _Item extends StatelessWidget {
         minTileHeight: 60.h,
         minVerticalPadding: 0,
         horizontalTitleGap: 12.w,
-        leading: CustomCategoryIcon(category: category),
+        leading: CustomCategoryIcon(
+          category: category,
+          size: categoryIconSize ?? 50,
+          isCircle: isCircleCategoryIcon ?? true,
+        ),
         title: _ItemRow(
           leading: _Title(category: category),
           trailing: transaction.getAmount(context),
@@ -65,8 +90,9 @@ class _Item extends StatelessWidget {
           leading: _Time(transaction: transaction),
           trailing: transaction.getLocalizedType(context),
         ),
-
-        contentPadding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
+        contentPadding:
+            itemPadding ??
+            EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
         onTap: () => NavTo.push(
           context: context,
           nextPage: AddEditTransactionView(

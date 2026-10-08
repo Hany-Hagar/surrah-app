@@ -6,6 +6,7 @@ class ReportModel {
   final double totalExpense;
   final List<TransactionModel> incomes;
   final List<TransactionModel> expenses;
+  final List<TransactionModel> transactions;
   final List<ReportTransactionModel> groupedIncomes;
   final List<ReportTransactionModel> groupedExpenses;
 
@@ -14,6 +15,7 @@ class ReportModel {
     required this.totalExpense,
     required this.incomes,
     required this.expenses,
+    required this.transactions,
     required this.groupedIncomes,
     required this.groupedExpenses,
   });
@@ -24,6 +26,7 @@ class ReportModel {
       totalExpense = 0.0,
       incomes = [],
       expenses = [],
+      transactions = [],
       groupedIncomes = [],
       groupedExpenses = [];
 
@@ -33,14 +36,16 @@ class ReportModel {
     double? totalExpense,
     List<TransactionModel>? incomes,
     List<TransactionModel>? expenses,
+    List<TransactionModel>? transactions,
     List<ReportTransactionModel>? groupedIncomes,
     List<ReportTransactionModel>? groupedExpenses,
   }) {
     return ReportModel(
-      totalIncome: totalIncome ?? this.totalIncome,
-      totalExpense: totalExpense ?? this.totalExpense,
       incomes: incomes ?? this.incomes,
       expenses: expenses ?? this.expenses,
+      totalIncome: totalIncome ?? this.totalIncome,
+      totalExpense: totalExpense ?? this.totalExpense,
+      transactions: transactions ?? this.transactions,
       groupedIncomes: groupedIncomes ?? this.groupedIncomes,
       groupedExpenses: groupedExpenses ?? this.groupedExpenses,
     );

@@ -23,7 +23,7 @@ class ReportView extends StatelessWidget {
           title: S.of(context).reportTitle,
           subtitle: S.of(context).reportSubtitle,
         ),
-        body: const ReportBody(),
+        body: const SingleChildScrollView(child: ReportBody()),
       ),
     );
   }

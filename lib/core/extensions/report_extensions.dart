@@ -50,10 +50,11 @@ extension ReportModelExtension on List<TransactionModel> {
     );
 
     return ReportModel(
-      totalIncome: totalIncome,
-      totalExpense: totalExpense,
       incomes: incomes,
       expenses: expenses,
+      transactions: this,
+      totalIncome: totalIncome,
+      totalExpense: totalExpense,
       groupedIncomes: incomes.getReportTransactions().sortReportTransactions(),
       groupedExpenses: expenses
           .getReportTransactions()
