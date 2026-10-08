@@ -28,10 +28,14 @@ extension ReportModelExtension on List<TransactionModel> {
         amount: existing.amount + transaction.amount,
       );
     }
-    return grouped;
+    return grouped.sortReportTransactions();
   }
 
   ReportModel getReportData({required DateFilterType dateFilterType}) {
+    final transactions = filter(
+      type: CategoriesType.all,
+      dateFilterType: dateFilterType,
+    );
     final incomes = filter(
       type: CategoriesType.income,
       dateFilterType: dateFilterType,
@@ -52,13 +56,11 @@ extension ReportModelExtension on List<TransactionModel> {
     return ReportModel(
       incomes: incomes,
       expenses: expenses,
-      transactions: this,
       totalIncome: totalIncome,
       totalExpense: totalExpense,
-      groupedIncomes: incomes.getReportTransactions().sortReportTransactions(),
-      groupedExpenses: expenses
-          .getReportTransactions()
-          .sortReportTransactions(),
+      transactions: transactions,
+      groupedIncomes: incomes.getReportTransactions(),
+      groupedExpenses: expenses.getReportTransactions(),
     );
   }
 }
