@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../const/app_data.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReportCard extends StatelessWidget {
   final String title;
-  final String subtitle;
+  final bool isLoading;
   final double spacing;
+  final String subtitle;
   final Color? subtitleColor;
   final Function()? onSubtitleTap;
   final Widget body;
@@ -15,6 +17,7 @@ class ReportCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
+    required this.isLoading,
     this.spacing = 10,
     this.subtitleColor,
     this.onSubtitleTap,
@@ -23,25 +26,28 @@ class ReportCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
-      decoration: BoxDecoration(
-        boxShadow: defaultBoxShadow(),
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(12.h),
-      ),
-      child: Column(
-        spacing: spacing.h,
-        children: [
-          _Top(
-            title: title,
-            subtitle: subtitle,
-            onSubtitleTap: onSubtitleTap,
-            subtitleColor: subtitleColor,
-          ),
-          body,
-        ],
-      ),
+    return Skeletonizer(
+      enabled: isLoading,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
+        decoration: BoxDecoration(
+          boxShadow: defaultBoxShadow(),
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(12.h),
+        ),
+        child: Column(
+          spacing: spacing.h,
+          children: [
+            _Top(
+              title: title,
+              subtitle: subtitle,
+              onSubtitleTap: onSubtitleTap,
+              subtitleColor: subtitleColor,
+            ),
+            body,
+          ],
+        ),
+      )
     );
   }
 }

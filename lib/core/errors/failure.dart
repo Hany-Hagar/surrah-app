@@ -10,3 +10,7 @@ class LocalAuthFailure extends Failure {
 class UpdateFailure extends Failure {
   UpdateFailure({required String message}) : super(message);
 }
+
+class ReportFailure extends Failure {
+  ReportFailure({required String message}) : super(message);
+}

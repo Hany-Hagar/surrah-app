@@ -25,7 +25,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.onTrailingPressed,
     this.bottom,
-    this.trailing, this.actions,
+    this.trailing,
+    this.actions,
   });
 
   @override
@@ -78,7 +79,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(bottom == null ? 80.5.h : 139.h);
+  Size get preferredSize => Size.fromHeight(bottom == null ? 80.5.h : 143.8.h);
 }
 
 class _Body extends StatelessWidget {
@@ -140,25 +141,19 @@ class _Trailing extends StatelessWidget {
       child: Icon(trailingIcon, size: 28.sp),
     );
   }
-  
 }
+
 class Action extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
 
-  const Action({super.key, 
-    required this.icon,
-    required this.onPressed,
-  });
+  const Action({super.key, required this.icon, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Icon(
-        icon,
-        size: 28.sp,
-      ),
+      child: Icon(icon, size: 28.sp),
     );
   }
 }

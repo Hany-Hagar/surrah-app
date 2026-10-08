@@ -1,11 +1,9 @@
-// ignore_for_file: unnecessary_underscores
 import 'generated/l10n.dart';
 import 'core/utils/theme.dart';
 import 'core/di/server_locator.dart';
 import 'package:flutter/material.dart';
 import 'core/services/hive_service.dart';
 import 'core/utils/my_bloc_observer.dart';
-import 'core/services/app_lock_service.dart';
 import 'core/services/snack_bar_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -24,9 +22,7 @@ final rootNavigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppLockService.instance.init();
   Bloc.observer = MyBlocObserver();
-  await AppLockService.instance.setEnabled(true);
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );

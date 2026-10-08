@@ -65,6 +65,7 @@ class _Transactions extends StatelessWidget {
     var theme = Theme.of(context);
     return ReportCard(
       spacing: 4,
+      isLoading: isLoading,
       title: 'Largest Transactions',
       subtitle: 'See all',
       subtitleColor: theme.primaryColor,
@@ -90,6 +91,7 @@ class _Share extends StatelessWidget {
   Widget build(BuildContext context) {
     return ReportCard(
       spacing: 0,
+      isLoading: false,
       title: 'Share Report',
       subtitle: "",
       body: Column(
@@ -113,27 +115,34 @@ class _ShareButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      spacing: 10.w,
-      children: [
-        CustomButton(
-          width: 60.w,
-          height: 50.h,
-          itemSize: 17,
-          icon: Icons.share,
-          enableBorderColor: true,
-          onPressed: () {},
-        ),
-        Expanded(
-          child: CustomButton(
-            height: 50.h,
-            itemSize: 19,
-            text: "Download",
-            onPressed: () {},
-            icon: IconBroken.Download,
-          ),
-        ),
-      ],
+    return BlocBuilder<ReportCubit, ReportStates>(
+      builder: (context, state) {
+        var cubit = ReportCubit.get(context);
+        return Row(
+          spacing: 10.w,
+          children: [
+            CustomButton(
+              width: 60.w,
+              height: 50.h,
+              itemSize: 17,
+              icon: Icons.share,
+              enableBorderColor: true,
+              isLoading: state is ShareReportLoading,
+              onPressed: ()=> cubit.shareReport(context: context),
+            ),
+            Expanded(
+              child: CustomButton(
+                height: 50.h,
+                itemSize: 19,
+                text: "Download",
+                icon: IconBroken.Download,
+                isLoading: state is DownloadReportLoading,
+                onPressed: ()=> cubit.downloadReport(context: context),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

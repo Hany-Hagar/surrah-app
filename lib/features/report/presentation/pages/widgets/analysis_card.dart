@@ -23,6 +23,7 @@ class AnalysisCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ReportCard(
       title: title,
+      isLoading: isLoading,
       subtitle: total.moneyFormat(context: context),
       body: Column(
         spacing: 5.h,

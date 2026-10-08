@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:surrah/core/extensions/number_formatting_extension.dart';
 import '../../../../../const/app_data.dart';
 import '../../../../../core/utils/theme.dart';
 import '../../../data/model/report_model.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/extensions/number_formatting_extension.dart';
 
 class ReportBalanceCard extends StatelessWidget {
   final bool isLoading;
@@ -17,18 +18,21 @@ class ReportBalanceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(14.w),
-      decoration: BoxDecoration(
-        boxShadow: defaultBoxShadow(),
-        color: Theme.of(context).primaryColor,
-        borderRadius: BorderRadius.circular(12.h),
-      ),
-      child: Column(
-        children: [
-          _NetBalance(netBalance: data.totalIncome - data.totalExpense),
-          _Items(data: data),
-        ],
+    return Skeletonizer(
+      enabled: isLoading,
+      child: Container(
+        padding: EdgeInsets.all(14.w),
+        decoration: BoxDecoration(
+          boxShadow: defaultBoxShadow(),
+          color: Theme.of(context).primaryColor,
+          borderRadius: BorderRadius.circular(12.h),
+        ),
+        child: Column(
+          children: [
+            _NetBalance(netBalance: data.totalIncome - data.totalExpense),
+            _Items(data: data),
+          ],
+        ),
       ),
     );
   }

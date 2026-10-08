@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import '../services/hive_service.dart';
+import '../services/pdf_service.dart';
 import '../services/update_service.dart';
 import '../services/local_auth_service.dart';
 import '../../features/layout/managers/layout_cubit.dart';
@@ -30,6 +31,8 @@ void setupLocator() {
   getIt.registerLazySingleton<UpdateService>(() => UpdateService());
 
   getIt.registerLazySingleton<HiveService>(() => HiveService());
+
+  getIt.registerLazySingleton<PdfService>(() => PdfService());
 
   // Settings
   getIt.registerLazySingleton<SettingsCubit>(() => SettingsCubit());
@@ -82,7 +85,10 @@ void setupLocator() {
   );
   // Report
   getIt.registerLazySingleton<ReportData>(
-    () => ReportData(hiveService: getIt<HiveService>()),
+    () => ReportData(
+      pdfService: getIt<PdfService>(),
+      hiveService: getIt<HiveService>(),
+    ),
   );
 
   getIt.registerLazySingleton<ReportRepo>(
@@ -93,3 +99,4 @@ void setupLocator() {
     () => ReportCubit(reportRepo: getIt<ReportRepo>()),
   );
 }
+

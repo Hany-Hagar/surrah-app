@@ -65,6 +65,7 @@ dependencies:
   # External Services & Platform
   url_launcher: ^6.3.2
   in_app_update: ^4.2.5
+  arabic_reshaper: ^0.0.1
 
 dev_dependencies:
   flutter_test:

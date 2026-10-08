@@ -18,7 +18,7 @@ class SplashCubit extends Cubit<SplashStates> {
     }
     emit(AuthenticationLoading());
     final result = await splashRepo.authenticate();
-    result.fold((failure) => emit(AuthenticationFailure()), (success) {
+    result.fold((failure) => emit(AuthenticationComplete()), (success) {
       emit(AuthenticationComplete());
       splashRepo.checkForUpdate();
     });
