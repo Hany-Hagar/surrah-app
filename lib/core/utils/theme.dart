@@ -13,7 +13,7 @@ class AppTheme {
   // Expense
   static const Color expense = Color(0xFFF44336);
 
-  static const Color primary = Color(0xff14213D);
+  static const Color primary = Color(0xFF001233);
   static const Color secondary = Color(0xFFE5B84A);
 
   static const Color white = Color(0xFFF8F8F5);

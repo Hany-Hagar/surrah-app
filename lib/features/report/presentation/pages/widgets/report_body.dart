@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/extensions/transaction_extension.dart';
 import '../../../../transactions/data/model/transaction_model.dart';
 import '../../../../transactions/presentation/pages/widgets/transactions.dart';
 
@@ -46,7 +45,7 @@ class ReportBody extends StatelessWidget {
                 isLoading: state is FetchReportLoading,
                 transactions: cubit.data.transactions,
               ),
-              const _Share(),
+              //const _Share(),
             ],
           ),
         );
@@ -66,8 +65,8 @@ class _Transactions extends StatelessWidget {
     return ReportCard(
       spacing: 4,
       isLoading: isLoading,
-      title: 'Largest Transactions',
-      subtitle: 'See all',
+      title: 'Transactions',
+      subtitle: '',
       subtitleColor: theme.primaryColor,
       onSubtitleTap: () {},
       body: Transactions(
@@ -75,8 +74,8 @@ class _Transactions extends StatelessWidget {
         isLoading: isLoading,
         categoryIconSize: 42,
         padding: EdgeInsets.zero,
+        transactions: transactions,
         isCircleCategoryIcon: false,
-        transactions: transactions.getLastTransactions(),
         scrollPhysics: const NeverScrollableScrollPhysics(),
         itemPadding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 4.h),
       ),
@@ -128,7 +127,7 @@ class _ShareButtons extends StatelessWidget {
               icon: Icons.share,
               enableBorderColor: true,
               isLoading: state is ShareReportLoading,
-              onPressed: ()=> cubit.shareReport(context: context),
+              onPressed: () => cubit.shareReport(context: context),
             ),
             Expanded(
               child: CustomButton(
@@ -137,7 +136,7 @@ class _ShareButtons extends StatelessWidget {
                 text: "Download",
                 icon: IconBroken.Download,
                 isLoading: state is DownloadReportLoading,
-                onPressed: ()=> cubit.downloadReport(context: context),
+                onPressed: () => cubit.downloadReport(context: context),
               ),
             ),
           ],
