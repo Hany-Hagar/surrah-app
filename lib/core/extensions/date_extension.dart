@@ -1,6 +1,10 @@
 import 'package:intl/intl.dart';
 
 extension DateTimeExtension on DateTime? {
+  /// 5 July 2026 02:30 PM
+  String get pdfFormat =>
+      this == null ? '-' : DateFormat('d MMMM yyyy hh:mm a', 'ar').format(this!);
+
   /// 05/07/2026
   String get short =>
       this == null ? '-' : DateFormat('dd/MM/yyyy', 'ar').format(this!);

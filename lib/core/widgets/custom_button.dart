@@ -35,18 +35,17 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       width: width?.w ?? double.infinity,
       height: (height ?? 55).h,
-      child: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _Body(
-              text: text,
-              color: color,
-              icon: icon,
-              itemSize: itemSize,
-              onPressed: onPressed,
-              borderRadius: borderRadius,
-              enableBorderColor: enableBorderColor,
-              padding: padding,
-            ),
+      child: _Body(
+        text: text,
+        icon: icon,
+        color: color,
+        padding: padding,
+        itemSize: itemSize,
+        isLoading: isLoading,
+        onPressed: onPressed,
+        borderRadius: borderRadius,
+        enableBorderColor: enableBorderColor,
+      ),
     );
   }
 }
@@ -55,21 +54,23 @@ class _Body extends StatelessWidget {
   final String? text;
   final Color? color;
   final IconData? icon;
+  final bool isLoading;
   final double itemSize;
-  final VoidCallback onPressed;
   final double? borderRadius;
+  final VoidCallback onPressed;
   final bool enableBorderColor;
   final EdgeInsetsGeometry? padding;
 
   const _Body({
     this.text,
-    this.color,
     this.icon,
-    required this.itemSize,
-    required this.onPressed,
-    this.borderRadius,
-    this.enableBorderColor = false,
+    this.color,
     this.padding,
+    this.borderRadius,
+    required this.itemSize,
+    required this.isLoading,
+    required this.onPressed,
+    this.enableBorderColor = false,
   });
 
   @override
@@ -108,23 +109,28 @@ class _Body extends StatelessWidget {
           ),
         ),
       ),
-      child: Row(
-        spacing: 7.w,
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (icon != null)
-            Icon(icon, size: (itemSize + 4).sp, color: fontColor),
-          if (text != null)
-            CustomText(
-            text: text!,
-            size: itemSize.sp,
-            type: Type.overMedium,
-            color: fontColor,
-          ),
-        ],
-      ),
+      child: isLoading
+          ? Padding(
+            padding: EdgeInsets.all(5.w),
+            child: Center(child: CircularProgressIndicator(color: fontColor))
+          )
+          : Row(
+              spacing: 7.w,
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (icon != null)
+                  Icon(icon, size: (itemSize + 4).sp, color: fontColor),
+                if (text != null)
+                  CustomText(
+                    text: text!,
+                    size: itemSize.sp,
+                    type: Type.overMedium,
+                    color: fontColor,
+                  ),
+              ],
+            ),
     );
   }
 }

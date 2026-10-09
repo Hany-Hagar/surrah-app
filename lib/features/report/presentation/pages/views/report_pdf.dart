@@ -1,10 +1,13 @@
 import 'package:pdf/pdf.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf/widgets.dart' as pw;
+import '../../../../../core/extensions/date_extension.dart';
 import '../../../data/model/report_model.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flex_color_picker/flex_color_picker.dart';
 import '../../../data/model/report_transaction_model.dart';
+import '../../../../../core/extensions/category_extension.dart';
+import '../../../../transactions/data/model/transaction_model.dart';
 import '../../../../../core/extensions/number_formatting_extension.dart';
 
 class ReportPdfPages {
@@ -66,12 +69,18 @@ class ReportPdfPages {
             total: report.totalIncome,
             items: report.groupedIncomes,
           ),
+          pw.SizedBox(height: 16),
+          _TransactionsCard(
+            transactions: report.transactions,
+            formatMoney: formatMoney,
+          ),
         ],
       ),
     );
   }
 }
 
+// Card Widget
 class _Card extends pw.StatelessWidget {
   final pw.Widget body;
   final PdfColor? color;
@@ -91,6 +100,7 @@ class _Card extends pw.StatelessWidget {
   }
 }
 
+// Balance
 class _BalanceCard extends pw.StatelessWidget {
   final ReportModel data;
   final PdfColor incomeColor;
@@ -183,11 +193,7 @@ class _BalanceItem extends pw.StatelessWidget {
   final String title;
   final String value;
   final PdfColor color;
-  _BalanceItem({
-    required this.title,
-    required this.value,
-    required this.color,
-  });
+  _BalanceItem({required this.title, required this.value, required this.color});
 
   @override
   pw.Widget build(pw.Context context) {
@@ -216,6 +222,7 @@ class _BalanceDivider extends pw.StatelessWidget {
   }
 }
 
+// Analysis Card
 class _AnalysisCard extends pw.StatelessWidget {
   final String title;
   final double total;
@@ -243,6 +250,13 @@ class _AnalysisCard extends pw.StatelessWidget {
           pw.SizedBox(height: 8),
           _AnalysisBar(total: total, items: items),
           pw.SizedBox(height: 10),
+          if (items.isEmpty)
+            _Text(
+              text: 'No data available',
+              size: 12,
+              isBold: true,
+              color: greyColor,
+            ),
           pw.Column(
             mainAxisSize: pw.MainAxisSize.min,
             mainAxisAlignment: pw.MainAxisAlignment.start,
@@ -373,6 +387,94 @@ class _AnalysisItem extends pw.StatelessWidget {
   }
 }
 
+// Transactions Card
+class _TransactionsCard extends pw.StatelessWidget {
+  final List<TransactionModel> transactions;
+  final String Function(double) formatMoney;
+  _TransactionsCard({required this.transactions, required this.formatMoney});
+
+  @override
+  pw.Widget build(pw.Context context) {
+    return _Card(
+      body: pw.Column(
+        mainAxisSize: pw.MainAxisSize.min,
+        mainAxisAlignment: pw.MainAxisAlignment.start,
+        crossAxisAlignment: pw.CrossAxisAlignment.start,
+        children: [
+          _Text(text: 'Transactions', size: 14, isBold: true),
+          pw.SizedBox(height: 8),
+          if (transactions.isEmpty)
+            _Text(
+              text: 'No transactions available',
+              size: 12,
+              isBold: true,
+              color: PdfColors.grey600,
+            ),
+          _Transactions(transaction: transactions, formatMoney: formatMoney),
+        ],
+      ),
+    );
+  }
+}
+
+// Transactions
+class _Transactions extends pw.StatelessWidget {
+  final List<TransactionModel> transaction;
+  final String Function(double) formatMoney;
+  _Transactions({required this.transaction, required this.formatMoney});
+
+  @override
+  pw.Widget build(pw.Context context) {
+    // Table ( Category | Type | Amount | Date )
+    return pw.Table(
+      border: pw.TableBorder.all(color: PdfColors.grey300, width: 1),
+      children: [
+        pw.TableRow(
+          decoration: pw.BoxDecoration(color: PdfColors.grey200),
+          children: [
+            _Text(text: 'Category', size: 12, isBold: true),
+            _Text(text: 'Type', size: 12, isBold: true),
+            _Text(text: 'Amount', size: 12, isBold: true),
+            _Text(text: 'Date&Time', size: 12, isBold: true),
+          ],
+        ),
+        ...transaction.map(
+          (transaction) => _transactionItem(
+            transaction: transaction,
+            formatMoney: formatMoney,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// Transaction Item
+pw.TableRow _transactionItem({
+  required TransactionModel transaction,
+  required String Function(double) formatMoney,
+}) {
+  return pw.TableRow(
+    children: [
+      _Text(
+        size: 11,
+        align: pw.TextAlign.start,
+        textDirection: pw.TextDirection.rtl,
+        text: transaction.categoryId.getCategory().name,
+      ),
+      _Text(text: transaction.isIncome ? 'Income' : 'Expense', size: 11),
+      _Text(text: formatMoney(transaction.amount), size: 11),
+      _Text(
+        size: 11,
+        align: pw.TextAlign.start,
+        textDirection: pw.TextDirection.rtl,
+        text: transaction.createdAt.pdfFormat,
+      ),
+    ],
+  );
+}
+
+// Text Widget
 class _Text extends pw.StatelessWidget {
   final String text;
   final double size;

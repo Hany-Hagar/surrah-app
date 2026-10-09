@@ -15,13 +15,13 @@ class ReportCard extends StatelessWidget {
 
   const ReportCard({
     super.key,
-    required this.title,
-    required this.subtitle,
-    required this.isLoading,
-    this.spacing = 10,
+    this.spacing = 0,
     this.subtitleColor,
     this.onSubtitleTap,
     required this.body,
+    required this.title,
+    required this.subtitle,
+    required this.isLoading,
   });
 
   @override

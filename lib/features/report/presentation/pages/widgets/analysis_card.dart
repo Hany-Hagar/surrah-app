@@ -1,3 +1,4 @@
+import '../../../../../core/widgets/custom_list.dart';
 import 'report_card.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -26,10 +27,19 @@ class AnalysisCard extends StatelessWidget {
       isLoading: isLoading,
       subtitle: total.moneyFormat(context: context),
       body: Column(
-        spacing: 5.h,
+        spacing: 8.h,
         children: [
-          _Bar(total: total, isLoading: isLoading, transactions: transactions),
-          _Items(total: total, transactions: transactions),
+          if (transactions.isNotEmpty)
+            _Bar(
+              total: total,
+              isLoading: isLoading,
+              transactions: transactions,
+            ),
+          _Items(
+            total: total,
+            isLoading: isLoading,
+            transactions: transactions,
+          ),
         ],
       ),
     );
@@ -48,21 +58,24 @@ class _Bar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Skeletonizer(
-      enabled: isLoading,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8.r),
-        child: SizedBox(
-          height: 16.h,
-          child: Row(
-            spacing: 2.w,
-            children: [
-              for (final transaction in transactions)
-                Expanded(
-                  flex: (transaction.amount / total * 1000).round() + 15,
-                  child: Container(color: Color(transaction.color)),
-                ),
-            ],
+    return Padding(
+      padding: EdgeInsets.only(top: 8.h),
+      child: Skeletonizer(
+        enabled: isLoading,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.r),
+          child: SizedBox(
+            height: 16.h,
+            child: Row(
+              spacing: 2.w,
+              children: [
+                for (final transaction in transactions)
+                  Expanded(
+                    flex: (transaction.amount / total * 1000).round() + 15,
+                    child: Container(color: Color(transaction.color)),
+                  ),
+              ],
+            ),
           ),
         ),
       ),
@@ -72,16 +85,23 @@ class _Bar extends StatelessWidget {
 
 class _Items extends StatelessWidget {
   final double total;
+  final bool isLoading;
   final List<ReportTransactionModel> transactions;
-  const _Items({required this.total, required this.transactions});
+  const _Items({
+    required this.isLoading,
+    required this.total,
+    required this.transactions,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 5.h,
-      children: transactions.map((transaction) {
-        return _Item(total: total, transaction: transaction);
-      }).toList(),
+    return CustomList(
+      itemSperator: 5.h,
+      items: transactions,
+      isLoading: isLoading,
+      padding: EdgeInsets.symmetric(vertical: 0.h),
+      itemBuilder: (item) => _Item(total: total, transaction: item),
+      loadingItems: List.generate(3, (index) => ReportTransactionModel.empty()),
     );
   }
 }
