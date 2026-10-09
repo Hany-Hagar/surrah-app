@@ -321,6 +321,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Search Transactions",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "settingsAppLockSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Enable or disable app lock for added security",
+    ),
+    "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage("App Lock"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),

@@ -924,6 +924,26 @@ class S {
     );
   }
 
+  /// `App Lock`
+  String get settingsAppLockTitle {
+    return Intl.message(
+      'App Lock',
+      name: 'settingsAppLockTitle',
+      desc: 'Title for the app lock settings section',
+      args: [],
+    );
+  }
+
+  /// `Enable or disable app lock for added security`
+  String get settingsAppLockSubtitle {
+    return Intl.message(
+      'Enable or disable app lock for added security',
+      name: 'settingsAppLockSubtitle',
+      desc: 'Subtitle for the app lock settings section',
+      args: [],
+    );
+  }
+
   /// `Theme`
   String get themeTitle {
     return Intl.message(

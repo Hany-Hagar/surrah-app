@@ -368,6 +368,14 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
+  "settingsAppLockTitle": "App Lock",
+  "@settingsAppLockTitle": {
+    "description": "Title for the app lock settings section"
+  },
+  "settingsAppLockSubtitle": "Enable or disable app lock for added security",
+  "@settingsAppLockSubtitle": {
+    "description": "Subtitle for the app lock settings section"
+  },
 
 
   "themeTitle": "Theme",

@@ -50,7 +50,10 @@ void setupLocator() {
   );
 
   getIt.registerFactory<SplashCubit>(
-    () => SplashCubit(splashRepo: getIt<SplashRepo>()),
+    () => SplashCubit(
+      splashRepo: getIt<SplashRepo>(),
+      settingsCubit: getIt<SettingsCubit>(),
+    ),
   );
 
   // Layout

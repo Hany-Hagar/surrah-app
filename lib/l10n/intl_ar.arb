@@ -419,6 +419,16 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
+  "settingsAppLockTitle": "قفل التطبيق",
+  "@settingsAppLockTitle": {
+    "description": "Title for the app lock settings section"
+  },
+  "settingsAppLockSubtitle": "تمكين أو تعطيل قفل التطبيق للحصول على أمان إضافي",
+  "@settingsAppLockSubtitle": {
+    "description": "Subtitle for the app lock settings section"
+  },
+
+
   "themeTitle": "المظهر",
   "@themeTitle": {
     "description": "Title for the theme settings section"

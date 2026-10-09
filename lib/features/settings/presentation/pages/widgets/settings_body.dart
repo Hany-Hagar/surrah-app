@@ -42,6 +42,7 @@ class SettingsBody extends StatelessWidget {
         _Notifications(),
         SizedBox(height: 10.h),
         _Title(title: s.settingsPrivacySupportTitle),
+        _AppLock(),
         SettingsItem(
           color: Colors.orange,
           icon: IconBroken.Shield_Done,
@@ -91,6 +92,31 @@ class _Notifications extends StatelessWidget {
           trailing: CustomSwitch(
             value: state.notificationsEnabled,
             onChanged: (value) => getIt<SettingsCubit>().toggleNotifications(),
+          ),
+        );
+      },
+    );
+  }
+}
+
+
+class _AppLock extends StatelessWidget {
+  const _AppLock();
+
+  @override
+  Widget build(BuildContext context) {
+    var s = S.of(context);
+    return BlocBuilder<SettingsCubit, AppUserPref>(
+      builder: (context, state) {
+        return SettingsItem(
+          color: Colors.purple,
+          icon: IconBroken.Notification,
+          title: s.settingsAppLockTitle,
+          subtitle: s.settingsAppLockSubtitle,
+          onTap: () => getIt<SettingsCubit>().toggleAppLock(),
+          trailing: CustomSwitch(
+            value: state.appLockEnabled,
+            onChanged: (value) => getIt<SettingsCubit>().toggleAppLock(),
           ),
         );
       },

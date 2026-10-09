@@ -307,6 +307,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "بحث في العمليات",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "settingsAppLockSubtitle": MessageLookupByLibrary.simpleMessage(
+      "تمكين أو تعطيل قفل التطبيق للحصول على أمان إضافي",
+    ),
+    "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage("قفل التطبيق"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),
