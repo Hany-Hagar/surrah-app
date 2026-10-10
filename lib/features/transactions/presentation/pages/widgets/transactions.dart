@@ -79,17 +79,12 @@ class _Item extends StatelessWidget {
         horizontalTitleGap: 12.w,
         leading: CustomCategoryIcon(
           category: category,
-          size: categoryIconSize ?? 50,
+          size: categoryIconSize ?? 45,
           isCircle: isCircleCategoryIcon ?? true,
         ),
-        title: _ItemRow(
-          leading: _Title(category: category),
-          trailing: transaction.getAmount(context),
-        ),
-        subtitle: _ItemRow(
-          leading: _Time(transaction: transaction),
-          trailing: transaction.getLocalizedType(context),
-        ),
+        title: _Title(category: category),
+        trailing: transaction.getAmount(context),
+        subtitle: _Time(transaction: transaction),
         contentPadding:
             itemPadding ??
             EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
@@ -103,17 +98,6 @@ class _Item extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _ItemRow extends StatelessWidget {
-  final Widget leading;
-  final Widget trailing;
-  const _ItemRow({required this.leading, required this.trailing});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(children: [leading, Spacer(), trailing]);
   }
 }
 
