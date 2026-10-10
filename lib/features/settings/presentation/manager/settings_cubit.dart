@@ -27,6 +27,10 @@ class SettingsCubit extends HydratedCubit<AppUserPref> {
     emit(state.copyWith(appLockEnabled: enabled));
   }
 
+  void setAppLockSupported(bool supported) {
+    emit(state.copyWith(appLockSupported: supported));
+  }
+
   @override
   AppUserPref? fromJson(Map<String, dynamic> json) {
     return AppUserPref.fromJson(json);

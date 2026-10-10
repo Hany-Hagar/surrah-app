@@ -99,7 +99,6 @@ class _Notifications extends StatelessWidget {
   }
 }
 
-
 class _AppLock extends StatelessWidget {
   const _AppLock();
 
@@ -108,17 +107,20 @@ class _AppLock extends StatelessWidget {
     var s = S.of(context);
     return BlocBuilder<SettingsCubit, AppUserPref>(
       builder: (context, state) {
-        return SettingsItem(
-          color: Colors.purple,
-          icon: IconBroken.Notification,
-          title: s.settingsAppLockTitle,
-          subtitle: s.settingsAppLockSubtitle,
-          onTap: () => getIt<SettingsCubit>().toggleAppLock(),
-          trailing: CustomSwitch(
-            value: state.appLockEnabled,
-            onChanged: (value) => getIt<SettingsCubit>().toggleAppLock(),
-          ),
-        );
+        var cubit = getIt<SettingsCubit>();
+        return cubit.state.appLockSupported
+            ? SettingsItem(
+                color: Colors.purple,
+                icon: IconBroken.Notification,
+                title: s.settingsAppLockTitle,
+                subtitle: s.settingsAppLockSubtitle,
+                onTap: () => cubit.toggleAppLock(),
+                trailing: CustomSwitch(
+                  value: state.appLockEnabled,
+                  onChanged: (value) => cubit.toggleAppLock(),
+                ),
+              )
+            : SizedBox.shrink();
       },
     );
   }

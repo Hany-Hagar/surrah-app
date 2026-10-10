@@ -5,12 +5,14 @@ class AppUserPref {
   final ThemeMode theme;
   final bool isFirstTime;
   final bool appLockEnabled;
+  final bool appLockSupported;
   final bool notificationsEnabled;
   AppUserPref({
     required this.lang,
     required this.theme,
     required this.isFirstTime,
     required this.appLockEnabled,
+    required this.appLockSupported,
     required this.notificationsEnabled,
   });
 
@@ -20,6 +22,7 @@ class AppUserPref {
       isFirstTime: true,
       appLockEnabled: false,
       theme: ThemeMode.light,
+      appLockSupported: true,
       notificationsEnabled: true,
     );
   }
@@ -30,6 +33,7 @@ class AppUserPref {
     ThemeMode? theme,
     bool? isFirstTime,
     bool? appLockEnabled,
+    bool? appLockSupported,
     bool? notificationsEnabled,
   }) {
     return AppUserPref(
@@ -37,6 +41,7 @@ class AppUserPref {
       theme: theme ?? this.theme,
       isFirstTime: isFirstTime ?? this.isFirstTime,
       appLockEnabled: appLockEnabled ?? this.appLockEnabled,
+      appLockSupported: appLockSupported ?? this.appLockSupported,
       notificationsEnabled: notificationsEnabled ?? this.notificationsEnabled,
     );
   }
@@ -47,6 +52,7 @@ class AppUserPref {
       theme: ThemeMode.values[json['theme'] as int],
       isFirstTime: json['isFirstTime'] as bool? ?? true,
       appLockEnabled: json['appLockEnabled'] as bool? ?? false,
+      appLockSupported: json['appLockSupported'] as bool? ?? true,
       notificationsEnabled: json['notificationsEnabled'] as bool? ?? true,
     );
   }
@@ -57,6 +63,7 @@ class AppUserPref {
       'theme': theme.index,
       'isFirstTime': isFirstTime,
       'appLockEnabled': appLockEnabled,
+      'appLockSupported': appLockSupported,
       'notificationsEnabled': notificationsEnabled,
     };
   }

@@ -8,13 +8,18 @@ class SplashRepoImpl extends SplashRepo {
   SplashRepoImpl({required this.splashData});
 
   @override
+  Future<Either<Failure, bool>> isDeviceSupported() async {
+    try {
+      var result = await splashData.isDeviceSupported();
+      return Right(result);
+    } catch (e) {
+      return Left(LocalAuthFailure(message: e.toString()));
+    }
+  }
+
+  @override
   Future<Either<Failure, bool>> authenticate() async {
     try {
-      var isSupported = await splashData.isDeviceSupported();
-      var hasBiometrics = await splashData.hasLocalAuth();
-      if (!isSupported || !hasBiometrics) {
-        return Left(LocalAuthFailure(message: "Device does not support"));
-      }
       var result = await splashData.authenticate();
       return Right(result);
     } catch (e) {

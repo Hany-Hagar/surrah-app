@@ -8,4 +8,4 @@ class FirstTimeCheckComplete extends SplashStates {}
 
 class AuthenticationFailure extends SplashStates {}
 
-class AuthenticationComplete extends SplashStates {}
+class AuthenticationSuccess extends SplashStates {}

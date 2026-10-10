@@ -1,34 +1,25 @@
+import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
 
 class LocalAuthService {
-  final LocalAuthentication localAuth = LocalAuthentication();
-  LocalAuthService();
+  final LocalAuthentication _auth = LocalAuthentication();
 
-  // Check if the device supports biometric authentication
   Future<bool> isDeviceSupported() async {
     try {
-      return await localAuth.isDeviceSupported();
-    } catch (e) {
+      return await _auth.isDeviceSupported();
+    } on PlatformException {
       return false;
     }
   }
 
-  // Check if the device has enrolled biometrics
-  Future<bool> hasEnrolledBiometrics() async {
-    try {
-      return await localAuth.canCheckBiometrics;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  // Authenticate the user using biometrics
   Future<bool> authenticate() async {
     try {
-      return localAuth.authenticate(
-        localizedReason: "Authenticate to access the app",
+      return await _auth.authenticate(
+        localizedReason: 'Authenticate to access the app',
+        biometricOnly: false,
+        persistAcrossBackgrounding: true,
       );
-    } catch (e) {
+    } on PlatformException {
       return false;
     }
   }

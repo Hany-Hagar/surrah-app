@@ -24,7 +24,7 @@ class SplashView extends StatelessWidget {
           if (state is FirstTimeCheckComplete && isFirstTime) {
             NavTo.pushReplacement(context: context, nextPage: OnBoardingView());
           }
-          if (state is AuthenticationComplete) {
+          if (state is AuthenticationSuccess) {
             NavTo.pushReplacement(context: context, nextPage: LayoutView());
           }
           if (state is AuthenticationFailure) {

@@ -11,11 +11,6 @@ class SplashData {
     return await localAuth.isDeviceSupported();
   }
 
-  // Check if the device has enrolled biometrics
-  Future<bool> hasLocalAuth() async {
-    return await localAuth.hasEnrolledBiometrics();
-  }
-
   // Authenticate the user using biometrics
   Future<bool> authenticate() async {
     return await localAuth.authenticate();
