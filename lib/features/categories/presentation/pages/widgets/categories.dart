@@ -11,6 +11,7 @@ class Categories extends StatelessWidget {
   final int crossAxisCount;
   final EdgeInsets? padding;
   final double childAspectRatio;
+  final ScrollPhysics? physics;
   final Function(CategoryModel)? onTap;
   final List<CategoryModel> categories;
   final CategoryModel? selectedCategory;
@@ -18,6 +19,7 @@ class Categories extends StatelessWidget {
     super.key,
     this.onTap,
     this.padding,
+    this.physics,
     this.selectedCategory,
     this.crossAxisCount = 4,
     required this.categories,
@@ -27,6 +29,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomGrid<CategoryModel>(
+      physics: physics,
       items: categories,
       crossAxisCount: crossAxisCount,
       childAspectRatio: childAspectRatio,

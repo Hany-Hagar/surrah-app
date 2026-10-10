@@ -21,6 +21,7 @@ class CategoriesBody extends StatelessWidget {
             : cubit.categories;
         return Categories(
           categories: categories,
+          physics: const AlwaysScrollableScrollPhysics(),
           onTap: (category) {
             cubit.initEditCategory(category: category);
             DialogService.showCustomDialog(

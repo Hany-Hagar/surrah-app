@@ -6,6 +6,7 @@ import '../../manager/categories_cubit.dart';
 import '../../manager/categories_states.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/filter_body.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/services/dialog_service.dart';
@@ -19,32 +20,35 @@ class CategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
-    return Scaffold(
-      appBar: CustomAppBar(
-        bottom: const _Search(),
-        title: s.categoriesTitle,
-        subtitle: s.categoriesSubtitle,
-        trailingIcon: IconBroken.Filter,
-        onTrailingPressed: () => showModalBottomSheet(
-          context: context,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
-          ),
-          builder: (context) => const _Filter(),
-        ),
-      ),
-      body: const CategoriesBody(),
-      floatingActionButton: BlocBuilder<CategoriesCubit, CategoriesStates>(
-        builder: (context, state) {
-          var cubit = CategoriesCubit.get(context);
-          return CustomFloatingButton(
-            isVisible: !(cubit.isSearching || cubit.isFiltering),
-            onPressed: () => DialogService.showCustomDialog(
-              context: context,
-              body: const AddEditCategory(),
+    return BlocProvider.value(
+      value: getIt<CategoriesCubit>()..initialView(),
+      child: Scaffold(
+        appBar: CustomAppBar(
+          bottom: const _Search(),
+          title: s.categoriesTitle,
+          subtitle: s.categoriesSubtitle,
+          trailingIcon: IconBroken.Filter,
+          onTrailingPressed: () => showModalBottomSheet(
+            context: context,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
             ),
-          );
-        },
+            builder: (context) => const _Filter(),
+          ),
+        ),
+        body: const CategoriesBody(),
+        floatingActionButton: BlocBuilder<CategoriesCubit, CategoriesStates>(
+          builder: (context, state) {
+            var cubit = CategoriesCubit.get(context);
+            return CustomFloatingButton(
+              isVisible: !(cubit.isSearching || cubit.isFiltering),
+              onPressed: () => DialogService.showCustomDialog(
+                context: context,
+                body: const AddEditCategory(),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

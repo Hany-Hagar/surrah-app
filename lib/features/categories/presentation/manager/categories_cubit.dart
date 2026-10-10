@@ -32,19 +32,28 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     searchController.clear();
     filteredCategories.clear();
     selectedType = CategoriesType.all;
+    if (categories.isEmpty) getCategories();
     emit(CategoriesInitial());
   }
 
+  // Add Local Categories
+  Future<void> addLocalCategories() async {
+    emit(AddLocalCategoriesLoading());
+    var result = await categoriesRepo.addLocalCategories(DefaultCategories.all);
+    result.fold(
+      (failure) =>
+          emit(AddLocalCategoriesFailure(errorMessage: failure.message)),
+      (_) => emit(AddLocalCategoriesSuccess()),
+    );
+  }
+
   void getCategories() async {
-    if (categories.isNotEmpty) {
-      return;
-    }
     emit(CategoriesLoading());
     var result = await categoriesRepo.getCategories();
     result.fold(
       (failure) => emit(CategoriesFailure(errorMessage: failure.message)),
       (categoriesList) {
-        categories.addAll([...DefaultCategories.all, ...categoriesList]);
+        categories.addAll(categoriesList);
         selectedCategory = categories.first;
         getIt<TransactionsCubit>().getTransactionsData();
         emit(CategoriesSuccess());

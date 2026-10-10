@@ -10,6 +10,18 @@ class CategoriesRepoImpl extends CategoriesRepo {
   CategoriesRepoImpl({required this.categoriesData});
 
   @override
+  Future<Either<Failure, void>> addLocalCategories(
+    List<CategoryModel> categories,
+  ) async {
+    try {
+      await categoriesData.addLocalCategories(categories);
+      return const Right(null);
+    } catch (e) {
+      return Left(HiveFailure.fromError(e));
+    }
+  }
+
+  @override
   Future<Either<Failure, List<CategoryModel>>> getCategories() async {
     try {
       final categories = categoriesData.getAllCategories();

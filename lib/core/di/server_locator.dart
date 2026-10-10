@@ -53,6 +53,7 @@ void setupLocator() {
     () => SplashCubit(
       splashRepo: getIt<SplashRepo>(),
       settingsCubit: getIt<SettingsCubit>(),
+      categoriesCubit: getIt<CategoriesCubit>(),
     ),
   );
 
@@ -69,9 +70,7 @@ void setupLocator() {
   );
 
   getIt.registerLazySingleton<CategoriesCubit>(
-    () =>
-        CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>())
-          ..getCategories(),
+    () => CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>())..getCategories(),
   );
 
   // Transactions
@@ -102,4 +101,3 @@ void setupLocator() {
     () => ReportCubit(reportRepo: getIt<ReportRepo>()),
   );
 }
-

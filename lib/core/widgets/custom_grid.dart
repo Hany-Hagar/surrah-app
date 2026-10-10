@@ -7,24 +7,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomGrid<T> extends StatelessWidget {
   final List<T> items;
   final Widget Function(BuildContext context, T item) itemBuilder;
+  final Widget? extraItem;
   final int crossAxisCount;
-  final double crossAxisSpacing;
+  final String? emptyMessage;
+  final ScrollPhysics? physics;
   final double mainAxisSpacing;
+  final double crossAxisSpacing;
   final double childAspectRatio;
   final EdgeInsetsGeometry padding;
-  final Widget? extraItem;
-  final String? emptyMessage;
 
   const CustomGrid({
     super.key,
-    required this.items,
-    required this.itemBuilder,
-    this.crossAxisCount = 4,
-    this.crossAxisSpacing = 8,
-    this.mainAxisSpacing = 8,
-    this.childAspectRatio = 1,
+    this.physics,
     this.extraItem,
     this.emptyMessage,
+    required this.items,
+    this.crossAxisCount = 4,
+    this.mainAxisSpacing = 8,
+    required this.itemBuilder,
+    this.crossAxisSpacing = 8,
+    this.childAspectRatio = 1,
     this.padding = EdgeInsets.zero,
   });
 
@@ -36,8 +38,8 @@ class CustomGrid<T> extends StatelessWidget {
     return GridView.builder(
       padding: padding,
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
       itemCount: items.length + (extraItem != null ? 1 : 0),
+      physics: physics ?? const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         mainAxisSpacing: mainAxisSpacing.h,

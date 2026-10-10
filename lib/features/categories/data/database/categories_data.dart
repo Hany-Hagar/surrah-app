@@ -6,6 +6,18 @@ class CategoriesData {
   final HiveService hiveService;
   CategoriesData({required this.hiveService});
 
+  // Add Local Categories
+  Future<void> addLocalCategories(List<CategoryModel> categories) async {
+    final box = hiveService.box<CategoryModel>(HiveData.categoriesBox);
+    await box.clear();
+    for (var category in categories) {
+      await hiveService.add<CategoryModel>(
+        boxName: HiveData.categoriesBox,
+        value: category,
+      );
+    }
+  }
+
   // Get all categories
   List<CategoryModel> getAllCategories() {
     final box = hiveService.box<CategoryModel>(HiveData.categoriesBox);

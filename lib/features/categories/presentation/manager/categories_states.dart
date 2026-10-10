@@ -2,6 +2,16 @@ sealed class CategoriesStates {}
 
 class CategoriesInitial extends CategoriesStates {}
 
+// Add Local Categories
+class AddLocalCategoriesLoading extends CategoriesStates {}
+
+class AddLocalCategoriesSuccess extends CategoriesStates {}
+
+class AddLocalCategoriesFailure extends CategoriesStates {
+  final String errorMessage;
+  AddLocalCategoriesFailure({required this.errorMessage});
+}
+
 // Get Categories
 class CategoriesLoading extends CategoriesStates {}
 
