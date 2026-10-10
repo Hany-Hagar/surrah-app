@@ -34,7 +34,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     return Scaffold(
       body: Column(
         children: [
-          _Skip(totalPages: pages.length, pageController: pageController),
+          _Skip(
+            totalPages: pages.length,
+            currentPage: currentPage,
+            pageController: pageController,
+          ),
           Expanded(
             child: OnBoardingBody(
               pageController: pageController,
@@ -58,11 +62,18 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
 class _Skip extends StatelessWidget {
   final int totalPages;
+  final int currentPage;
   final PageController pageController;
-  const _Skip({required this.totalPages, required this.pageController});
+  const _Skip({
+    required this.totalPages,
+    required this.currentPage,
+    required this.pageController,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final bool isLastPage = currentPage == totalPages - 1;
+
     return Padding(
       padding: EdgeInsetsDirectional.only(
         end: 16.w,
@@ -71,17 +82,18 @@ class _Skip extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          GestureDetector(
-            onTap: () {
-              pageController.jumpToPage(totalPages - 1);
-            },
-            child: CustomText(
-              text: "Skip",
-              size: 18.sp,
-              type: Type.overMedium,
-              opacity: FontOpacity.medium,
+          if (!isLastPage)
+            GestureDetector(
+              onTap: () {
+                pageController.jumpToPage(totalPages - 1);
+              },
+              child: CustomText(
+                text: "Skip",
+                size: 18.sp,
+                type: Type.overMedium,
+                opacity: FontOpacity.medium,
+              ),
             ),
-          ),
         ],
       ),
     );
