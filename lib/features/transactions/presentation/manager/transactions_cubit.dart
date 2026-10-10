@@ -12,7 +12,6 @@ import '../../../../core/extensions/category_extension.dart';
 import '../../../categories/data/models/category_model.dart';
 import '../../../../core/extensions/transaction_extension.dart';
 import '../../../categories/data/database/default_categories.dart';
-import '../../../../core/extensions/transactions_data_model_extensions.dart';
 
 class TransactionsCubit extends Cubit<TransactionsStates> {
   final TransactionsRepo transactionsRepo;
@@ -181,7 +180,6 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
   void updateSelectedCategory({required BuildContext context}) {
     CategoriesPicker.show(
       context: context,
-      
       categoriesType: selectedCategory.isIncome
           ? CategoriesType.income
           : CategoriesType.expense,
@@ -216,8 +214,9 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
       categoryId: selectedCategory.id,
       amount: double.parse(amountController.text),
     );
-    var result = await transactionsRepo.updateTransactionsData(
-      data: transactionsData.addTransaction(transaction: transaction),
+    var result = await transactionsRepo.addTransaction(
+      data: transactionsData,
+      transaction: transaction,
     );
     result.fold(
       (failure) => emit(AddTransactionFailure(message: failure.message)),
@@ -247,11 +246,10 @@ class TransactionsCubit extends Cubit<TransactionsStates> {
       categoryId: selectedCategory.id,
       amount: double.parse(amountController.text),
     );
-    var result = await transactionsRepo.updateTransactionsData(
-      data: transactionsData.editTransaction(
-        oldTransaction: transactionToEdit,
-        newTransaction: updateTransaction,
-      ),
+    var result = await transactionsRepo.updateTransaction(
+      data: transactionsData,
+      transaction: transactionToEdit,
+      updatedTransaction: updateTransaction,
     );
     result.fold(
       (failure) => emit(UpdateTransactionFailure(message: failure.message)),

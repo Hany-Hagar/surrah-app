@@ -3,6 +3,22 @@ import '../../features/transactions/data/model/transaction_model.dart';
 import '../../features/transactions/data/model/transactions_data_model.dart';
 
 extension TransactionsDataModelExtensions on TransactionsDataModel {
+  List<TransactionModel> _insertSorted(
+    List<TransactionModel> list,
+    TransactionModel transaction,
+  ) {
+    final result = List<TransactionModel>.from(list);
+    final index = result.indexWhere(
+      (t) => t.createdAt.isBefore(transaction.createdAt),
+    );
+    if (index == -1) {
+      result.add(transaction);
+    } else {
+      result.insert(index, transaction);
+    }
+    return result;
+  }
+
   // Add Transaction
   TransactionsDataModel addTransaction({
     required TransactionModel transaction,
@@ -10,9 +26,7 @@ extension TransactionsDataModelExtensions on TransactionsDataModel {
     final updatedBalance = currentBalance.addTransaction(
       transaction: transaction,
     );
-    // Add New in First Position
-    final updatedTransactions = List<TransactionModel>.from(transactions)
-      ..insert(0, transaction);
+    final updatedTransactions = _insertSorted(transactions, transaction);
     return copyWith(
       currentBalance: updatedBalance,
       transactions: updatedTransactions,
@@ -27,9 +41,9 @@ extension TransactionsDataModelExtensions on TransactionsDataModel {
     final updatedBalance = currentBalance
         .removeTransaction(transaction: oldTransaction)
         .addTransaction(transaction: newTransaction);
-    final updatedTransactions = List<TransactionModel>.from(transactions)
-      ..remove(oldTransaction)
-      ..add(newTransaction);
+    final withoutOld = List<TransactionModel>.from(transactions)
+      ..removeWhere((t) => t.id == oldTransaction.id);
+    final updatedTransactions = _insertSorted(withoutOld, newTransaction);
     return copyWith(
       currentBalance: updatedBalance,
       transactions: updatedTransactions,
@@ -44,7 +58,7 @@ extension TransactionsDataModelExtensions on TransactionsDataModel {
       transaction: transaction,
     );
     final updatedTransactions = List<TransactionModel>.from(transactions)
-      ..remove(transaction);
+      ..removeWhere((t) => t.id == transaction.id);
     return copyWith(
       currentBalance: updatedBalance,
       transactions: updatedTransactions,
