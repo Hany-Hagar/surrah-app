@@ -419,13 +419,21 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
-  "settingsAppLockTitle": "قفل التطبيق",
+  "settingsAppLockTitle": "المصادقة المحلية",
   "@settingsAppLockTitle": {
-    "description": "Title for the app lock settings section"
+    "description": "Title for local app authentication settings"
   },
-  "settingsAppLockSubtitle": "تمكين أو تعطيل قفل التطبيق للحصول على أمان إضافي",
+  "settingsAppLockSubtitle": "حماية التطبيق بالرمز أو النقش أو البصمة",
   "@settingsAppLockSubtitle": {
-    "description": "Subtitle for the app lock settings section"
+    "description": "Subtitle for local app authentication settings"
+  },
+  "settingsScreenshotProtectionTitle": "حماية الشاشة",
+  "@settingsScreenshotProtectionTitle": {
+    "description": "Title for screenshot protection settings"
+  },
+  "settingsScreenshotProtectionSubTitle": "منع التقاط لقطات الشاشة وتسجيل الشاشة",
+  "@settingsScreenshotProtectionSubTitle": {
+    "description": "Subtitle for screenshot protection settings"
   },
 
 

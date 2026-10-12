@@ -368,16 +368,24 @@
   "@settingsPrivacySupportTitle": {
     "description": "Title for the privacy and support settings section"
   },
-  "settingsAppLockTitle": "App Lock",
+  "settingsAppLockTitle": "App Authentication",
   "@settingsAppLockTitle": {
-    "description": "Title for the app lock settings section"
+    "description": "Title for local app authentication settings"
   },
-  "settingsAppLockSubtitle": "Enable or disable app lock for added security",
+  "settingsAppLockSubtitle": "Protect your app with secure authentication",
   "@settingsAppLockSubtitle": {
-    "description": "Subtitle for the app lock settings section"
+    "description": "Subtitle for local app authentication settings"
+  },
+  "settingsScreenshotProtectionTitle": "Screenshot Protection",
+  "@settingsScreenshotProtectionTitle": {
+    "description": "Title for the screenshot protection settings section"
+  },
+  "settingsScreenshotProtectionSubTitle": "Prevent screenshots and screen recording",
+  "@settingsScreenshotProtectionSubTitle": { 
+    "description": "Label for the screenshot protection setting"
   },
 
-
+  
   "themeTitle": "Theme",
   "@themeTitle": {
     "description": "Title for the theme settings section"

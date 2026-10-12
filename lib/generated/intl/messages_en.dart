@@ -322,9 +322,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "settingsAppLockSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Enable or disable app lock for added security",
+      "Protect your app with secure authentication",
     ),
-    "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage("App Lock"),
+    "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage(
+      "App Authentication",
+    ),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),
@@ -333,6 +335,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
       "🔒 Privacy & Support",
+    ),
+    "settingsScreenshotProtectionSubTitle":
+        MessageLookupByLibrary.simpleMessage(
+          "Prevent screenshots and screen recording",
+        ),
+    "settingsScreenshotProtectionTitle": MessageLookupByLibrary.simpleMessage(
+      "Screenshot Protection",
     ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Customize your app experience",

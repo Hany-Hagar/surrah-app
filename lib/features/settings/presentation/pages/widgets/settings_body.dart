@@ -1,3 +1,4 @@
+
 import 'theme_body.dart';
 import 'settings_item.dart';
 import '../views/languages_view.dart';
@@ -9,6 +10,7 @@ import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../model/app_user_pref_model.dart';
+import 'package:no_screenshot/overlay_mode.dart';
 import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_switch.dart';
@@ -42,7 +44,8 @@ class SettingsBody extends StatelessWidget {
         _Notifications(),
         SizedBox(height: 10.h),
         _Title(title: s.settingsPrivacySupportTitle),
-        _AppLock(),
+        _AppAuthentication(),
+        _ScreenShotProtection(),
         SettingsItem(
           color: Colors.orange,
           icon: IconBroken.Shield_Done,
@@ -99,19 +102,19 @@ class _Notifications extends StatelessWidget {
   }
 }
 
-class _AppLock extends StatelessWidget {
-  const _AppLock();
+class _AppAuthentication extends StatelessWidget {
+  const _AppAuthentication();
 
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
     return BlocBuilder<SettingsCubit, AppUserPref>(
       builder: (context, state) {
-        var cubit = getIt<SettingsCubit>();
+        var cubit = SettingsCubit.get(context);
         return cubit.state.appLockSupported
             ? SettingsItem(
+                icon: IconBroken.Lock,
                 color: Colors.purple,
-                icon: IconBroken.Notification,
                 title: s.settingsAppLockTitle,
                 subtitle: s.settingsAppLockSubtitle,
                 onTap: () => cubit.toggleAppLock(),
@@ -121,6 +124,31 @@ class _AppLock extends StatelessWidget {
                 ),
               )
             : SizedBox.shrink();
+      },
+    );
+  }
+}
+
+class _ScreenShotProtection extends StatelessWidget {
+  const _ScreenShotProtection();
+
+  @override
+  Widget build(BuildContext context) {
+    var s = S.of(context);
+    return BlocBuilder<SettingsCubit, AppUserPref>(
+      builder: (context, state) {
+        var cubit = SettingsCubit.get(context);
+        return SettingsItem(
+          color: Colors.blue,
+          icon: IconBroken.Hide,
+          title: s.settingsScreenshotProtectionTitle,
+          subtitle: s.settingsScreenshotProtectionSubTitle,
+          onTap: () => cubit.toggleScreenShotProtectionMode(),
+          trailing: CustomSwitch(
+            value: state.screenShotProtection == OverlayMode.secure,
+            onChanged: (value) => cubit.toggleScreenShotProtectionMode(),
+          ),
+        );
       },
     );
   }

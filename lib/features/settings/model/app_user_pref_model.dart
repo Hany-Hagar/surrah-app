@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:no_screenshot/overlay_mode.dart';
 
 class AppUserPref {
   final String lang;
@@ -6,10 +7,12 @@ class AppUserPref {
   final bool isFirstTime;
   final bool appLockEnabled;
   final bool appLockSupported;
+  final OverlayMode screenShotProtection;
   final bool notificationsEnabled;
   AppUserPref({
     required this.lang,
     required this.theme,
+    required this.screenShotProtection,
     required this.isFirstTime,
     required this.appLockEnabled,
     required this.appLockSupported,
@@ -24,6 +27,7 @@ class AppUserPref {
       theme: ThemeMode.light,
       appLockSupported: true,
       notificationsEnabled: true,
+      screenShotProtection: OverlayMode.none,
     );
   }
 
@@ -34,11 +38,13 @@ class AppUserPref {
     bool? isFirstTime,
     bool? appLockEnabled,
     bool? appLockSupported,
+    OverlayMode? secureMode,
     bool? notificationsEnabled,
   }) {
     return AppUserPref(
       lang: lang ?? this.lang,
       theme: theme ?? this.theme,
+      screenShotProtection: secureMode ?? this.screenShotProtection,
       isFirstTime: isFirstTime ?? this.isFirstTime,
       appLockEnabled: appLockEnabled ?? this.appLockEnabled,
       appLockSupported: appLockSupported ?? this.appLockSupported,
@@ -52,6 +58,7 @@ class AppUserPref {
       theme: ThemeMode.values[json['theme'] as int],
       isFirstTime: json['isFirstTime'] as bool? ?? true,
       appLockEnabled: json['appLockEnabled'] as bool? ?? false,
+      screenShotProtection: OverlayMode.values[json['secureMode'] as int],
       appLockSupported: json['appLockSupported'] as bool? ?? true,
       notificationsEnabled: json['notificationsEnabled'] as bool? ?? true,
     );
@@ -62,6 +69,7 @@ class AppUserPref {
       'lang': lang,
       'theme': theme.index,
       'isFirstTime': isFirstTime,
+      'secureMode': screenShotProtection.index,
       'appLockEnabled': appLockEnabled,
       'appLockSupported': appLockSupported,
       'notificationsEnabled': notificationsEnabled,

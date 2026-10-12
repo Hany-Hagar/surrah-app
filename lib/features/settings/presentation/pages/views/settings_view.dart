@@ -15,9 +15,11 @@ class SettingsView extends StatelessWidget {
         title: s.settingsTitle,
         subtitle: s.settingsSubtitle,
       ),
-      body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 12.w),
-        child: SettingsBody()
+      body: SingleChildScrollView(
+        child: Padding(
+          padding:  EdgeInsets.symmetric(horizontal: 12.w),
+          child: SettingsBody()
+        )
       ),
     );
   }

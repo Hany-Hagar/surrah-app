@@ -308,9 +308,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "settingsAppLockSubtitle": MessageLookupByLibrary.simpleMessage(
-      "تمكين أو تعطيل قفل التطبيق للحصول على أمان إضافي",
+      "حماية التطبيق بالرمز أو النقش أو البصمة",
     ),
-    "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage("قفل التطبيق"),
+    "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage(
+      "المصادقة المحلية",
+    ),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),
@@ -319,6 +321,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settingsPrivacySupportTitle": MessageLookupByLibrary.simpleMessage(
       "🔒 الخصوصية والدعم",
+    ),
+    "settingsScreenshotProtectionSubTitle":
+        MessageLookupByLibrary.simpleMessage(
+          "منع التقاط لقطات الشاشة وتسجيل الشاشة",
+        ),
+    "settingsScreenshotProtectionTitle": MessageLookupByLibrary.simpleMessage(
+      "حماية الشاشة",
     ),
     "settingsSubtitle": MessageLookupByLibrary.simpleMessage(
       "تخصيص تجربة التطبيق",

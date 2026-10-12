@@ -924,22 +924,42 @@ class S {
     );
   }
 
-  /// `App Lock`
+  /// `App Authentication`
   String get settingsAppLockTitle {
     return Intl.message(
-      'App Lock',
+      'App Authentication',
       name: 'settingsAppLockTitle',
-      desc: 'Title for the app lock settings section',
+      desc: 'Title for local app authentication settings',
       args: [],
     );
   }
 
-  /// `Enable or disable app lock for added security`
+  /// `Protect your app with secure authentication`
   String get settingsAppLockSubtitle {
     return Intl.message(
-      'Enable or disable app lock for added security',
+      'Protect your app with secure authentication',
       name: 'settingsAppLockSubtitle',
-      desc: 'Subtitle for the app lock settings section',
+      desc: 'Subtitle for local app authentication settings',
+      args: [],
+    );
+  }
+
+  /// `Screenshot Protection`
+  String get settingsScreenshotProtectionTitle {
+    return Intl.message(
+      'Screenshot Protection',
+      name: 'settingsScreenshotProtectionTitle',
+      desc: 'Title for the screenshot protection settings section',
+      args: [],
+    );
+  }
+
+  /// `Prevent screenshots and screen recording`
+  String get settingsScreenshotProtectionSubTitle {
+    return Intl.message(
+      'Prevent screenshots and screen recording',
+      name: 'settingsScreenshotProtectionSubTitle',
+      desc: 'Label for the screenshot protection setting',
       args: [],
     );
   }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../model/app_user_pref_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:no_screenshot/overlay_mode.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 class SettingsCubit extends HydratedCubit<AppUserPref> {
   SettingsCubit() : super(AppUserPref.standard());
+  static SettingsCubit get(BuildContext context) => BlocProvider.of(context);
 
   void changeLanguage(String lang) {
     emit(state.copyWith(lang: lang));
@@ -29,6 +32,13 @@ class SettingsCubit extends HydratedCubit<AppUserPref> {
 
   void setAppLockSupported(bool supported) {
     emit(state.copyWith(appLockSupported: supported));
+  }
+
+  void toggleScreenShotProtectionMode() {
+    final newMode = state.screenShotProtection == OverlayMode.secure
+        ? OverlayMode.none
+        : OverlayMode.secure;
+    emit(state.copyWith(secureMode: newMode));
   }
 
   @override
