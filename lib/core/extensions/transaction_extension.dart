@@ -53,7 +53,7 @@ extension SearchExtension on List<TransactionModel> {
       final date = transaction.createdAt;
       return switch (type) {
         DateFilterType.day => date.isToday,
-        DateFilterType.yesterday => date.isYesterday,
+        DateFilterType.yesterday => date.isPreviousDay,
         DateFilterType.week => date.isInCurrentWeek,
         DateFilterType.month => date.isInCurrentMonth,
         DateFilterType.year => date.isInCurrentYear,

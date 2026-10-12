@@ -124,10 +124,9 @@ class _Time extends StatelessWidget {
   Widget build(BuildContext context) {
     var s = S.of(context);
     return CustomText(
-      text: transaction.createdAt.smartDate(
-        locale: Localizations.localeOf(context).languageCode,
-        nowText: s.now,
-        yesterdayText: s.yesterday,
+      text: transaction.createdAt.displayDate(
+        context: context,
+        nowTitle: s.now,
       ),
       size: 14.sp,
       height: 1.5.h,

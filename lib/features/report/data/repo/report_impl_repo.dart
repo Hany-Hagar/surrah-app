@@ -7,7 +7,6 @@ import '../../../../core/errors/failure.dart';
 import '../../../../core/errors/hive_failure.dart';
 import '../../../../core/enums/date_filter_type.dart';
 import '../../../../core/extensions/report_extensions.dart';
-import '../../../../core/extensions/transaction_extension.dart';
 
 class ReportRepoImpl implements ReportRepo {
   final ReportData reportData;
@@ -18,7 +17,7 @@ class ReportRepoImpl implements ReportRepo {
     required DateFilterType date,
   }) async {
     try {
-      final data = reportData.fetchData().transactions.sortByAmount();
+      final data = reportData.fetchData().transactions;
       var report = data.getReportData(dateFilterType: date);
       return Right(report);
     } catch (e) {
