@@ -14,14 +14,19 @@ class LayoutCubit extends Cubit<LayoutStates> {
 
   void changeBottomNavBarIndex(int index) {
     if (index == currentIndex) return;
+    final bool isFarJump = (index - currentIndex).abs() > 1;
     currentIndex = index;
     if (index == 1) getIt<CategoriesCubit>().initialView();
     if (index == 2) getIt<TransactionsCubit>().initialView();
-    pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+    if (isFarJump) {
+      pageController.jumpToPage(index);
+    } else {
+      pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
     emit(ChangeBottomNavBarIndex());
   }
 
