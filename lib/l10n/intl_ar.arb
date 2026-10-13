@@ -405,6 +405,16 @@
     "description": "Title for the general settings section"
   },
 
+  "settingsCurrencyTitle": "العملة",
+  "@settingsCurrencyTitle": {
+    "description": "نص عنوان قسم إعدادات العملة"
+  },
+
+  "settingsCurrencySubtitle": "إدارة العملة الافتراضية",
+  "@settingsCurrencySubtitle": {
+    "description": "نص وصف قسم إعدادات العملة"
+  },
+
   "settingsNotificationsTitle": "الإشعارات",
   "@settingsNotificationsTitle": {
     "description": "Title for the notifications settings section"

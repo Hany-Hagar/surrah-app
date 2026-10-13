@@ -63,7 +63,7 @@ class _Current extends StatelessWidget {
           color: color,
           height: 1.2.h,
           type: Type.header,
-          text: balance.balance.moneyFormat(context: context),
+          text: balance.balance.appFormat(context: context),
         ),
       ],
     );

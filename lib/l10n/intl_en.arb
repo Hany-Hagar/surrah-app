@@ -356,6 +356,14 @@
   "@generalSettings": {
     "description": "Title for the general settings section"
   },
+  "settingsCurrencyTitle": "Currency",
+  "@settingsCurrencyTitle": {
+    "description": "Title for the currency settings section"
+  },
+  "settingsCurrencySubtitle": "Manage default currency",
+  "@settingsCurrencySubtitle": {
+    "description": "Subtitle for the currency settings section"
+  },
   "settingsNotificationsTitle": "Notifications",
   "@settingsNotificationsTitle": {
     "description": "Title for the notifications settings section"

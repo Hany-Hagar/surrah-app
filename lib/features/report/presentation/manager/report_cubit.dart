@@ -34,7 +34,7 @@ class ReportCubit extends Cubit<ReportStates> {
   Future<pw.Document> _document({required BuildContext context}) async {
     var pages = await ReportPdfPages.create(
       report: data,
-      formatMoney: (value) => value.moneyFormat(context: context),
+      formatMoney: (value) => value.appFormat(context: context),
     );
     return pages.pdf;
   }

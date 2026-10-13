@@ -327,6 +327,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage(
       "App Authentication",
     ),
+    "settingsCurrencySubtitle": MessageLookupByLibrary.simpleMessage(
+      "Manage default currency",
+    ),
+    "settingsCurrencyTitle": MessageLookupByLibrary.simpleMessage("Currency"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "Manage your notification preferences",
     ),

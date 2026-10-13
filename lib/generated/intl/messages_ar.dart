@@ -313,6 +313,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsAppLockTitle": MessageLookupByLibrary.simpleMessage(
       "المصادقة المحلية",
     ),
+    "settingsCurrencySubtitle": MessageLookupByLibrary.simpleMessage(
+      "إدارة العملة الافتراضية",
+    ),
+    "settingsCurrencyTitle": MessageLookupByLibrary.simpleMessage("العملة"),
     "settingsNotificationsSubtitle": MessageLookupByLibrary.simpleMessage(
       "إدارة تفضيلات الإشعارات",
     ),

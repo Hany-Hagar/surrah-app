@@ -1,3 +1,4 @@
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import 'theme_body.dart';
 import 'settings_item.dart';
@@ -15,6 +16,7 @@ import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/services/currency_services.dart';
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({super.key});
@@ -29,18 +31,20 @@ class SettingsBody extends StatelessWidget {
         _Title(title: s.generalSettings),
         SettingsItem(
           color: Colors.blue,
-          icon: IconBroken.Activity,
+          icon: PhosphorIcons.aperture(PhosphorIconsStyle.duotone),
           title: s.themeTitle,
           subtitle: s.themeSubtitle,
           dialogBody: ThemeBody(),
         ),
         SettingsItem(
           color: Colors.green,
-          icon: IconBroken.Edit,
+          icon: PhosphorIcons.translate(PhosphorIconsStyle.duotone),
           title: s.languageTitle,
           subtitle: s.languageSubtitle,
           nextPage: LanguagesView(),
         ),
+
+        _Currency(),
         _Notifications(),
         SizedBox(height: 10.h),
         _Title(title: s.settingsPrivacySupportTitle),
@@ -74,6 +78,31 @@ class _Title extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
       child: CustomText(text: title, size: 18.sp, type: Type.overMedium),
+    );
+  }
+}
+
+class _Currency extends StatelessWidget {
+  const _Currency();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SettingsCubit, AppUserPref>(
+      builder: (context, state) {
+        var s = S.of(context);
+        var cubit = SettingsCubit.get(context);
+        return SettingsItem(
+          color: Colors.green,
+          title: s.settingsCurrencyTitle,
+          subtitle: s.settingsCurrencySubtitle,
+          icon: PhosphorIcons.currencyCircleDollar(PhosphorIconsStyle.duotone),
+          trailing: CurrencyServices.card(
+            context: context,
+            currentCurrency: state.currency,
+            onSelect: (currency) => cubit.setCurrency(currency),
+          ),
+        );
+      },
     );
   }
 }

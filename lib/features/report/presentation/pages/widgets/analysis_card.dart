@@ -25,7 +25,8 @@ class AnalysisCard extends StatelessWidget {
     return ReportCard(
       title: title,
       isLoading: isLoading,
-      subtitle: total.moneyFormat(context: context),
+      subtitle: total.appFormat(context: context),
+      //subtitle: total.moneyFormat(context: context),
       body: Column(
         spacing: 8.h,
         children: [
@@ -143,7 +144,7 @@ class _Item extends StatelessWidget {
             size: 16.sp,
             type: Type.header,
             textAlign: TextAlign.end,
-            text: transaction.amount.moneyFormat(context: context),
+            text: transaction.amount.appFormat(context: context),
           ),
         ),
       ],

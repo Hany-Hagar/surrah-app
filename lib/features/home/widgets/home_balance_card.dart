@@ -92,7 +92,8 @@ class _TopBody extends StatelessWidget {
               opacity: FontOpacity.overMedium,
             ),
             CustomText(
-              text: currentBalance.moneyFormat(context: context),
+              text: currentBalance.appFormat(context: context),
+             // text: currentBalance.moneyFormat(context: context),
               size: 20.sp,
               color: color,
               type: Type.overMedium,
@@ -211,7 +212,7 @@ class _BalanceItem extends StatelessWidget {
                     color: Colors.white,
                   ),
                   CustomText(
-                    text: amount.moneyFormat(context: context),
+                    text: amount.appFormat(context: context),
                     size: 14.sp,
                     type: Type.overMedium,
                     color: Colors.white,

@@ -1,9 +1,16 @@
 import 'package:intl/intl.dart';
+import '../di/server_locator.dart';
 import 'package:flutter/material.dart';
+import '../../features/settings/presentation/manager/settings_cubit.dart';
 
 extension NumberFormattingExtension on num {
-
-  String moneyFormat({required BuildContext context}) {
+  String appFormat({
+    required BuildContext context,
+    bool showSign = false,
+    bool isIncome = false,
+  }) {
+    var sign = isIncome ? '+' : '-';
+    var symbol = getIt.get<SettingsCubit>().state.currency.symbol;
     String localeCode = Localizations.localeOf(context).languageCode;
     if (localeCode == 'ar') {
       localeCode = 'ar_EG';
@@ -13,29 +20,10 @@ extension NumberFormattingExtension on num {
       locale: localeCode,
       decimalDigits: absoluteValue is int || absoluteValue % 1 == 0 ? 0 : 2,
     );
-    return '\$${formatter.format(absoluteValue)}';
-  }
-
-  String moneyFormatWithSign({
-    required BuildContext context,
-    required bool isIncome,
-  }) {
-    String localeCode = Localizations.localeOf(context).languageCode;
-    bool isArabic = localeCode == 'ar';
-    if (isArabic) localeCode = 'ar_EG';
-    final num absoluteValue = abs();
-    final formatter = NumberFormat.decimalPatternDigits(
-      locale: localeCode,
-      decimalDigits: absoluteValue is int || absoluteValue % 1 == 0 ? 0 : 2,
-    );
-    final String formattedNumber = formatter.format(absoluteValue);
-    final String sign = isIncome ? '+' : '-';
-    final String currencySymbol = isArabic ? 'ج.م' : '\$';
-    if (isArabic) {
-      return '$formattedNumber $currencySymbol $sign';
-    } else {
-      return '$sign $currencySymbol$formattedNumber';
+    if (showSign) {
+      return '$sign ${formatter.format(absoluteValue)} $symbol';
     }
+    return '${formatter.format(absoluteValue)} $symbol';
   }
 
   // Percentage formatting

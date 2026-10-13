@@ -894,6 +894,26 @@ class S {
     );
   }
 
+  /// `Currency`
+  String get settingsCurrencyTitle {
+    return Intl.message(
+      'Currency',
+      name: 'settingsCurrencyTitle',
+      desc: 'Title for the currency settings section',
+      args: [],
+    );
+  }
+
+  /// `Manage default currency`
+  String get settingsCurrencySubtitle {
+    return Intl.message(
+      'Manage default currency',
+      name: 'settingsCurrencySubtitle',
+      desc: 'Subtitle for the currency settings section',
+      args: [],
+    );
+  }
+
   /// `Notifications`
   String get settingsNotificationsTitle {
     return Intl.message(

@@ -10,6 +10,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:no_screenshot/secure_widget.dart';
 import 'features/layout/managers/layout_cubit.dart';
+import 'package:world_countries/world_countries.dart';
 import 'features/settings/model/app_user_pref_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -93,6 +94,7 @@ class MyApp extends StatelessWidget {
                   debugShowCheckedModeBanner: false,
                   localizationsDelegates: [
                     S.delegate,
+                    TypedLocaleDelegate(),
                     GlobalWidgetsLocalizations.delegate,
                     GlobalMaterialLocalizations.delegate,
                     GlobalCupertinoLocalizations.delegate,

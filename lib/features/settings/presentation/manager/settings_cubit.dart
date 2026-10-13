@@ -3,6 +3,7 @@ import '../../model/app_user_pref_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:no_screenshot/overlay_mode.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:world_countries/world_countries.dart';
 
 class SettingsCubit extends HydratedCubit<AppUserPref> {
   SettingsCubit() : super(AppUserPref.standard());
@@ -18,6 +19,10 @@ class SettingsCubit extends HydratedCubit<AppUserPref> {
 
   void setFirstTime(bool isFirstTime) {
     emit(state.copyWith(isFirstTime: isFirstTime));
+  }
+
+  void setCurrency(FiatCurrency currency) {
+    emit(state.copyWith(currency: currency));
   }
 
   void toggleNotifications() {
@@ -38,7 +43,7 @@ class SettingsCubit extends HydratedCubit<AppUserPref> {
     final newMode = state.screenShotProtection == OverlayMode.secure
         ? OverlayMode.none
         : OverlayMode.secure;
-    emit(state.copyWith(secureMode: newMode));
+    emit(state.copyWith(screenShotProtection: newMode));
   }
 
   @override

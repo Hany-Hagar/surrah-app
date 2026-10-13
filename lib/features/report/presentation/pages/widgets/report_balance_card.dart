@@ -58,7 +58,8 @@ class _NetBalance extends StatelessWidget {
           opacity: FontOpacity.overMedium,
         ),
         CustomText(
-          text: netBalance.moneyFormat(context: context),
+          text: netBalance.appFormat(context: context),
+         // text: netBalance.moneyFormat(context: context),
           size: 33.sp,
           type: Type.header,
           color: Colors.white,
@@ -145,7 +146,7 @@ class _Item extends StatelessWidget {
             size: 19.sp,
             color: color,
             type: Type.header,
-            text: percentage ?? value!.moneyFormat(context: context),
+            text: percentage ?? value!.appFormat(context: context),
           ),
         ],
       ),
