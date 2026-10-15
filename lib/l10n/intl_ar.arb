@@ -118,6 +118,15 @@
     "description": "Label for the home button"
   },
 
+  "uiSetupTitle": "خلّينا نجهّز صُرّة",
+  "@uiSetupTitle": {
+    "description": "Title for the UI setup page"
+  },
+  "uiSetupSubtitle":  "اختار اللغة اللي تحب تستخدم بيها التطبيق. تقدر تغيّرها بعدين من الإعدادات",
+  "@uiSetupSubtitle": {
+    "description": "Subtitle for the UI setup page"
+  },
+
   "homeTitle": "مرحبًا بك في صُرّة",
   "@homeTitle": {
     "description": "Title for the home button"

@@ -24,7 +24,7 @@ class LanguagesBody extends StatelessWidget {
           _Text(title: s.currentLanguage),
           _Item(lang: supportedLanguages.selectedLanguage(cubit.state.lang)),
           SizedBox(height: 10.h),
-           _Text(title: s.otherLanguages),
+          _Text(title: s.otherLanguages),
           ...supportedLanguages
               .otherLanguages(cubit.state.lang)
               .map((lang) => _Item(lang: lang)),
@@ -61,7 +61,7 @@ class _Item extends StatelessWidget {
         horizontalTitleGap: 12.w,
         onTap: () => cubit.changeLanguage(lang),
         tileColor: Theme.of(context).cardColor,
-        leading: _Leading(flag: lang.toLanguageFlag),
+        leading: _Leading(flag: lang.toFlag),
         contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.r)),
         title: CustomText(

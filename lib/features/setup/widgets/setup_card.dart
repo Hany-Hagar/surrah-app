@@ -29,9 +29,11 @@ class SetupCard extends StatelessWidget {
           type: Type.header,
           color: theme.colorScheme.secondary,
         ),
-        SizedBox(height: 2.h),
+        SizedBox(height: 4.h),
         CustomText(text: title, size: 18.sp, type: Type.header),
+        SizedBox(height: 2.h),
         CustomText(
+          maxLines: 2,
           size: 14.sp,
           text: subtitle,
           type: Type.overMedium,

@@ -2,7 +2,7 @@ import '../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 extension LanguageCodeExtension on String {
-  String get toLanguageFlag {
+  String get toFlag {
     switch (toLowerCase()) {
       case 'en':
         return "US";
@@ -31,7 +31,7 @@ extension LanguageCodeExtension on String {
       case 'ar':
         return S.of(context).arabic;
       default:
-        return this; 
+        return this;
     }
   }
 }
@@ -39,16 +39,14 @@ extension LanguageCodeExtension on String {
 extension LanguageListExtension on List<String> {
   String selectedLanguage(String currentLanguage) {
     return firstWhere(
-      (language) =>
-          language.toLowerCase() == currentLanguage.toLowerCase(),
+      (language) => language.toLowerCase() == currentLanguage.toLowerCase(),
       orElse: () => first,
     );
   }
 
   List<String> otherLanguages(String currentLanguage) {
     return where(
-      (language) =>
-          language.toLowerCase() != currentLanguage.toLowerCase(),
+      (language) => language.toLowerCase() != currentLanguage.toLowerCase(),
     ).toList();
   }
 }

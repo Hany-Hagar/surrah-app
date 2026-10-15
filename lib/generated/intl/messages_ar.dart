@@ -366,6 +366,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "إضافة وتعديل وحذف العمليات المالية",
     ),
     "transactionsTitle": MessageLookupByLibrary.simpleMessage("إدارة العمليات"),
+    "uiSetupSubtitle": MessageLookupByLibrary.simpleMessage(
+      "اختار اللغة اللي تحب تستخدم بيها التطبيق. تقدر تغيّرها بعدين من الإعدادات",
+    ),
+    "uiSetupTitle": MessageLookupByLibrary.simpleMessage("خلّينا نجهّز صُرّة"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
     "updateCategoryButton": MessageLookupByLibrary.simpleMessage(
       "تحديث التصنيف",

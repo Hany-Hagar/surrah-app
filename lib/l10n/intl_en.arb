@@ -34,7 +34,6 @@
   "@custom": {
     "description": "Label for the custom date range"
   },
-
   
   "cancel": "Cancel",
   "@cancel": {
@@ -52,7 +51,6 @@
   "@expense": {
     "description": "Label for the expenses section"
   },
-
   
   "onboardingTitle1": "Follow Every Pound",
   "@onboardingTitle1": {
@@ -99,6 +97,14 @@
     "description": "Label for the skip button"
   },
 
+  "uiSetupTitle": "Let's Set Up Surrah",
+  "@uiSetupTitle": {
+    "description": "Title for the UI setup page"
+  },
+  "uiSetupSubtitle": "Choose the language you want to use in the app. You can change it later in the settings.",
+  "@uiSetupSubtitle": {
+    "description": "Subtitle for the UI setup page"
+  },
 
   "home": "Home",
   "@home": {

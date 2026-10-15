@@ -1,6 +1,8 @@
+import 'ui_setup_card.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class SetupBody extends StatelessWidget {
   final int currentPage;
@@ -33,6 +35,7 @@ class _Cards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> cards = [
+      UiSetupCard(),
       Placeholder(fallbackHeight: 200.h, color: Colors.red),
       Placeholder(fallbackHeight: 200.h, color: Colors.green),
       Placeholder(fallbackHeight: 200.h, color: Colors.blue),

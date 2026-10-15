@@ -86,9 +86,9 @@ class _Skip extends StatelessWidget {
                 pageController.jumpToPage(totalPages - 1);
               },
               child: CustomText(
-                text: "Skip",
                 size: 18.sp,
                 type: Type.overMedium,
+                text: S.of(context).skip,
                 opacity: FontOpacity.medium,
               ),
             ),
@@ -121,7 +121,6 @@ class _CustomButton extends StatelessWidget {
               context: context,
               nextPage: const SetupView(),
             );
-            // Navigate to Home
           } else {
             controller.nextPage(
               duration: const Duration(milliseconds: 300),

@@ -284,6 +284,26 @@ class S {
     );
   }
 
+  /// `Let's Set Up Surrah`
+  String get uiSetupTitle {
+    return Intl.message(
+      'Let\'s Set Up Surrah',
+      name: 'uiSetupTitle',
+      desc: 'Title for the UI setup page',
+      args: [],
+    );
+  }
+
+  /// `Choose the language you want to use in the app. You can change it later in the settings.`
+  String get uiSetupSubtitle {
+    return Intl.message(
+      'Choose the language you want to use in the app. You can change it later in the settings.',
+      name: 'uiSetupSubtitle',
+      desc: 'Subtitle for the UI setup page',
+      args: [],
+    );
+  }
+
   /// `Home`
   String get home {
     return Intl.message(

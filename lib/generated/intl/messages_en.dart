@@ -384,6 +384,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "transactionsTitle": MessageLookupByLibrary.simpleMessage(
       "Manage Your Transactions",
     ),
+    "uiSetupSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Choose the language you want to use in the app. You can change it later in the settings.",
+    ),
+    "uiSetupTitle": MessageLookupByLibrary.simpleMessage(
+      "Let\'s Set Up Surrah",
+    ),
     "unitedStates": MessageLookupByLibrary.simpleMessage("United States"),
     "updateCategoryButton": MessageLookupByLibrary.simpleMessage(
       "Update Category",
