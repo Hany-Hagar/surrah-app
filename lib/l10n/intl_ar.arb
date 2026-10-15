@@ -1,5 +1,11 @@
 {
   "@@locale": "ar",
+
+  "appName": "صرّة",
+  "@appName": {
+    "description": "اسم التطبيق"
+  },
+
   "now": "الآن",
   "@now": {
     "description": "نص لتحديد الوقت الحالي"

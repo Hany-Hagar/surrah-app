@@ -74,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "إضافة عملية جديدة",
     ),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
+    "appName": MessageLookupByLibrary.simpleMessage("صرّة"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "categories": MessageLookupByLibrary.simpleMessage("التصنيفات"),

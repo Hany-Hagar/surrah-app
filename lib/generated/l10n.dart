@@ -54,6 +54,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Surrah`
+  String get appName {
+    return Intl.message(
+      'Surrah',
+      name: 'appName',
+      desc: 'The name of the application',
+      args: [],
+    );
+  }
+
   /// `Now`
   String get now {
     return Intl.message(

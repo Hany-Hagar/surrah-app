@@ -25,7 +25,7 @@ class AppUserPref {
 
   factory AppUserPref.standard() {
     return AppUserPref(
-      lang: 'en',
+      lang: 'ar',
       isFirstTime: true,
       appLockEnabled: false,
       theme: ThemeMode.light,

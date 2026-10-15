@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Add Transaction",
     ),
     "all": MessageLookupByLibrary.simpleMessage("All"),
+    "appName": MessageLookupByLibrary.simpleMessage("Surrah"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),

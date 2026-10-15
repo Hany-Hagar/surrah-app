@@ -1,6 +1,10 @@
 {
   "@@locale": "en",
 
+  "appName": "Surrah",
+  "@appName": {
+    "description": "The name of the application"
+  },
   
   "now": "Now",
   "@now": {
