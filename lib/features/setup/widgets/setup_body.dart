@@ -1,4 +1,6 @@
 import 'ui_setup_card.dart';
+import 'currency_setup_card.dart';
+import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,10 +38,8 @@ class _Cards extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> cards = [
       UiSetupCard(),
-      Placeholder(fallbackHeight: 200.h, color: Colors.red),
-      Placeholder(fallbackHeight: 200.h, color: Colors.green),
+      CurrencySetupCard(),
       Placeholder(fallbackHeight: 200.h, color: Colors.blue),
-      Placeholder(fallbackHeight: 200.h, color: Colors.yellow),
     ];
     return Expanded(child: cards[currentPage]);
   }
@@ -52,9 +52,10 @@ class _Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     return CustomButton(
       onPressed: onPressed,
-      text: currentPage == 3 ? "Get Started" : "Next",
+      text: currentPage == 3 ? s.getStarted : s.next,
     );
   }
 }

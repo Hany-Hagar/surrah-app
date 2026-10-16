@@ -163,6 +163,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactSupportWhatsAppTitle": MessageLookupByLibrary.simpleMessage(
       "الدعم عبر واتساب",
     ),
+    "currencySetupSubtitle": MessageLookupByLibrary.simpleMessage(
+      "اختار العملة اللي تحب تستخدمها في صُرّة. تقدر تغيّرها بعدين من الإعدادات",
+    ),
+    "currencySetupTitle": MessageLookupByLibrary.simpleMessage("اختار عملتك"),
     "currentBalance": MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
     "currentLanguage": MessageLookupByLibrary.simpleMessage("اللغة الحالية:"),
     "custom": MessageLookupByLibrary.simpleMessage("مخصص"),

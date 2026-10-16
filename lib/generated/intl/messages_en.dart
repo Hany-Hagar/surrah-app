@@ -167,6 +167,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactSupportWhatsAppTitle": MessageLookupByLibrary.simpleMessage(
       "WhatsApp Support",
     ),
+    "currencySetupSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Select the currency you want to use in Surrah. You can change it later in the settings.",
+    ),
+    "currencySetupTitle": MessageLookupByLibrary.simpleMessage(
+      "Choose Your Currency",
+    ),
     "currentBalance": MessageLookupByLibrary.simpleMessage("Current Balance"),
     "currentLanguage": MessageLookupByLibrary.simpleMessage(
       "Current Language :",

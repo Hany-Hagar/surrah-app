@@ -23,13 +23,13 @@ class _SetupViewState extends State<SetupView> {
     return Scaffold(
       body: Column(
         children: [
-          _Top(totalPages: 4, currentPage: currentPage),
+          _Top(totalPages: 3, currentPage: currentPage),
           Expanded(
             child: SetupBody(
               currentPage: currentPage,
               onPressed: () {
                 setState(() {
-                  if (currentPage == 3) {
+                  if (currentPage == 2) {
                     getIt<SettingsCubit>().setFirstTime(false);
                     NavTo.pushReplacement(
                       context: context,

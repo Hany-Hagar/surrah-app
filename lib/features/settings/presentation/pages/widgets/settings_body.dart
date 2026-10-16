@@ -99,7 +99,10 @@ class _Currency extends StatelessWidget {
           trailing: CurrencyServices.card(
             context: context,
             currentCurrency: state.currency,
-            onSelect: (currency) => cubit.setCurrency(currency),
+            onSelect: (currency) {
+              Navigator.pop(context);
+              cubit.setCurrency(currency);
+            },
           ),
         );
       },

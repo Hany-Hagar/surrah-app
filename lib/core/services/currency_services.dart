@@ -12,28 +12,66 @@ class CurrencyServices {
   }) {
     return GestureDetector(
       onTap: () {
-        final picker = CurrencyPicker(
-          currencies: FiatCurrency.list,
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 0.h),
-          searchBarPadding: EdgeInsets.symmetric(
-            horizontal: 16.w,
-            vertical: 20.h,
-          ).copyWith(bottom: 0.h),
-          itemBuilder: (props, defaultTile) {
-            final currency = props.item;
-            return _Item(
-              currency: currency,
-              currentCurrency: currentCurrency,
-              onTap: () {
-                Navigator.pop(context);
-                onSelect.call(currency);
-              },
-            );
-          },
+        final picker = _currenciesBody(
+          context: context,
+          currentCurrency: currentCurrency,
+          onSelect: onSelect,
         );
         picker.showInModalBottomSheet(context);
       },
       child: _Card(currency: currentCurrency),
+    );
+  }
+
+  static Widget setup({
+    bool showSearchBar = true,
+    EdgeInsetsGeometry? padding,
+    required BuildContext context,
+    required FiatCurrency currentCurrency,
+    required ValueChanged<FiatCurrency> onSelect,
+  }) {
+    return _currenciesBody(
+      padding: padding,
+      context: context,
+      onSelect: onSelect,
+      showSearchBar: showSearchBar,
+      currentCurrency: currentCurrency,
+    );
+  }
+
+  static CurrencyPicker _currenciesBody({
+    bool showSearchBar = true,
+    EdgeInsetsGeometry? padding,
+    required BuildContext context,
+    required FiatCurrency currentCurrency,
+    required ValueChanged<FiatCurrency> onSelect,
+  }) {
+    return CurrencyPicker(
+      showSearchBar: showSearchBar,
+      currencies: [
+        currentCurrency,
+        ...FiatCurrency.list.where(
+          (currency) => currency.code != currentCurrency.code,
+        ),
+      ],
+      padding: padding ?? EdgeInsets.symmetric(horizontal: 16.w),
+      searchBarPadding:
+          padding ??
+          EdgeInsets.symmetric(
+            horizontal: 16.w,
+            vertical: 20.h,
+          ).copyWith(bottom: 0.h),
+      itemBuilder: (props, defaultTile) {
+        final currency = props.item;
+
+        return _Item(
+          currency: currency,
+          currentCurrency: currentCurrency,
+          onTap: () {
+            onSelect.call(currency);
+          },
+        );
+      },
     );
   }
 }
@@ -67,26 +105,39 @@ class _Card extends StatelessWidget {
 }
 
 class _Item extends StatelessWidget {
+  final VoidCallback onTap;
   final FiatCurrency currency;
   final FiatCurrency currentCurrency;
-  final VoidCallback onTap;
 
   const _Item({
+    required this.onTap,
     required this.currency,
     required this.currentCurrency,
-    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
+    bool isSelected = currency.code == currentCurrency.code;
     return ListTile(
       onTap: onTap,
       minTileHeight: 60.h,
       horizontalTitleGap: 10.w,
       leading: _Flag(currency: currency, size: 30.sp),
-      title: _text(text: currency.name, isSubtitle: false),
+      title: _text(
+        text: currency.maybeCommonNameFor(context.maybeLocale) ?? currency.name,
+        isSubtitle: false,
+      ),
       subtitle: _text(text: currency.code, isSubtitle: true),
-      trailing: _text(text: currency.symbol ?? "", isSubtitle: false),
+      trailing: Row(
+        spacing: 5.w,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _text(text: currency.symbol ?? "", isSubtitle: false),
+          if(isSelected) Icon(Icons.check_circle, color: Colors.green, size: 25.sp),
+        ]
+      ),
       contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
     );
   }
@@ -101,6 +152,8 @@ class _Item extends StatelessWidget {
     );
   }
 }
+
+
 
 class _Flag extends StatelessWidget {
   final double? size;

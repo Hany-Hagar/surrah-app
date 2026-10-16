@@ -304,6 +304,26 @@ class S {
     );
   }
 
+  /// `Choose Your Currency`
+  String get currencySetupTitle {
+    return Intl.message(
+      'Choose Your Currency',
+      name: 'currencySetupTitle',
+      desc: 'Title for the currency setup page',
+      args: [],
+    );
+  }
+
+  /// `Select the currency you want to use in Surrah. You can change it later in the settings.`
+  String get currencySetupSubtitle {
+    return Intl.message(
+      'Select the currency you want to use in Surrah. You can change it later in the settings.',
+      name: 'currencySetupSubtitle',
+      desc: 'Subtitle for the currency setup page',
+      args: [],
+    );
+  }
+
   /// `Home`
   String get home {
     return Intl.message(

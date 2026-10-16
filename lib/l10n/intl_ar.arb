@@ -127,6 +127,15 @@
     "description": "Subtitle for the UI setup page"
   },
 
+  "currencySetupTitle": "اختار عملتك",
+  "@currencySetupTitle": {
+    "description": "Title for the currency setup page"
+  },
+  "currencySetupSubtitle": "اختار العملة اللي تحب تستخدمها في صُرّة. تقدر تغيّرها بعدين من الإعدادات",
+  "@currencySetupSubtitle": {
+    "description": "Subtitle for the currency setup page"
+  },
+
   "homeTitle": "مرحبًا بك في صُرّة",
   "@homeTitle": {
     "description": "Title for the home button"
