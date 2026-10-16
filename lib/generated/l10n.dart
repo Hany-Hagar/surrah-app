@@ -324,6 +324,26 @@ class S {
     );
   }
 
+  /// `Your Privacy Matters`
+  String get privacySetupTitle {
+    return Intl.message(
+      'Your Privacy Matters',
+      name: 'privacySetupTitle',
+      desc: 'Title for the privacy setup page',
+      args: [],
+    );
+  }
+
+  /// `Choose the way you want to protect your data in Surrah. You can change it later in the settings.`
+  String get privacySetupSubtitle {
+    return Intl.message(
+      'Choose the way you want to protect your data in Surrah. You can change it later in the settings.',
+      name: 'privacySetupSubtitle',
+      desc: 'Subtitle for the privacy setup page',
+      args: [],
+    );
+  }
+
   /// `Home`
   String get home {
     return Intl.message(

@@ -136,6 +136,15 @@
     "description": "Subtitle for the currency setup page"
   },
 
+  "privacySetupTitle": "خصوصيتك تهمنا",
+  "@privacySetupTitle": {
+    "description": "Title for the privacy setup page"
+  },
+  "privacySetupSubtitle": "اختار طريقة حماية بياناتك في صُرّة. تقدر تغيّرها بعدين من الإعدادات",
+  "@privacySetupSubtitle": {
+    "description": "Subtitle for the privacy setup page"
+  },
+
   "homeTitle": "مرحبًا بك في صُرّة",
   "@homeTitle": {
     "description": "Title for the home button"

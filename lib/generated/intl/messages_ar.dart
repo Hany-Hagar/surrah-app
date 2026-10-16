@@ -284,6 +284,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "privacyPolicyCardTitle": MessageLookupByLibrary.simpleMessage(
       "خصوصيتك تهمنا",
     ),
+    "privacySetupSubtitle": MessageLookupByLibrary.simpleMessage(
+      "اختار طريقة حماية بياناتك في صُرّة. تقدر تغيّرها بعدين من الإعدادات",
+    ),
+    "privacySetupTitle": MessageLookupByLibrary.simpleMessage("خصوصيتك تهمنا"),
     "privacySubtitle": MessageLookupByLibrary.simpleMessage(
       "اقرأ سياسة الخصوصية الخاصة بنا",
     ),

@@ -1,4 +1,5 @@
 import 'ui_setup_card.dart';
+import 'privacy_setup_card.dart';
 import 'currency_setup_card.dart';
 import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class _Cards extends StatelessWidget {
     List<Widget> cards = [
       UiSetupCard(),
       CurrencySetupCard(),
-      Placeholder(fallbackHeight: 200.h, color: Colors.blue),
+      PrivacySetupCard(),
     ];
     return Expanded(child: cards[currentPage]);
   }

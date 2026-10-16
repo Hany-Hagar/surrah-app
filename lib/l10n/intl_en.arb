@@ -115,6 +115,16 @@
     "description": "Subtitle for the currency setup page"
   },
 
+  "privacySetupTitle": "Your Privacy Matters",
+  "@privacySetupTitle": {
+    "description": "Title for the privacy setup page"
+  },
+  "privacySetupSubtitle": "Choose the way you want to protect your data in Surrah. You can change it later in the settings.",
+  "@privacySetupSubtitle": {
+    "description": "Subtitle for the privacy setup page"
+  },
+
+
   "home": "Home",
   "@home": {
     "description": "Label for the home button"

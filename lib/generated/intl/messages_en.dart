@@ -300,6 +300,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "privacyPolicyCardTitle": MessageLookupByLibrary.simpleMessage(
       "Your Privacy Matters",
     ),
+    "privacySetupSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Choose the way you want to protect your data in Surrah. You can change it later in the settings.",
+    ),
+    "privacySetupTitle": MessageLookupByLibrary.simpleMessage(
+      "Your Privacy Matters",
+    ),
     "privacySubtitle": MessageLookupByLibrary.simpleMessage(
       "Read our privacy policy",
     ),
