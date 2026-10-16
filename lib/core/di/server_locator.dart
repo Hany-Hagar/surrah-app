@@ -70,7 +70,7 @@ void setupLocator() {
   );
 
   getIt.registerLazySingleton<CategoriesCubit>(
-    () => CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>())..getCategories(),
+    () => CategoriesCubit(categoriesRepo: getIt<CategoriesRepo>()),
   );
 
   // Transactions

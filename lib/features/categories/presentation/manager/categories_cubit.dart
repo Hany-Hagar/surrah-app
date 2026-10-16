@@ -32,7 +32,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     searchController.clear();
     filteredCategories.clear();
     selectedType = CategoriesType.all;
-    if (categories.isEmpty) getCategories();
+    if (categories.isEmpty) getCategories(isFirstTime: false);
     emit(CategoriesInitial());
   }
 
@@ -47,7 +47,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     );
   }
 
-  void getCategories() async {
+  void getCategories({required bool isFirstTime}) async {
     emit(CategoriesLoading());
     var result = await categoriesRepo.getCategories();
     result.fold(
@@ -55,7 +55,7 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
       (categoriesList) {
         categories.addAll(categoriesList);
         selectedCategory = categories.first;
-        getIt<TransactionsCubit>().getTransactionsData();
+        if (!isFirstTime) getIt<TransactionsCubit>().getTransactionsData();
         emit(CategoriesSuccess());
       },
     );

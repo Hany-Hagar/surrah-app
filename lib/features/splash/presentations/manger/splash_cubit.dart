@@ -28,22 +28,30 @@ class SplashCubit extends Cubit<SplashStates> {
     );
   }
 
+  bool hasAppLockEnabled() {
+    return settingsCubit.state.appLockEnabled &&
+        settingsCubit.state.appLockSupported;
+  }
+
   void authenticate({required bool isFirstTime}) async {
     await Future.delayed(const Duration(seconds: 1));
     if (isFirstTime) {
       _checkDeviceSupport();
-      categoriesCubit.addLocalCategories();
+      await categoriesCubit.addLocalCategories();
+      categoriesCubit.getCategories(isFirstTime: isFirstTime);
       emit(FirstTimeCheckComplete());
       return;
     }
-    if (!settingsCubit.state.appLockEnabled ||
-        !settingsCubit.state.appLockSupported) {
+    if (!hasAppLockEnabled()) {
+      categoriesCubit.getCategories(isFirstTime: isFirstTime);
       emit(AuthenticationSuccess());
       return;
     }
+    await Future.delayed(const Duration(seconds: 1));
     emit(AuthenticationLoading());
     final result = await splashRepo.authenticate();
     result.fold((failure) => emit(AuthenticationFailure()), (success) {
+      categoriesCubit.getCategories(isFirstTime: isFirstTime);
       emit(AuthenticationSuccess());
       splashRepo.checkForUpdate();
     });
