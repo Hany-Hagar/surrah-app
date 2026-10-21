@@ -482,6 +482,14 @@
     "description": "Egypt country name"
   },
 
+  "homeWidgetTitle": "Home Screen Widget",
+  "@homeWidgetTitle": {
+    "description": "Title for the home screen widget settings section"
+  },
+  "homeWidgetSubtitle": "Customize your home screen widget",
+  "@homeWidgetSubtitle": {
+    "description": "Subtitle for the home screen widget settings section"
+  },
 
   "privacyTitle": "Privacy Policy",
   "@privacyTitle": {

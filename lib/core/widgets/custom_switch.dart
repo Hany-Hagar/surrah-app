@@ -16,6 +16,8 @@ class CustomSwitch extends StatelessWidget {
         activeTrackColor: Colors.green,
         inactiveThumbColor: Colors.white,
         inactiveTrackColor: Colors.grey,
+        trackOutlineWidth: WidgetStateProperty.all(0),
+        trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
       )
     );
   }

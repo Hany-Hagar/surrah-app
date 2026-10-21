@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import '../../../../generated/l10n.dart';
+import '../widgets/home_widget_body.dart';
+import '../../../../core/widgets/custom_back.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class HomeWidgetView extends StatelessWidget {
+  const HomeWidgetView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var s = S.of(context);
+    return Scaffold(
+      appBar: CustomAppBar(
+        leading: CustomBack(),
+        title: s.homeWidgetTitle,
+        subtitle: s.homeWidgetSubtitle,
+      ),
+      body:  Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12.r),
+        child: HomeWidgetBody()
+      ),
+    );
+  }
+}

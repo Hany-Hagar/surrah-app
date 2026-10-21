@@ -209,6 +209,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Your Personal Finance Companion",
     ),
     "homeTitle": MessageLookupByLibrary.simpleMessage("Welcome to Surrah"),
+    "homeWidgetSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Customize your home screen widget",
+    ),
+    "homeWidgetTitle": MessageLookupByLibrary.simpleMessage(
+      "Home Screen Widget",
+    ),
     "income": MessageLookupByLibrary.simpleMessage("Income"),
     "incomeBreakdown": MessageLookupByLibrary.simpleMessage("Income Breakdown"),
     "incomeLabel": MessageLookupByLibrary.simpleMessage("Income"),

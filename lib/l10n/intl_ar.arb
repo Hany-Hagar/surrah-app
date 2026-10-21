@@ -548,6 +548,16 @@
   "@egypt": {
     "description": "Egypt country name"
   },
+
+  "homeWidgetTitle": "ويدجت الشاشة الرئيسية",
+  "@homeWidgetTitle": {
+    "description": "Title for the home screen widget settings section"
+  },
+  "homeWidgetSubtitle": "خصّص ويدجت الشاشة الرئيسية",
+  "@homeWidgetSubtitle": {
+    "description": "Subtitle for the home screen widget settings section"
+  },
+
   "privacyTitle": "سياسة الخصوصية",
   "@privacyTitle": {
     "description": "Title for the privacy policy settings section"

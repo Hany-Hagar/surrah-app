@@ -1194,6 +1194,26 @@ class S {
     );
   }
 
+  /// `Home Screen Widget`
+  String get homeWidgetTitle {
+    return Intl.message(
+      'Home Screen Widget',
+      name: 'homeWidgetTitle',
+      desc: 'Title for the home screen widget settings section',
+      args: [],
+    );
+  }
+
+  /// `Customize your home screen widget`
+  String get homeWidgetSubtitle {
+    return Intl.message(
+      'Customize your home screen widget',
+      name: 'homeWidgetSubtitle',
+      desc: 'Subtitle for the home screen widget settings section',
+      args: [],
+    );
+  }
+
   /// `Privacy Policy`
   String get privacyTitle {
     return Intl.message(

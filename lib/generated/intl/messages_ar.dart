@@ -197,6 +197,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "مرشدك الشخصي في إدارة الموارد المالية",
     ),
     "homeTitle": MessageLookupByLibrary.simpleMessage("مرحبًا بك في صُرّة"),
+    "homeWidgetSubtitle": MessageLookupByLibrary.simpleMessage(
+      "خصّص ويدجت الشاشة الرئيسية",
+    ),
+    "homeWidgetTitle": MessageLookupByLibrary.simpleMessage(
+      "ويدجت الشاشة الرئيسية",
+    ),
     "income": MessageLookupByLibrary.simpleMessage("الدخل"),
     "incomeBreakdown": MessageLookupByLibrary.simpleMessage("توزيع الدخل"),
     "incomeLabel": MessageLookupByLibrary.simpleMessage("الدخل"),

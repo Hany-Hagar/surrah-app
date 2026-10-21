@@ -1,5 +1,3 @@
-import 'package:phosphor_flutter/phosphor_flutter.dart';
-
 import 'theme_body.dart';
 import 'settings_item.dart';
 import '../views/languages_view.dart';
@@ -14,9 +12,11 @@ import '../../../model/app_user_pref_model.dart';
 import 'package:no_screenshot/overlay_mode.dart';
 import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_text.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/services/currency_services.dart';
+import '../../../../home_widget/pages/views/home_widget_view.dart';
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({super.key});
@@ -43,9 +43,15 @@ class SettingsBody extends StatelessWidget {
           subtitle: s.languageSubtitle,
           nextPage: LanguagesView(),
         ),
-
         _Currency(),
         _Notifications(),
+        SettingsItem(
+          color: Colors.teal,
+          icon: PhosphorIcons.deviceMobile(PhosphorIconsStyle.duotone),
+          title: s.homeWidgetTitle,
+          subtitle: s.homeWidgetSubtitle,
+          nextPage: const HomeWidgetView(),
+        ),
         SizedBox(height: 10.h),
         _Title(title: s.settingsPrivacySupportTitle),
         _AppAuthentication(),
