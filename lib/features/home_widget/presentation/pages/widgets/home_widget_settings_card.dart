@@ -112,7 +112,7 @@ class _CurrentBalance extends StatelessWidget {
     return BlocBuilder<HomeWidgetCubit, HomeWidgetStates>(
       builder: (context, state) {
         var cubit = HomeWidgetCubit.get(context);
-        var isSecure = !cubit.showBalanceCard;
+        var isSecure = !cubit.homeWidgetData.showBalance;
         return Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -129,9 +129,9 @@ class _CurrentBalance extends StatelessWidget {
               type: Type.overMedium,
               height: isSecure ? 1.3 : 1.3,
               size: isSecure ? 22.sp : 24.sp,
-              text: cubit.currentBalance.homeWidgetFormat(
+              text: cubit.homeWidgetData.balance.homeWidgetFormat(
                 context: context,
-                showBalance: cubit.showBalanceCard,
+                showBalance: !isSecure,
               ),
             ),
           ],
@@ -162,7 +162,7 @@ class _Actions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
-    var cubit = HomeWidgetCubit.get(context);
+    var cubit = HomeWidgetCubit.get(context).homeWidgetData;
     return Row(
       spacing: 10.w,
       children: [

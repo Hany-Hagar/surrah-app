@@ -11,13 +11,15 @@ class HomeWidgetRepoImpl extends HomeWidgetRepo {
   HomeWidgetRepoImpl({required this.data});
 
   @override
-  Either<Failure, HomeWidgetModel> getHomeWidgetData() {
+  HomeWidgetModel getHomeWidgetData() {
     try {
       var currentBalance = data.getCurrentBalance();
       var homeWidgetData = data.getHomeWidgetData();
-      return Right(homeWidgetData.copyWith(balance: currentBalance));
+      return homeWidgetData.copyWith(balance: currentBalance);
     } catch (e) {
-      return Left(HiveFailure.fromError(e));
+      return HomeWidgetModel.defaultModel().copyWith(
+        balance: data.getCurrentBalance(),
+      );
     }
   }
 

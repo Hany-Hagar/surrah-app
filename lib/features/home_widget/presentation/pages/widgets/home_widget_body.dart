@@ -31,7 +31,7 @@ class _EnableHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = HomeWidgetCubit.get(context);
-    var enabled = cubit.enableWidget;
+    var enabled = cubit.homeWidgetData.enableCard;
     return _Item(
       icon: PhosphorIcons.power(PhosphorIconsStyle.duotone),
       color: const Color(0xFFE5B845),
@@ -49,11 +49,11 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = HomeWidgetCubit.get(context);
+    var enabled = HomeWidgetCubit.get(context).homeWidgetData.enableCard;
     return Opacity(
-      opacity: cubit.enableWidget ? 1 : 0.5,
+      opacity: enabled ? 1 : 0.5,
       child: IgnorePointer(
-        ignoring: !cubit.enableWidget,
+        ignoring: !enabled,
         child: Column(
           spacing: 14.h,
           mainAxisSize: MainAxisSize.min,
@@ -77,9 +77,9 @@ class _Display extends StatelessWidget {
           icon: PhosphorIcons.eye(PhosphorIconsStyle.duotone),
           title: 'Show balance',
           subtitle: 'Hidden by default',
-          isEnabled: cubit.showBalanceCard,
           color: const Color(0xFFE5B845),
           onTap: () => cubit.toggleShowBalanceCard(),
+          isEnabled: cubit.homeWidgetData.showBalance,
         ),
       ],
     );
@@ -87,37 +87,38 @@ class _Display extends StatelessWidget {
 }
 
 class _QuickActions extends StatelessWidget {
-  const _QuickActions({super.key});
+  const _QuickActions();
 
   @override
   Widget build(BuildContext context) {
+    var cubit = HomeWidgetCubit.get(context);
+    var data = cubit.homeWidgetData;
     return _ItemsList(
       title: "Quick Actions",
       items: [
         _Item(
-          icon: PhosphorIcons.trendUp(PhosphorIconsStyle.duotone),
           title: 'Income button',
           subtitle: 'Quick add income',
           color: const Color(0xFF2E9E55),
-          isEnabled: HomeWidgetCubit.get(context).showIncomeButton,
-          onTap: () => HomeWidgetCubit.get(context).toggleShowIncomeButton(),
+          isEnabled: data.showIncomeButton,
+          onTap: () => cubit.toggleShowIncomeButton(),
+          icon: PhosphorIcons.trendUp(PhosphorIconsStyle.duotone),
         ),
         _Item(
-          icon: PhosphorIcons.trendDown(PhosphorIconsStyle.duotone),
           title: 'Expense button',
           subtitle: 'Quick add expense',
           color: const Color(0xFFD8453B),
-          isEnabled: HomeWidgetCubit.get(context).showExpenseButton,
-          onTap: () => HomeWidgetCubit.get(context).toggleShowExpenseButton(),
+          isEnabled: data.showExpenseButton,
+          onTap: () => cubit.toggleShowExpenseButton(),
+          icon: PhosphorIcons.trendDown(PhosphorIconsStyle.duotone),
         ),
         _Item(
-          icon: PhosphorIcons.squaresFour(PhosphorIconsStyle.duotone),
           title: 'Category button',
           subtitle: 'Quick add category',
           color: const Color(0xFFFF9800),
-          isEnabled: HomeWidgetCubit.get(context).showAddCategoryButton,
-          onTap: () =>
-              HomeWidgetCubit.get(context).toggleShowAddCategoryButton(),
+          isEnabled: data.showAddCategoryButton,
+          onTap: () => cubit.toggleShowAddCategoryButton(),
+          icon: PhosphorIcons.squaresFour(PhosphorIconsStyle.duotone),
         ),
       ],
     );

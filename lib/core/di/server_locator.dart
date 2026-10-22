@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import '../services/hive_service.dart';
 import '../services/pdf_service.dart';
+import '../services/hive_service.dart';
 import '../services/update_service.dart';
 import '../services/local_auth_service.dart';
 import '../../features/layout/managers/layout_cubit.dart';
@@ -11,15 +11,19 @@ import '../../features/report/data/database/report_data.dart';
 import '../../features/report/data/repo/report_impl_repo.dart';
 import '../../features/splash/data/repo/splash_repo_impl.dart';
 import '../../features/categories/data/repo/categories_repo.dart';
+import '../../features/home_widget/data/repo/home_widget_repo.dart';
 import '../../features/report/presentation/manager/report_cubit.dart';
 import '../../features/transactions/data/repo/transactions_repo.dart';
 import '../../features/categories/data/database/categories_data.dart';
 import '../../features/splash/presentations/manger/splash_cubit.dart';
 import '../../features/categories/data/repo/categories_repo_impl.dart';
+import '../../features/home_widget/data/database/home_widget_data.dart';
+import '../../features/home_widget/data/repo/home_widget_repo_impl.dart';
 import '../../features/transactions/data/database/transactions_data.dart';
 import '../../features/transactions/data/repo/transactions_repo_impl.dart';
 import '../../../features/settings/presentation/manager/settings_cubit.dart';
 import '../../features/categories/presentation/manager/categories_cubit.dart';
+import '../../features/home_widget/presentation/manager/home_widget_cubit.dart';
 import '../../features/transactions/presentation/manager/transactions_cubit.dart';
 
 var getIt = GetIt.instance;
@@ -85,6 +89,7 @@ void setupLocator() {
   getIt.registerLazySingleton<TransactionsCubit>(
     () => TransactionsCubit(transactionsRepo: getIt<TransactionsRepo>()),
   );
+  
   // Report
   getIt.registerLazySingleton<ReportData>(
     () => ReportData(
@@ -99,5 +104,18 @@ void setupLocator() {
 
   getIt.registerLazySingleton<ReportCubit>(
     () => ReportCubit(reportRepo: getIt<ReportRepo>()),
+  );
+
+  // Home Widget
+  getIt.registerLazySingleton<HomeWidgetData>(
+    () => HomeWidgetData(hiveService: getIt<HiveService>()),
+  );
+
+  getIt.registerLazySingleton<HomeWidgetRepo>(
+    () => HomeWidgetRepoImpl(data: getIt<HomeWidgetData>()),
+  );
+
+  getIt.registerFactory<HomeWidgetCubit>(
+    () => HomeWidgetCubit(homeWidgetRepo: getIt<HomeWidgetRepo>()),
   );
 }

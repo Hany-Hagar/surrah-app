@@ -1,42 +1,67 @@
 import 'home_widget_states.dart';
 import 'package:flutter/material.dart';
+import '../../data/repo/home_widget_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/model/home_widget_model.dart';
 
 class HomeWidgetCubit extends Cubit<HomeWidgetStates> {
-  HomeWidgetCubit() : super(HomeWidgetInitialState());
+  final HomeWidgetRepo homeWidgetRepo;
+  HomeWidgetCubit({required this.homeWidgetRepo})
+    : super(HomeWidgetInitialState());
 
   static HomeWidgetCubit get(BuildContext context) => BlocProvider.of(context);
 
   // Data
-  bool enableWidget = false;
-  double currentBalance = 0.0;
-  bool showBalanceCard = false;
-  bool showIncomeButton = false;
-  bool showExpenseButton = false;
-  bool showAddCategoryButton = false;
+  HomeWidgetModel homeWidgetData = HomeWidgetModel.defaultModel();
+
+  // Methods
+  void fetchData() {
+    emit(GetDataLoading());
+    final result = homeWidgetRepo.getHomeWidgetData();
+    homeWidgetData = result;
+    emit(GetDataSuccess());
+  }
+
+  void updateData() async {
+    emit(UpdateDataLoading());
+    final result = await homeWidgetRepo.saveHomeWidgetData(homeWidgetData);
+    result.fold((failure) => emit(UpdateDataFailure(failure.message)), (data) {
+      emit(UpdateDataSuccess());
+    });
+  }
 
   void toggleEnableWidget() {
-    enableWidget = !enableWidget;
-    emit(UpdateHomeWidgetSetup());
+    homeWidgetData = homeWidgetData.copyWith(
+      enableCard: !homeWidgetData.enableCard,
+    );
+    updateData();
   }
 
   void toggleShowBalanceCard() {
-    showBalanceCard = !showBalanceCard;
-    emit(UpdateHomeWidgetSetup());
+    homeWidgetData = homeWidgetData.copyWith(
+      showBalance: !homeWidgetData.showBalance,
+    );
+    updateData();
   }
 
   void toggleShowIncomeButton() {
-    showIncomeButton = !showIncomeButton;
-    emit(UpdateHomeWidgetSetup());
+    homeWidgetData = homeWidgetData.copyWith(
+      showIncomeButton: !homeWidgetData.showIncomeButton,
+    );
+    updateData();
   }
 
   void toggleShowExpenseButton() {
-    showExpenseButton = !showExpenseButton;
-    emit(UpdateHomeWidgetSetup());
+    homeWidgetData = homeWidgetData.copyWith(
+      showExpenseButton: !homeWidgetData.showExpenseButton,
+    );
+    updateData();
   }
 
   void toggleShowAddCategoryButton() {
-    showAddCategoryButton = !showAddCategoryButton;
-    emit(UpdateHomeWidgetSetup());
+    homeWidgetData = homeWidgetData.copyWith(
+      showAddCategoryButton: !homeWidgetData.showAddCategoryButton,
+    );
+    updateData();
   }
 }

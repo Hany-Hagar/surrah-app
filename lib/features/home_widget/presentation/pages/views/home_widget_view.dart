@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../../../generated/l10n.dart';
 import '../widgets/home_widget_body.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/home_widget_cubit.dart';
 import '../../manager/home_widget_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_back.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,7 @@ class HomeWidgetView extends StatelessWidget {
   Widget build(BuildContext context) {
     var s = S.of(context);
     return BlocProvider(
-      create: (context) => HomeWidgetCubit(),
+      create: (context) => getIt<HomeWidgetCubit>()..fetchData(),
       child: Scaffold(
         appBar: CustomAppBar(
           leading: CustomBack(),
