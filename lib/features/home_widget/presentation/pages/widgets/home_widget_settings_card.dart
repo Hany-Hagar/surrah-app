@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import '../../../../const/assets.dart';
-import '../../../../const/app_data.dart';
-import '../../../../generated/l10n.dart';
+import '../../../../../const/assets.dart';
+import '../../../../../const/app_data.dart';
+import '../../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
 import '../../manager/home_widget_cubit.dart';
 import '../../manager/home_widget_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/extensions/number_formatting_extension.dart';
+import '../../../../../core/extensions/number_formatting_extension.dart';
 
 class HomeWidgetSettingsCard extends StatelessWidget {
   const HomeWidgetSettingsCard({super.key});

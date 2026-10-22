@@ -16,7 +16,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/services/currency_services.dart';
-import '../../../../home_widget/pages/views/home_widget_view.dart';
+import '../../../../home_widget/presentation/pages/views/home_widget_view.dart';
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home_widget_settings_card.dart';
 import '../../manager/home_widget_cubit.dart';
-import '../../../../core/widgets/custom_text.dart';
-import '../../../../core/widgets/custom_switch.dart';
+import '../../../../../core/widgets/custom_text.dart';
+import '../../../../../core/widgets/custom_switch.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
