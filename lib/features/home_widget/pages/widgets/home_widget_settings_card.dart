@@ -3,8 +3,12 @@ import '../../../../const/assets.dart';
 import '../../../../const/app_data.dart';
 import '../../../../generated/l10n.dart';
 import 'package:icon_broken/icon_broken.dart';
+import '../../manager/home_widget_cubit.dart';
+import '../../manager/home_widget_states.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/extensions/number_formatting_extension.dart';
 
 class HomeWidgetSettingsCard extends StatelessWidget {
   const HomeWidgetSettingsCard({super.key});
@@ -20,7 +24,7 @@ class HomeWidgetSettingsCard extends StatelessWidget {
       child: Column(
         spacing: 10.h,
         mainAxisSize: MainAxisSize.min,
-        children: const [_Top(), _Body(), _Actions()],
+        children: [const _Top(), _Body(), _Actions()],
       ),
     );
   }
@@ -104,26 +108,35 @@ class _CurrentBalance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomText(
-          size: 16.sp,
-          type: Type.overMedium,
-          text: "Current Balance:",
-          color: theme.colorScheme.secondary,
-        ),
-        CustomText(
-          height: 1,
-          size: 24.sp,
-          text: "₹ 0.00",
-          type: Type.overMedium,
-          color: theme.colorScheme.secondary,
-        ),
-      ],
+    var color = Colors.white;
+    return BlocBuilder<HomeWidgetCubit, HomeWidgetStates>(
+      builder: (context, state) {
+        var cubit = HomeWidgetCubit.get(context);
+        var isSecure = !cubit.showBalanceCard;
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomText(
+              size: 16.sp,
+              color: color,
+              type: Type.overMedium,
+              text: "Current Balance:",
+            ),
+            CustomText(
+              color: color,
+              type: Type.overMedium,
+              height: isSecure ? 1.3 : 1.3,
+              size: isSecure ? 22.sp : 24.sp,
+              text: cubit.currentBalance.homeWidgetFormat(
+                context: context,
+                showBalance: cubit.showBalanceCard,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -149,16 +162,24 @@ class _Actions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var s = S.of(context);
+    var cubit = HomeWidgetCubit.get(context);
     return Row(
       spacing: 10.w,
       children: [
-        _Item(title: s.addIncome, color: Colors.green, icon: IconBroken.Wallet),
-        _Item(title: s.addExpense, color: Colors.red, icon: IconBroken.Send),
-        _Item(
-          title: s.addCategory,
-          color: Colors.orange,
-          icon: IconBroken.Category,
-        ),
+        if (cubit.showIncomeButton)
+          _Item(
+            title: s.addIncome,
+            color: Colors.green,
+            icon: IconBroken.Wallet,
+          ),
+        if (cubit.showExpenseButton)
+          _Item(title: s.addExpense, color: Colors.red, icon: IconBroken.Send),
+        if (cubit.showAddCategoryButton)
+          _Item(
+            title: s.addCategory,
+            color: Colors.orange,
+            icon: IconBroken.Category,
+          ),
       ],
     );
   }
