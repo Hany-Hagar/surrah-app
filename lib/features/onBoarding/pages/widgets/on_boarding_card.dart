@@ -6,29 +6,25 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingCard extends StatelessWidget {
   final OnBoardingModel model;
-  const OnBoardingCard({
-    super.key,
-    required this.model,
-  });
+  const OnBoardingCard({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.sp),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Spacer(),
-          _Image(imagePath: model.image),
-          Spacer(),
-          _Text(onBoardingModel: model),
-          SizedBox(height: 32.h),
+          Expanded(
+            flex: 5,
+            child: Center(child: _Image(imagePath: model.image)),
+          ),
+          _Text(model: model),
+          SizedBox(height: 24.h),
         ],
       ),
     );
   }
 }
-
 
 class _Image extends StatelessWidget {
   final String imagePath;
@@ -36,18 +32,20 @@ class _Image extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return SvgPicture.asset(
-      imagePath,
-      width: size.width * 0.8,
-      height: size.height * 0.4,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24.w),
+      child: SvgPicture.asset(
+        imagePath,
+        fit: BoxFit.contain,
+        excludeFromSemantics: true, // رسمة تزيينية
+      ),
     );
   }
 }
 
 class _Text extends StatelessWidget {
-  final OnBoardingModel onBoardingModel;
-  const _Text({required this.onBoardingModel});
+  final OnBoardingModel model;
+  const _Text({required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +53,14 @@ class _Text extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         CustomText(
-          text: onBoardingModel.title,
+          text: model.title,
           size: 24.sp,
           type: Type.header,
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 10.h),
         CustomText(
-          text: onBoardingModel.description,
+          text: model.description,
           size: 16.sp,
           maxLines: 3,
           type: Type.overMedium,

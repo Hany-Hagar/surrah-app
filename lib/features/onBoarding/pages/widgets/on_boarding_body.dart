@@ -23,33 +23,29 @@ class OnBoardingBody extends StatelessWidget {
             controller: pageController,
             onPageChanged: onPageChanged,
             itemCount: data.length,
-            itemBuilder: (context, index) {
-              return OnBoardingCard(
-                model: data[index],
-              );
-            },
+            itemBuilder: (context, index) =>
+                OnBoardingCard(model: data[index]),
           ),
         ),
-
-        _PageIndicator(pageController: pageController),
+        _PageIndicator(controller: pageController, count: data.length),
+        const SizedBox(height: 16),
       ],
     );
   }
 }
 
-class _PageIndicator extends StatelessWidget {
-  final PageController pageController;
 
-  const _PageIndicator({required this.pageController});
+class _PageIndicator extends StatelessWidget {
+  final PageController controller;
+  final int count;
+  const _PageIndicator({required this.controller, required this.count});
 
   @override
   Widget build(BuildContext context) {
-    final data = onBoardingData(context);
     final colors = Theme.of(context).colorScheme;
-
     return SmoothPageIndicator(
-      controller: pageController,
-      count: data.length,
+      controller: controller,
+      count: count,
       effect: ExpandingDotsEffect(
         spacing: 8,
         dotWidth: 8,

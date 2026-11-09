@@ -3,6 +3,7 @@ import 'core/utils/theme.dart';
 import 'core/di/server_locator.dart';
 import 'package:flutter/material.dart';
 import 'core/services/hive_service.dart';
+import 'translations/gen/strings.g.dart';
 import 'core/utils/my_bloc_observer.dart';
 import 'core/services/snack_bar_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +31,8 @@ Future<void> main() async {
   );
   setupLocator();
   await getIt<HiveService>().init();
-  runApp(const MyApp());
+  LocaleSettings.useDeviceLocale();
+  runApp(TranslationProvider(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -82,6 +84,7 @@ class MyApp extends StatelessWidget {
             minTextAdapt: true,
             splitScreenMode: true,
             builder: (context, child) {
+              LocaleSettings.setLocaleRaw(state.lang);
               return SecureWidget(
                 mode: state.screenShotProtection,
                 child: MaterialApp(
@@ -99,7 +102,7 @@ class MyApp extends StatelessWidget {
                     GlobalMaterialLocalizations.delegate,
                     GlobalCupertinoLocalizations.delegate,
                   ],
-                  supportedLocales: S.delegate.supportedLocales,
+                  supportedLocales: AppLocaleUtils.supportedLocales,
                   home: SplashView(isFirstTime: state.isFirstTime),
                 ),
               );

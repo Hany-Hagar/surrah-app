@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <ellipse cx="200" cy="362" rx="110" ry="13" fill="#F1F3F8" opacity=".08"/>
+  <circle cx="200" cy="190" r="150" fill="#E5B84A" opacity=".12"/>
+  <!-- phone -->
+  <rect x="112" y="40" width="176" height="316" rx="32" fill="#F1F3F8"/>
+  <rect x="124" y="60" width="152" height="276" rx="22" fill="#000C18"/>
+  <rect x="178" y="48" width="44" height="7" rx="3.5" fill="#000814" opacity=".6"/>
+  <!-- shield -->
+  <path d="M200 100l56 20v48c0 38-24 62-56 76-32-14-56-38-56-76v-48z" fill="#F1F3F8"/>
+  <path d="M200 112l44 16v40c0 30-18 50-44 62-26-12-44-32-44-62v-40z" fill="#0A2340"/>
+  <rect x="178" y="166" width="44" height="36" rx="8" fill="#E5B84A"/>
+  <path d="M186 166v-10a14 14 0 0 1 28 0v10" fill="none" stroke="#E5B84A" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="200" cy="181" r="5" fill="#F1F3F8"/>
+  <rect x="198" y="183" width="4" height="10" rx="2" fill="#F1F3F8"/>
+  <!-- offline / no cloud -->
+  <g transform="translate(200 280)">
+    <path d="M-30 14a14 14 0 0 1 4-27 20 20 0 0 1 38-4 15 15 0 0 1 8 31z" fill="#0A2340" stroke="#8C96A8" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M-34 24L38 -22" stroke="#D64545" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <rect x="160" y="316" width="80" height="8" rx="4" fill="#8C96A8" opacity=".5"/>
+  <path d="M320 90l6 12 12 6-12 6-6 12-6-12-12-6 12-6z" fill="#E5B84A"/>
+  <path d="M70 250l5 10 10 5-10 5-5 10-5-10-10-5 10-5z" fill="#E5B84A"/>
+</svg>

@@ -10,10 +10,17 @@ class Assets {
   static const String splashBackground = 'assets/images/splashBackground.png';
 
   // Onboarding Assets
-  static const String onboarding1 = 'assets/svgs/onBoarding1.svg';
-  static const String onboarding2 = 'assets/svgs/onBoarding2.svg';
-  static const String onboarding3 = 'assets/svgs/onBoarding3.svg';
-  static const String onboarding4 = 'assets/svgs/onBoarding4.svg';
+  // Onboarding Assets
+  static const List<String> onboardingLight = [
+    'assets/svgs/onBoarding1.svg',
+    'assets/svgs/onBoarding2.svg',
+    'assets/svgs/onBoarding3.svg',
+  ];
+  static const List<String> onboardingDark = [
+    'assets/svgs/onBoarding1Dark.svg',
+    'assets/svgs/onBoarding2Dark.svg',
+    'assets/svgs/onBoarding3Dark.svg',
+  ];
 
   // Balance Card Assets
   static const String balanceCardBackground =

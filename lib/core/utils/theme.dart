@@ -25,6 +25,10 @@ class AppTheme {
 
   static const Color inactiveGrey = Color(0xFF8C96A8);
 
+  // Outline (borders, dots, subtle separators)
+  static const Color outlineLight = Color(0xFFD9DCE3);
+  static const Color outlineDark = Color(0xFF2A3A55);
+
   // ================= Light Theme =================
 
   static ThemeData light = ThemeData(
@@ -48,6 +52,8 @@ class AppTheme {
       onError: Colors.white,
       surface: Colors.white,
       onSurface: Colors.black,
+      outline: inactiveGrey,
+      outlineVariant: outlineLight,
     ),
 
     appBarTheme: const AppBarTheme(
@@ -123,6 +129,8 @@ class AppTheme {
       onError: Colors.white,
       surface: darkSurface,
       onSurface: Colors.white,
+      outline: inactiveGrey,
+      outlineVariant: outlineDark,
     ),
 
     appBarTheme: const AppBarTheme(

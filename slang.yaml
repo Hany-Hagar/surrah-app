@@ -1,0 +1,6 @@
+base_locale: ar
+fallback_strategy: base_locale
+input_directory: lib/translations
+input_file_pattern: .i18n.json
+output_directory: lib/translations/gen
+namespaces: true

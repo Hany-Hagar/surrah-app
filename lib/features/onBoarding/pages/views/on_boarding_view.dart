@@ -5,6 +5,7 @@ import '../../model/on_boarding_model.dart';
 import '../../../../core/utils/nav_to.dart';
 import '../../../setup/views/setup_view.dart';
 import '../../../../core/widgets/custom_text.dart';
+import '../../../../translations/gen/strings.g.dart';
 import '../../../../core/widgets/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -88,8 +89,8 @@ class _Skip extends StatelessWidget {
               child: CustomText(
                 size: 18.sp,
                 type: Type.overMedium,
-                text: S.of(context).skip,
                 opacity: FontOpacity.medium,
+                text: context.t.onBoarding.skip,
               ),
             ),
         ],

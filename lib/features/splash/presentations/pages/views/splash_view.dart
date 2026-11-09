@@ -28,7 +28,6 @@ class SplashView extends StatelessWidget {
             NavTo.pushReplacement(context: context, nextPage: LayoutView());
           }
           if (state is AuthenticationFailure) {
-            // close the app if authentication fails
             SystemNavigator.pop();
           }
         },

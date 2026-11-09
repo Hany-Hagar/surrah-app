@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <ellipse cx="200" cy="360" rx="130" ry="14" fill="#F1F3F8" opacity=".08"/>
+  <circle cx="200" cy="190" r="150" fill="#E5B84A" opacity=".12"/>
+  <rect x="80" y="70" width="240" height="270" rx="28" fill="#00152B" stroke="#F1F3F8" stroke-width="5"/>
+  <rect x="80" y="70" width="240" height="64" rx="28" fill="#F1F3F8"/>
+  <rect x="80" y="104" width="240" height="30" fill="#F1F3F8"/>
+  <circle cx="120" cy="102" r="14" fill="#E5B84A"/>
+  <rect x="146" y="90" width="90" height="10" rx="5" fill="#00152B"/>
+  <rect x="146" y="106" width="56" height="8" rx="4" fill="#8C96A8"/>
+  <!-- row 1 income -->
+  <circle cx="116" cy="176" r="16" fill="#2E9E5B" opacity=".18"/>
+  <path d="M116 184v-16m-7 7l7-7 7 7" stroke="#2E9E5B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="144" y="164" width="76" height="9" rx="4.5" fill="#F1F3F8"/>
+  <rect x="144" y="180" width="48" height="7" rx="3.5" fill="#8C96A8"/>
+  <rect x="244" y="168" width="52" height="12" rx="6" fill="#2E9E5B"/>
+  <!-- row 2 expense -->
+  <circle cx="116" cy="230" r="16" fill="#D64545" opacity=".15"/>
+  <path d="M116 222v16m-7-7l7 7 7-7" stroke="#D64545" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="144" y="218" width="64" height="9" rx="4.5" fill="#F1F3F8"/>
+  <rect x="144" y="234" width="40" height="7" rx="3.5" fill="#8C96A8"/>
+  <rect x="250" y="222" width="46" height="12" rx="6" fill="#D64545"/>
+  <!-- row 3 expense -->
+  <circle cx="116" cy="284" r="16" fill="#D64545" opacity=".15"/>
+  <path d="M116 276v16m-7-7l7 7 7-7" stroke="#D64545" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="144" y="272" width="82" height="9" rx="4.5" fill="#F1F3F8"/>
+  <rect x="144" y="288" width="52" height="7" rx="3.5" fill="#8C96A8"/>
+  <rect x="256" y="276" width="40" height="12" rx="6" fill="#D64545"/>
+  <!-- coin -->
+  <circle cx="318" cy="96" r="44" fill="#E5B84A" stroke="#F1F3F8" stroke-width="5"/>
+  <circle cx="318" cy="96" r="31" fill="none" stroke="#F1F3F8" stroke-width="3" opacity=".35"/>
+  <path d="M300 112l14-16 10 10 16-24" stroke="#F1F3F8" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M52 150l6 12 12 6-12 6-6 12-6-12-12-6 12-6z" fill="#E5B84A"/>
+</svg>
