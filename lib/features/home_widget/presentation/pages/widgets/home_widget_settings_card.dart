@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../const/assets.dart';
 import '../../../../../const/app_data.dart';
 import '../../../../../generated/l10n.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import '../../manager/home_widget_cubit.dart';
 import '../../manager/home_widget_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

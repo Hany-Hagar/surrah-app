@@ -4,7 +4,7 @@ import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utils/theme.dart';
 import '../../../core/widgets/custom_text.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../transactions/data/model/balance_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/extensions/number_formatting_extension.dart';
@@ -45,7 +45,7 @@ class _Current extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color= Colors.black;
+    var color = Colors.black;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,13 +82,13 @@ class _Items extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _Item(
-          icon: PhosphorIconsDuotone.trendUp,
+          icon: PhosphorIconsFill.trendUp,
           title: s.income,
           amount: balance.totalIncome,
           color: AppTheme.income,
         ),
         _Item(
-          icon: PhosphorIconsDuotone.trendDown,
+          icon: PhosphorIconsFill.trendDown,
           title: s.expense,
           amount: balance.totalExpense,
           color: AppTheme.expense,

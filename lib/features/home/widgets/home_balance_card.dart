@@ -2,7 +2,7 @@ import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utils/theme.dart';
 import '../../../core/widgets/custom_text.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../transactions/data/model/balance_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/extensions/number_formatting_extension.dart';
@@ -33,14 +33,14 @@ class HomeBalanceCard extends StatelessWidget {
                   title: s.income,
                   color: AppTheme.income,
                   amount: currentBalance.totalIncome,
-                  icon: PhosphorIconsDuotone.trendUp,
+                  icon: PhosphorIconsFill.trendUp,
                 ),
                 SizedBox(width: 5.w),
                 _BalanceItem(
                   title: s.expense,
                   color: AppTheme.expense,
                   amount: currentBalance.totalExpense,
-                  icon: PhosphorIconsDuotone.trendDown,
+                  icon: PhosphorIconsFill.trendDown,
                 ),
               ],
             ),
@@ -93,7 +93,7 @@ class _TopBody extends StatelessWidget {
             ),
             CustomText(
               text: currentBalance.appFormat(context: context),
-             // text: currentBalance.moneyFormat(context: context),
+              // text: currentBalance.moneyFormat(context: context),
               size: 20.sp,
               color: color,
               type: Type.overMedium,

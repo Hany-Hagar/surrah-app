@@ -4,7 +4,7 @@ import '../widgets/add_edit_category.dart';
 import '../../../../../generated/l10n.dart';
 import '../../manager/categories_cubit.dart';
 import '../../manager/categories_states.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/filter_body.dart';

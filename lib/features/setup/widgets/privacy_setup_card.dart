@@ -2,7 +2,7 @@
 import 'setup_card.dart';
 import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:no_screenshot/overlay_mode.dart';
 import '../../../core/widgets/custom_switch.dart';

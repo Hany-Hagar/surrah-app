@@ -6,13 +6,13 @@ import '../views/privacy_policy_view.dart';
 import '../../manager/settings_cubit.dart';
 import '../views/contact_support_view.dart';
 import '../../../../../generated/l10n.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../model/app_user_pref_model.dart';
 import 'package:no_screenshot/overlay_mode.dart';
 import '../../../../../core/di/server_locator.dart';
 import '../../../../../core/widgets/custom_text.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/services/currency_services.dart';
@@ -31,14 +31,14 @@ class SettingsBody extends StatelessWidget {
         _Title(title: s.generalSettings),
         SettingsItem(
           color: Colors.blue,
-          icon: PhosphorIcons.aperture(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.aperture,
           title: s.themeTitle,
           subtitle: s.themeSubtitle,
           dialogBody: ThemeBody(),
         ),
         SettingsItem(
           color: Colors.green,
-          icon: PhosphorIcons.translate(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.translate,
           title: s.languageTitle,
           subtitle: s.languageSubtitle,
           nextPage: LanguagesView(),
@@ -47,7 +47,7 @@ class SettingsBody extends StatelessWidget {
         _Notifications(),
         SettingsItem(
           color: Colors.teal,
-          icon: PhosphorIcons.deviceMobile(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.deviceMobile,
           title: s.homeWidgetTitle,
           subtitle: s.homeWidgetSubtitle,
           nextPage: const HomeWidgetView(),
@@ -101,7 +101,7 @@ class _Currency extends StatelessWidget {
           color: Colors.green,
           title: s.settingsCurrencyTitle,
           subtitle: s.settingsCurrencySubtitle,
-          icon: PhosphorIcons.currencyCircleDollar(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.currencyCircleDollar,
           trailing: CurrencyServices.card(
             context: context,
             currentCurrency: state.currency,

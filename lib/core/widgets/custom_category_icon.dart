@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../extensions/icon_extensions.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/iconPicker/data/models/icon_model.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../features/categories/data/models/category_model.dart';
 
 class CustomCategoryIcon extends StatelessWidget {

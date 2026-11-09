@@ -3,7 +3,7 @@ import 'home_widget_settings_card.dart';
 import '../../manager/home_widget_cubit.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_switch.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeWidgetBody extends StatelessWidget {
@@ -33,7 +33,7 @@ class _EnableHomeWidget extends StatelessWidget {
     var cubit = HomeWidgetCubit.get(context);
     var enabled = cubit.homeWidgetData.enableCard;
     return _Item(
-      icon: PhosphorIcons.power(PhosphorIconsStyle.duotone),
+      icon: PhosphorIconsFill.power,
       color: const Color(0xFFE5B845),
       isEnabled: enabled,
       title: 'Home Screen Widget',
@@ -74,7 +74,7 @@ class _Display extends StatelessWidget {
       title: "Display",
       items: [
         _Item(
-          icon: PhosphorIcons.eye(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.eye,
           title: 'Show balance',
           subtitle: 'Hidden by default',
           color: const Color(0xFFE5B845),
@@ -102,7 +102,7 @@ class _QuickActions extends StatelessWidget {
           color: const Color(0xFF2E9E55),
           isEnabled: data.showIncomeButton,
           onTap: () => cubit.toggleShowIncomeButton(),
-          icon: PhosphorIcons.trendUp(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.trendUp,
         ),
         _Item(
           title: 'Expense button',
@@ -110,7 +110,7 @@ class _QuickActions extends StatelessWidget {
           color: const Color(0xFFD8453B),
           isEnabled: data.showExpenseButton,
           onTap: () => cubit.toggleShowExpenseButton(),
-          icon: PhosphorIcons.trendDown(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.trendDown,
         ),
         _Item(
           title: 'Category button',
@@ -118,7 +118,7 @@ class _QuickActions extends StatelessWidget {
           color: const Color(0xFFFF9800),
           isEnabled: data.showAddCategoryButton,
           onTap: () => cubit.toggleShowAddCategoryButton(),
-          icon: PhosphorIcons.squaresFour(PhosphorIconsStyle.duotone),
+          icon: PhosphorIconsFill.squaresFour,
         ),
       ],
     );

@@ -2,7 +2,7 @@ import 'dart:developer';
 import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utils/nav_to.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import '../../../core/services/dialog_service.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

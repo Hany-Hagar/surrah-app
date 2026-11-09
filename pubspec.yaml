@@ -18,10 +18,9 @@ dependencies:
   intl: ^0.20.2
 
   # Icons
-  icon_broken: ^1.1.0
   cupertino_icons: ^1.0.8
-  phosphor_flutter: ^2.1.0
   font_awesome_flutter: ^11.0.0
+  phosphoricons_flutter: ^1.0.0
 
   # Responsive
   flutter_screenutil: ^5.9.3
@@ -66,10 +65,10 @@ dependencies:
 
   # External Services & Platform
   url_launcher: ^6.3.2
+  home_widget: ^0.10.0
   in_app_update: ^4.2.5
   arabic_reshaper: ^0.0.1
   step_progress_indicator: ^1.0.2
-  home_widget: ^0.10.0
 
 dependency_overrides:
   archive: 4.5.0
@@ -104,6 +103,9 @@ flutter:
     - assets/lotties/
 
   fonts:
+    - family: IconBroken
+      fonts:
+        - asset: assets/fonts/icons.ttf
     - family: Cairo
       fonts:
         - asset: assets/fonts/cairo/Cairo-Regular.ttf

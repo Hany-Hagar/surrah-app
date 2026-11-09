@@ -3,7 +3,7 @@ import 'settings_item.dart';
 import 'package:flutter/material.dart';
 import '../../../../../const/assets.dart';
 import '../../../../../generated/l10n.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/services/support_service.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

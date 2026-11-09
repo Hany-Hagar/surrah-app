@@ -2,7 +2,7 @@ import '../../../../../const/assets.dart';
 import 'support_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../../generated/l10n.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

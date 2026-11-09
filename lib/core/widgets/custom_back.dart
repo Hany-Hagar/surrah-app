@@ -1,6 +1,6 @@
 import '../di/server_locator.dart';
 import 'package:flutter/material.dart';
-import 'package:icon_broken/icon_broken.dart';
+import 'package:surrah/const/icon_broken.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/settings/presentation/manager/settings_cubit.dart';
 
