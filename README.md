@@ -29,7 +29,7 @@ This README describes the current working-tree implementation, including partial
 
 | Area | Current implementation |
 | --- | --- |
-| Identity | Surrah; package `surrah`; version `1.0.0+2` |
+| Identity | Surrah; package `surrah`; version `1.1.0+4` |
 | Category | Manual personal income and expense tracking |
 | User model | One local user context; no login, profiles, administrator role, or shared accounts |
 | Main navigation | Home, Categories, Transactions, Report, Settings |

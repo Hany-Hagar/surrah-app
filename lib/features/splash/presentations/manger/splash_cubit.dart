@@ -16,7 +16,7 @@ class SplashCubit extends Cubit<SplashStates> {
   }) : super(SplashInitial());
   static SplashCubit get(BuildContext context) => BlocProvider.of(context);
 
-  void _checkDeviceSupport() async {
+  Future<void> _checkDeviceSupport() async {
     final result = await splashRepo.isDeviceSupported();
     result.fold(
       (failure) {
@@ -33,25 +33,45 @@ class SplashCubit extends Cubit<SplashStates> {
         settingsCubit.state.appLockSupported;
   }
 
-  void authenticate({required bool isFirstTime}) async {
-    await Future.delayed(const Duration(seconds: 1));
-    _checkDeviceSupport();
+  // void authenticate({required bool isFirstTime}) async {
+  //   await Future.delayed(const Duration(milliseconds: 1500));
+  //   _checkDeviceSupport();
+  //   if (isFirstTime) {
+  //     emit(FirstTimeCheckComplete());
+  //     return;
+  //   }
+  //   if (isFirstTime) {
+  //     emit(FirstTimeCheckComplete());
+  //     return;
+  //   }
+  //   if (!hasAppLockEnabled()) {
+  //     categoriesCubit.getCategories(isFirstTime: isFirstTime);
+  //     emit(AuthenticationSuccess());
+  //     return;
+  //   }
+  //   emit(AuthenticationLoading());
+  //   final result = await splashRepo.authenticate();
+  //   result.fold((failure) => emit(AuthenticationFailure()), (success) {
+  //     categoriesCubit.getCategories(isFirstTime: isFirstTime);
+  //     emit(AuthenticationSuccess());
+  //     splashRepo.checkForUpdate();
+  //   });
+  // }
+
+  Future<void> authenticate({required bool isFirstTime}) async {
+    await _checkDeviceSupport();
     if (isFirstTime) {
-      await categoriesCubit.addLocalCategories();
-      categoriesCubit.getCategories(isFirstTime: isFirstTime);
       emit(FirstTimeCheckComplete());
       return;
     }
+    emit(AuthenticationLoading());
+    categoriesCubit.getCategories(isFirstTime: isFirstTime);
     if (!hasAppLockEnabled()) {
-      categoriesCubit.getCategories(isFirstTime: isFirstTime);
       emit(AuthenticationSuccess());
       return;
     }
-    await Future.delayed(const Duration(seconds: 1));
-    emit(AuthenticationLoading());
     final result = await splashRepo.authenticate();
     result.fold((failure) => emit(AuthenticationFailure()), (success) {
-      categoriesCubit.getCategories(isFirstTime: isFirstTime);
       emit(AuthenticationSuccess());
       splashRepo.checkForUpdate();
     });
