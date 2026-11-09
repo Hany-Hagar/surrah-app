@@ -3,6 +3,7 @@ import '../services/pdf_service.dart';
 import '../services/hive_service.dart';
 import '../services/update_service.dart';
 import '../services/local_auth_service.dart';
+import '../services/home_widget_service.dart';
 import '../../features/layout/managers/layout_cubit.dart';
 import '../../features/splash/data/repo/splash_repo.dart';
 import '../../features/report/data/repo/report_repo.dart';
@@ -107,9 +108,15 @@ void setupLocator() {
   );
 
   // Home Widget
-  getIt.registerLazySingleton<HomeWidgetData>(
-    () => HomeWidgetData(hiveService: getIt<HiveService>()),
-  );
+// Home Widget
+getIt.registerLazySingleton<HomeWidgetService>(() => HomeWidgetService());
+
+getIt.registerLazySingleton<HomeWidgetData>(
+  () => HomeWidgetData(
+    hiveService: getIt<HiveService>(),
+    homeWidgetService: getIt<HomeWidgetService>(),
+  ),
+);
 
   getIt.registerLazySingleton<HomeWidgetRepo>(
     () => HomeWidgetRepoImpl(data: getIt<HomeWidgetData>()),

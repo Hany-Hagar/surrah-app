@@ -27,6 +27,17 @@ class HomeWidgetCubit extends Cubit<HomeWidgetStates> {
     final result = await homeWidgetRepo.saveHomeWidgetData(homeWidgetData);
     result.fold((failure) => emit(UpdateDataFailure(failure.message)), (data) {
       emit(UpdateDataSuccess());
+      updateWidget();
+    });
+  }
+
+  void updateWidget() async {
+    emit(UpdateWidgetLoading());
+    final result = await homeWidgetRepo.updateHomeWidget(homeWidgetData);
+    result.fold((failure) => emit(UpdateWidgetFailure(failure.message)), (
+      data,
+    ) {
+      emit(UpdateWidgetSuccess());
     });
   }
 

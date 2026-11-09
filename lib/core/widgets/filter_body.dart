@@ -54,7 +54,7 @@ class FilterBody extends StatelessWidget {
               selectedType: selectedType!,
               showAll: showAllCategoriesType,
             ),
-          if (body != null) ...body!,
+          ...?body,
           _Button(applyFilter: applyFilter),
         ],
       ),

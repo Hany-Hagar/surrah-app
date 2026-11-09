@@ -34,4 +34,16 @@ class HomeWidgetRepoImpl extends HomeWidgetRepo {
       return Left(HiveFailure.fromError(e));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> updateHomeWidget(
+    HomeWidgetModel homeWidgetData,
+  ) async {
+    try {
+      await data.updateHomeWidget(homeWidgetData);
+      return const Right(null);
+    } catch (e) {
+      return Left(HomeWidgetFailure(message: e.toString()));
+    }
+  }
 }

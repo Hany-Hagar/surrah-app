@@ -1,17 +1,20 @@
 import '../model/home_widget_model.dart';
 import '../../../../const/hive_data.dart';
 import '../../../../core/services/hive_service.dart';
+import '../../../../core/services/home_widget_service.dart';
 import '../../../transactions/data/model/transactions_data_model.dart';
 
 class HomeWidgetData {
   final HiveService hiveService;
-  HomeWidgetData({required this.hiveService});
+  final HomeWidgetService homeWidgetService;
+  HomeWidgetData({required this.homeWidgetService, required this.hiveService});
 
   // Get Balance
   double getCurrentBalance() {
     final box = hiveService.box<TransactionsDataModel>(
       HiveData.transactionsDataBox,
     );
+    if (box.values.isEmpty) return 0.0;
     return box.values.first.currentBalance.balance;
   }
 
@@ -28,5 +31,10 @@ class HomeWidgetData {
       key: HiveData.homeWidgetDataKey,
       value: homeWidgetModel,
     );
+  }
+
+  // Update Home Widget
+  Future<void> updateHomeWidget(HomeWidgetModel homeWidgetModel) async {
+    return await HomeWidgetService.updateSettings(homeWidgetModel);
   }
 }

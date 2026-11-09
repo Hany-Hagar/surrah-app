@@ -30,9 +30,9 @@ class HomeWidgetModel {
   static HomeWidgetModel defaultModel() {
     return HomeWidgetModel(
       balance: 0.0,
-      showBalance: true,
-      showIncomeButton: true,
       enableCard: false,
+      showBalance: false,
+      showIncomeButton: true,
       showExpenseButton: true,
       showAddCategoryButton: true,
     );

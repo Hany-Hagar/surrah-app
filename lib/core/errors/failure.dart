@@ -14,3 +14,7 @@ class UpdateFailure extends Failure {
 class ReportFailure extends Failure {
   ReportFailure({required String message}) : super(message);
 }
+
+class HomeWidgetFailure extends Failure {
+  HomeWidgetFailure({required String message}) : super(message);
+}

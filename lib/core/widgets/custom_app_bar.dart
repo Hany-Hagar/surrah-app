@@ -64,7 +64,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               Expanded(
                 child: _Body(title: title, subtitle: subtitle),
               ),
-              if (actions != null) ...actions!,
+              ...?actions,
               ?trailing,
               _Trailing(
                 trailingIcon: trailingIcon,
