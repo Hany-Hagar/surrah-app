@@ -35,8 +35,8 @@ class SplashCubit extends Cubit<SplashStates> {
 
   void authenticate({required bool isFirstTime}) async {
     await Future.delayed(const Duration(seconds: 1));
+    _checkDeviceSupport();
     if (isFirstTime) {
-      _checkDeviceSupport();
       await categoriesCubit.addLocalCategories();
       categoriesCubit.getCategories(isFirstTime: isFirstTime);
       emit(FirstTimeCheckComplete());
