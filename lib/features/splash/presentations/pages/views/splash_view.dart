@@ -21,16 +21,16 @@ class SplashView extends StatelessWidget {
           getIt<SplashCubit>()..authenticate(isFirstTime: isFirstTime),
       child: BlocListener<SplashCubit, SplashStates>(
         listener: (context, state) {
-          if (state is FirstTimeCheckComplete && isFirstTime) {
-            NavTo.pushReplacement(context: context, nextPage: OnBoardingView());
-          }
-          if (state is AuthenticationSuccess) {
-            NavTo.pushReplacement(context: context, nextPage: LayoutView());
-          }
-          if (state is AuthenticationFailure) {
-            // close the app if authentication fails
-            SystemNavigator.pop();
-          }
+          // if (state is FirstTimeCheckComplete && isFirstTime) {
+          //   NavTo.pushReplacement(context: context, nextPage: OnBoardingView());
+          // }
+          // if (state is AuthenticationSuccess) {
+          //   NavTo.pushReplacement(context: context, nextPage: LayoutView());
+          // }
+          // if (state is AuthenticationFailure) {
+          //   // close the app if authentication fails
+          //   SystemNavigator.pop();
+          // }
         },
         child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,

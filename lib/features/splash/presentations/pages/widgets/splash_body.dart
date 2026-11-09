@@ -1,5 +1,6 @@
-import '../../../../../const/assets.dart';
 import 'package:flutter/material.dart';
+import '../../../../../const/assets.dart';
+import '../../../../../core/widgets/custom_text.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -9,70 +10,107 @@ class SplashBody extends StatefulWidget {
 }
 
 class _SplashBodyState extends State<SplashBody> with TickerProviderStateMixin {
-  late final AnimationController _fadeController;
-  late final AnimationController _floatController;
-
-  late final Animation<double> _fadeAnimation;
-  late final Animation<double> _scaleAnimation;
-  late final Animation<double> _floatAnimation;
+  late final AnimationController _intro;
+  late final AnimationController _float;
+  late final Animation<double> _fade, _scale, _textFade, _floatY;
+  bool _started = false;
 
   @override
   void initState() {
     super.initState();
-
-    _fadeController = AnimationController(
+    _intro = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
     );
-
-    _floatController = AnimationController(
+    _float = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1800),
-    )..repeat(reverse: true);
-
-    _fadeAnimation = CurvedAnimation(
-      parent: _fadeController,
-      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 2200),
     );
 
-    _scaleAnimation = Tween<double>(begin: .8, end: 1).animate(
-      CurvedAnimation(parent: _fadeController, curve: Curves.easeOutBack),
+    _fade = CurvedAnimation(
+      parent: _intro,
+      curve: const Interval(0, .6, curve: Curves.easeOut),
     );
-
-    _floatAnimation = Tween<double>(begin: -8, end: 8).animate(
-      CurvedAnimation(parent: _floatController, curve: Curves.easeInOut),
+    _scale = Tween<double>(begin: .9, end: 1).animate(
+      CurvedAnimation(
+        parent: _intro,
+        curve: const Interval(0, .6, curve: Curves.easeOutCubic),
+      ),
     );
+    _textFade = CurvedAnimation(
+      parent: _intro,
+      curve: const Interval(.5, 1, curve: Curves.easeOut),
+    );
+    _floatY = Tween<double>(
+      begin: -4,
+      end: 4,
+    ).animate(CurvedAnimation(parent: _float, curve: Curves.easeInOut));
+  }
 
-    _fadeController.forward();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_started) return;
+    _started = true;
+
+    // احترام إعداد "تقليل الحركة" في النظام
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _intro.value = 1;
+      return;
+    }
+    _intro.forward().whenComplete(() {
+      if (mounted) _float.repeat(reverse: true);
+    });
   }
 
   @override
   void dispose() {
-    _fadeController.dispose();
-    _floatController.dispose();
+    _intro.dispose();
+    _float.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size.width * .45;
+    final w = MediaQuery.sizeOf(context).width;
 
-    return Center(
-      child: AnimatedBuilder(
-        animation: Listenable.merge([_fadeController, _floatController]),
-        builder: (_, _) {
-          return Transform.translate(
-            offset: Offset(0, _floatAnimation.value),
+    final logo = Semantics(
+      label: 'Surrah',
+      image: true,
+      child: Image.asset(Assets.splashLogo, width: w * .40), // كانت .55
+    );
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        AnimatedBuilder(
+          animation: Listenable.merge([_intro, _float]),
+          child: logo,
+          builder: (_, child) => Transform.translate(
+            offset: Offset(0, _floatY.value),
             child: FadeTransition(
-              opacity: _fadeAnimation,
-              child: Transform.scale(
-                scale: _scaleAnimation.value,
-                child: Image.asset(Assets.splashLogo, width: size),
-              ),
+              opacity: _fade,
+              child: Transform.scale(scale: _scale.value, child: child),
             ),
-          );
-        },
-      ),
+          ),
+        ),
+        const SizedBox(height: 12), // كانت 20
+        FadeTransition(
+          opacity: _textFade,
+          child: const Column(
+            children: [
+              CustomText(color: Colors.white, text: 'صُرَة', size: 30),
+              SizedBox(height: 4),
+              CustomText(
+                color: Color(0xFFE5B84A),
+                size: 16,
+                text: 'SURRAH',
+                letterSpacing: 7,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
