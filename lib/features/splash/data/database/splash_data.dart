@@ -18,6 +18,6 @@ class SplashData {
 
   // Check for app updates
   Future<void> checkForUpdate() async {
-    await updateService.checkForUpdate();
+    return await updateService.checkForUpdate();
   }
 }

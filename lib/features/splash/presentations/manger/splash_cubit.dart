@@ -60,6 +60,7 @@ class SplashCubit extends Cubit<SplashStates> {
 
   Future<void> authenticate({required bool isFirstTime}) async {
     await _checkDeviceSupport();
+    await splashRepo.checkForUpdate();
     if (isFirstTime) {
       emit(FirstTimeCheckComplete());
       return;
@@ -73,7 +74,6 @@ class SplashCubit extends Cubit<SplashStates> {
     final result = await splashRepo.authenticate();
     result.fold((failure) => emit(AuthenticationFailure()), (success) {
       emit(AuthenticationSuccess());
-      splashRepo.checkForUpdate();
     });
   }
 }

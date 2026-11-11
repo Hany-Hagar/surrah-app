@@ -77,32 +77,36 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final isLight = theme.brightness == Brightness.light;
 
-    final backgroundColor = enableBorderColor
-        ? Colors.transparent
-        : color ?? theme.colorScheme.secondary;
+    final Color backgroundColor;
+    final Color fontColor;
+    final Color borderColor;
 
-    final foregroundColor = enableBorderColor
-        ? (color ?? colors.primary)
-        : theme.scaffoldBackgroundColor;
-
-    final borderColor = enableBorderColor
-        ? (color ?? theme.colorScheme.secondary)
-        : Colors.transparent;
-
-    final fontColor = enableBorderColor
-        ? (color ?? theme.colorScheme.secondary)
-        : theme.scaffoldBackgroundColor;
+    if (enableBorderColor) {
+      backgroundColor = Colors.transparent;
+      fontColor = color ?? (isLight ? colors.primary : colors.secondary);
+      borderColor = color ?? colors.secondary;
+    } else {
+      backgroundColor = color ?? colors.secondary;
+      // نص كحلي على الألوان الفاتحة (الذهبي)، وأبيض على الداكنة (الأحمر مثلًا)
+      fontColor =
+          ThemeData.estimateBrightnessForColor(backgroundColor) ==
+              Brightness.light
+          ? colors.primary
+          : Colors.white;
+      borderColor = Colors.transparent;
+    }
 
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
         backgroundColor: backgroundColor,
-        foregroundColor: foregroundColor,
-        padding: padding ?? EdgeInsets.symmetric(horizontal: 0.w),
+        foregroundColor: fontColor,
+        padding: padding ?? EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
           side: BorderSide(
             color: borderColor,
             width: enableBorderColor ? 1.w : 0,
@@ -111,9 +115,9 @@ class _Body extends StatelessWidget {
       ),
       child: isLoading
           ? Padding(
-            padding: EdgeInsets.all(5.w),
-            child: Center(child: CircularProgressIndicator(color: fontColor))
-          )
+              padding: EdgeInsets.all(5.w),
+              child: Center(child: CircularProgressIndicator(color: fontColor)),
+            )
           : Row(
               spacing: 7.w,
               mainAxisSize: MainAxisSize.min,

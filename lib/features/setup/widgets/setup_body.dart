@@ -56,7 +56,7 @@ class _Button extends StatelessWidget {
     var s = S.of(context);
     return CustomButton(
       onPressed: onPressed,
-      text: currentPage == 3 ? s.getStarted : s.next,
+      text: currentPage == 2 ? s.getStarted : s.next,
     );
   }
 }
