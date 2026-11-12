@@ -68,6 +68,8 @@ class _Translations$setup$en extends Translations$setup$ar {
 	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
+	@override String get appName => 'Surrah';
+	@override String get back => 'Back';
 	@override String get skip => 'Skip';
 	@override String get next => 'Next';
 	@override String get getStarted => 'Get Started';
@@ -104,6 +106,8 @@ extension on TranslationsEn {
 			'onBoarding.skip' => 'Skip',
 			'onBoarding.next' => 'Next',
 			'onBoarding.getStarted' => 'Start setup',
+			'setup.appName' => 'Surrah',
+			'setup.back' => 'Back',
 			'setup.skip' => 'Skip',
 			'setup.next' => 'Next',
 			'setup.getStarted' => 'Get Started',

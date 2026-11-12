@@ -1,6 +1,6 @@
-import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_text.dart';
+import '../../../translations/gen/strings.g.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SetupCard extends StatelessWidget {
@@ -16,8 +16,8 @@ class SetupCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var s = S.of(context);
-    var theme = Theme.of(context);
+    final t = Translations.of(context).setup;
+    final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -25,7 +25,7 @@ class SetupCard extends StatelessWidget {
         children: [
           SizedBox(height: 16.h),
           CustomText(
-            text: s.appName,
+            text: t.appName,
             size: 18.sp,
             type: Type.header,
             color: theme.colorScheme.secondary,

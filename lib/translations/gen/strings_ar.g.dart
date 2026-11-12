@@ -89,6 +89,12 @@ class Translations$setup$ar {
 
 	// Translations
 
+	/// ar: 'صُرّة'
+	String get appName => 'صُرّة';
+
+	/// ar: 'رجوع'
+	String get back => 'رجوع';
+
 	/// ar: 'تخطي'
 	String get skip => 'تخطي';
 
@@ -139,6 +145,8 @@ extension on Translations {
 			'onBoarding.skip' => 'تخطي',
 			'onBoarding.next' => 'التالي',
 			'onBoarding.getStarted' => 'ابدأ الإعداد',
+			'setup.appName' => 'صُرّة',
+			'setup.back' => 'رجوع',
 			'setup.skip' => 'تخطي',
 			'setup.next' => 'التالي',
 			'setup.getStarted' => 'ابدأ الآن',

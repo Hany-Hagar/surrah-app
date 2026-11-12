@@ -5,7 +5,6 @@ import '../../../translations/gen/strings.g.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-
 class SetupIndicator extends StatelessWidget {
   final int totalPages;
   final int currentPage;
@@ -26,10 +25,50 @@ class SetupIndicator extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _Skip(onFinish: onFinish),
-          _Indicator(totalPages: totalPages, currentPage: currentPage),
           _Number(totalPages: totalPages, currentPage: currentPage),
+          _Indicator(totalPages: totalPages, currentPage: currentPage),
+          _Skip(onFinish: onFinish),
         ],
+      ),
+    );
+  }
+}
+
+class _Indicator extends StatelessWidget {
+  final int totalPages;
+  final int currentPage;
+  const _Indicator({required this.totalPages, required this.currentPage});
+
+  @override
+  Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+    return Expanded(
+      child: StepProgressIndicator(
+        size: 8.h,
+        totalSteps: totalPages,
+        currentStep: currentPage + 1,
+        roundedEdges: Radius.circular(2.r),
+        unselectedColor: theme.dividerColor,
+        selectedColor: theme.colorScheme.secondary,
+      ),
+    );
+  }
+}
+
+class _Number extends StatelessWidget {
+  final int totalPages;
+  final int currentPage;
+  const _Number({required this.totalPages, required this.currentPage});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: CustomText(
+        size: 16.sp,
+        type: Type.header,
+        color: Theme.of(context).primaryColor,
+        text: "${currentPage + 1}/$totalPages",
       ),
     );
   }
@@ -50,9 +89,10 @@ class _Skip extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: CustomText(
-          text: t.setup.skip,
           size: 16.sp,
+          text: t.setup.skip,
           type: Type.overMedium,
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
     );
@@ -112,46 +152,6 @@ class _SkipActions extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class _Indicator extends StatelessWidget {
-  final int totalPages;
-  final int currentPage;
-  const _Indicator({required this.totalPages, required this.currentPage});
-
-  @override
-  Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    return Expanded(
-      child: StepProgressIndicator(
-        size: 8.h,
-        totalSteps: totalPages,
-        currentStep: currentPage + 1,
-        roundedEdges: Radius.circular(2.r),
-        unselectedColor: theme.dividerColor,
-        selectedColor: theme.colorScheme.secondary,
-      ),
-    );
-  }
-}
-
-class _Number extends StatelessWidget {
-  final int totalPages;
-  final int currentPage;
-  const _Number({required this.totalPages, required this.currentPage});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: CustomText(
-        size: 16.sp,
-        type: Type.header,
-        color: Theme.of(context).primaryColor,
-        text: "${currentPage + 1}/$totalPages",
-      ),
     );
   }
 }
