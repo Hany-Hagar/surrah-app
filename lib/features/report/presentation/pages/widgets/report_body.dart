@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'report_card.dart';
 import 'analysis_card.dart';
 import 'report_balance_card.dart';

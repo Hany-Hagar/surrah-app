@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:surrah/core/widgets/custom_text.dart';
 

@@ -1,5 +1,3 @@
-import 'package:country_flags/country_flags.dart';
-
 import 'setup_card.dart';
 import '../../../const/app_data.dart';
 import '../../../generated/l10n.dart';
@@ -8,6 +6,7 @@ import '../../../core/utils/theme.dart';
 import '../../../core/di/server_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/widgets/custom_text.dart';
+import 'package:country_flags/country_flags.dart';
 import '../../settings/model/app_user_pref_model.dart';
 import '../../../core/extensions/language_extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

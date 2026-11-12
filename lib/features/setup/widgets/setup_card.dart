@@ -18,30 +18,32 @@ class SetupCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var s = S.of(context);
     var theme = Theme.of(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 16.h),
-        CustomText(
-          text: s.appName,
-          size: 18.sp,
-          type: Type.header,
-          color: theme.colorScheme.secondary,
-        ),
-        SizedBox(height: 4.h),
-        CustomText(text: title, size: 18.sp, type: Type.header),
-        SizedBox(height: 2.h),
-        CustomText(
-          maxLines: 2,
-          size: 14.sp,
-          text: subtitle,
-          type: Type.overMedium,
-          opacity: FontOpacity.medium,
-        ),
-        SizedBox(height: 16.h),
-        child,
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 16.h),
+          CustomText(
+            text: s.appName,
+            size: 18.sp,
+            type: Type.header,
+            color: theme.colorScheme.secondary,
+          ),
+          SizedBox(height: 4.h),
+          CustomText(text: title, size: 18.sp, type: Type.header),
+          SizedBox(height: 2.h),
+          CustomText(
+            maxLines: 2,
+            size: 14.sp,
+            text: subtitle,
+            type: Type.overMedium,
+            opacity: FontOpacity.medium,
+          ),
+          SizedBox(height: 16.h),
+          Expanded(child: child),
+        ],
+      ),
     );
   }
 }
