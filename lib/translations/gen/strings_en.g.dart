@@ -40,6 +40,7 @@ class TranslationsEn extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$onBoarding$en onBoarding = _Translations$onBoarding$en._(_root);
+	@override late final _Translations$setup$en setup = _Translations$setup$en._(_root);
 }
 
 // Path: onBoarding
@@ -60,6 +61,32 @@ class _Translations$onBoarding$en extends Translations$onBoarding$ar {
 	@override String get getStarted => 'Start setup';
 }
 
+// Path: setup
+class _Translations$setup$en extends Translations$setup$ar {
+	_Translations$setup$en._(TranslationsEn root) : this._root = root, super.internal(root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get skip => 'Skip';
+	@override String get next => 'Next';
+	@override String get getStarted => 'Get Started';
+	@override late final _Translations$setup$skipDialog$en skipDialog = _Translations$setup$skipDialog$en._(_root);
+}
+
+// Path: setup.skipDialog
+class _Translations$setup$skipDialog$en extends Translations$setup$skipDialog$ar {
+	_Translations$setup$skipDialog$en._(TranslationsEn root) : this._root = root, super.internal(root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Confirm Skip';
+	@override String get message => 'Are you sure you want to skip the setup process?';
+	@override String get cancel => 'Cancel';
+	@override String get confirm => 'Skip';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -77,6 +104,13 @@ extension on TranslationsEn {
 			'onBoarding.skip' => 'Skip',
 			'onBoarding.next' => 'Next',
 			'onBoarding.getStarted' => 'Start setup',
+			'setup.skip' => 'Skip',
+			'setup.next' => 'Next',
+			'setup.getStarted' => 'Get Started',
+			'setup.skipDialog.title' => 'Confirm Skip',
+			'setup.skipDialog.message' => 'Are you sure you want to skip the setup process?',
+			'setup.skipDialog.cancel' => 'Cancel',
+			'setup.skipDialog.confirm' => 'Skip',
 			_ => null,
 		};
 	}

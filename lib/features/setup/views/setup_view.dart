@@ -1,5 +1,4 @@
 import '../widgets/setup_body.dart';
-import '../../../generated/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../home/views/home_view.dart';
 import '../../../core/utils/nav_to.dart';
@@ -7,6 +6,7 @@ import '../widgets/setup_indicator.dart';
 import '../../../const/icon_broken.dart';
 import '../../../core/di/server_locator.dart';
 import '../../../core/widgets/custom_button.dart';
+import '../../../translations/gen/strings.g.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../settings/presentation/manager/settings_cubit.dart';
 import '../../categories/presentation/manager/categories_cubit.dart';
@@ -44,11 +44,14 @@ class _SetupViewState extends State<SetupView> {
               onPageChanged: onPageChanged,
             ),
           ),
-          _Button(
-            currentPage: currentPage,
-            totalPages: totalPages,
-            onBack: onBack,
-            onNext: onNext,
+          SafeArea(
+            top: false,
+            child: _Button(
+              currentPage: currentPage,
+              totalPages: totalPages,
+              onBack: onBack,
+              onNext: onNext,
+            ),
           ),
         ],
       ),
@@ -101,7 +104,7 @@ class _Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
+    final t = Translations.of(context);
     final isRtl = Directionality.of(context) == TextDirection.rtl;
     final backIcon = isRtl
         ? IconBroken.Arrow___Right_2
@@ -122,7 +125,9 @@ class _Button extends StatelessWidget {
           Expanded(
             child: CustomButton(
               onPressed: onNext,
-              text: currentPage == totalPages - 1 ? s.getStarted : s.next,
+              text: currentPage == totalPages - 1
+                  ? t.setup.getStarted
+                  : t.setup.next,
             ),
           ),
         ],

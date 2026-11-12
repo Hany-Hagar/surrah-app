@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/custom_text.dart';
+import '../../../core/widgets/custom_button.dart';
+import '../../../translations/gen/strings.g.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+
 
 class SetupIndicator extends StatelessWidget {
   final int totalPages;
@@ -39,6 +41,7 @@ class _Skip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
     return GestureDetector(
       onTap: () => showDialog(
         context: context,
@@ -46,7 +49,11 @@ class _Skip extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: CustomText(text: "Skip", size: 16.sp, type: Type.overMedium),
+        child: CustomText(
+          text: t.setup.skip,
+          size: 16.sp,
+          type: Type.overMedium,
+        ),
       ),
     );
   }
@@ -58,14 +65,19 @@ class _SkipDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
     return AlertDialog(
-      title: CustomText(size: 18.sp, type: Type.header, text: "Skip Setup"),
+      title: CustomText(
+        size: 18.sp,
+        type: Type.header,
+        text: t.setup.skipDialog.title,
+      ),
       content: CustomText(
         size: 16.sp,
         maxLines: 5,
         type: Type.overMedium,
         opacity: FontOpacity.overMedium,
-        text: "Are you sure you want to skip the setup process?",
+        text: t.setup.skipDialog.message,
       ),
       actions: [_SkipActions(onFinished: onFinished)],
     );
@@ -78,19 +90,26 @@ class _SkipActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
     return Row(
       spacing: 12.w,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Expanded(
           child: CustomButton(
-            text: "Cancel",
-            enableBorderColor: true,
+            text: t.setup.skipDialog.cancel,
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
         Expanded(
-          child: CustomButton(text: "Skip", onPressed: onFinished),
+          child: CustomButton(
+            text: t.setup.skipDialog.confirm,
+            enableBorderColor: true,
+            onPressed: () {
+              Navigator.of(context).pop();
+              onFinished();
+            },
+          ),
         ),
       ],
     );

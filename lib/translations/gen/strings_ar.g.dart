@@ -42,6 +42,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final Translations$onBoarding$ar onBoarding = Translations$onBoarding$ar.internal(_root);
+	late final Translations$setup$ar setup = Translations$setup$ar.internal(_root);
 }
 
 // Path: onBoarding
@@ -80,6 +81,47 @@ class Translations$onBoarding$ar {
 	String get getStarted => 'ابدأ الإعداد';
 }
 
+// Path: setup
+class Translations$setup$ar {
+	Translations$setup$ar.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// ar: 'تخطي'
+	String get skip => 'تخطي';
+
+	/// ar: 'التالي'
+	String get next => 'التالي';
+
+	/// ar: 'ابدأ الآن'
+	String get getStarted => 'ابدأ الآن';
+
+	late final Translations$setup$skipDialog$ar skipDialog = Translations$setup$skipDialog$ar.internal(_root);
+}
+
+// Path: setup.skipDialog
+class Translations$setup$skipDialog$ar {
+	Translations$setup$skipDialog$ar.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// ar: 'تأكيد التخطي'
+	String get title => 'تأكيد التخطي';
+
+	/// ar: 'هل أنت متأكد أنك تريد تخطي عملية الإعداد؟'
+	String get message => 'هل أنت متأكد أنك تريد تخطي عملية الإعداد؟';
+
+	/// ar: 'إلغاء'
+	String get cancel => 'إلغاء';
+
+	/// ar: 'تخطي'
+	String get confirm => 'تخطي';
+}
+
 /// The flat map containing all translations for locale <ar>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -97,6 +139,13 @@ extension on Translations {
 			'onBoarding.skip' => 'تخطي',
 			'onBoarding.next' => 'التالي',
 			'onBoarding.getStarted' => 'ابدأ الإعداد',
+			'setup.skip' => 'تخطي',
+			'setup.next' => 'التالي',
+			'setup.getStarted' => 'ابدأ الآن',
+			'setup.skipDialog.title' => 'تأكيد التخطي',
+			'setup.skipDialog.message' => 'هل أنت متأكد أنك تريد تخطي عملية الإعداد؟',
+			'setup.skipDialog.cancel' => 'إلغاء',
+			'setup.skipDialog.confirm' => 'تخطي',
 			_ => null,
 		};
 	}

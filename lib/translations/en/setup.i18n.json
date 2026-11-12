@@ -1,0 +1,11 @@
+{
+  "skip": "Skip",
+  "next": "Next",
+  "getStarted": "Get Started",
+  "skipDialog": {
+    "title": "Confirm Skip",
+    "message": "Are you sure you want to skip the setup process?",
+    "cancel": "Cancel",
+    "confirm": "Skip"
+  }
+}
