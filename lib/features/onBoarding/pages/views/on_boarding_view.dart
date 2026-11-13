@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../generated/l10n.dart';
+import '../../../new_setup/views/new_setup_view.dart';
 import '../widgets/on_boarding_body.dart';
 import '../../model/on_boarding_model.dart';
 import '../../../../core/utils/nav_to.dart';
-import '../../../setup/views/setup_view.dart';
 import '../../../../core/widgets/custom_text.dart';
 import '../../../../translations/gen/strings.g.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -120,7 +120,7 @@ class _CustomButton extends StatelessWidget {
           if (isLastPage) {
             NavTo.pushReplacement(
               context: context,
-              nextPage: const SetupView(),
+              nextPage: const NewSetupView(),
             );
           } else {
             controller.nextPage(
